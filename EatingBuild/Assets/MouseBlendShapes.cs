@@ -6,6 +6,7 @@ public class MouseBlendShapes : MonoBehaviour
 {
     private SkinnedMeshRenderer blendshape;
     float value = 0;
+
     void Start()
     {
         blendshape = this.GetComponent<SkinnedMeshRenderer>();
@@ -14,13 +15,13 @@ public class MouseBlendShapes : MonoBehaviour
 
     void Update()
     {
-        if (value < 100)
+        while (value <= 100)
         {
             blendshape.SetBlendShapeWeight(0, value);//blendshapeの番号 0 をセット,セットする値 100がMAX
             value += 1f;
             Debug.Log("value < 100");
         }
-        if (value == 100)
+        while (value >= 100)
         {
             blendshape.SetBlendShapeWeight(0, value);//blendshapeの番号 0 をセット,セットする値 100がMAX
             value -= 1f;
