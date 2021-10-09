@@ -14,11 +14,5 @@ public class GameManager : MonoBehaviour
         point = point + number;
     }
 
-    void Update()
-    {
-        if (point > 10)
-        {
-            playerEat.PlayerScale();
-        }
-    }
+
 }

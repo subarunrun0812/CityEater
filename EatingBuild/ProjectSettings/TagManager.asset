@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - cube
+  - 30p
   layers:
   - Default
   - TransparentFX

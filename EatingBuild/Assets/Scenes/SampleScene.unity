@@ -336,8 +336,8 @@ GameObject:
   - component: {fileID: 510326350}
   - component: {fileID: 510326349}
   m_Layer: 0
-  m_Name: TestCube (3)
-  m_TagString: cube
+  m_Name: TestCube30Point
+  m_TagString: 30p
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,7 +374,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a6154d9b5b6ecc84fb1de0efebe8d534, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -941,7 +941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32594f5d26e522447a5a961d83bdf4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallTime: 1
+  smallTime: 0.3
+  playerScaleTime: 1
   gameManager: {fileID: 836391344}
 --- !u!65 &1724206786
 BoxCollider:
