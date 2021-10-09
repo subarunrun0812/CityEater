@@ -94,16 +94,10 @@ public class EatObjectScript : MonoBehaviour
                 new Vector3(2f, 2f, 2f), playerScaleTime
             );
         }
-        else if (30 <= p && p < 40)
+        else if (30 <= p && p < 50)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
-            );
-        }
-        else if (40 <= p && p < 50)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(3f, 3f, 3f), playerScaleTime
             );
         }
         else if (50 <= p && p < 100)
@@ -112,12 +106,37 @@ public class EatObjectScript : MonoBehaviour
                 new Vector3(3.5f, 3.5f, 3.5f), playerScaleTime
             );
         }
-        else if (100 <= p)
+        else if (100 <= p && p < 150)
         {
             this.gameObject.transform.DOScale(
-                new Vector3(8f, 8f, 8f), playerScaleTime
+                new Vector3(4f, 4f, 4f), playerScaleTime
             );
         }
+        else if (150 <= p && p < 200)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(5f, 5f, 5f), playerScaleTime
+            );
+        }
+        else if (200 <= p && p < 350)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(6f, 6f, 6f), playerScaleTime
+            );
+        }
+        else if (350 <= p && p < 500)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(7.5f, 7.5f, 7.5f), playerScaleTime
+            );
+        }
+        else if (500 <= p && p < 1000)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(9f, 9f, 9f), playerScaleTime
+            );
+        }
+
 
 
 
