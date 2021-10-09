@@ -11,8 +11,9 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("cube"))
+        if (col.CompareTag("cube"))//cubeタグがついているオブジェクトを食べたときの、そのオブジェクトをの処理
         {
+
             col.transform.DOShakeRotation(
                  duration: smallTime,   // 演出時間
                  strength: 90f   // シェイクの強さ
@@ -21,7 +22,7 @@ public class EatObjectScript : MonoBehaviour
             .OnComplete(() =>//dotween終了後、cubeを消す
             {
                 gameManager.AddPoint(10);//ポイントを１０追加する
-                col.gameObject.SetActive(false);
+                col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                 Debug.Log(gameManager.point);
             });
         }
