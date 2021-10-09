@@ -40,9 +40,28 @@ public class EatObjectScript : MonoBehaviour
         else if (10 <= p && p < 20)
         {
             this.gameObject.transform.DOScale(
+                new Vector3(1.5f, 1.5f, 1.5f), 1f
+            );
+        }
+        else if (20 <= p && p < 30)
+        {
+            this.gameObject.transform.DOScale(
                 new Vector3(2f, 2f, 2f), 1f
             );
         }
+        else if (30 <= p && p < 40)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(2.5f, 2.5f, 2.5f), 1f
+            );
+        }
+        else if (40 <= p && p < 50)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(3f, 3f, 3f), 1f
+            );
+        }
+
 
     }
 
