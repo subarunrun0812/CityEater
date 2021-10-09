@@ -12,6 +12,10 @@ public class EatObjectScript : MonoBehaviour
     {
         if (col.CompareTag("cube"))
         {
+            col.transform.DOShakeRotation(
+                 duration: smallTime,   // 演出時間
+                 strength: 90f   // シェイクの強さ
+            );
             col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
             .OnComplete(() =>//dotween終了後、cubeを消す
             {
