@@ -28,7 +28,7 @@ public class EatObjectScript : MonoBehaviour
                 col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                 .OnComplete(() =>//dotween終了後、cubeを消す
                 {
-                    gameManager.AddPoint(10);//ポイントを１０追加する
+                    gameManager.AddPoint(5);//ポイントを１０追加する
                     col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                     Debug.Log(gameManager.point);
                 });
@@ -112,10 +112,10 @@ public class EatObjectScript : MonoBehaviour
                 new Vector3(3.5f, 3.5f, 3.5f), playerScaleTime
             );
         }
-        else
+        else if (100 <= p)
         {
             this.gameObject.transform.DOScale(
-                new Vector3(4f, 4f, 4f), playerScaleTime
+                new Vector3(8f, 8f, 8f), playerScaleTime
             );
         }
 
