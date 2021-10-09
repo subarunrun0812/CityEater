@@ -26,6 +26,26 @@ public class EatObjectScript : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        //Playerの大きさをポイントに応じて変更する
+        int p = gameManager.point;
+
+        if (p < 10)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(1f, 1f, 1f), 1f
+            );
+        }
+        else if (10 <= p && p < 20)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(2f, 2f, 2f), 1f
+            );
+        }
+
+    }
+
     public void PlayerScale()//プレイヤーの大きさを変更する関数
     {
         // this.gameObject.transform.DOScale(new Vector3())
