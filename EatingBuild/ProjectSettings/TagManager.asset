@@ -6,6 +6,13 @@ TagManager:
   tags:
   - cube
   - 30p
+  - 1p
+  - 2p
+  - 3p
+  - 5p
+  - 50
+  - 80
+  - 100
   layers:
   - Default
   - TransparentFX

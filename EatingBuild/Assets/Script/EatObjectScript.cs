@@ -42,23 +42,6 @@ public class EatObjectScript : MonoBehaviour
                 }
                 break;
 
-            case "30p":
-                if (p >= 150)
-                {
-                    col.transform.DOShakeRotation(
-                         duration: smallTimeApartment,   // 演出時間
-                         strength: 90f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(30);//ポイントを１０追加する
-                        col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
-                    });
-                }
-                break;
-
             case "1p":
                 Debug.Log("switch文が正常に動いた");
                 if (p >= 0)
@@ -127,6 +110,57 @@ public class EatObjectScript : MonoBehaviour
                     {
                         gameManager.AddPoint(5);//ポイントを1追加する
                         col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                        Debug.Log(gameManager.point);
+                    });
+                }
+                break;
+
+            case "30p":
+                if (p >= 150)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTimeApartment,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(30);//ポイントを１０追加する
+                        col.gameObject.SetActive(false);
+                        Debug.Log(gameManager.point);
+                    });
+                }
+                break;
+
+            case "50p":
+                if (p >= 200)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTimeApartment,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(50);//ポイントを１０追加する
+                        col.gameObject.SetActive(false);
+                        Debug.Log(gameManager.point);
+                    });
+                }
+                break;
+
+            case "100p":
+                if (p >= 500)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTimeApartment,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(100);//ポイントを１０追加する
+                        col.gameObject.SetActive(false);
                         Debug.Log(gameManager.point);
                     });
                 }
