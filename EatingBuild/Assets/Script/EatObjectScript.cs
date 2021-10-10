@@ -43,7 +43,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "30p":
-                if (p >= 30)
+                if (p >= 150)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
