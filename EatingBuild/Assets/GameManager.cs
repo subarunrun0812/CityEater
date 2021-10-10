@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
@@ -12,6 +12,14 @@ public class GameManager : MonoBehaviour
     public void AddPoint(int number)//ポイントの追加
     {
         point = point + number;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Demo");
+        }
     }
 
 

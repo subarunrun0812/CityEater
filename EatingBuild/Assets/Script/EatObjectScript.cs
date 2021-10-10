@@ -6,6 +6,7 @@ public class EatObjectScript : MonoBehaviour
 {
 
     [SerializeField] private float smallTime = 2;//objectを小さくするのにかかる時間
+    [SerializeField] private float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
     [SerializeField] private float playerScaleTime = 1;//プレイヤーを大きくするのにかかる時間
 
     [SerializeField] private GameManager gameManager;
@@ -43,10 +44,10 @@ public class EatObjectScript : MonoBehaviour
             if (p >= 30)
             {
                 col.transform.DOShakeRotation(
-                     duration: smallTime,   // 演出時間
+                     duration: smallTimeApartment,   // 演出時間
                      strength: 90f   // シェイクの強さ
                 );
-                col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
+                col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                 .OnComplete(() =>//dotween終了後、cubeを消す
                 {
                     gameManager.AddPoint(30);//ポイントを１０追加する
