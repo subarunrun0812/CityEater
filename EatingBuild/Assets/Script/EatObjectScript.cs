@@ -24,7 +24,6 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "cube"://テスト用のオブジェクトなので、後で消さなければならない
-                Debug.Log("switch文が正常に動いた");
                 if (p >= 0)
                 {
                     col.transform.DOShakeRotation(
@@ -46,7 +45,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "1p":
-                Debug.Log("switch文が正常に動いた");
+
                 if (p >= 0)
                 {
                     col.transform.DOShakeRotation(
@@ -65,7 +64,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "2p":
-                Debug.Log("switch文が正常に動いた");
+
                 if (p >= 10)
                 {
                     col.transform.DOShakeRotation(
@@ -88,8 +87,8 @@ public class EatObjectScript : MonoBehaviour
 
 
             case "3p":
-                Debug.Log("switch文が正常に動いた");
-                if (p >= 20)
+
+                if (p >= 50)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -110,8 +109,8 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "4p":
-                Debug.Log("switch文が正常に動いた");
-                if (p >= 40)
+
+                if (p >= 100)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -132,8 +131,8 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "5p":
-                Debug.Log("switch文が正常に動いた");
-                if (p >= 60)
+
+                if (p >= 200)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -155,7 +154,7 @@ public class EatObjectScript : MonoBehaviour
 
 
             case "8p":
-                if (p >= 100)
+                if (p >= 400)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -177,7 +176,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "10p":
-                if (p >= 120)
+                if (p >= 800)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -199,7 +198,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "12p":
-                if (p >= 150)
+                if (p >= 1500)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
@@ -221,7 +220,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "15p":
-                if (p >= 200)
+                if (p >= 3000)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
@@ -243,7 +242,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "20p":
-                if (p >= 300)
+                if (p >= 5000)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
@@ -265,7 +264,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "30p":
-                if (p >= 500)
+                if (p >= 10000)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
@@ -285,6 +284,29 @@ public class EatObjectScript : MonoBehaviour
                     NotEatBuild();
                 }
                 break;
+
+            case "50p":
+                if (p >= 15000)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTimeApartment,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(50);
+
+                        col.gameObject.SetActive(false);
+                        Debug.Log(gameManager.point);
+                    });
+                }
+                else
+                {
+                    NotEatBuild();
+                }
+                break;
+
 
         }
     }
@@ -310,58 +332,71 @@ public class EatObjectScript : MonoBehaviour
                 new Vector3(1f, 1f, 1f), playerScaleTime
             );
         }
-        else if (10 <= p && p < 20)
+        else if (10 <= p && p < 50)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
             );
         }
-        else if (20 <= p && p < 50)
+        else if (50 <= p && p < 100)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(2f, 2f, 2f), playerScaleTime
+            );
+        }
+        else if (100 <= p && p < 200)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
             );
         }
-        else if (50 <= p && p < 100)
+        else if (200 <= p && p < 400)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(3f, 3f, 3f), playerScaleTime
             );
         }
-        else if (100 <= p && p < 150)
+        else if (400 <= p && p < 800)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(4f, 4f, 4f), playerScaleTime
             );
         }
-        else if (150 <= p && p < 200)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(5f, 5f, 5f), playerScaleTime
-            );
-        }
-        else if (200 <= p && p < 350)
+
+        else if (800 <= p && p < 1500)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(6f, 6f, 6f), playerScaleTime
             );
         }
-        else if (350 <= p && p < 500)
+        else if (1500 <= p && p < 3000)
         {
             this.gameObject.transform.DOScale(
-                new Vector3(7.5f, 7.5f, 7.5f), playerScaleTime
+                new Vector3(8f, 8f, 8f), playerScaleTime
             );
         }
-        else if (500 <= p && p < 1000)
+        else if (3000 <= p && p < 5000)
         {
             this.gameObject.transform.DOScale(
-                new Vector3(9f, 9f, 9f), playerScaleTime
+                new Vector3(10f, 10f, 10f), playerScaleTime
             );
         }
-        else if (1000 <= p && p < 3000)
+        else if (5000 <= p && p < 10000)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(12f, 12f, 12f), playerScaleTime
+            );
+        }
+        else if (10000 <= p && p < 15000)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(15f, 15f, 15f), playerScaleTime
+            );
+        }
+        else if (15000 <= p && p < 100000)
+        {
+            this.gameObject.transform.DOScale(
+                new Vector3(20f, 20f, 20f), playerScaleTime
             );
         }
 

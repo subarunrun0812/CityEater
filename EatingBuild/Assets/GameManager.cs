@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private EatObjectScript playerEat;
 
+
     public void AddPoint(int number)//ポイントの追加
     {
         point = point + number;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    float up = 0.1f;
-    float right = 0.1f;
+    float up = 0.15f;
+    float right = 0.15f;
 
     // 辞書型の変数を使ってます。
     Dictionary<string, bool> move = new Dictionary<string, bool>
