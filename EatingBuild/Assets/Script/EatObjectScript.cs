@@ -21,7 +21,6 @@ public class EatObjectScript : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "Untagged"://ポイントがついている以外は食べれない
-                NotEatBuild();
                 break;
 
             case "cube"://テスト用のオブジェクトなので、後で消さなければならない
@@ -39,6 +38,10 @@ public class EatObjectScript : MonoBehaviour
                         col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                         Debug.Log(gameManager.point);
                     });
+                }
+                else
+                {
+                    NotEatBuild();
                 }
                 break;
 
@@ -58,11 +61,12 @@ public class EatObjectScript : MonoBehaviour
                         Debug.Log(gameManager.point);
                     });
                 }
+
                 break;
 
             case "2p":
                 Debug.Log("switch文が正常に動いた");
-                if (p >= 0)
+                if (p >= 10)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -71,17 +75,21 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(2);//ポイントを1追加する
-                        col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                        gameManager.AddPoint(2);
+                        col.gameObject.SetActive(false);
                         Debug.Log(gameManager.point);
                     });
+                }
+                else
+                {
+                    NotEatBuild();
                 }
                 break;
 
 
             case "3p":
                 Debug.Log("switch文が正常に動いた");
-                if (p >= 0)
+                if (p >= 20)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -90,16 +98,42 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(3);//ポイントを1追加する
-                        col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                        gameManager.AddPoint(3);
+                        col.gameObject.SetActive(false);
                         Debug.Log(gameManager.point);
                     });
+                }
+                else
+                {
+                    NotEatBuild();
+                }
+                break;
+
+            case "4p":
+                Debug.Log("switch文が正常に動いた");
+                if (p >= 40)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTime,   // 演出時間
+                         strength: 90f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(4);
+                        col.gameObject.SetActive(false);
+                        Debug.Log(gameManager.point);
+                    });
+                }
+                else
+                {
+                    NotEatBuild();
                 }
                 break;
 
             case "5p":
                 Debug.Log("switch文が正常に動いた");
-                if (p >= 0)
+                if (p >= 60)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -108,14 +142,63 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(5);//ポイントを1追加する
-                        col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                        gameManager.AddPoint(5);
+                        col.gameObject.SetActive(false);
                         Debug.Log(gameManager.point);
                     });
                 }
+                else
+                {
+                    NotEatBuild();
+                }
                 break;
 
-            case "30p":
+
+            case "8p":
+                if (p >= 100)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTime,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(8);
+
+                        col.gameObject.SetActive(false);
+                        Debug.Log(gameManager.point);
+                    });
+                }
+                else
+                {
+                    NotEatBuild();
+                }
+                break;
+
+            case "10p":
+                if (p >= 120)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTime,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(10);
+
+                        col.gameObject.SetActive(false);
+                        Debug.Log(gameManager.point);
+                    });
+                }
+                else
+                {
+                    NotEatBuild();
+                }
+                break;
+
+            case "12p":
                 if (p >= 150)
                 {
                     col.transform.DOShakeRotation(
@@ -125,14 +208,19 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(30);//ポイントを１０追加する
+                        gameManager.AddPoint(12);
+
                         col.gameObject.SetActive(false);
                         Debug.Log(gameManager.point);
                     });
                 }
+                else
+                {
+                    NotEatBuild();
+                }
                 break;
 
-            case "50p":
+            case "15p":
                 if (p >= 200)
                 {
                     col.transform.DOShakeRotation(
@@ -142,14 +230,41 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(50);//ポイントを１０追加する
+                        gameManager.AddPoint(15);
+
                         col.gameObject.SetActive(false);
                         Debug.Log(gameManager.point);
                     });
                 }
+                else
+                {
+                    NotEatBuild();
+                }
                 break;
 
-            case "100p":
+            case "20p":
+                if (p >= 300)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTimeApartment,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(20);
+
+                        col.gameObject.SetActive(false);
+                        Debug.Log(gameManager.point);
+                    });
+                }
+                else
+                {
+                    NotEatBuild();
+                }
+                break;
+
+            case "30p":
                 if (p >= 500)
                 {
                     col.transform.DOShakeRotation(
@@ -159,10 +274,15 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(100);//ポイントを１０追加する
+                        gameManager.AddPoint(30);
+
                         col.gameObject.SetActive(false);
                         Debug.Log(gameManager.point);
                     });
+                }
+                else
+                {
+                    NotEatBuild();
                 }
                 break;
 
