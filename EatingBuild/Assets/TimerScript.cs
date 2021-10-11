@@ -25,13 +25,12 @@ public class TimerScript : MonoBehaviour
             seconds = seconds - 60;
         }
         //値が変わったときだけテキストUIを更新
-        if ((int)seconds != (int)seconds)
+        if ((int)seconds != (int)oldSeconds)
         {
-            timerText.text = minute.ToString("00") + ";" + ((int)seconds).ToString("00");
+            timerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00");
 
         }
         oldSeconds = seconds;
-        Debug.Log(timerText.text);
     }
 
 }
