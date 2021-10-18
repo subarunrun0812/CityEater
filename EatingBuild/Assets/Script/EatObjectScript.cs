@@ -313,11 +313,11 @@ public class EatObjectScript : MonoBehaviour
 
     private void NotEatBuild()
     {
-        DOTween.Sequence()
-            .Append(Cylinder.transform.DOLocalRotate(new Vector3(0f, -45f, 0f), 0.5f))
-            .Append(Cylinder.transform.DOLocalRotate(new Vector3(0f, 45f, 0f), 0.5f))
-            .SetLoops(2)
-            .Append(Cylinder.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 0.5f));
+        // DOTween.Sequence()
+        //     .Append(Cylinder.transform.DOLocalRotate(new Vector3(0f, -45f, 0f), 0.5f))
+        //     .Append(Cylinder.transform.DOLocalRotate(new Vector3(0f, 45f, 0f), 0.5f))
+        //     .SetLoops(2)
+        //     .Append(Cylinder.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 0.5f));
     }
 
 
