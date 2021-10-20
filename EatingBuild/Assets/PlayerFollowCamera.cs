@@ -32,4 +32,22 @@ public class PlayerFollowCamera : MonoBehaviour
         //playerの位置から距離distaceだけ手前に引いた位置を設定します（位置補正版)
         transform.position = player.position + new Vector3(0, 3, 0) - transform.rotation * Vector3.forward * distance;
     }
+
+    public void CameraDistanceSmall()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける.0.5f遠ざけていく
+    {
+        distance = distance + 1f;
+        Debug.Log(distance);
+    }
+
+    public void CameraDistanceMedium()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
+    {
+        distance = distance + 3f;
+        Debug.Log(distance);
+    }
+
+    public void CameraDistanceLarge()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
+    {
+        distance = distance + 5f;
+        Debug.Log(distance);
+    }
 }

@@ -11,7 +11,10 @@ public class EatObjectScript : MonoBehaviour
 
     [SerializeField] private GameManager gameManager;
 
+    [SerializeField] private PlayerFollowCamera refCamera;
     [SerializeField] private GameObject Cylinder;//子オブジェクトの本体をアタッチする
+
+    bool sizeFlag = true;
 
 
     void OnTriggerEnter(Collider col)
@@ -337,30 +340,55 @@ public class EatObjectScript : MonoBehaviour
             this.gameObject.transform.DOScale(
                 new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
             );
+            if (sizeFlag == true)
+            {
+                refCamera.CameraDistanceSmall();
+                sizeFlag = false;
+            }
         }
         else if (50 <= p && p < 100)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(2f, 2f, 2f), playerScaleTime
             );
+            if (sizeFlag == false)
+            {
+                refCamera.CameraDistanceSmall();
+                sizeFlag = true;
+            }
         }
         else if (100 <= p && p < 200)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
             );
+            if (sizeFlag == true)
+            {
+                refCamera.CameraDistanceSmall();
+                sizeFlag = false;
+            }
         }
         else if (200 <= p && p < 400)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(3f, 3f, 3f), playerScaleTime
             );
+            if (sizeFlag == false)
+            {
+                refCamera.CameraDistanceSmall();
+                sizeFlag = true;
+            }
         }
         else if (400 <= p && p < 800)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(4f, 4f, 4f), playerScaleTime
             );
+            if (sizeFlag == true)
+            {
+                refCamera.CameraDistanceMedium();
+                sizeFlag = false;
+            }
         }
 
         else if (800 <= p && p < 1500)
@@ -368,36 +396,66 @@ public class EatObjectScript : MonoBehaviour
             this.gameObject.transform.DOScale(
                 new Vector3(6f, 6f, 6f), playerScaleTime
             );
+            if (sizeFlag == false)
+            {
+                refCamera.CameraDistanceLarge();
+                sizeFlag = true;
+            }
         }
         else if (1500 <= p && p < 3000)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(8f, 8f, 8f), playerScaleTime
             );
+            if (sizeFlag == true)
+            {
+                refCamera.CameraDistanceLarge();
+                sizeFlag = false;
+            }
         }
         else if (3000 <= p && p < 5000)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(10f, 10f, 10f), playerScaleTime
             );
+            if (sizeFlag == false)
+            {
+                refCamera.CameraDistanceLarge();
+                sizeFlag = true;
+            }
         }
         else if (5000 <= p && p < 10000)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(12f, 12f, 12f), playerScaleTime
             );
+            if (sizeFlag == true)
+            {
+                refCamera.CameraDistanceLarge();
+                sizeFlag = false;
+            }
         }
         else if (10000 <= p && p < 15000)
         {
             this.gameObject.transform.DOScale(
-                new Vector3(15f, 15f, 15f), playerScaleTime
+                new Vector3(14f, 14f, 14f), playerScaleTime
             );
+            if (sizeFlag == false)
+            {
+                refCamera.CameraDistanceLarge();
+                sizeFlag = true;
+            }
         }
         else if (15000 <= p && p < 100000)
         {
             this.gameObject.transform.DOScale(
-                new Vector3(20f, 20f, 20f), playerScaleTime
+                new Vector3(16f, 16f, 16f), playerScaleTime
             );
+            if (sizeFlag == true)
+            {
+                refCamera.CameraDistanceLarge();
+                sizeFlag = false;
+            }
         }
 
 
