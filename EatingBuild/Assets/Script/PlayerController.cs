@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
         //WASD入力から、XZ平面（水平な地面）を移動する方向（velocity）を得ます
         velocity = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             velocity.z += 1;
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             velocity.z -= 1;
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             velocity.x += 1;
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             velocity.x -= 1;
 
         //速度ベクトルの長さを１秒でmoveSpeedだけ進むように調整します
