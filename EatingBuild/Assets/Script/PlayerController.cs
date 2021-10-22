@@ -4,41 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Vector3 velocity;//移動方向
-    [SerializeField] private float moveSpeed = 5f;//移動速度
-    [SerializeField] private float applySpeed = 0.2f;//回転の適用速度
-    [SerializeField] private PlayerFollowCamera refCamera;//カメラの水平回転を参照する用
+    public DynamicJoystick joystick;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] public Rigidbody rb;
+    private Vector3 m_Direction;
+    void FixedUpdate()
+    {
+        Vector3 direction = Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal;
+        rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        // float x = joystick.Horizontal;
+        // float z = joystick.Vertical;
+        // transform.position += new Vector3(x * speed, 0, z * speed);
+        m_Direction = Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal;
+    }
     void Update()
     {
-        //WASD入力から、XZ平面（水平な地面）を移動する方向（velocity）を得ます
-        velocity = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            velocity.z += 1;
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            velocity.z -= 1;
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            velocity.x += 1;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            velocity.x -= 1;
-
-        //速度ベクトルの長さを１秒でmoveSpeedだけ進むように調整します
-        velocity = velocity.normalized * moveSpeed * Time.deltaTime;
-
-
-        // いずれかの方向に移動している場合
-        if (velocity.magnitude > 0)
+        if (m_Direction != new Vector3(0, 0, 0))
         {
-            // プレイヤーの回転(transform.rotation)の更新
-            // 無回転状態のプレイヤーのZ+方向(後頭部)を、
-            // カメラの水平回転(refCamera.hRotation)で回した移動の反対方向(-velocity)に回す回転に段々近づけます
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                                                  Quaternion.LookRotation(refCamera.hRotation * velocity),
-                                                  applySpeed);
-
-            // プレイヤーの位置(transform.position)の更新
-            // カメラの水平回転(refCamera.hRotation)で回した移動方向(velocity)を足し込みます
-            transform.position += refCamera.hRotation * velocity;
+            transform.localRotation = Quaternion.LookRotation(m_Direction);
         }
     }
 }
