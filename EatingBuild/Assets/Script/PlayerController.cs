@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public DynamicJoystick joystick;
-    [SerializeField] private float speed = 0.4f;
+    public float speed = 0.4f;
     private Vector3 latestPos;  //前回のPosition
 
     void Start()

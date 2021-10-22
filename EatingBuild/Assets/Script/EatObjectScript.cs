@@ -15,6 +15,16 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameObject Cylinder;//子オブジェクトの本体をアタッチする
 
     bool sizeFlag = true;
+    [SerializeField] private PlayerController playerController;
+
+    [SerializeField] private float changeSpeed = 0.05f;
+
+    void Start()
+    {
+        float Playerspeed = playerController.speed;
+    }
+
+
 
 
     void OnTriggerEnter(Collider col)
@@ -344,7 +354,11 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceSmall();
                 sizeFlag = false;
+                playerController.speed += changeSpeed;
+                Debug.Log("speedが0.4になった");
             }
+
+
         }
         else if (50 <= p && p < 100)
         {
@@ -354,6 +368,7 @@ public class EatObjectScript : MonoBehaviour
             if (sizeFlag == false)
             {
                 refCamera.CameraDistanceSmall();
+                playerController.speed += changeSpeed;
                 sizeFlag = true;
             }
         }
@@ -366,6 +381,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceSmall();
                 sizeFlag = false;
+                playerController.speed += changeSpeed;
             }
         }
         else if (200 <= p && p < 400)
@@ -377,6 +393,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceSmall();
                 sizeFlag = true;
+                playerController.speed += changeSpeed;
             }
         }
         else if (400 <= p && p < 800)
@@ -388,6 +405,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceMedium();
                 sizeFlag = false;
+                playerController.speed += changeSpeed;
             }
         }
 
@@ -400,6 +418,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceLarge();
                 sizeFlag = true;
+                playerController.speed += changeSpeed;
             }
         }
         else if (1500 <= p && p < 3000)
@@ -411,6 +430,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceLarge();
                 sizeFlag = false;
+                playerController.speed += changeSpeed;
             }
         }
         else if (3000 <= p && p < 5000)
@@ -422,6 +442,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceLarge();
                 sizeFlag = true;
+                playerController.speed += changeSpeed;
             }
         }
         else if (5000 <= p && p < 10000)
@@ -433,6 +454,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceLarge();
                 sizeFlag = false;
+                playerController.speed += changeSpeed;
             }
         }
         else if (10000 <= p && p < 15000)
@@ -444,6 +466,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceLarge();
                 sizeFlag = true;
+                playerController.speed += changeSpeed;
             }
         }
         else if (15000 <= p && p < 100000)
@@ -455,6 +478,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceLarge();
                 sizeFlag = false;
+                playerController.speed += changeSpeed;
             }
         }
 
