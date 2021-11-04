@@ -17,6 +17,7 @@ TagManager:
   - 20p
   - 30p
   - 50p
+  - Wall
   layers:
   - Default
   - TransparentFX

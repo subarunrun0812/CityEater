@@ -8,8 +8,13 @@ public class PlayerController : MonoBehaviour
     public float speed = 0.3f;
     private Vector3 latestPos;  //前回のPosition
 
+    Collider playerCollider;
+
+
     void Start()
     {
+        playerCollider = GetComponent<Collider>();
+        playerCollider.isTrigger = true;//IsTriggerをON
         // transform.Rotate(0, 0, 0);//なぜか向きが変わる。このコードがうまくいっていない
     }
     void Update()
@@ -25,6 +30,22 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(diff); //向きを変更する
         }
-
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Colliderに当たった");
+        if (other.gameObject.tag == "Wall")
+        {
+            playerCollider.isTrigger = false;
+            Debug.Log("Wallに当たり、IsTriggerがOFFになった");
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            playerCollider.isTrigger = true;
+            Debug.Log("Wallから離れ、IsTriggerがONになった");
+        }
     }
 }
