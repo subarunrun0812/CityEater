@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Wall")
         {
             playerCollider.isTrigger = false;
-            Debug.Log("Wallに当たり、IsTriggerがOFFになった。");
+            Debug.Log("Wallに当たり、IsTriggerがOFFになった");
         }
     }
     void OnTriggerExit(Collider other)
