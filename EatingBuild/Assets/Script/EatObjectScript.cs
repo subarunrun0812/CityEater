@@ -22,6 +22,11 @@ public class EatObjectScript : MonoBehaviour
     void Start()
     {
         float Playerspeed = playerController.speed;
+        if (SystemInfo.supportsVibration)
+        {
+            Handheld.Vibrate();
+            Debug.Log("長く振動した");
+        }
     }
 
 
@@ -30,6 +35,8 @@ public class EatObjectScript : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         int p = gameManager.point;//GameManagerスクリプトの変数を参照
+        VibrationMng.ShortVibration();//スマホを短く振動させる
+        Debug.Log("振動した");
 
         switch (col.gameObject.tag)
         {
