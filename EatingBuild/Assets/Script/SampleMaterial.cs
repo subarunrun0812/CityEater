@@ -32,7 +32,7 @@ public class SampleMaterial : MonoBehaviour
     {
         if (meshRenderer != null)
         {
-            mpb.SetColor(Shader.PropertyToID("_Color"), GUI.color = new Color(255, GUI.color.g, GUI.color.b, 50f));
+            mpb.SetColor(Shader.PropertyToID("_Color"), color);
             meshRenderer.SetPropertyBlock(m_mpb);
         }
     }
