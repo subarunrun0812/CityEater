@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SampleMaterial : MonoBehaviour
 {
-    [SerializeField, Header("適用する色")]
+    [SerializeField, Header("適用する色")]//Inspectorの変数の上にヘッダーをつけることができます。
     private Color m_color;
     public Color color
     {
@@ -20,6 +20,8 @@ public class SampleMaterial : MonoBehaviour
     private MaterialPropertyBlock m_mpb;
     public MaterialPropertyBlock mpb
     {
+        //?? 演算子は、null 合体演算子と呼ばれます。
+        //左側のオペランドが null 値でない場合には左側のオペランドを返し、null 値である場合には右側のオペランドを返します。
         get { return m_mpb ?? (m_mpb = new MaterialPropertyBlock()); }
     }
 
@@ -30,7 +32,7 @@ public class SampleMaterial : MonoBehaviour
     {
         if (meshRenderer != null)
         {
-            mpb.SetColor(Shader.PropertyToID("_Color"), color);
+            mpb.SetColor(Shader.PropertyToID("_Color"), GUI.color = new Color(255, GUI.color.g, GUI.color.b, 50f));
             meshRenderer.SetPropertyBlock(m_mpb);
         }
     }
