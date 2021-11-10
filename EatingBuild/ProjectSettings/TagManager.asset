@@ -18,6 +18,7 @@ TagManager:
   - 30p
   - 50p
   - Wall
+  - WallCollider
   layers:
   - Default
   - TransparentFX

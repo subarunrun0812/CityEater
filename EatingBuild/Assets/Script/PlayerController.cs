@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         playerCollider.isTrigger = true;//IsTriggerをON
         // transform.Rotate(0, 0, 0);//なぜか向きが変わる。このコードがうまくいっていない
     }
-    void Update()
+    void FixedUpdate()
     {
         float x = joystick.Horizontal;
         float z = joystick.Vertical;
@@ -33,12 +33,27 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colliderに当たった");
+
         if (other.gameObject.tag == "Wall")
         {
             playerCollider.isTrigger = false;
             Debug.Log("Wallに当たり、IsTriggerがOFFになった");
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "WallCollider")
+        {
+            StartCoroutine("ColliderCorutine");
+            Debug.Log("wallcolliderにあたった");
+        }
+    }
+    IEnumerator ColliderCorutine()
+    {
+        Debug.Log("Colliderが呼ばれた");
+        Time.timeScale = 0;
+        yield return new WaitForSeconds(1.0f);
+        Time.timeScale = 1;
     }
     void OnTriggerExit(Collider other)
     {

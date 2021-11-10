@@ -349,15 +349,15 @@ public class EatObjectScript : MonoBehaviour
 
     private void NotEatBuild()
     {
-        // if (this.transform.position.y == 0)
-        // {
-        //     this.transform.DOJump(transform.position + new Vector3(0f, 0f, 0), 2.0f, 1, 0.6f);
-        // }
-        if (SystemInfo.supportsVibration)
+        if (this.transform.position.y == 0)
         {
-            Handheld.Vibrate();
-            Debug.Log("長く振動した");
+            this.transform.DOJump(transform.position + new Vector3(-1f, 0f, -1f), 2.0f, 1, 0.4f);
         }
+        // if (SystemInfo.supportsVibration)
+        // {
+        //     Handheld.Vibrate();
+        //     Debug.Log("長く振動した");
+        // }
     }
 
 
