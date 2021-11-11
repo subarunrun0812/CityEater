@@ -4,18 +4,18 @@ public class SampleMaterial : MonoBehaviour
 {
 
 
-    [SerializeField, Header("適用する色")]//Inspectorの変数の上にヘッダーをつけることができます。
-    private Color m_color;
+    // [SerializeField, Header("適用する色")]//Inspectorの変数の上にヘッダーをつけることができます。
+    private Color m_color = Color.white;
 
     public Color color
     {
         get { return m_color; }
     }
 
+
     private MeshRenderer m_meshRenderer;
 
-
-    private MeshRenderer meshRenderer
+    public MeshRenderer meshRenderer
     {
         get { return m_meshRenderer; }
     }
@@ -36,6 +36,9 @@ public class SampleMaterial : MonoBehaviour
     void Start()
     {
         m_meshRenderer = this.gameObject.GetComponent<MeshRenderer>();
+        // var meshRendererChild = this.gameObject.GetComponentInChildren<MeshRenderer>();
+        m_color.a = 0.4f;
+
         if (meshRenderer != null)
         {
             mpb.SetColor(Shader.PropertyToID("_Color"), color);
