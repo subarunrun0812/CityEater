@@ -14,10 +14,27 @@ public class SampleMaterial : MonoBehaviour
     private MeshRenderer[] meshRenderers;
     private MeshRenderer m_meshRenderer;//start関数でmeshrenderを取得
 
+    private int n;
+
     //Getで値を返しています。return 変数名;
     private MeshRenderer meshRenderer
     {
-        get { return meshRenderers[0]; }
+
+        set //値をmeshRendererに代入する
+        {
+            foreach (var child in meshRenderers)//foreach(型名 変数名 in コレクション)
+            {
+                meshRenderers = child.GetComponents<MeshRenderer>();
+            }
+        }
+        get
+        {
+            for (int i = 0; i < meshRenderers.Length; i++)
+            {
+                n = i;
+            }
+            return meshRenderers[n];
+        }
     }
 
     // private MeshRenderer meshRendererChild
@@ -42,10 +59,6 @@ public class SampleMaterial : MonoBehaviour
             mpb.SetColor(Shader.PropertyToID("_Color"), color);
             meshRenderer.SetPropertyBlock(m_mpb);
             // meshRendererChild.SetPropertyBlock(m_mpb);
-        }
-        foreach (var child in meshRenderers)//foreach(型名 変数名 in コレクション)
-        {
-            meshRenderers = child.GetComponents<MeshRenderer>();
         }
 
     }
