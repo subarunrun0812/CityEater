@@ -1,24 +1,25 @@
 using UnityEngine;
-
+using System.Collections.Generic;
+using System.Collections;
 public class SampleMaterial : MonoBehaviour
 {
 
-
-    // [SerializeField, Header("適用する色")]//Inspectorの変数の上にヘッダーをつけることができます。
     private Color m_color = Color.white;
-
     private Color color
     {
         get { return m_color; }
     }
 
 
+    private MeshRenderer[] meshRenderers;
     private MeshRenderer m_meshRenderer;//start関数でmeshrenderを取得
 
+    //Getで値を返しています。return 変数名;
     private MeshRenderer meshRenderer
     {
-        get { return m_meshRenderer; }
+        get { return meshRenderers[0]; }
     }
+
     // private MeshRenderer meshRendererChild
     // {
     //     get { return m_meshRenderer; }
@@ -31,21 +32,9 @@ public class SampleMaterial : MonoBehaviour
         //左側のオペランドが null 値でない場合には左側のオペランドを返し、null 値である場合には右側のオペランドを返します。
         get { return m_mpb ?? (m_mpb = new MaterialPropertyBlock()); }
     }
-
-    /// <summary>
-    /// 開始
-    /// </summary>
     void Start()
     {
-        int ObjCount = this.transform.childCount;//子オブジェクトの数を数えます
-        Debug.Log(ObjCount);
-        // if (ObjCount > 0)//0より大きかったら
-        // {
-        //     MeshRenderer meshRendererChild = this.gameObject.GetComponentInChildren<MeshRenderer>();
-        // }
-
-        MeshRenderer meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
-        Debug.Log(meshRenderer);
+        meshRenderers = this.GetComponentsInChildren<MeshRenderer>();
         m_color.a = 0.4f;
 
         if (meshRenderer != null)
@@ -53,6 +42,10 @@ public class SampleMaterial : MonoBehaviour
             mpb.SetColor(Shader.PropertyToID("_Color"), color);
             meshRenderer.SetPropertyBlock(m_mpb);
             // meshRendererChild.SetPropertyBlock(m_mpb);
+        }
+        foreach (var child in meshRenderers)//foreach(型名 変数名 in コレクション)
+        {
+            meshRenderers = child.GetComponents<MeshRenderer>();
         }
 
     }
