@@ -7,20 +7,22 @@ public class SampleMaterial : MonoBehaviour
     // [SerializeField, Header("適用する色")]//Inspectorの変数の上にヘッダーをつけることができます。
     private Color m_color = Color.white;
 
-    public Color color
+    private Color color
     {
         get { return m_color; }
     }
 
 
-    private MeshRenderer m_meshRenderer;
+    private MeshRenderer m_meshRenderer;//start関数でmeshrenderを取得
 
-    public MeshRenderer meshRenderer
+    private MeshRenderer meshRenderer
     {
         get { return m_meshRenderer; }
     }
-
-    /// 追加!!!
+    // private MeshRenderer meshRendererChild
+    // {
+    //     get { return m_meshRenderer; }
+    // }
     private MaterialPropertyBlock m_mpb;
 
     public MaterialPropertyBlock mpb
@@ -35,14 +37,22 @@ public class SampleMaterial : MonoBehaviour
     /// </summary>
     void Start()
     {
-        m_meshRenderer = this.gameObject.GetComponent<MeshRenderer>();
-        // var meshRendererChild = this.gameObject.GetComponentInChildren<MeshRenderer>();
+        int ObjCount = this.transform.childCount;//子オブジェクトの数を数えます
+        Debug.Log(ObjCount);
+        // if (ObjCount > 0)//0より大きかったら
+        // {
+        //     MeshRenderer meshRendererChild = this.gameObject.GetComponentInChildren<MeshRenderer>();
+        // }
+
+        MeshRenderer meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
+        Debug.Log(meshRenderer);
         m_color.a = 0.4f;
 
         if (meshRenderer != null)
         {
             mpb.SetColor(Shader.PropertyToID("_Color"), color);
             meshRenderer.SetPropertyBlock(m_mpb);
+            // meshRendererChild.SetPropertyBlock(m_mpb);
         }
 
     }
