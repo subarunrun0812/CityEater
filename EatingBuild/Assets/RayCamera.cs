@@ -23,13 +23,21 @@ public class RayCamera : MonoBehaviour
 
         if (Physics.Raycast(this.transform.position, _difference, out hit))
         {
-            //レイキャスト（原点、飛ばす方向、衝突した情報、長さ）
-            // Debug.DrawRay(this.transform.position, _difference, Color.yellow);
-            // Debug.DrawRay(this.transform.position, _difference, Color.red);
-
-            // //Rayが当たったオブジェクトのtagがPlayerだったら
-            // if (hit.collider.tag == "Player")
             Debug.Log(hit.collider.tag);
+
+            if (hit.collider.tag == "50p")
+            {
+                hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
+                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+            }
         }
     }
 }
+
+
+//レイキャスト（原点、飛ばす方向、衝突した情報、長さ）
+// Debug.DrawRay(this.transform.position, _difference, Color.yellow);
+// Debug.DrawRay(this.transform.position, _difference, Color.red);
+
+// //Rayが当たったオブジェクトのtagがPlayerだったら
+// if (hit.collider.tag == "Player")
