@@ -14,6 +14,7 @@ public class RayCamera : MonoBehaviour
     RaycastHit hit;//ヒットしたオブジェクト情報
 
     // private Vector3 distance;
+    private GameObject hitobject;
 
     void Update()
     {
@@ -27,9 +28,15 @@ public class RayCamera : MonoBehaviour
 
             if (hit.collider.tag == "50p")
             {
+                hitobject = hit.collider.gameObject;
                 hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
+            else if (hit.collider.tag == "Player")
+            {
+                hitobject.GetComponent<SampleMaterial>().NotClearMaterialInvoke();
+            }
+
         }
     }
 }
