@@ -20,11 +20,11 @@ public class SampleMaterial : MonoBehaviour
     void Awake()
     {
         meshRenderers = this.GetComponentsInChildren<MeshRenderer>();//子オブジェクトと親オブジェクトのmeshrendererを取得
-        color.a = 0.4f;
-        mpb.SetColor(Shader.PropertyToID("_Color"), color);//色を変更する
     }
     public void ClearMaterialInvoke()
     {
+        color.a = 0.4f;//mpb.SetColor ~ より前にこのコードを書かなければならない
+        mpb.SetColor(Shader.PropertyToID("_Color"), color);//色を変更する
         for (int i = 0; i < meshRenderers.Length; i++)//meshrendersをfor文で回して、配列の中の要素を１つずつ取り出す
         {
             meshRenderers[i].SetPropertyBlock(mpb);//配列に入ってるオブジェクトをmpbのマテリアルに全て適用していく
