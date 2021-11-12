@@ -15,19 +15,19 @@ public class RayCamera : MonoBehaviour
 
     // private Vector3 distance;
 
-    private void Update()
+    void Update()
     {
         Vector3 _difference = (player.transform.position - this.transform.position);//cameraとplayerの距離
         Vector3 _direction = _difference.normalized;//.normalizedベクトルの正規化を行う方法の紹介です。
         Ray _ray = new Ray(this.transform.position, _direction);
 
-        Debug.DrawRay(this.transform.position, _difference, Color.yellow);
+        Debug.DrawRay(this.transform.position, _direction, Color.yellow);
         //レイキャスト（原点、飛ばす方向、衝突した情報、長さ）
         if (Physics.Raycast(ray, out hit))
         {
+            Debug.Log(hit.collider.tag);
             // //Rayが当たったオブジェクトのtagがPlayerだったら
             // if (hit.collider.tag == "Player")
-            Debug.Log(hit.collider.tag);
         }
     }
 }
