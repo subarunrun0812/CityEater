@@ -17,13 +17,9 @@ public class RayCamera : MonoBehaviour
 
     private void Update()
     {
-        Vector3 _difference = (player.transform.position - this.transform.position);
-        Vector3 _direction = _difference.normalized;
+        Vector3 _difference = (player.transform.position - this.transform.position);//cameraとplayerの距離
+        Vector3 _direction = _difference.normalized;//.normalizedベクトルの正規化を行う方法の紹介です。
         Ray _ray = new Ray(this.transform.position, _direction);
-        // //cameraとplayerの距離
-        // distance = transform.position - player.transform.position;
-        // //レイの設定
-        // ray = new Ray(transform.position, transform.TransformDirection(Vector3.forward));
 
         Debug.DrawRay(this.transform.position, _difference, Color.yellow);
         //レイキャスト（原点、飛ばす方向、衝突した情報、長さ）

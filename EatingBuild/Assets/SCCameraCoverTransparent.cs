@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;  // Except
 
+
 /// <summary>
 /// カメラと対象との間の遮蔽物(Cover)を透明化します。
 /// カメラに付加してください。
 /// 透明にする遮蔽物は Renderer コンポーネントを付加している必要があります。
+//https://qiita.com/sakura-crowd/items/3608b2fd6df8a953240a
 /// </summary>
 public class SCCameraCoverTransparent : MonoBehaviour
 {
