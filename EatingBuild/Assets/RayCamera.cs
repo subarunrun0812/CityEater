@@ -14,12 +14,12 @@ public class RayCamera : MonoBehaviour
     RaycastHit hit;//ヒットしたオブジェクト情報
 
     // private Vector3 distance;
-    private GameObject hitobject;
+    private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
     void Update()
     {
         Vector3 _difference = (player.transform.position - this.transform.position);
-        Vector3 _direction = _difference.normalized;
+        Vector3 _direction = _difference.normalized;//.normalizedベクトルの正規化を行う
         Ray _ray = new Ray(this.transform.position, _direction);
 
         if (Physics.Raycast(this.transform.position, _difference, out hit))
@@ -32,7 +32,7 @@ public class RayCamera : MonoBehaviour
                 hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
-            else if (hit.collider.tag == "Player")
+            else if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
             {
                 hitobject.GetComponent<SampleMaterial>().NotClearMaterialInvoke();
             }
