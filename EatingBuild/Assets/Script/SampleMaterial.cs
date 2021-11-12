@@ -4,11 +4,7 @@ using System.Collections;
 public class SampleMaterial : MonoBehaviour
 {
 
-    private Color m_color = Color.white;
-    private Color color
-    {
-        get { return m_color; }
-    }
+    private Color color = Color.white;
 
 
     private MeshRenderer[] meshRenderers;
@@ -24,15 +20,13 @@ public class SampleMaterial : MonoBehaviour
     }
     void Start()
     {
-        meshRenderers = this.GetComponentsInChildren<MeshRenderer>();
-        m_color.a = 0.4f;
+        meshRenderers = this.GetComponentsInChildren<MeshRenderer>();//子オブジェクトと親オブジェクトのmeshrendererを取得
+        color.a = 0.4f;
 
-        for (int i = 0; i < meshRenderers.Length; i++)
+        mpb.SetColor(Shader.PropertyToID("_Color"), color);
+        for (int i = 0; i < meshRenderers.Length; i++)//meshrendersをfor文で回して、配列の中の要素を１つずつ取り出す
         {
-            mpb.SetColor(Shader.PropertyToID("_Color"), color);
-            meshRenderers[i].SetPropertyBlock(m_mpb);
-            // meshRendererChild.SetPropertyBlock(m_mpb);
-
+            meshRenderers[i].SetPropertyBlock(mpb);
         }
 
     }
