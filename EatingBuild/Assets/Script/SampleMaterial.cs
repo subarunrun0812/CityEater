@@ -14,34 +14,6 @@ public class SampleMaterial : MonoBehaviour
     private MeshRenderer[] meshRenderers;
     // private MeshRenderer m_meshRenderer;//start関数でmeshrenderを取得
 
-    private int n;
-
-    //Getで値を返しています。return 変数名;
-    // private MeshRenderer meshRenderer
-    // {
-    //     // set //値をmeshRendererに代入する
-    //     // {
-    //     //     foreach (var child in meshRenderers)//foreach(型名 変数名 in コレクション)
-    //     //     {
-    //     //         // meshRenderers = child.GetComponents<MeshRenderer>();
-    //     //     }
-    //     // }
-    //     get//meshRenderers配列から要素を１つずつ取り出し
-    //     {
-    //         for (int i = 0; i < meshRenderers.Length; i++)
-    //         {
-    //             n = i;
-    //             // return meshRenderers[i];
-    //         }
-    //         return meshRenderers[n];
-    //     }
-
-    // }
-
-    // private MeshRenderer meshRendererChild
-    // {
-    //     get { return m_meshRenderer; }
-    // }
     private MaterialPropertyBlock m_mpb;
 
     public MaterialPropertyBlock mpb
