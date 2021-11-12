@@ -21,10 +21,11 @@ public class RayCamera : MonoBehaviour
         Vector3 _direction = _difference.normalized;
         Ray _ray = new Ray(this.transform.position, _direction);
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
+        if (Physics.Raycast(this.transform.position, _difference, out hit))
         {
             //レイキャスト（原点、飛ばす方向、衝突した情報、長さ）
             Debug.DrawRay(this.transform.position, _difference, Color.yellow);
+            Debug.DrawRay(this.transform.position, _difference, Color.red);
             // //Rayが当たったオブジェクトのtagがPlayerだったら
             // if (hit.collider.tag == "Player")
             Debug.Log(hit.collider.tag);
