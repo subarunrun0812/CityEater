@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour
     {
         point = point + number;
         addScoreText.text = $"+{number}";
+        // DOTween.Sequence()
+        // .Join(addScoreText.DOFaceFade(0.0f, 3.0f))
+        // .Join(addScoreText.DOOutlineColor(EndColor, 3.0f).SetDelay(0.5f))
+        // .SetRelative()
+        // .Pause()
+        // .SetAutoKill(false);
 
     }
 
