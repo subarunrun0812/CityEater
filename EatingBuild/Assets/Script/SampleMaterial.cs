@@ -25,6 +25,7 @@ public class SampleMaterial : MonoBehaviour
     {
         color.a = 0.4f;//mpb.SetColor ~ より前にこのコードを書かなければならない
         mpb.SetColor(Shader.PropertyToID("_Color"), color);//色を変更する
+        gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse ZWrite");////shader切り替える
         for (int i = 0; i < meshRenderers.Length; i++)//meshrendersをfor文で回して、配列の中の要素を１つずつ取り出す
         {
             meshRenderers[i].SetPropertyBlock(mpb);//配列に入ってるオブジェクトをmpbのマテリアルに全て適用していく
@@ -32,6 +33,7 @@ public class SampleMaterial : MonoBehaviour
     }
     public void NotClearMaterialInvoke()
     {
+        gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Standard");//shader切り替える
         color.a = 1f;//mpb.SetColor ~ より前にこのコードを書かなければならない
         mpb.SetColor(Shader.PropertyToID("_Color"), color);//色を変更する
         for (int i = 0; i < meshRenderers.Length; i++)//meshrendersをfor文で回して、配列の中の要素を１つずつ取り出す
