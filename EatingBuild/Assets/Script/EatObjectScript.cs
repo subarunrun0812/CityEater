@@ -30,8 +30,8 @@ public class EatObjectScript : MonoBehaviour
     }
     private void VIbrationFunction()//スマホを振動される関数
     {
-        // VibrationMng.ShortVibration();//スマホを短く振動させる
-        // Debug.Log("振動した");
+        VibrationMng.ShortVibration();//スマホを短く振動させる
+        Debug.Log("振動した");
     }
 
 
@@ -354,11 +354,11 @@ public class EatObjectScript : MonoBehaviour
         //     this.transform.DOJump(transform.position + new Vector3(-1f, 0f, -1f), 2.0f, 1, 0.4f);
         // }
 
-        // if (SystemInfo.supportsVibration)
-        // {
-        //     Handheld.Vibrate();
-        //     Debug.Log("長く振動した");
-        // }
+        if (SystemInfo.supportsVibration)
+        {
+            Handheld.Vibrate();
+            Debug.Log("長く振動した");
+        }
     }
 
 
