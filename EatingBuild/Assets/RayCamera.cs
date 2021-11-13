@@ -25,18 +25,47 @@ public class RayCamera : MonoBehaviour
         if (Physics.Raycast(this.transform.position, _difference, out hit))
         {
             Debug.Log(hit.collider.tag);
-
-            if (hit.collider.tag == "50p")
+            if (hit.collider.tag == "Player" || hit.collider.tag == "Untagged")//半透明にしていたGameObjectを不透明に戻す
+            {
+                hitobject.GetComponent<SampleMaterial>().NotClearMaterialInvoke();
+                Debug.Log(hit.collider.tag + "が不透明になったよ！成功だね！");
+            }
+            else if (hit.collider.tag == "10p")
             {
                 hitobject = hit.collider.gameObject;
                 hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
-            else if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
+            else if (hit.collider.tag == "12p")
             {
-                hitobject.GetComponent<SampleMaterial>().NotClearMaterialInvoke();
+                hitobject = hit.collider.gameObject;
+                hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
+                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
-
+            else if (hit.collider.tag == "15p")
+            {
+                hitobject = hit.collider.gameObject;
+                hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
+                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+            }
+            else if (hit.collider.tag == "20")
+            {
+                hitobject = hit.collider.gameObject;
+                hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
+                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+            }
+            else if (hit.collider.tag == "30p")
+            {
+                hitobject = hit.collider.gameObject;
+                hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
+                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+            }
+            else if (hit.collider.tag == "50p")
+            {
+                hitobject = hit.collider.gameObject;
+                hit.collider.GetComponent<SampleMaterial>().ClearMaterialInvoke();
+                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+            }
         }
     }
 }
