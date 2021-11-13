@@ -21,7 +21,7 @@ public class SampleMaterial : MonoBehaviour
     {
         meshRenderers = this.GetComponentsInChildren<MeshRenderer>();//子オブジェクトと親オブジェクトのmeshrendererを取得
     }
-    public void ClearMaterialInvoke()
+    public void ClearMaterialInvoke()//objecを半透明にする関数
     {
         color.a = 0.1f;//mpb.SetColor ~ より前にこのコードを書かなければならない
         mpb.SetColor(Shader.PropertyToID("_Color"), color);//色を変更する
@@ -31,7 +31,7 @@ public class SampleMaterial : MonoBehaviour
             meshRenderers[i].SetPropertyBlock(mpb);//配列に入ってるオブジェクトをmpbのマテリアルに全て適用していく
         }
     }
-    public void NotClearMaterialInvoke()
+    public void NotClearMaterialInvoke()//objecを非透明に戻す関数
     {
         color.a = 1f;//mpb.SetColor ~ より前にこのコードを書かなければならない
         mpb.SetColor(Shader.PropertyToID("_Color"), color);//色を変更する
