@@ -65,7 +65,7 @@ public class RayCamera : MonoBehaviour
                 sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
-            else if (hit.collider.tag == "20")
+            else if (hit.collider.tag == "20p")
             {
                 hitobject = hit.collider.gameObject;
                 SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();
