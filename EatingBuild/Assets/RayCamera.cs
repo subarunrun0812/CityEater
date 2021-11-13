@@ -51,6 +51,7 @@ public class RayCamera : MonoBehaviour
                 {
                     hit.collider.gameObject.AddComponent<SampleMaterial>();
                 }
+                sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
             else if (hit.collider.tag == "15p")
@@ -61,6 +62,7 @@ public class RayCamera : MonoBehaviour
                 {
                     hit.collider.gameObject.AddComponent<SampleMaterial>();
                 }
+                sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
             else if (hit.collider.tag == "20")
@@ -71,6 +73,7 @@ public class RayCamera : MonoBehaviour
                 {
                     hit.collider.gameObject.AddComponent<SampleMaterial>();
                 }
+                sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
             else if (hit.collider.tag == "30p")
@@ -81,6 +84,7 @@ public class RayCamera : MonoBehaviour
                 {
                     hit.collider.gameObject.AddComponent<SampleMaterial>();
                 }
+                sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
             else if (hit.collider.tag == "50p")
@@ -91,6 +95,7 @@ public class RayCamera : MonoBehaviour
                 {
                     hit.collider.gameObject.AddComponent<SampleMaterial>();
                 }
+                sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                 Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
             }
             else
