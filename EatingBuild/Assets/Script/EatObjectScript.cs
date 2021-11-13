@@ -486,7 +486,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (10000 <= p && p < 15000)
+        else if (10000 <= p && p < 13000)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(14f, 14f, 14f), playerScaleTime
@@ -498,7 +498,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (15000 <= p && p < 100000000)
+        else if (13000 <= p && p < 100000000)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(16f, 16f, 16f), playerScaleTime
