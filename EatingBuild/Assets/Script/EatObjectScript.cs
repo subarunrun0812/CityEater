@@ -7,6 +7,7 @@ public class EatObjectScript : MonoBehaviour
 
     [SerializeField] private float smallTime = 2;//objectを小さくするのにかかる時間
     [SerializeField] private float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
+    [SerializeField] private float smallTimeBigApartment = 0.8f;//大きいビルを小さくするのにかかる時間
     [SerializeField] private float playerScaleTime = 1;//プレイヤーを大きくするのにかかる時間
 
     [SerializeField] private GameManager gameManager;
@@ -278,10 +279,10 @@ public class EatObjectScript : MonoBehaviour
                 if (p >= 5000)
                 {
                     col.transform.DOShakeRotation(
-                         duration: smallTimeApartment,   // 演出時間
+                         duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
                     );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
                         gameManager.AddPoint(20);
@@ -301,10 +302,10 @@ public class EatObjectScript : MonoBehaviour
                 if (p >= 10000)
                 {
                     col.transform.DOShakeRotation(
-                         duration: smallTimeApartment,   // 演出時間
+                         duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
                     );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
                         gameManager.AddPoint(30);
@@ -321,13 +322,13 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "50p":
-                if (p >= 15000)
+                if (p >= 10000)
                 {
                     col.transform.DOShakeRotation(
-                         duration: smallTimeApartment,   // 演出時間
+                         duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
                     );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
                         gameManager.AddPoint(50);
@@ -486,7 +487,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (10000 <= p && p < 13000)
+        else if (10000 <= p && p < 130000)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(14f, 14f, 14f), playerScaleTime
@@ -498,18 +499,18 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (13000 <= p && p < 100000000)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(16f, 16f, 16f), playerScaleTime
-            );
-            if (sizeFlag == true)
-            {
-                refCamera.CameraDistanceLarge();
-                sizeFlag = false;
-                playerController.speed += changeSpeed;
-            }
-        }
+        // else if (13000 <= p && p < 100000000)
+        // {
+        //     this.gameObject.transform.DOScale(
+        //         new Vector3(16f, 16f, 16f), playerScaleTime
+        //     );
+        //     if (sizeFlag == true)
+        //     {
+        //         refCamera.CameraDistanceLarge();
+        //         sizeFlag = false;
+        //         playerController.speed += changeSpeed;
+        //     }
+        // }
 
 
 
