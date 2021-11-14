@@ -21,15 +21,15 @@ public class RayCamera : MonoBehaviour
         Vector3 _direction = _difference.normalized;//.normalizedベクトルの正規化を行う
         Ray _ray = new Ray(this.transform.position, _direction);
         var raycastHits = new RaycastHit[5];//// 当たり判定の結果を格納する変数を事前に確保しておく
+        var hitCount = Physics.RaycastNonAlloc(this.transform.position, _difference, raycastHits); // 結果は事前に確保したhitに前方から順番に書き込みされます
+        var length = raycastHits.Length;
+        Debug.Log(hit.collider.tag);
+        Debug.Log("raycastHit配列は" + raycastHits);
+        Debug.Log("hitCountは" + hitCount);
 
-        if (Physics.Raycast(this.transform.position, _difference, out hit))
+        // 遮蔽物は一時的にすべて描画機能を無効にする。
+        foreach (RaycastHit _hit in raycastHits)
         {
-            Debug.Log(hit.collider.tag);
-
-            var hitCount = Physics.RaycastNonAlloc(this.transform.position, _difference, raycastHits); // 結果は事前に確保したhitに前方から順番に書き込みされます
-            var length = raycastHits.Length;
-            Debug.Log("raycastHit配列は" + raycastHits);
-            Debug.Log("hitCountは" + hitCount);
             if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
             {
                 //10p~50pでヒットしたオブジェクトhitobject変数に代入しているため、前rayがhitしていたオブジェクトに参照ができる
@@ -116,6 +116,7 @@ public class RayCamera : MonoBehaviour
         }
     }
 }
+
 
 
 //レイキャスト（原点、飛ばす方向、衝突した情報、長さ）
