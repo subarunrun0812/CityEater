@@ -12,7 +12,7 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameManager gameManager;
 
     [SerializeField] private PlayerFollowCamera refCamera;
-    [SerializeField] private GameObject Cylinder;//子オブジェクトの本体をアタッチする
+    [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
 
     bool sizeFlag = true;
     [SerializeField] private PlayerController playerController;
