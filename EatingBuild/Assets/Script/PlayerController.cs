@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerCollider = GetComponent<Collider>();
-        // playerCollider.isTrigger = true;//IsTriggerをON
-        // transform.Rotate(0, 0, 0);//なぜか向きが変わる。このコードがうまくいっていない
+        playerCollider.isTrigger = true;//IsTriggerをON
+        // transform.Rotate(0, 0, 0);//なぜか向きが変わる。このコードがうまくyouいっていない
     }
     void FixedUpdate()
     {
