@@ -385,7 +385,8 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceSmall();
                 sizeFlag = false;
                 playerController.speed += changeSpeed;
-                Debug.Log("speedが0.4になった");
+                VIbrationFunction();
+                Debug.Log("10<x<50");
             }
 
 
@@ -399,6 +400,7 @@ public class EatObjectScript : MonoBehaviour
             {
                 refCamera.CameraDistanceSmall();
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
                 sizeFlag = true;
             }
         }
@@ -412,6 +414,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceSmall();
                 sizeFlag = false;
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
             }
         }
         else if (200 <= p && p < 400)
@@ -424,6 +427,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceSmall();
                 sizeFlag = true;
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
             }
         }
         else if (400 <= p && p < 800)
@@ -436,6 +440,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceMedium();
                 sizeFlag = false;
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
             }
         }
 
@@ -449,6 +454,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceLarge();
                 sizeFlag = true;
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
             }
         }
         else if (1500 <= p && p < 3000)
@@ -461,6 +467,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceLarge();
                 sizeFlag = false;
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
             }
         }
         else if (3000 <= p && p < 5000)
@@ -473,6 +480,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceLarge();
                 sizeFlag = true;
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
             }
         }
         else if (5000 <= p && p < 8000)
@@ -485,6 +493,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceLarge();
                 sizeFlag = false;
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
             }
         }
         else if (8000 <= p && p < 130000)
@@ -497,6 +506,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceLarge();
                 sizeFlag = true;
                 playerController.speed += changeSpeed;
+                VIbrationFunction();
             }
         }
         // else if (13000 <= p && p < 100000000)
@@ -509,6 +519,7 @@ public class EatObjectScript : MonoBehaviour
         //         refCamera.CameraDistanceLarge();
         //         sizeFlag = false;
         //         playerController.speed += changeSpeed;
+        VIbrationFunction();
         //     }
         // }
 
