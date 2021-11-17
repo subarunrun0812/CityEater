@@ -13,6 +13,8 @@ public class RayCamera : MonoBehaviour
     Ray ray;
     RaycastHit hit;//ヒットしたオブジェクト情報
 
+    List<string> RayItemList = new List<string>();//ヒットしたオブジェクトを格納するリスト型
+
     private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
     void Update()
@@ -20,24 +22,19 @@ public class RayCamera : MonoBehaviour
         Vector3 _difference = (player.transform.position - this.transform.position);
         Vector3 _direction = _difference.normalized;//.normalizedベクトルの正規化を行う
         Ray _ray = new Ray(this.transform.position, _direction);
-        var raycastHits = new RaycastHit[5];//// 当たり判定の結果を格納する変数を事前に確保しておく
+
 
         if (Physics.Raycast(this.transform.position, _difference, out hit))
         {
             Debug.Log(hit.collider.tag);
+            RayItemList.Add(hit.collider.tag);
 
-            var hitCount = Physics.RaycastNonAlloc(this.transform.position, _difference, raycastHits); // 結果は事前に確保したhitに前方から順番に書き込みされます
-            var length = raycastHits.Length;
-            Debug.Log("raycastHit配列は" + raycastHits);
-            Debug.Log("hitCountは" + hitCount);
             if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
             {
                 //10p~50pでヒットしたオブジェクトhitobject変数に代入しているため、前rayがhitしていたオブジェクトに参照ができる
                 hitobject.GetComponent<SampleMaterial>().NotClearMaterialInvoke();
                 Debug.Log(hit.collider.tag + "が不透明になったよ！成功だね！");
-                // 配列をクリアします。
-                Array.Clear(raycastHits, 0, length);
-                Debug.Log("配列をクリアにした");
+
             }
             // for (int i = 0; i < hitCount; i++)
             // {
