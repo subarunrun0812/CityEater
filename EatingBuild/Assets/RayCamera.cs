@@ -26,9 +26,10 @@ public class RayCamera : MonoBehaviour
 
         if (Physics.Raycast(this.transform.position, _difference, out hit))
         {
+            RayItemList.Add(hit.collider.tag);//hitしたゲームタグを追加する
+            Debug.Log("RayItemList" + RayItemList);
             Debug.Log(hit.collider.tag);
-            RayItemList.Add(hit.collider.tag);
-            Debug.Log("RayItemList" + RayItemList[1]);
+            Debug.Log(RayItemList.Count);
 
             if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
             {
