@@ -12,7 +12,6 @@ public class RayCamera : MonoBehaviour
 
     [SerializeField] private GameManager gameManager;
 
-    Ray ray;
     RaycastHit hit;//ヒットしたオブジェクト情報
 
     List<string> RayItemList = new List<string>();//ヒットしたオブジェクトを格納するリスト型
@@ -23,10 +22,10 @@ public class RayCamera : MonoBehaviour
     {
         Vector3 _difference = (player.transform.position - this.transform.position);
         Vector3 _direction = _difference.normalized;//.normalizedベクトルの正規化を行う
-        Ray _ray = new Ray(this.transform.position, _direction);
+        Ray ray = new Ray(this.transform.position, _direction);
 
 
-        if (Physics.Raycast(this.transform.position, _difference, out hit))
+        foreach (RaycastHit hit in Physics.RaycastAll(ray))
         {
             RayItemList.Add(hit.collider.tag);//hitしたゲームタグを追加する
             Debug.Log("RayItemList" + RayItemList);
@@ -136,7 +135,7 @@ public class RayCamera : MonoBehaviour
             }
             else if (hit.collider.tag == "30p")
             {
-                if (gameManager.point < 5000)
+                if (gameManager.point < 8000)
                 {
                     hitobject = hit.collider.gameObject;
                     SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
@@ -155,7 +154,7 @@ public class RayCamera : MonoBehaviour
             }
             else if (hit.collider.tag == "50p")
             {
-                if (gameManager.point < 5000)
+                if (gameManager.point < 8000)
                 {
                     hitobject = hit.collider.gameObject;
                     SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
