@@ -10,6 +10,8 @@ public class RayCamera : MonoBehaviour
     [SerializeField]
     private Transform player;
 
+    [SerializeField] private GameManager gameManager;
+
     Ray ray;
     RaycastHit hit;//ヒットしたオブジェクト情報
 
@@ -39,31 +41,152 @@ public class RayCamera : MonoBehaviour
                 RayItemList.Clear();
 
             }
-            else if (hit.collider.tag == "10p" || hit.collider.tag == "12p" || hit.collider.tag == "15p" || hit.collider.tag == "20p"
-            || hit.collider.tag == "30p" || hit.collider.tag == "50p")
+            else if (hit.collider.tag == "10p")
             {
-                hitobject = hit.collider.gameObject;
-                SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
-                if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                if (gameManager.point < 800)
                 {
-                    hit.collider.gameObject.AddComponent<SampleMaterial>();
+                    hitobject = hit.collider.gameObject;
+                    SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+                    if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                    {
+                        hit.collider.gameObject.AddComponent<SampleMaterial>();
+                    }
+                    sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+                    Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
                 }
-                sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
-                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+                else
+                {
+                    //なにもしない
+                }
+            }
+            else if (hit.collider.tag == "10p")
+            {
+                if (gameManager.point < 800)
+                {
+                    hitobject = hit.collider.gameObject;
+                    SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+                    if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                    {
+                        hit.collider.gameObject.AddComponent<SampleMaterial>();
+                    }
+                    sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+                    Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+                }
+                else
+                {
+                    //なにもしない
+                }
+            }
+            else if (hit.collider.tag == "12p")
+            {
+                if (gameManager.point < 1500)
+                {
+                    hitobject = hit.collider.gameObject;
+                    SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+                    if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                    {
+                        hit.collider.gameObject.AddComponent<SampleMaterial>();
+                    }
+                    sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+                    Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+                }
+                else
+                {
+                    //なにもしない
+                }
+
+            }
+            else if (hit.collider.tag == "15p")
+            {
+                if (gameManager.point < 3000)
+                {
+                    hitobject = hit.collider.gameObject;
+                    SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+                    if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                    {
+                        hit.collider.gameObject.AddComponent<SampleMaterial>();
+                    }
+                    sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+                    Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+                }
+                else
+                {
+                    //なにもしない
+                }
+
+            }
+            else if (hit.collider.tag == "20p")
+            {
+                if (gameManager.point < 5000)
+                {
+                    hitobject = hit.collider.gameObject;
+                    SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+                    if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                    {
+                        hit.collider.gameObject.AddComponent<SampleMaterial>();
+                    }
+                    sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+                    Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+                }
+                else
+                {
+                    //なにもしない
+                }
+
+            }
+            else if (hit.collider.tag == "30p")
+            {
+                if (gameManager.point < 5000)
+                {
+                    hitobject = hit.collider.gameObject;
+                    SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+                    if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                    {
+                        hit.collider.gameObject.AddComponent<SampleMaterial>();
+                    }
+                    sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+                    Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+                }
+                else
+                {
+                    //なにもしない
+                }
+
+            }
+            else if (hit.collider.tag == "50p")
+            {
+                if (gameManager.point < 5000)
+                {
+                    hitobject = hit.collider.gameObject;
+                    SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+                    if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                    {
+                        hit.collider.gameObject.AddComponent<SampleMaterial>();
+                    }
+                    sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+                    Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+                }
+                else
+                {
+                    //なにもしない
+                }
+
             }
 
-            else
-            {
-                //なにもしない
-            }
         }
     }
 }
 
 
-//レイキャスト（原点、飛ばす方向、衝突した情報、長さ）
-// Debug.DrawRay(this.transform.position, _difference, Color.yellow);
-// Debug.DrawRay(this.transform.position, _difference, Color.red);
-
-// //Rayが当たったオブジェクトのtagがPlayerだったら
-// if (hit.collider.tag == "Player")
+// else if (hit.collider.tag == "10p" || hit.collider.tag == "12p" || hit.collider.tag == "15p" || hit.collider.tag == "20p"
+//             || hit.collider.tag == "30p" || hit.collider.tag == "50p")
+// {
+//     hitobject = hit.collider.gameObject;
+//     SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+//     if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+//     {
+//         hit.collider.gameObject.AddComponent<SampleMaterial>();
+//     }
+//     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+//     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+// }

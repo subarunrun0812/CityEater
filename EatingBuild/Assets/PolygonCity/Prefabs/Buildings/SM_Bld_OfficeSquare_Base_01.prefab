@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 65360870157553034}
   m_Layer: 0
   m_Name: SM_Bld_OfficeSquare_Base_01
-  m_TagString: 50p
+  m_TagString: 20p
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
+  - {fileID: 2100000, guid: 97942cb5527e6f24eb8b8f5c86f8744d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -187,8 +187,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.275986, y: 58.04474, z: 15.275986}
-  m_Center: {x: -7.5, y: 29.02237, z: -7.5}
+  m_Size: {x: 16.207972, y: 22, z: 15.792107}
+  m_Center: {x: -7.396014, y: 10.890554, z: -7.549078}
 --- !u!1001 &688379813
 PrefabInstance:
   m_ObjectHideFlags: 0
