@@ -95,7 +95,6 @@ public class EatObjectScript : MonoBehaviour
                     {
                         gameManager.AddPoint(1);//ポイントを1追加する
                         col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
-                        Debug.Log(gameManager.point);
                     });
                     VIbrationFunction();
                 }
@@ -115,7 +114,7 @@ public class EatObjectScript : MonoBehaviour
                     {
                         gameManager.AddPoint(2);
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -139,7 +138,7 @@ public class EatObjectScript : MonoBehaviour
                     {
                         gameManager.AddPoint(3);
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -162,7 +161,7 @@ public class EatObjectScript : MonoBehaviour
                     {
                         gameManager.AddPoint(4);
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -185,7 +184,7 @@ public class EatObjectScript : MonoBehaviour
                     {
                         gameManager.AddPoint(5);
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -209,7 +208,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(8);
 
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -232,7 +231,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(10);
 
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -255,7 +254,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(12);
 
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -278,7 +277,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(15);
 
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -301,7 +300,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(20);
 
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -324,7 +323,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(30);
 
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
@@ -347,7 +346,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(50);
 
                         col.gameObject.SetActive(false);
-                        Debug.Log(gameManager.point);
+
                     });
                     VIbrationFunction();
                 }
