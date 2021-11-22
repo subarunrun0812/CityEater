@@ -21,11 +21,21 @@ public class RayCamera : MonoBehaviour
 
     private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
+    void Awake()
+    {
+        GameObject[] apartments = GameObject.FindGameObjectsWithTag("10p");
+        foreach (var item in apartments)
+        {
+            item.AddComponent<SampleMaterial>();
+        }
+    }
+
     void Update()
     {
         Vector3 _difference = (player.transform.position - this.transform.position);
         Vector3 _direction = _difference.normalized;//.normalizedベクトルの正規化を行う
         Ray _ray = new Ray(this.transform.position, _direction);
+        RaycastHit[] rayCastHits = Physics.RaycastAll(_ray);
 
         if (Physics.Raycast(this.transform.position, _difference, out hit))
         {
@@ -37,18 +47,18 @@ public class RayCamera : MonoBehaviour
                 Debug.Log(hit.collider.tag + "が不透明になったよ！成功だね！");
 
             }
-            // else if (hit.collider.tag == "10p" && gameManager.point < eatObject.obj10p)
-            // {
-            //     hitobject = hit.collider.gameObject;
-            //     SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
-            //     if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
-            //     {
-            //         hit.collider.gameObject.AddComponent<SampleMaterial>();
-            //     }
-            //     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
-            //     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+            else if (hit.collider.tag == "10p" && gameManager.point < eatObject.obj10p)
+            {
+                hitobject = hit.collider.gameObject;
+                SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+                if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+                {
+                    hit.collider.gameObject.AddComponent<SampleMaterial>();
+                }
+                sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
 
-            // }
+            }
             else if (hit.collider.tag == "12p" && gameManager.point < eatObject.obj12p)
             {
                 hitobject = hit.collider.gameObject;
