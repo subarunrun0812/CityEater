@@ -37,18 +37,18 @@ public class RayCamera : MonoBehaviour
                 Debug.Log(hit.collider.tag + "が不透明になったよ！成功だね！");
 
             }
-            else if (hit.collider.tag == "10p" && gameManager.point < eatObject.obj10p)
-            {
-                hitobject = hit.collider.gameObject;
-                SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
-                if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
-                {
-                    hit.collider.gameObject.AddComponent<SampleMaterial>();
-                }
-                sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
-                Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+            // else if (hit.collider.tag == "10p" && gameManager.point < eatObject.obj10p)
+            // {
+            //     hitobject = hit.collider.gameObject;
+            //     SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+            //     if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+            //     {
+            //         hit.collider.gameObject.AddComponent<SampleMaterial>();
+            //     }
+            //     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
+            //     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
 
-            }
+            // }
             else if (hit.collider.tag == "12p" && gameManager.point < eatObject.obj12p)
             {
                 hitobject = hit.collider.gameObject;
