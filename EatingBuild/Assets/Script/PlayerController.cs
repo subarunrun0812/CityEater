@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public DynamicJoystick joystick;
+
+    [Header("初期のspeedは0.08")]
     public float speed = 0.3f;
     private Vector3 latestPos;  //前回のPosition
 
