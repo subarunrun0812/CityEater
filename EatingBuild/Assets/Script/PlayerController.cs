@@ -31,10 +31,12 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(diff); //向きを変更する
         }
 
-        // if (this.gameObject.transform.position.y != 0)
-        // {
-        //     this.gameObject.transform.position.y = new ;
-        // }
+
+        if (this.gameObject.transform.position.y != 0)
+        {
+            Vector3 playerPos = this.transform.position;
+            playerPos.y = 0f;
+        }
     }
     void OnTriggerEnter(Collider other)
     {
