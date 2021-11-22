@@ -20,6 +20,19 @@ public class EatObjectScript : MonoBehaviour
 
     [SerializeField] private float changeSpeed = 0.05f;
 
+    public int obj2p = 10;
+    public int obj3p = 50;
+    public int obj4p = 100;
+    public int obj5p = 200;
+    public int obj8p = 400;
+    public int obj10p = 800;
+    public int obj12p = 1500;
+    public int obj15p = 3000;
+    public int obj20p = 5000;
+
+    public int obj30p = 8000;
+    public int obj50p = 8000;
+
     void Start()
     {
         float Playerspeed = playerController.speed;
@@ -91,7 +104,7 @@ public class EatObjectScript : MonoBehaviour
 
             case "2p":
 
-                if (p >= 10)
+                if (p >= obj2p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -115,7 +128,7 @@ public class EatObjectScript : MonoBehaviour
 
             case "3p":
 
-                if (p >= 50)
+                if (p >= obj3p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -138,7 +151,7 @@ public class EatObjectScript : MonoBehaviour
 
             case "4p":
 
-                if (p >= 100)
+                if (p >= obj4p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -161,7 +174,7 @@ public class EatObjectScript : MonoBehaviour
 
             case "5p":
 
-                if (p >= 200)
+                if (p >= obj5p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -184,7 +197,7 @@ public class EatObjectScript : MonoBehaviour
 
 
             case "8p":
-                if (p >= 400)
+                if (p >= obj8p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -207,7 +220,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "10p":
-                if (p >= 800)
+                if (p >= obj10p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -230,7 +243,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "12p":
-                if (p >= 1500)
+                if (p >= obj12p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
@@ -253,7 +266,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "15p":
-                if (p >= 3000)
+                if (p >= obj15p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
@@ -276,7 +289,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "20p":
-                if (p >= 5000)
+                if (p >= obj20p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
@@ -299,7 +312,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "30p":
-                if (p >= 8000)
+                if (p >= obj30p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
@@ -322,7 +335,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "50p":
-                if (p >= 8000)
+                if (p >= obj50p)
                 {
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
@@ -369,13 +382,13 @@ public class EatObjectScript : MonoBehaviour
         //Playerの大きさをポイントに応じて変更する
         int p = gameManager.point;
 
-        if (p < 10)
+        if (p < obj2p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(1f, 1f, 1f), playerScaleTime
             );
         }
-        else if (10 <= p && p < 50)
+        else if (obj2p <= p && p < obj3p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
@@ -385,13 +398,11 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.CameraDistanceSmall();
                 sizeFlag = false;
                 playerController.speed += changeSpeed;
-
-                Debug.Log("10<x<50");
             }
 
 
         }
-        else if (50 <= p && p < 100)
+        else if (obj3p <= p && p < obj4p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(2f, 2f, 2f), playerScaleTime
@@ -403,7 +414,7 @@ public class EatObjectScript : MonoBehaviour
                 sizeFlag = true;
             }
         }
-        else if (100 <= p && p < 200)
+        else if (obj4p <= p && p < obj5p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
@@ -415,7 +426,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (200 <= p && p < 400)
+        else if (obj5p <= p && p < obj8p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(3f, 3f, 3f), playerScaleTime
@@ -427,7 +438,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (400 <= p && p < 800)
+        else if (obj8p <= p && p < obj10p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(4f, 4f, 4f), playerScaleTime
@@ -440,7 +451,7 @@ public class EatObjectScript : MonoBehaviour
             }
         }
 
-        else if (800 <= p && p < 1500)
+        else if (obj10p <= p && p < obj12p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(6f, 6f, 6f), playerScaleTime
@@ -452,7 +463,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (1500 <= p && p < 3000)
+        else if (obj12p <= p && p < obj15p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(8f, 8f, 8f), playerScaleTime
@@ -464,7 +475,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (3000 <= p && p < 5000)
+        else if (obj15p <= p && p < obj20p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(10f, 10f, 10f), playerScaleTime
@@ -476,7 +487,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (5000 <= p && p < 8000)
+        else if (obj20p <= p && p < obj30p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(12f, 12f, 12f), playerScaleTime
@@ -488,7 +499,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (8000 <= p && p < 130000)
+        else if (obj30p <= p && p < obj50p)
         {
             this.gameObject.transform.DOScale(
                 new Vector3(14f, 14f, 14f), playerScaleTime
@@ -500,7 +511,7 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        // else if (13000 <= p && p < 100000000)
+        // else if (obj50p <= p && p < 100000000)
         // {
         //     this.gameObject.transform.DOScale(
         //         new Vector3(16f, 16f, 16f), playerScaleTime
