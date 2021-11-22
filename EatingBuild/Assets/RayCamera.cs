@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 public class RayCamera : MonoBehaviour
 {
     /// <summary>
@@ -18,19 +19,27 @@ public class RayCamera : MonoBehaviour
 
     private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
+    /// 今回の Update で検出された遮蔽物の Renderer コンポーネント。
+    public List<GameObject> gameObjectsList = new List<GameObject>();
+
+    public GameObject[] gameObjectsPreves_;
+
     void Update()
     {
         Vector3 _difference = (player.transform.position - this.transform.position);
         Vector3 _direction = _difference.normalized;//.normalizedベクトルの正規化を行う
         Ray ray = new Ray(this.transform.position, _direction);
+        RaycastHit[] _hits = Physics.RaycastAll(ray);
+        gameObjectsPreves_ = gameObjectsList.ToArray();
+        gameObjectsList.Clear();
 
 
-        foreach (RaycastHit hit in Physics.RaycastAll(ray))
+        foreach (RaycastHit hit in _hits)
         {
             RayItemList.Add(hit.collider.tag);//hitしたゲームタグを追加する
             Debug.Log("RayItemList" + RayItemList);
-            Debug.Log(hit.collider.tag);
-            Debug.Log(RayItemList.Count);
+            Debug.Log("ヒットしたGameObject.tagは" + hit.collider.tag);
+            Debug.Log("RayItemListは" + RayItemList.Count);
 
             if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
             {
@@ -53,10 +62,6 @@ public class RayCamera : MonoBehaviour
                     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
                 }
-                else
-                {
-                    //なにもしない
-                }
             }
             else if (hit.collider.tag == "10p")
             {
@@ -71,10 +76,6 @@ public class RayCamera : MonoBehaviour
                     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
                 }
-                else
-                {
-                    //なにもしない
-                }
             }
             else if (hit.collider.tag == "12p")
             {
@@ -88,10 +89,6 @@ public class RayCamera : MonoBehaviour
                     }
                     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
-                }
-                else
-                {
-                    //なにもしない
                 }
 
             }
@@ -108,10 +105,6 @@ public class RayCamera : MonoBehaviour
                     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
                 }
-                else
-                {
-                    //なにもしない
-                }
 
             }
             else if (hit.collider.tag == "20p")
@@ -126,10 +119,6 @@ public class RayCamera : MonoBehaviour
                     }
                     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
-                }
-                else
-                {
-                    //なにもしない
                 }
 
             }
@@ -146,10 +135,6 @@ public class RayCamera : MonoBehaviour
                     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
                 }
-                else
-                {
-                    //なにもしない
-                }
 
             }
             else if (hit.collider.tag == "50p")
@@ -165,17 +150,22 @@ public class RayCamera : MonoBehaviour
                     sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                     Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
                 }
-                else
-                {
-                    //なにもしない
-                }
 
+            }
+
+        }
+        foreach (GameObject hitgameObject in gameObjectsPreves_.Except<GameObject>(gameObjectsList))
+        {
+            ////hitしたオブジェクトのSampleMaterialコンポーネントを取得
+            SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();
+            if (sampleMaterial != null)
+            {
+                sampleMaterial.NotClearMaterialInvoke();
             }
 
         }
     }
 }
-
 
 // else if (hit.collider.tag == "10p" || hit.collider.tag == "12p" || hit.collider.tag == "15p" || hit.collider.tag == "20p"
 //             || hit.collider.tag == "30p" || hit.collider.tag == "50p")
