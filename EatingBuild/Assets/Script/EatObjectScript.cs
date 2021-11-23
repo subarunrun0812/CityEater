@@ -498,18 +498,18 @@ public class EatObjectScript : MonoBehaviour
                 playerController.speed += changeSpeed;
             }
         }
-        else if (obj30p <= p && p < obj50p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(14f, 14f, 14f), playerScaleTime
-            );
-            if (sizeFlag == false)
-            {
-                refCamera.CameraDistanceLarge();
-                sizeFlag = true;
-                playerController.speed += changeSpeed;
-            }
-        }
+        // else if (obj30p <= p && p < obj50p)
+        // {
+        //     this.gameObject.transform.DOScale(
+        //         new Vector3(14f, 14f, 14f), playerScaleTime
+        //     );
+        //     if (sizeFlag == false)
+        //     {
+        //         refCamera.CameraDistanceLarge();
+        //         sizeFlag = true;
+        //         playerController.speed += changeSpeed;
+        //     }
+        // }
         // else if (obj50p <= p && p < 100000000)
         // {
         //     this.gameObject.transform.DOScale(

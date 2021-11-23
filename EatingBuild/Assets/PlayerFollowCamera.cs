@@ -41,7 +41,7 @@ public class PlayerFollowCamera : MonoBehaviour
 
     public void CameraDistanceMedium()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
     {
-        distance = distance + 5f;
+        distance = distance + 4f;
         Debug.Log(distance);
     }
 
