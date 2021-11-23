@@ -40,36 +40,36 @@ public class PlayerController : MonoBehaviour
             playerPos.y = 0f;
         }
     }
-    // void OnTriggerEnter(Collider other)
-    // {
+    void OnTriggerEnter(Collider other)
+    {
 
-    //     if (other.gameObject.tag == "Wall")
-    //     {
-    //         playerCollider.isTrigger = false;
-    //         Debug.Log("Wallに当たり、IsTriggerがOFFになった");
-    //     }
-    // }
-    // void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.gameObject.tag == "WallCollider")
-    //     {
-    //         StartCoroutine("ColliderCorutine");
-    //         Debug.Log("wallcolliderにあたった");
-    //     }
-    // }
-    // IEnumerator ColliderCorutine()
-    // {
-    //     Debug.Log("Colliderが呼ばれた");
-    //     Time.timeScale = 0;
-    //     yield return new WaitForSeconds(1.0f);
-    //     Time.timeScale = 1;
-    // }
-    // void OnTriggerExit(Collider other)
-    // {
-    //     if (other.gameObject.tag == "Wall")
-    //     {
-    //         playerCollider.isTrigger = true;
-    //         Debug.Log("Wallから離れ、IsTriggerがONになった");
-    //     }
-    // }
+        if (other.gameObject.tag == "Wall")
+        {
+            playerCollider.isTrigger = false;
+            Debug.Log("Wallに当たり、IsTriggerがOFFになった");
+        }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "WallCollider")
+        {
+            StartCoroutine("ColliderCorutine");
+            Debug.Log("wallcolliderにあたった");
+        }
+    }
+    IEnumerator ColliderCorutine()
+    {
+        Debug.Log("Colliderが呼ばれた");
+        Time.timeScale = 0;
+        yield return new WaitForSeconds(1.0f);
+        Time.timeScale = 1;
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            playerCollider.isTrigger = true;
+            Debug.Log("Wallから離れ、IsTriggerがONになった");
+        }
+    }
 }
