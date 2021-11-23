@@ -16,9 +16,7 @@ public class RayCamera : MonoBehaviour
     [SerializeField] private EatObjectScript eatObject;
 
     Ray ray;
-    RaycastHit hit;//ヒットしたオブジェクト情報
-
-
+    // RaycastHit hit;//ヒットしたオブジェクト情報
     private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
     void Awake()
@@ -42,7 +40,9 @@ public class RayCamera : MonoBehaviour
         for (int obj = 0; obj < rayCastHits.Length; obj++)
         {
             RaycastHit hit = rayCastHits[obj];
-            //playerタグに当たったら、配列の中にあるオブジェクトを透明から不透明に戻したい
+            Debug.Log(hit.ToString());
+
+            //playerタグに当たったら、配列の中にあるplayer以外のオブジェクトを透明から不透明に戻したい
             if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
             {
                 SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////objしたオブジェクトのSampleMaterialコンポーネントを取得
