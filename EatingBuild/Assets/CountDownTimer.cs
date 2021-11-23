@@ -25,7 +25,7 @@ public class CountDownTimer : MonoBehaviour
         totalTime = minute * 60 + seconds;
         oldSeconds = 0f;
         timerText = GetComponentInChildren<Text>();
-        // continueButton.SetActive(false);
+        continueButton.SetActive(false);
     }
 
     public void ContinueButtonInvoke()
