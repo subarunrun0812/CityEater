@@ -17,12 +17,23 @@ public class CountDownTimer : MonoBehaviour
     private float oldSeconds;
     [SerializeField]
     private Text timerText;
+    [Header("延長ボタン"), SerializeField]
+    private GameObject continueButton;
 
     void Start()
     {
         totalTime = minute * 60 + seconds;
         oldSeconds = 0f;
         timerText = GetComponentInChildren<Text>();
+        // continueButton.SetActive(false);
+    }
+
+    public void ContinueButtonInvoke()
+    {
+        Time.timeScale = 1;
+        seconds += 30;//30秒追加
+        continueButton.SetActive(false);
+        Debug.Log("ContinueButtonが押された");
     }
 
     void Update()
@@ -49,7 +60,8 @@ public class CountDownTimer : MonoBehaviour
         //制限時間以下になったらコンソールに『制限時間終了』という文字列を表示する
         if (totalTime <= 0f)
         {
-            Debug.Log("制限時間終了");
+            Time.timeScale = 0;
+            continueButton.SetActive(true);
         }
     }
 }

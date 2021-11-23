@@ -376,158 +376,160 @@ public class EatObjectScript : MonoBehaviour
 
 
 
-    void Update()
+    void FixedUpdate()
     {
-        //Playerの大きさをポイントに応じて変更する
-        int p = gameManager.point;
+        {
+            //Playerの大きさをポイントに応じて変更する
+            int p = gameManager.point;
 
-        if (p < obj2p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(1f, 1f, 1f), playerScaleTime
-            );
-        }
-        else if (obj2p <= p && p < obj3p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
-            );
-            if (sizeFlag == true)
+            if (p < obj2p)
             {
-                refCamera.CameraDistanceSmall();
-                sizeFlag = false;
-                playerController.speed += changeSpeed;
+                this.gameObject.transform.DOScale(
+                    new Vector3(1f, 1f, 1f), playerScaleTime
+                );
             }
-
-
-        }
-        else if (obj3p <= p && p < obj4p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(2f, 2f, 2f), playerScaleTime
-            );
-            if (sizeFlag == false)
+            else if (obj2p <= p && p < obj3p)
             {
-                refCamera.CameraDistanceSmall();
-                playerController.speed += changeSpeed;
-                sizeFlag = true;
-            }
-        }
-        else if (obj4p <= p && p < obj5p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
-            );
-            if (sizeFlag == true)
-            {
-                refCamera.CameraDistanceSmall();
-                sizeFlag = false;
-                playerController.speed += changeSpeed;
-            }
-        }
-        else if (obj5p <= p && p < obj8p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(3f, 3f, 3f), playerScaleTime
-            );
-            if (sizeFlag == false)
-            {
-                refCamera.CameraDistanceSmall();
-                sizeFlag = true;
-                playerController.speed += changeSpeed;
-            }
-        }
-        else if (obj8p <= p && p < obj10p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(4f, 4f, 4f), playerScaleTime
-            );
-            if (sizeFlag == true)
-            {
-                refCamera.CameraDistanceMedium();
-                sizeFlag = false;
-                playerController.speed += changeSpeed;
-            }
-        }
-
-        else if (obj10p <= p && p < obj12p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(6f, 6f, 6f), playerScaleTime
-            );
-            if (sizeFlag == false)
-            {
-                refCamera.CameraDistanceLarge();
-                sizeFlag = true;
-                playerController.speed += changeSpeed;
-            }
-        }
-        else if (obj12p <= p && p < obj15p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(8f, 8f, 8f), playerScaleTime
-            );
-            if (sizeFlag == true)
-            {
-                refCamera.CameraDistanceLarge();
-                sizeFlag = false;
-                playerController.speed += changeSpeed;
-            }
-        }
-        else if (obj15p <= p && p < obj20p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(10f, 10f, 10f), playerScaleTime
-            );
-            if (sizeFlag == false)
-            {
-                refCamera.CameraDistanceLarge();
-                sizeFlag = true;
-                playerController.speed += changeSpeed;
-            }
-        }
-        else if (obj20p <= p && p < obj30p)
-        {
-            this.gameObject.transform.DOScale(
-                new Vector3(12f, 12f, 12f), playerScaleTime
-            );
-            if (sizeFlag == true)
-            {
-                refCamera.CameraDistanceLarge();
-                sizeFlag = false;
-                playerController.speed += changeSpeed;
-            }
-        }
-        // else if (obj30p <= p && p < obj50p)
-        // {
-        //     this.gameObject.transform.DOScale(
-        //         new Vector3(14f, 14f, 14f), playerScaleTime
-        //     );
-        //     if (sizeFlag == false)
-        //     {
-        //         refCamera.CameraDistanceLarge();
-        //         sizeFlag = true;
-        //         playerController.speed += changeSpeed;
-        //     }
-        // }
-        // else if (obj50p <= p && p < 100000000)
-        // {
-        //     this.gameObject.transform.DOScale(
-        //         new Vector3(16f, 16f, 16f), playerScaleTime
-        //     );
-        //     if (sizeFlag == true)
-        //     {
-        //         refCamera.CameraDistanceLarge();
-        //         sizeFlag = false;
-        //         playerController.speed += changeSpeed;
-        //     }
-        // }
+                this.gameObject.transform.DOScale(
+                    new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    refCamera.CameraDistanceSmall();
+                    sizeFlag = false;
+                    playerController.speed += changeSpeed;
+                }
 
 
+            }
+            else if (obj3p <= p && p < obj4p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(2f, 2f, 2f), playerScaleTime
+                );
+                if (sizeFlag == false)
+                {
+                    refCamera.CameraDistanceSmall();
+                    playerController.speed += changeSpeed;
+                    sizeFlag = true;
+                }
+            }
+            else if (obj4p <= p && p < obj5p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    refCamera.CameraDistanceSmall();
+                    sizeFlag = false;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            else if (obj5p <= p && p < obj8p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(3f, 3f, 3f), playerScaleTime
+                );
+                if (sizeFlag == false)
+                {
+                    refCamera.CameraDistanceSmall();
+                    sizeFlag = true;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            else if (obj8p <= p && p < obj10p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(4f, 4f, 4f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    refCamera.CameraDistanceMedium();
+                    sizeFlag = false;
+                    playerController.speed += changeSpeed;
+                }
+            }
 
+            else if (obj10p <= p && p < obj12p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(6f, 6f, 6f), playerScaleTime
+                );
+                if (sizeFlag == false)
+                {
+                    refCamera.CameraDistanceLarge();
+                    sizeFlag = true;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            else if (obj12p <= p && p < obj15p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(8f, 8f, 8f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    refCamera.CameraDistanceLarge();
+                    sizeFlag = false;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            else if (obj15p <= p && p < obj20p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(10f, 10f, 10f), playerScaleTime
+                );
+                if (sizeFlag == false)
+                {
+                    refCamera.CameraDistanceLarge();
+                    sizeFlag = true;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            else if (obj20p <= p && p < obj30p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(12f, 12f, 12f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    refCamera.CameraDistanceLarge();
+                    sizeFlag = false;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            // else if (obj30p <= p && p < obj50p)
+            // {
+            //     this.gameObject.transform.DOScale(
+            //         new Vector3(14f, 14f, 14f), playerScaleTime
+            //     );
+            //     if (sizeFlag == false)
+            //     {
+            //         refCamera.CameraDistanceLarge();
+            //         sizeFlag = true;
+            //         playerController.speed += changeSpeed;
+            //     }
+            // }
+            // else if (obj50p <= p && p < 100000000)
+            // {
+            //     this.gameObject.transform.DOScale(
+            //         new Vector3(16f, 16f, 16f), playerScaleTime
+            //     );
+            //     if (sizeFlag == true)
+            //     {
+            //         refCamera.CameraDistanceLarge();
+            //         sizeFlag = false;
+            //         playerController.speed += changeSpeed;
+            //     }
+            // }
+
+
+
+
+
+        }
 
 
     }
-
-
 }

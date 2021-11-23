@@ -9,6 +9,9 @@ public class TimerScript : MonoBehaviour
     [SerializeField] private float seconds;
     private float oldSeconds;//前のUpdateの時の秒数
     [SerializeField] private Text timerText;//タイマー表示用テキスト
+
+
+
     void Start()
     {
         minute = 0;
@@ -16,7 +19,8 @@ public class TimerScript : MonoBehaviour
         oldSeconds = 0f;
     }
 
-    void Update()
+    void FixedUpdate()//時間延長になった時にタイマーを再開さしたいからfiexdUpdate関数を使っている
+
     {
         seconds += Time.deltaTime;
         if (seconds >= 60)
