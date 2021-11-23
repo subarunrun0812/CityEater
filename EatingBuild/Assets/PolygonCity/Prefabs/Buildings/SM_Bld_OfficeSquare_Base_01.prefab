@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 65360870157553034}
   m_Layer: 0
   m_Name: SM_Bld_OfficeSquare_Base_01
-  m_TagString: 20p
+  m_TagString: 50p
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

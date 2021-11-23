@@ -19,14 +19,7 @@ public class RayCamera : MonoBehaviour
     // RaycastHit hit;//ヒットしたオブジェクト情報
     private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
-    void Awake()
-    {
-        GameObject[] apartments = GameObject.FindGameObjectsWithTag("10p");
-        foreach (var item in apartments)
-        {
-            item.AddComponent<SampleMaterial>();
-        }
-    }
+
 
     void Update()
     {
