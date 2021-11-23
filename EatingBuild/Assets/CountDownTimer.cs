@@ -38,11 +38,7 @@ public class CountDownTimer : MonoBehaviour
 
     void Update()
     {
-        //制限時間が0秒以下なら何もしない
-        if (totalTime <= 0f)
-        {
-            return;
-        }
+
         //一旦トータルの制限時間を計測；
         totalTime = minute * 60 + seconds;
         totalTime -= Time.deltaTime;
