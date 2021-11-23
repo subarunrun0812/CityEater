@@ -40,7 +40,7 @@ public class RayCamera : MonoBehaviour
         for (int obj = 0; obj < rayCastHits.Length; obj++)
         {
             RaycastHit hit = rayCastHits[obj];
-            Debug.Log(hit.normal);
+            Debug.Log(hit.transform.tag);
 
             SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////objしたオブジェクトのSampleMaterialコンポーネントを取得
             if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
