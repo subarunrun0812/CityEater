@@ -26,8 +26,9 @@ public class GameManager : MonoBehaviour
         // .SetRelative()
         // .Pause()
         // .SetAutoKill(false);
-
     }
+
+
 
     void Update()
     {

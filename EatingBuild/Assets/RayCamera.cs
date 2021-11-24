@@ -34,7 +34,6 @@ public class RayCamera : MonoBehaviour
         // if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
         // {
         //     // sampleMaterial.NotClearMaterialInvoke();
-        //     Debug.Log(sampleMaterial.tag + "が不透明になったよ！成功だね！");
         // }
         if (Physics.Raycast(this.transform.position, _difference, out rayhits))
         {
