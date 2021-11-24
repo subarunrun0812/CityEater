@@ -10,7 +10,7 @@ public class CarMove : MonoBehaviour
     private int destPoint = 0;
     private NavMeshAgent agentCar;
 
-    void Start()
+    void Awake()
     {
         agentCar = GetComponent<NavMeshAgent>();
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
