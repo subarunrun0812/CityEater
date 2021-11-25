@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class swipe : MonoBehaviour
 {
-    public Color[] colors;
+    public Color[] colors;//スキン一覧の丸ボタンの色
     public GameObject scrollbar, imageContent;
     private float scroll_pos = 0;
     float[] pos;
@@ -22,47 +22,50 @@ public class swipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pos = new float[transform.childCount];
-        float distance = 1f / (pos.Length - 1f);
+        pos = new float[transform.childCount];//子オブジェクトの数を代入
+        float distance = 1f / (pos.Length - 1f);//
 
         if (runIt)
         {
             GecisiDuzenle(distance, pos, takeTheBtn);
             time += Time.deltaTime;
 
-            if (time > 1f)
+            if (time > 1f)//もし、１秒以上経過していたら
             {
-                time = 0;
+                time = 0;//時間を０にする
                 runIt = false;
             }
         }
 
-        for (int i = 0; i < pos.Length; i++)
+        //子オブジェクト(スキンの種類 or ボタン)の数で次のボタンまでの間隔を決める
+        for (int i = 0; i < pos.Length; i++)//子オブジェクトが少ないほど、感覚が広くなる
         {
             pos[i] = distance * i;
         }
 
         if (Input.GetMouseButton(0))
         {
-            scroll_pos = scrollbar.GetComponent<Scrollbar>().value;
+            scroll_pos = scrollbar.GetComponent<Scrollbar>().value;//スクロールバーの現在値。0 と 1 の間で表現されます。
         }
         else
         {
             for (int i = 0; i < pos.Length; i++)
             {
+
                 if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
                 {
                     scrollbar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollbar.GetComponent<Scrollbar>().value, pos[i], 0.1f);
                 }
             }
         }
-
-
+        ///<summary>
+        /// .Lerp(始点となるベクトル位置（型：Vector3）,終点となるベクトル位置（型：Vector3), 両端の距離を1とした時の割合（型：float, 0~1の範囲のみ）
+        ///</summary>
         for (int i = 0; i < pos.Length; i++)
         {
             if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
             {
-                Debug.LogWarning("Current Selected Level" + i);
+                Debug.LogWarning("Current Selected Level" + i);//何番目のButtonを表示しているか、コンソールに表示する
                 transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f);
                 imageContent.transform.GetChild(i).localScale = Vector2.Lerp(imageContent.transform.GetChild(i).localScale, new Vector2(1.2f, 1.2f), 0.1f);
                 imageContent.transform.GetChild(i).GetComponent<Image>().color = colors[1];
@@ -71,8 +74,8 @@ public class swipe : MonoBehaviour
                     if (j != i)
                     {
                         imageContent.transform.GetChild(j).GetComponent<Image>().color = colors[0];
-                        imageContent.transform.GetChild(j).localScale = Vector2.Lerp(imageContent.transform.GetChild(j).localScale, new Vector2(0.8f, 0.8f), 0.1f);
-                        transform.GetChild(j).localScale = Vector2.Lerp(transform.GetChild(j).localScale, new Vector2(0.8f, 0.8f), 0.1f);
+                        imageContent.transform.GetChild(j).localScale = Vector2.Lerp(imageContent.transform.GetChild(j).localScale, new Vector2(0.6f, 0.6f), 0.1f);
+                        transform.GetChild(j).localScale = Vector2.Lerp(transform.GetChild(j).localScale, new Vector2(0.6f, 0.6f), 0.1f);
                     }
                 }
             }
@@ -115,7 +118,7 @@ public class swipe : MonoBehaviour
             }
         }
 
-       
+
     }
 
 }
