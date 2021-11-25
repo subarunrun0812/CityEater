@@ -29,7 +29,7 @@ public class ChangeSkin : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _changeskin[skin_number].SetActive(false));
+            _changeskin[skin_number].SetActive(false);
             skin_number++;
             _changeskin[skin_number].SetActive(true);
         }
