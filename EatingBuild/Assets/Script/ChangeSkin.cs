@@ -4,35 +4,33 @@ using UnityEngine;
 using System.Linq;
 
 
-public class ChangeSkin : MonoBehaviour
+public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
 {
     [SerializeField]
     private GameObject[] _changeskin;
-    private int skin_number;
+    // private int skin_number;
 
 
     void Start()
     {
-        skin_number = 0;
+        _changeskin[0].SetActive(true);
+        Debug.Log(_changeskin.Length);
+    }
+    public void ChangeSkinButton0()//buttonを押したらスキンが変わっていく
+    {
+        Resetchangeskin();
         _changeskin[0].SetActive(true);
     }
-    public void ChangeSkin_1()
+    public void ChangeSkinButton1()//buttonを押したらスキンが変わっていく
     {
-
+        Resetchangeskin();
+        _changeskin[1].SetActive(true);
     }
-    void Update()
+    private void Resetchangeskin()//全ての着せ替えを非表示にする
     {
-        //なにも設定されていないときに返します
-        if (_changeskin.Length == 0)
-            return;
-
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        for (int i = 0; i < _changeskin.Length; i++)
         {
-            _changeskin[skin_number].SetActive(false);
-            skin_number++;
-            _changeskin[skin_number].SetActive(true);
+            _changeskin[i].SetActive(false);
         }
-
     }
 }
