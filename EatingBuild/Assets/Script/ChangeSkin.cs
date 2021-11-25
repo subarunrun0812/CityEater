@@ -9,6 +9,8 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     [SerializeField]
     private GameObject[] _changeskin;
     // private int skin_number;
+
+    //スキンをアンロックしセーブする時にint型の変数を使ったら楽そうだから
     public static int changeNumber;//staticはシーン遷移しても保存させる
 
 
