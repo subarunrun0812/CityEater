@@ -5,9 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class StartGameManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject startButton;
+
+    [SerializeField]
+    private GameObject changeSkinbutton;
+
+    [SerializeField]
+    private GameObject scrollviewbutton;
+
+
+    void Start()
+    {
+        changeSkinbutton.SetActive(true);
+        startButton.SetActive(true);
+
+        scrollviewbutton.SetActive(false);
+    }
     public void StartButton()
     {
         SceneManager.LoadScene("Demo");
+    }
+
+    public void ActiveChangeSkinButton()//buttonが押されたらscrollviewを表示する
+    {
+        changeSkinbutton.SetActive(false);
+        startButton.SetActive(false);
+
+        scrollviewbutton.SetActive(true);
+    }
+
+    public void CloseChangeSkinButton() //buttonが押されたらscrollviewを非表示にする
+    {
+        changeSkinbutton.SetActive(true);
+        startButton.SetActive(true);
+
+        scrollviewbutton.SetActive(false);
     }
 
     void Update()
