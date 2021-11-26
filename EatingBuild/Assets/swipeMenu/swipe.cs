@@ -19,7 +19,6 @@ public class swipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("scroll_posは" + scroll_pos);
         pos = new float[transform.childCount];//子オブジェクトの数を代入
         float distance = 1f / (pos.Length - 1f);//横幅か間隔？？ (例)pos = 3 の時、2分の1
 
@@ -42,9 +41,11 @@ public class swipe : MonoBehaviour
             pos[i] = distance * i;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))//もし、マウスの左クリックしたとき
         {
-            //スクロールバーの現在値。0 と 1 の間で表現されます。
+            ///<summary>
+            ///スクロールバーの現在値。0 と 1 の間で表現されます。
+            ///</summary>
             scroll_pos = scrollbar.GetComponent<Scrollbar>().value;
         }
         else
@@ -52,6 +53,7 @@ public class swipe : MonoBehaviour
             for (int i = 0; i < pos.Length; i++)
             {
 
+                //ずっと呼ばれているけど、なにかわからない
                 if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
                 {
                     scrollbar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollbar.GetComponent<Scrollbar>().value, pos[i], 0.1f);
@@ -102,10 +104,12 @@ public class swipe : MonoBehaviour
 
         for (int i = 0; i < pos.Length; i++)
         {
+
+            //配列の0番目の要素を選択したら、呼ばれる
             if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
             {
+                //Mathf = 一般的な数学関数を扱います。
                 scrollbar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollbar.GetComponent<Scrollbar>().value, pos[btnNumber], 1f * Time.deltaTime);
-
             }
         }
 
