@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class swipe : MonoBehaviour
 {
-    public Color[] colors;//スキン一覧の丸ボタンの色
+    public Color[] colors; // 下の小さいボタンの通常時の色 または 選択(拡大)された時の色
     public GameObject scrollbar, imageContent;
     private float scroll_pos = 0;
     float[] pos;
@@ -14,38 +14,38 @@ public class swipe : MonoBehaviour
     private Button takeTheBtn;
     int btnNumber;
     // Start is called before the first frame update
-    void Start()
-    {
 
-    }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("scroll_posは" + scroll_pos);
         pos = new float[transform.childCount];//子オブジェクトの数を代入
-        float distance = 1f / (pos.Length - 1f);//
+        float distance = 1f / (pos.Length - 1f);//横幅か間隔？？ (例)pos = 3 の時、2分の1
 
         if (runIt)
         {
             GecisiDuzenle(distance, pos, takeTheBtn);
             time += Time.deltaTime;
 
-            if (time > 1f)//もし、１秒以上経過していたら
+            if (time > 1f)
             {
-                time = 0;//時間を０にする
+                time = 0;
                 runIt = false;
             }
         }
 
         //子オブジェクト(スキンの種類 or ボタン)の数で次のボタンまでの間隔を決める
-        for (int i = 0; i < pos.Length; i++)//子オブジェクトが少ないほど、感覚が広くなる
+        for (int i = 0; i < pos.Length; i++)
         {
+            //子オブジェクトが少ないほど、感覚が広くなる
             pos[i] = distance * i;
         }
 
         if (Input.GetMouseButton(0))
         {
-            scroll_pos = scrollbar.GetComponent<Scrollbar>().value;//スクロールバーの現在値。0 と 1 の間で表現されます。
+            //スクロールバーの現在値。0 と 1 の間で表現されます。
+            scroll_pos = scrollbar.GetComponent<Scrollbar>().value;
         }
         else
         {
@@ -58,24 +58,36 @@ public class swipe : MonoBehaviour
                 }
             }
         }
-        ///<summary>
-        /// .Lerp(始点となるベクトル位置（型：Vector3）,終点となるベクトル位置（型：Vector3), 両端の距離を1とした時の割合（型：float, 0~1の範囲のみ）
-        ///</summary>
+
+        // .Lerp(始点となるベクトル位置（型：Vector3）,終点となるベクトル位置（型：Vector3), 両端の距離を1とした時の割合（型：float, 0~1の範囲のみ）
+
         for (int i = 0; i < pos.Length; i++)
         {
             if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
             {
                 Debug.LogWarning("Current Selected Level" + i);//何番目のButtonを表示しているか、コンソールに表示する
-                transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f);
-                imageContent.transform.GetChild(i).localScale = Vector2.Lerp(imageContent.transform.GetChild(i).localScale, new Vector2(1.2f, 1.2f), 0.1f);
+
+                //スキンの画像が選択(拡大)された時の大きさ。
+                transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(0.9f, 0.7f), 0.1f);
+
+                // 下の小さいボタンが選択(拡大)された時の大きさ。
+                imageContent.transform.GetChild(i).localScale = Vector2.Lerp(imageContent.transform.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f); ;
+
+                // 下の小さいボタンが選択(拡大)された時の色
                 imageContent.transform.GetChild(i).GetComponent<Image>().color = colors[1];
+
                 for (int j = 0; j < pos.Length; j++)
                 {
-                    if (j != i)
+                    if (j != i)//何も選択していない時(通常時)に表示されるボタンの設定
                     {
+                        // 下の小さいボタンの色
                         imageContent.transform.GetChild(j).GetComponent<Image>().color = colors[0];
-                        imageContent.transform.GetChild(j).localScale = Vector2.Lerp(imageContent.transform.GetChild(j).localScale, new Vector2(0.6f, 0.6f), 0.1f);
-                        transform.GetChild(j).localScale = Vector2.Lerp(transform.GetChild(j).localScale, new Vector2(0.6f, 0.6f), 0.1f);
+
+                        //下に表示されるボタン大きさ
+                        imageContent.transform.GetChild(j).localScale = Vector2.Lerp(imageContent.transform.GetChild(j).localScale, new Vector2(0.8f, 0.8f), 0.1f);
+
+                        //スキンの画像の大きさ
+                        transform.GetChild(j).localScale = Vector2.Lerp(transform.GetChild(j).localScale, new Vector2(0.7f, 0.5f), 0.1f);
                     }
                 }
             }
@@ -99,6 +111,7 @@ public class swipe : MonoBehaviour
 
         for (int i = 0; i < btn.transform.parent.transform.childCount; i++)
         {
+            //多分、下にある小さいボタンを追加する
             btn.transform.name = ".";
         }
 
@@ -108,6 +121,7 @@ public class swipe : MonoBehaviour
         btn.transform.name = "clicked";
         for (int i = 0; i < btn.transform.parent.transform.childCount; i++)
         {
+            //押したボタンの順番と 変数i が一致したら処理を行う
             if (btn.transform.parent.transform.GetChild(i).transform.name == "clicked")
             {
                 btnNumber = i;
