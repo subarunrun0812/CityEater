@@ -35,14 +35,8 @@ public class SCCameraCoverTransparent : MonoBehaviour
     /// 前回の Update で検出された遮蔽物の Renderer コンポーネント。
     /// 今回の Update で該当しない場合は、遮蔽物ではなくなったので Renderer コンポーネントを有効にする。
     /// </summary>
-    public Renderer[] rendererHitsPrevs_;//過去の配列 or list をいれる。
+    public Renderer[] rendererHitsPrevs_;
 
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
 
 
     // Update is called once per frame

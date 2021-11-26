@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 public class RayCamera : MonoBehaviour
 {
     /// <summary>
@@ -19,7 +20,16 @@ public class RayCamera : MonoBehaviour
     RaycastHit rayhits;//ヒットしたオブジェクト情報
     private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
-    GameObject[] prevRaycast;//透明にしたGameObjectをいれる
+    /// <summary>
+    /// 前回の Update で検出された遮蔽物のGameObject。
+    /// 今回の Update で該当しない場合は、遮蔽物ではなくなったので 不透明にする
+    /// </summary>
+    public GameObject[] prevRaycast;
+
+    /// <summary>
+    /// 今回の Update で検出された遮蔽物の GameObject コンポーネント。
+    /// </summary>
+    public List<GameObject> raycastHitsList_ = new List<GameObject>();
 
 
 
@@ -31,22 +41,12 @@ public class RayCamera : MonoBehaviour
         // Rayが衝突した全てのコライダーの情報を得る
         RaycastHit[] rayCastHits = Physics.RaycastAll(_ray);
 
-        foreach (var item in prevRaycast)
+        prevRaycast = raycastHitsList_.ToArray();//List<RaycastHitList_> の要素をprevRaycast配列にコピーします。
+        raycastHitsList_.Clear();//リストをクリアにする
+
+        foreach (RaycastHit hit in rayCastHits)
         {
-
-        }
-
-
-
-        for (int index = 0; index < rayCastHits.Length; index++)
-        {
-            RaycastHit hit = rayCastHits[index];
-            Debug.Log("RaycastAllで" + hit.transform.tag + "があたった");
             SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////objしたオブジェクトのSampleMaterialコンポーネントを取得
-            if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
-            {
-                hit.collider.gameObject.AddComponent<SampleMaterial>();//これの場合 hit == Player;
-            }
 
             if (
             hit.collider.tag == "10p" && gameManager.point < eatObject.obj10p || hit.collider.tag == "12p" && gameManager.point < eatObject.obj12p ||
@@ -54,11 +54,20 @@ public class RayCamera : MonoBehaviour
             hit.collider.tag == "30p" && gameManager.point < eatObject.obj30p || hit.collider.tag == "50p" && gameManager.point < eatObject.obj50p)
             {
                 sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
-                //     for (int i = 0; i < hit.length; i++)//透~明にしたオブジェクトを格納する
-                //     {
-                //         RaycastHit prevRaycast[] =
-                //    }
+                raycastHitsList_.Add(hit.collider.gameObject);//hitしたgameobjectを追加する
             }
+        }
+
+        //.Except = 既定の等値比較子を使用して値を比較することにより、2 つのシーケンスの差集合を生成します。
+        foreach (GameObject _gameObject in prevRaycast.Except<GameObject>(raycastHitsList_))
+        {
+            SampleMaterial noSampleMaterial = _gameObject.GetComponent<SampleMaterial>();
+            // 遮蔽物でなくなったGameObjectを不透明に戻す
+            if (_gameObject != null)
+            {
+                noSampleMaterial.NotClearMaterialInvoke();
+            }
+
         }
     }
 }
