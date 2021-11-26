@@ -17,23 +17,29 @@ public class CountDownTimer : MonoBehaviour
     private float oldSeconds;
     [SerializeField]
     private Text timerText;
-    [Header("延長ボタン"), SerializeField]
-    private GameObject continueButton;
+    [Header("時間が０になったとき"), SerializeField]
+    private GameObject notime;
+
 
     void Start()
     {
         totalTime = minute * 60 + seconds;
         oldSeconds = 0f;
         timerText = GetComponentInChildren<Text>();
-        continueButton.SetActive(false);
+        notime.SetActive(false);
     }
 
     public void ContinueButtonInvoke()
     {
         Time.timeScale = 1;
         seconds += 30;//30秒追加
-        continueButton.SetActive(false);
+        notime.SetActive(false);
         Debug.Log("ContinueButtonが押された");
+    }
+    public void QuitButton()
+    {
+        Application.Quit();
+        Debug.Log("quit関数がよばれた");
     }
 
     void Update()
@@ -57,7 +63,7 @@ public class CountDownTimer : MonoBehaviour
         if (totalTime <= 0f)
         {
             Time.timeScale = 0;
-            continueButton.SetActive(true);
+            notime.SetActive(true);
         }
     }
 }
