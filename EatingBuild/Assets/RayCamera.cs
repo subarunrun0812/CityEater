@@ -19,6 +19,8 @@ public class RayCamera : MonoBehaviour
     RaycastHit rayhits;//ヒットしたオブジェクト情報
     private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
+    GameObject[] prevRaycast;//透明にしたGameObjectをいれる
+
 
 
     void Update()
@@ -29,44 +31,16 @@ public class RayCamera : MonoBehaviour
         // Rayが衝突した全てのコライダーの情報を得る
         RaycastHit[] rayCastHits = Physics.RaycastAll(_ray);
 
-
-        //playerタグに当たったら、配列の中にあるplayer以外のオブジェクトを透明から不透明に戻したい
-        // if (hit.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
-        // {
-        //     // sampleMaterial.NotClearMaterialInvoke();
-        // }
-        if (Physics.Raycast(this.transform.position, _difference, out rayhits))
+        foreach (var item in prevRaycast)
         {
 
-            if (rayhits.collider.tag == "Player")//半透明にしていたGameObjectを不透明に戻す
-            {
-                for (int obj = 0; obj < rayCastHits.Length; obj++)
-                {
-
-                    RaycastHit rayhit = rayCastHits[obj];
-                    SampleMaterial sampleMaterial = rayhit.collider.GetComponent<SampleMaterial>();////objしたオブジェクトのSampleMaterialコンポーネントを取得
-                    if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
-                    {
-                        rayhit.collider.gameObject.AddComponent<SampleMaterial>();//これの場合 rayhit == Player;
-                    }
-
-                    if (
-                    rayhit.collider.tag == "10p" && gameManager.point < eatObject.obj10p || rayhit.collider.tag == "12p" && gameManager.point < eatObject.obj12p ||
-                    rayhit.collider.tag == "15p" && gameManager.point < eatObject.obj15p || rayhit.collider.tag == "20p" && gameManager.point < eatObject.obj20p ||
-                    rayhit.collider.tag == "30p" && gameManager.point < eatObject.obj30p || rayhit.collider.tag == "50p" && gameManager.point < eatObject.obj50p)
-                    {
-                        sampleMaterial.NotClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
-                        // Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
-                    }
-                }
-            }
         }
 
 
 
-        for (int obj = 0; obj < rayCastHits.Length; obj++)
+        for (int index = 0; index < rayCastHits.Length; index++)
         {
-            RaycastHit hit = rayCastHits[obj];
+            RaycastHit hit = rayCastHits[index];
             Debug.Log("RaycastAllで" + hit.transform.tag + "があたった");
             SampleMaterial sampleMaterial = hit.collider.GetComponent<SampleMaterial>();////objしたオブジェクトのSampleMaterialコンポーネントを取得
             if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
@@ -80,7 +54,10 @@ public class RayCamera : MonoBehaviour
             hit.collider.tag == "30p" && gameManager.point < eatObject.obj30p || hit.collider.tag == "50p" && gameManager.point < eatObject.obj50p)
             {
                 sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
-                // Debug.Log(hit.collider.tag + "が呼ばれたよ。やったー!!!");
+                //     for (int i = 0; i < hit.length; i++)//透~明にしたオブジェクトを格納する
+                //     {
+                //         RaycastHit prevRaycast[] =
+                //    }
             }
         }
     }

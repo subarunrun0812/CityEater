@@ -20,11 +20,6 @@ public class SCCameraCoverTransparent : MonoBehaviour
     [SerializeField]
     private Transform subject_;
 
-    /// <summary>
-    /// 遮蔽物のレイヤー名のリスト。
-    /// </summary>
-    [SerializeField]
-    private List<string> coverLayerNameList_;
 
     /// <summary>
     /// 遮蔽物とするレイヤーマスク。
@@ -40,18 +35,12 @@ public class SCCameraCoverTransparent : MonoBehaviour
     /// 前回の Update で検出された遮蔽物の Renderer コンポーネント。
     /// 今回の Update で該当しない場合は、遮蔽物ではなくなったので Renderer コンポーネントを有効にする。
     /// </summary>
-    public Renderer[] rendererHitsPrevs_;
+    public Renderer[] rendererHitsPrevs_;//過去の配列 or list をいれる。
 
 
     // Use this for initialization
     void Start()
     {
-        // 遮蔽物のレイヤーマスクを、レイヤー名のリストから合成する。
-        layerMask_ = 0;
-        foreach (string _layerName in coverLayerNameList_)
-        {
-            layerMask_ |= 1 << LayerMask.NameToLayer(_layerName);
-        }
 
     }
 
