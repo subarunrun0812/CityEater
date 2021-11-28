@@ -5,10 +5,10 @@ using DG.Tweening;
 public class EatObjectScript : MonoBehaviour
 {
 
-    [SerializeField] private float smallTime = 2;//objectを小さくするのにかかる時間
-    [SerializeField] private float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
-    [SerializeField] private float smallTimeBigApartment = 0.8f;//大きいビルを小さくするのにかかる時間
-    [SerializeField] private float playerScaleTime = 1;//プレイヤーを大きくするのにかかる時間
+    public float smallTime = 2;//objectを小さくするのにかかる時間
+    public float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
+    public float smallTimeBigApartment = 0.8f;//大きいビルを小さくするのにかかる時間
+    public float playerScaleTime = 1;//プレイヤーを大きくするのにかかる時間
 
     [SerializeField] private GameManager gameManager;
 
@@ -18,7 +18,7 @@ public class EatObjectScript : MonoBehaviour
     bool sizeFlag = true;
     [SerializeField] private PlayerController playerController;
 
-    [SerializeField] private float changeSpeed = 0.05f;
+    public float changeSpeed = 0.05f;
 
     public int obj2p = 10;
     public int obj3p = 50;
