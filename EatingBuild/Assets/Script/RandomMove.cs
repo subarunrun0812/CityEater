@@ -51,8 +51,9 @@ public class RandomMove : MonoBehaviour
     {
         //経路探索の準備ができておらず
         //目標地点までの距離が0.5m未満ならNavMeshAgentを止める
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
-            StopHere();
+        if (!agent.pathPending && agent.remainingDistance < 1f)
+            //目標地点を設定し直す
+            GotoNextPoint();
     }
 
     void StopHere()

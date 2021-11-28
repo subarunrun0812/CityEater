@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.AI;
 public class NPCEatObjectScript : MonoBehaviour
 {
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
@@ -13,17 +14,16 @@ public class NPCEatObjectScript : MonoBehaviour
         point = point + number;
     }
     [SerializeField] private int point;//大きさを変える時などに使うポイント
-
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
-
     bool sizeFlag = true;
-    [SerializeField] private PlayerController playerController;
+    private NavMeshAgent _agent;
 
-    private float changeSpeed = 0.05f;
+    private float addSpped = 2f;
 
     void Start()
     {
-        float Playerspeed = playerController.speed;
+        _agent = this.GetComponent<NavMeshAgent>();
+        float agentspeed = _agent.speed;
     }
 
 
@@ -47,7 +47,6 @@ public class NPCEatObjectScript : MonoBehaviour
         int obj20p = eatObj.obj20p;
         int obj30p = eatObj.obj30p;
         int obj50p = eatObj.obj50p;
-        changeSpeed = eatObj.changeSpeed;
         int p = point;
 
         switch (col.gameObject.tag)
@@ -367,7 +366,6 @@ public class NPCEatObjectScript : MonoBehaviour
         int obj20p = eatObj.obj20p;
         int obj30p = eatObj.obj30p;
         int obj50p = eatObj.obj50p;
-        changeSpeed = eatObj.changeSpeed;
         {
             //Playerの大きさをポイントに応じて変更する
             int p = point;
@@ -386,7 +384,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                 }
 
 
@@ -398,7 +396,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == false)
                 {
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                     sizeFlag = true;
                 }
             }
@@ -410,7 +408,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                 }
             }
             else if (obj5p <= p && p < obj8p)
@@ -421,7 +419,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                 }
             }
             else if (obj8p <= p && p < obj10p)
@@ -433,7 +431,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
 
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                 }
             }
 
@@ -445,7 +443,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                 }
             }
             else if (obj12p <= p && p < obj15p)
@@ -456,7 +454,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                 }
             }
             else if (obj15p <= p && p < obj20p)
@@ -467,7 +465,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                 }
             }
             else if (obj20p <= p && p < obj30p)
@@ -478,7 +476,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    _agent.speed += addSpped;
                 }
             }
             // else if (obj30p <= p && p < obj50p)
