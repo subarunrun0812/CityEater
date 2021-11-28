@@ -17,7 +17,7 @@ public class NPCEatObjectScript : MonoBehaviour
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     bool sizeFlag = true;
     private NavMeshAgent _agent;
-    private float addSpped = 2f;
+    private float addSpped = 1f;
     [SerializeField] private GameManager gameManager;
 
     void Start()
@@ -58,10 +58,10 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (p > gameManager.point)
                 {
                     col.transform.DOShakeRotation(
-                         duration: smallTimeBigApartment,   // 演出時間
+                         duration: 0.5f,   // 演出時間
                          strength: 60f   // シェイクの強さ
                     );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
                         NPCAddPoint(gameManager.point);
@@ -79,13 +79,13 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (p > col.gameObject.GetComponent<NPCEatObjectScript>().point)
                 {
                     col.transform.DOShakeRotation(
-                         duration: smallTimeBigApartment,   // 演出時間
+                         duration: 0.5f,   // 演出時間
                          strength: 60f   // シェイクの強さ
                     );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
+                        NPCAddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
                         col.gameObject.SetActive(false);
 
                     });

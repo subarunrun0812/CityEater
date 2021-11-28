@@ -64,10 +64,10 @@ public class EatObjectScript : MonoBehaviour
                 if (p > col.gameObject.GetComponent<NPCEatObjectScript>().point)
                 {
                     col.transform.DOShakeRotation(
-                         duration: smallTimeBigApartment,   // 演出時間
+                         duration: 0.5f,   // 演出時間
                          strength: 60f   // シェイクの強さ
                     );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
                         gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
