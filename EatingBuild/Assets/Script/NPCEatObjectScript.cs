@@ -6,11 +6,6 @@ using DG.Tweening;
 using TMPro;
 public class NPCEatObjectScript : MonoBehaviour
 {
-
-    private float smallTime = 2;//objectを小さくするのにかかる時間
-    private float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
-    private float smallTimeBigApartment = 0.8f;//大きいビルを小さくするのにかかる時間
-    private float playerScaleTime = 1;//プレイヤーを大きくするのにかかる時間
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
 
     void NPCAddPoint(int number)//ポイントの追加
@@ -26,41 +21,9 @@ public class NPCEatObjectScript : MonoBehaviour
 
     private float changeSpeed = 0.05f;
 
-    private int obj2p = 10;
-    private int obj3p = 50;
-    private int obj4p = 100;
-    private int obj5p = 200;
-    private int obj8p = 400;
-    private int obj10p = 800;
-    private int obj12p = 1500;
-    private int obj15p = 3000;
-    private int obj20p = 5000;
-
-    private int obj30p = 8000;
-    private int obj50p = 8000;
-
     void Start()
     {
         float Playerspeed = playerController.speed;
-
-
-        // //eatObjectscriptと変数の値を統一する
-        // smallTime = eatObj.smallTime;
-        // smallTimeApartment = eatObj.smallTimeApartment;
-        // smallTimeBigApartment = eatObj.smallTimeBigApartment;
-        // playerScaleTime = eatObj.playerScaleTime;
-        // obj2p = eatObj.obj2p;
-        // obj3p = eatObj.obj3p;
-        // obj4p = eatObj.obj4p;
-        // obj5p = eatObj.obj5p;
-        // obj8p = eatObj.obj8p;
-        // obj10p = eatObj.obj10p;
-        // obj12p = eatObj.obj12p;
-        // obj15p = eatObj.obj15p;
-        // obj20p = eatObj.obj20p;
-        // obj30p = eatObj.obj30p;
-        // obj50p = eatObj.obj50p;
-        // changeSpeed = eatObj.changeSpeed;
     }
 
 
@@ -68,8 +31,24 @@ public class NPCEatObjectScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        //eatObjectscriptと変数の値を統一する
+        float smallTime = eatObj.smallTime;//objectを小さくするのにかかる時間
+        float smallTimeApartment = eatObj.smallTimeApartment;//マンションを小さくするのにかかる時間
+        float smallTimeBigApartment = eatObj.smallTimeBigApartment;//大きいビルを小さくするのにかかる時間
+        float playerScaleTime = eatObj.playerScaleTime;//プレイヤーを大きくするのにかかる時間
+        int obj2p = eatObj.obj2p;
+        int obj3p = eatObj.obj3p;
+        int obj4p = eatObj.obj4p;
+        int obj5p = eatObj.obj5p;
+        int obj8p = eatObj.obj8p;
+        int obj10p = eatObj.obj10p;
+        int obj12p = eatObj.obj12p;
+        int obj15p = eatObj.obj15p;
+        int obj20p = eatObj.obj20p;
+        int obj30p = eatObj.obj30p;
+        int obj50p = eatObj.obj50p;
+        changeSpeed = eatObj.changeSpeed;
         int p = point;
-        Debug.Log(p);
 
         switch (col.gameObject.tag)
         {
@@ -372,6 +351,23 @@ public class NPCEatObjectScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        //eatObjectscriptと変数の値を統一する
+        float smallTime = eatObj.smallTime;//objectを小さくするのにかかる時間
+        float smallTimeApartment = eatObj.smallTimeApartment;//マンションを小さくするのにかかる時間
+        float smallTimeBigApartment = eatObj.smallTimeBigApartment;//大きいビルを小さくするのにかかる時間
+        float playerScaleTime = eatObj.playerScaleTime;//プレイヤーを大きくするのにかかる時間
+        int obj2p = eatObj.obj2p;
+        int obj3p = eatObj.obj3p;
+        int obj4p = eatObj.obj4p;
+        int obj5p = eatObj.obj5p;
+        int obj8p = eatObj.obj8p;
+        int obj10p = eatObj.obj10p;
+        int obj12p = eatObj.obj12p;
+        int obj15p = eatObj.obj15p;
+        int obj20p = eatObj.obj20p;
+        int obj30p = eatObj.obj30p;
+        int obj50p = eatObj.obj50p;
+        changeSpeed = eatObj.changeSpeed;
         {
             //Playerの大きさをポイントに応じて変更する
             int p = point;
