@@ -60,6 +60,30 @@ public class EatObjectScript : MonoBehaviour
             case "Untagged"://ポイントがついている以外は食べれない
                 break;
 
+            case "NPC":
+                if (p > col.gameObject.GetComponent<NPCEatObjectScript>().point)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTimeBigApartment,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        gameManager.AddPoint(50);
+
+                        col.gameObject.SetActive(false);
+
+                    });
+                    VIbrationFunction();
+                }
+                else
+                {
+                    NotEatBuild();
+                }
+
+                break;
+
             case "cube"://テスト用のオブジェクトなので、後で消さなければならない
                 if (p >= 0)
                 {
@@ -355,9 +379,6 @@ public class EatObjectScript : MonoBehaviour
                     NotEatBuild();
                 }
                 break;
-
-
-
         }
     }
 

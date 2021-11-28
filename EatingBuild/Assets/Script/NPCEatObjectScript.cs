@@ -13,7 +13,7 @@ public class NPCEatObjectScript : MonoBehaviour
     {
         point = point + number;
     }
-    [SerializeField] private int point;//大きさを変える時などに使うポイント
+    public int point;//大きさを変える時などに使うポイント
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     bool sizeFlag = true;
     private NavMeshAgent _agent;
@@ -53,6 +53,8 @@ public class NPCEatObjectScript : MonoBehaviour
         {
             case "Untagged"://ポイントがついている以外は食べれない
                 break;
+
+
 
             case "cube"://テスト用のオブジェクトなので、後で消さなければならない
                 if (p >= 0)
@@ -335,6 +337,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     NotEatBuild();
                 }
                 break;
+
 
 
 
