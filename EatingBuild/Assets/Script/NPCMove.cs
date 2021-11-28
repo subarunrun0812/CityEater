@@ -10,6 +10,10 @@ using UnityEngine.AI;
 public class NPCMove : MonoBehaviour
 {
 
+    [SerializeField] private NPCEatObjectScript npceat;
+    private int p;
+    [SerializeField] GameManager gameManager;
+
     //位置の基準になるオブジェクトのTransformを収める
     public Transform central;
     private NavMeshAgent agent;
@@ -76,10 +80,18 @@ public class NPCMove : MonoBehaviour
     //CollisionDetectorのonTriggerStayにセットし、衝突判定を受け取るメソッド
     public void OnDetectObject(Collider collider)
     {
+        p = npceat.point;
         //衝突したオブジェクトにPlayerタグが付いていれば、そのオブジェクトを追いかける
         if (collider.CompareTag("Player"))
         {
-            agent.destination = collider.transform.position;
+            if (p >= gameManager.point)
+            {
+                agent.destination = collider.transform.position;
+            }
+            else
+            {
+                agent.destination = -collider.transform.position;//playerと反対方向にいく
+            }
         }
     }
 }
