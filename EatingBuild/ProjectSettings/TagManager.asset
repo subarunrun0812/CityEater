@@ -27,9 +27,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - SphereCollider
+  - NPCEatTrigger
   - 
   - 
   - 

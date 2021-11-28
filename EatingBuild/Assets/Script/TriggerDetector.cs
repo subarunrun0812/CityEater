@@ -1,18 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider))]
 public class TriggerDetector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //IsTriggerがOnで他のColliderと重なっているときは、このメソッドが常にコールされる
+    [SerializeField] private TriggerEvent onTriggerStay = new TriggerEvent();
+    private void OnTriggerStay(Collider other)
     {
-
+        //onTriggerStayで指定された処理を実行する
+        onTriggerStay.Invoke(other);
     }
 
-    // Update is called once per frame
-    void Update()
+    //UnityEventを継承したクラスに[Serializable]属性を付与することで
+    //Inspectorウィンドウ上に表示できるようになる
+    [Serializable]
+    public class TriggerEvent : UnityEvent<Collider>//collider = trigger or collision
     {
 
     }

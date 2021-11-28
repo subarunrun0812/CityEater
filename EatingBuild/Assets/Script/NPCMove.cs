@@ -7,8 +7,9 @@ using UnityEngine.AI;
 //オブジェクトにNavMeshAgentコンポーネントを設置
 [RequireComponent(typeof(NavMeshAgent))]
 
-public class RandomMove : MonoBehaviour
+public class NPCMove : MonoBehaviour
 {
+
     //位置の基準になるオブジェクトのTransformを収める
     public Transform central;
     private NavMeshAgent agent;
@@ -69,6 +70,16 @@ public class RandomMove : MonoBehaviour
             //目標地点を設定し直す
             GotoNextPoint();
             time = 0;
+        }
+    }
+
+    //CollisionDetectorのonTriggerStayにセットし、衝突判定を受け取るメソッド
+    public void OnDetectObject(Collider collider)
+    {
+        //衝突したオブジェクトにPlayerタグが付いていれば、そのオブジェクトを追いかける
+        if (collider.CompareTag("Player"))
+        {
+            agent.destination = collider.transform.position;
         }
     }
 }
