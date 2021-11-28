@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
 {
 
     public int point;//大きさを変える時などに使うポイント
-
     [SerializeField] private EatObjectScript playerEat;
     [SerializeField] private Text scoreText;
     [SerializeField] private TextMeshProUGUI addScoreText;//+1 +2 と画面に何ポイント追加したか表示する
+
+    public int killpoint;
+    [SerializeField] private Text killText;//killした数を表示
     public Color EndColor;
 
 
@@ -20,6 +22,17 @@ public class GameManager : MonoBehaviour
     {
         point = point + number;
         addScoreText.text = $"+{number}";
+    }
+
+    public void AddKill(int number)//killした数を追加
+    {
+        killpoint = killpoint + number;
+        killText.text = $"{killpoint} kill";
+    }
+
+    void Start()
+    {
+        killText.text = "0 kill";
     }
 
     void Update()
