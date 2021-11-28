@@ -17,8 +17,8 @@ public class NPCEatObjectScript : MonoBehaviour
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     bool sizeFlag = true;
     private NavMeshAgent _agent;
-
     private float addSpped = 2f;
+    [SerializeField] private GameManager gameManager;
 
     void Start()
     {
@@ -54,7 +54,26 @@ public class NPCEatObjectScript : MonoBehaviour
             case "Untagged"://ポイントがついている以外は食べれない
                 break;
 
+            case "Player":
+                if (p > gameManager.point)
+                {
+                    col.transform.DOShakeRotation(
+                         duration: smallTimeBigApartment,   // 演出時間
+                         strength: 60f   // シェイクの強さ
+                    );
+                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
+                    .OnComplete(() =>//dotween終了後、cubeを消す
+                    {
+                        NPCAddPoint(gameManager.point);
+                        col.gameObject.SetActive(false);
 
+                    });
+                }
+                else
+                {
+                    NotEatBuild();
+                }
+                break;
 
             case "cube"://テスト用のオブジェクトなので、後で消さなければならない
                 if (p >= 0)

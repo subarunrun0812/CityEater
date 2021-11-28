@@ -19,6 +19,7 @@ TagManager:
   - 50p
   - Wall
   - WallCollider
+  - NPC
   layers:
   - Default
   - TransparentFX
