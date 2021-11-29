@@ -12,22 +12,35 @@ public class HighscoreTable : MonoBehaviour
     [Header("highscoreEntryTemplate"), SerializeField]
     private Transform entryTemplate;
 
-    private List<HighscoreEntry> highscoreEntryList;
+    [SerializeField]
+    private GameManager gameManager;
+
+    [SerializeField]
+    private GameObject[] nPC;
+
+    private List<HighscoreEntry> highscoreEntryList;//HighscoreEntryクラスにscoreとnameの要素を格納します
     private List<Transform> highscoreentryTransformList;
+
+
     void Awake()
     {
         entryTemplate.gameObject.SetActive(false);
 
         highscoreEntryList = new List<HighscoreEntry>()
         {
-            new HighscoreEntry{score = 53532,name = "AAA"},
-            new HighscoreEntry{score = 12483,name = "ANN"},
-            new HighscoreEntry{score = 70813,name = "CAT"},
-            new HighscoreEntry{score = 47209,name = "JON"},
-            new HighscoreEntry{score = 31842,name = "JOE"},
-            new HighscoreEntry{score = 41802,name = "MIK"},
-            new HighscoreEntry{score = 09331,name = "DAV"},
-            new HighscoreEntry{score = 30804,name = "MAX"},
+            new HighscoreEntry{score = gameManager.point,name = "Player"},
+            new HighscoreEntry{score = nPC[0].GetComponent<NPCEatObjectScript>().point,name = "NPC0"},
+            // new HighscoreEntry{score = nPC[1].GetComponent<NPCEatObjectScript>().point,name = "NPC1"},
+            // new HighscoreEntry{score = nPC[2].GetComponent<NPCEatObjectScript>().point,name = "NPC2"},
+            // new HighscoreEntry{score = nPC[3].GetComponent<NPCEatObjectScript>().point,name = "NPC3"},
+            // new HighscoreEntry{score = nPC[4].GetComponent<NPCEatObjectScript>().point,name = "NPC4"},
+            // new HighscoreEntry{score = nPC[5].GetComponent<NPCEatObjectScript>().point,name = "NPC5"},
+            // new HighscoreEntry{score = nPC[6].GetComponent<NPCEatObjectScript>().point,name = "NPC6"},
+            // new HighscoreEntry{score = nPC[7].GetComponent<NPCEatObjectScript>().point,name = "NPC7"},
+            // new HighscoreEntry{score = nPC[8].GetComponent<NPCEatObjectScript>().point,name = "NPC8"},
+            // new HighscoreEntry{score = nPC[9].GetComponent<NPCEatObjectScript>().point,name = "NPC9"},
+            // new HighscoreEntry{score = nPC[10].GetComponent<NPCEatObjectScript>().point,name = "NPC10"},
+            // new HighscoreEntry{score = nPC[11].GetComponent<NPCEatObjectScript>().point,name = "NPC11"},
         };
 
         //sort entry list by
@@ -46,7 +59,7 @@ public class HighscoreTable : MonoBehaviour
 
 
         highscoreentryTransformList = new List<Transform>();//初期化
-        foreach (HighscoreEntry highscoreEntry in highscoreEntryList)
+        foreach (HighscoreEntry highscoreEntry in highscoreEntryList)//foreach(型名 オブジェクト名 in コレクション) 
         {
             CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreentryTransformList);
         }
@@ -60,7 +73,7 @@ public class HighscoreTable : MonoBehaviour
         //objectをinstantiateで複製します
         Transform entryTransform = Instantiate(entryTemplate, container);//Instantiate(コピーするPrefab、生成する位置)
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
-        //複製した時に配置する位置を70 * i
+        //複製した時に配置する位置を70 * transformListの要素の数
         entryRectTransform.anchoredPosition = new Vector2(0, -temlateHeight * transformList.Count);
         entryTransform.gameObject.SetActive(true);
 
@@ -69,23 +82,27 @@ public class HighscoreTable : MonoBehaviour
         string rankString;
         switch (rank)
         {
-            default:
-                rankString = rank + "TH"; break;
-
             case 1: rankString = "1ST"; break;//1位の場合
             case 2: rankString = "2ND"; break;//2位の場合            
             case 3: rankString = "3RD"; break;//3位の場合
+            default:
+                rankString = rank + "TH"; break;
+
         }
         //順位のテキストを取得
         entryTransform.Find("posText").GetComponent<TextMeshProUGUI>().text = rankString;
 
-        int score = highscoreEntry.score;//
+        //HighscoreEntryのscoreに返り値を渡す
+        int score = highscoreEntry.score;
 
         entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
 
+        //HighscoreEntryのnameに返り値を渡す
         string name = highscoreEntry.name;
         entryTransform.Find("nameText").GetComponent<TextMeshProUGUI>().text = name;
-        transformList.Add(entryTransform);//transformListにentyTransformの要素を追加する
+
+        //transformListにentyTransformの要素を追加する
+        transformList.Add(entryTransform);
 
     }
     /*
