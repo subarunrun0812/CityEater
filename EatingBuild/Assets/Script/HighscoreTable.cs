@@ -30,6 +30,21 @@ public class HighscoreTable : MonoBehaviour
             new HighscoreEntry{score = 30804,name = "MAX"},
         };
 
+        //sort entry list by
+        for (int i = 0; i < highscoreEntryList.Count; i++)
+        {
+            for (int j = i + 1; j < highscoreEntryList.Count; j++)
+            {
+                if (highscoreEntryList[j].score > highscoreEntryList[i].score)
+                {//swap
+                    HighscoreEntry tmp = highscoreEntryList[i];
+                    highscoreEntryList[i] = highscoreEntryList[j];
+                    highscoreEntryList[j] = tmp;
+                }
+            }
+        }
+
+
         highscoreentryTransformList = new List<Transform>();//初期化
         foreach (HighscoreEntry highscoreEntry in highscoreEntryList)
         {
