@@ -20,6 +20,8 @@ public class CountDownTimer : MonoBehaviour
     [Header("時間が０になったとき"), SerializeField]
     private GameObject notime;
 
+    [SerializeField] private GameObject result;//resule画面を表示するオブジェクト
+
 
     void Start()
     {
@@ -36,10 +38,10 @@ public class CountDownTimer : MonoBehaviour
         notime.SetActive(false);
         Debug.Log("ContinueButtonが押された");
     }
-    public void QuitButton()
+    public void QuitButton()//quitボタンを押したら、Result画面を表示する
     {
-        Application.Quit();
-        Debug.Log("quit関数がよばれた");
+        result.SetActive(true);
+        notime.SetActive(false);
     }
 
     void Update()

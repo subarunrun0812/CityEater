@@ -73,7 +73,6 @@ public class NPCEatObjectScript : MonoBehaviour
                         NPCAddPoint(gameManager.point);
                         col.gameObject.SetActive(false);
                         // StartCoroutine("DethPlayer");
-
                     });
                 }
                 else
