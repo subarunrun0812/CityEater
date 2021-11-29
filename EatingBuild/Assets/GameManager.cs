@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
 
 
+
+
     public void AddPoint(int number)//ポイントの追加
     {
         point = point + number;

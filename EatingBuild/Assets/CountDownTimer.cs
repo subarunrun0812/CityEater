@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class CountDownTimer : MonoBehaviour
 {
     //トータル制限時間
@@ -17,7 +17,7 @@ public class CountDownTimer : MonoBehaviour
     private float oldSeconds;
     [SerializeField]
     private Text timerText;
-    [Header("時間が０になったとき"), SerializeField]
+    [SerializeField]
     private GameObject notime;
 
     [SerializeField] private GameObject result;//resule画面を表示するオブジェクト
@@ -25,6 +25,7 @@ public class CountDownTimer : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         totalTime = minute * 60 + seconds;
         oldSeconds = 0f;
         timerText = GetComponentInChildren<Text>();
@@ -40,8 +41,8 @@ public class CountDownTimer : MonoBehaviour
     }
     public void QuitButton()//quitボタンを押したら、Result画面を表示する
     {
-        result.SetActive(true);
-        notime.SetActive(false);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("StartScene");
     }
 
     void Update()

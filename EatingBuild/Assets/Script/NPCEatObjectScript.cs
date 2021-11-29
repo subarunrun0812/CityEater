@@ -8,7 +8,6 @@ using UnityEngine.AI;
 public class NPCEatObjectScript : MonoBehaviour
 {
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
-
     void NPCAddPoint(int number)//ポイントの追加
     {
         point = point + number;
@@ -19,7 +18,8 @@ public class NPCEatObjectScript : MonoBehaviour
     private NavMeshAgent _agent;
     private float addSpped = 1f;
     [SerializeField] private GameManager gameManager;
-
+    [SerializeField]
+    private GameObject notime;
     void Start()
     {
         _agent = this.GetComponent<NavMeshAgent>();
@@ -72,6 +72,8 @@ public class NPCEatObjectScript : MonoBehaviour
                     {
                         NPCAddPoint(gameManager.point);
                         col.gameObject.SetActive(false);
+                        notime.SetActive(true);
+
                         // StartCoroutine("DethPlayer");
                     });
                 }
