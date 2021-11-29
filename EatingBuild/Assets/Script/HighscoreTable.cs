@@ -21,11 +21,12 @@ public class HighscoreTable : MonoBehaviour
     private List<HighscoreEntry> highscoreEntryList;//HighscoreEntryクラスにscoreとnameの要素を格納します
     private List<Transform> highscoreentryTransformList;
 
-
     void Awake()
     {
         entryTemplate.gameObject.SetActive(false);
-
+    }
+    void OnEnable()
+    {
         highscoreEntryList = new List<HighscoreEntry>()
         {
             new HighscoreEntry{score = gameManager.point,name = "Player"},
@@ -54,7 +55,6 @@ public class HighscoreTable : MonoBehaviour
                 }
             }
         }
-
 
         highscoreentryTransformList = new List<Transform>();//初期化
         foreach (HighscoreEntry highscoreEntry in highscoreEntryList)//foreach(型名 オブジェクト名 in コレクション) 
