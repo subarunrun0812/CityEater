@@ -29,6 +29,11 @@ public class NPCEatObjectScript : MonoBehaviour
 
 
 
+    // IEnumerator DethPlayer()
+    // {
+    //     yield return new WaitForSeconds(2);
+    //     Time.timeScale = 0;
+    // }
     void OnTriggerEnter(Collider col)
     {
         //eatObjectscriptと変数の値を統一する
@@ -49,6 +54,7 @@ public class NPCEatObjectScript : MonoBehaviour
         int obj50p = eatObj.obj50p;
         int p = point;
 
+
         switch (col.gameObject.tag)
         {
             case "Untagged"://ポイントがついている以外は食べれない
@@ -66,6 +72,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     {
                         NPCAddPoint(gameManager.point);
                         col.gameObject.SetActive(false);
+                        // StartCoroutine("DethPlayer");
 
                     });
                 }

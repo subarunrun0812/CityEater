@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public Color EndColor;
 
 
+
+
     public void AddPoint(int number)//ポイントの追加
     {
         point = point + number;
