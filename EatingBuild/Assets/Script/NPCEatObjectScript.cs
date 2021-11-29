@@ -399,6 +399,7 @@ public class NPCEatObjectScript : MonoBehaviour
         int obj30p = eatObj.obj30p;
         int obj50p = eatObj.obj50p;
         {
+
             //Playerの大きさをポイントに応じて変更する
             int p = point;
 

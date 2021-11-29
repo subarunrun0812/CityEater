@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text killText;//killした数を表示
     public Color EndColor;
 
-
+    public int[] score_all;//NPCとplayerのスコアを格納する
 
 
 
