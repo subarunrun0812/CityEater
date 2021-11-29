@@ -30,20 +30,18 @@ public class HighscoreTable : MonoBehaviour
         {
             new HighscoreEntry{score = gameManager.point,name = "Player"},
             new HighscoreEntry{score = nPC[0].GetComponent<NPCEatObjectScript>().point,name = "NPC0"},
-            // new HighscoreEntry{score = nPC[1].GetComponent<NPCEatObjectScript>().point,name = "NPC1"},
-            // new HighscoreEntry{score = nPC[2].GetComponent<NPCEatObjectScript>().point,name = "NPC2"},
-            // new HighscoreEntry{score = nPC[3].GetComponent<NPCEatObjectScript>().point,name = "NPC3"},
-            // new HighscoreEntry{score = nPC[4].GetComponent<NPCEatObjectScript>().point,name = "NPC4"},
-            // new HighscoreEntry{score = nPC[5].GetComponent<NPCEatObjectScript>().point,name = "NPC5"},
+            new HighscoreEntry{score = nPC[1].GetComponent<NPCEatObjectScript>().point,name = "NPC1"},
+            new HighscoreEntry{score = nPC[2].GetComponent<NPCEatObjectScript>().point,name = "NPC2"},
+            new HighscoreEntry{score = nPC[3].GetComponent<NPCEatObjectScript>().point,name = "NPC3"},
+            new HighscoreEntry{score = nPC[4].GetComponent<NPCEatObjectScript>().point,name = "NPC4"},
+            new HighscoreEntry{score = nPC[5].GetComponent<NPCEatObjectScript>().point,name = "NPC5"},
             // new HighscoreEntry{score = nPC[6].GetComponent<NPCEatObjectScript>().point,name = "NPC6"},
             // new HighscoreEntry{score = nPC[7].GetComponent<NPCEatObjectScript>().point,name = "NPC7"},
             // new HighscoreEntry{score = nPC[8].GetComponent<NPCEatObjectScript>().point,name = "NPC8"},
             // new HighscoreEntry{score = nPC[9].GetComponent<NPCEatObjectScript>().point,name = "NPC9"},
-            // new HighscoreEntry{score = nPC[10].GetComponent<NPCEatObjectScript>().point,name = "NPC10"},
-            // new HighscoreEntry{score = nPC[11].GetComponent<NPCEatObjectScript>().point,name = "NPC11"},
         };
 
-        //sort entry list by
+        //スコアが高い順に並べる
         for (int i = 0; i < highscoreEntryList.Count; i++)
         {
             for (int j = i + 1; j < highscoreEntryList.Count; j++)
