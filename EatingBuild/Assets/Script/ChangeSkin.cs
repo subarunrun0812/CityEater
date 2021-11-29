@@ -40,7 +40,21 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
         changeNumber = 2;
         _changeskin[2].SetActive(true);
         Debug.Log(changeNumber);
+    }
+    public void ChangeSkinButton3()//buttonを押したらスキンが変わっていく
+    {
+        Resetchangeskin();
+        changeNumber = 3;
+        _changeskin[3].SetActive(true);
+        Debug.Log(changeNumber);
+    }
 
+    public void ChangeSkinButton4()//buttonを押したらスキンが変わっていく
+    {
+        Resetchangeskin();
+        changeNumber = 4;
+        _changeskin[4].SetActive(true);
+        Debug.Log(changeNumber);
     }
     private void Resetchangeskin()//全ての着せ替えを非表示にする
     {
