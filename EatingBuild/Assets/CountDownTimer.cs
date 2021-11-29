@@ -18,9 +18,13 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField]
     private Text timerText;
     [SerializeField]
-    private GameObject notime;
+    private Transform notime;
 
     [SerializeField] private GameObject result;//resule画面を表示するオブジェクト
+    [SerializeField] private GameObject highScoreTable;
+    [SerializeField] private GameObject scoreUI;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private GameManager gameManager;
 
 
     void Start()
@@ -29,20 +33,30 @@ public class CountDownTimer : MonoBehaviour
         totalTime = minute * 60 + seconds;
         oldSeconds = 0f;
         timerText = GetComponentInChildren<Text>();
-        notime.SetActive(false);
+        scoreUI.SetActive(true);
+        highScoreTable.SetActive(false);
     }
 
     public void ContinueButtonInvoke()
     {
         Time.timeScale = 1;
-        seconds += 30;//30秒追加
-        notime.SetActive(false);
-        Debug.Log("ContinueButtonが押された");
+        notime.gameObject.SetActive(false);
+        if (_player.activeSelf == true)
+        {
+            seconds += 30;//30秒追加
+        }
+        else if (_player.activeSelf == false)//playerが死んだ時に復活するとき
+        {
+            gameManager.AddPoint(gameManager.point * 2);
+            _player.SetActive(true);
+        }
     }
     public void QuitButton()//quitボタンを押したら、Result画面を表示する
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("StartScene");
+        scoreUI.SetActive(false);
+        notime.gameObject.SetActive(false);
+        highScoreTable.SetActive(true);
+        Time.timeScale = 0;
     }
 
     void Update()
@@ -66,7 +80,7 @@ public class CountDownTimer : MonoBehaviour
         if (totalTime <= 0f)
         {
             Time.timeScale = 0;
-            notime.SetActive(true);
+            notime.gameObject.SetActive(true);
         }
     }
 }
