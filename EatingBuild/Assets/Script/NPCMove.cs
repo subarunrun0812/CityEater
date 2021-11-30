@@ -23,6 +23,8 @@ public class NPCMove : MonoBehaviour
     [SerializeField] float waitTime = 2;
     //待機時間を数える
     [SerializeField] float time = 0;
+    [SerializeField] private EatObjectScript eatObj;
+
 
     //Vector3 pos;
 
@@ -35,27 +37,84 @@ public class NPCMove : MonoBehaviour
         //目標地点を決める
         GotoNextPoint();
     }
-    void GotoNextPoint()
+    void GotoNextPoint()//NPCのpointに応じて、目標地点のゲームタグ決める
     {
         //NavMeshAgentのストップを解除
         agent.isStopped = false;
 
-        //目標地点のX軸、Z軸をランダムで決める
-        float posX = Random.Range(-1 * radius, radius);
-        float posZ = Random.Range(-1 * radius, radius);
+        //eatObjectscriptと変数の値を統一する
+        float smallTime = eatObj.smallTime;//objectを小さくするのにかかる時間
+        float smallTimeApartment = eatObj.smallTimeApartment;//マンションを小さくするのにかかる時間
+        float smallTimeBigApartment = eatObj.smallTimeBigApartment;//大きいビルを小さくするのにかかる時間
+        float playerScaleTime = eatObj.playerScaleTime;//プレイヤーを大きくするのにかかる時間
+        int obj2p = eatObj.obj2p;
+        int obj3p = eatObj.obj3p;
+        int obj4p = eatObj.obj4p;
+        int obj5p = eatObj.obj5p;
+        int obj8p = eatObj.obj8p;
+        int obj10p = eatObj.obj10p;
+        int obj12p = eatObj.obj12p;
+        int obj15p = eatObj.obj15p;
+        int obj20p = eatObj.obj20p;
+        int obj30p = eatObj.obj30p;
+        int obj50p = eatObj.obj50p;
 
-        //CentralPointの位置にPosXとPosZを足す
-        Vector3 pos = central.position;
-        pos.x += posX;
-        pos.z += posZ;
+        //NPCの大きさをポイントに応じて変更する
+        p = npceat.point;
+        //arrangement(配列) を略してarr
 
-        //NavMeshAgentに目標地点を設定する
-        agent.destination = pos;
+        // if (p < obj2p)
+        // { }
+        GameObject[] arrObj2p = GameObject.FindGameObjectsWithTag("2p");
+        for (int i = 0; i < arrObj2p.Length; i++)
+        {
+            Debug.Log(arrObj2p[i].transform.gameObject.name);
+            if (Vector3.Distance(agent.destination, arrObj2p[i].transform.position) > 0.5f)
+            {
+                agent.destination = arrObj2p[i].transform.position;
+            }
+        }
+        if (obj2p <= p && p < obj3p)
+        {
+
+        }
+        else if (obj3p <= p && p < obj4p)
+        {
+        }
+        else if (obj4p <= p && p < obj5p)
+        {
+        }
+        else if (obj5p <= p && p < obj8p)
+        {
+        }
+        else if (obj8p <= p && p < obj10p)
+        {
+        }
+        else if (obj10p <= p && p < obj12p)
+        {
+        }
+        else if (obj12p <= p && p < obj15p)
+        {
+        }
+        else if (obj15p <= p && p < obj20p)
+        {
+        }
+        else if (obj20p <= p && p < obj30p)
+        {
+        }
+        else if (obj30p <= p && p < obj50p)
+        {
+        }
+        else if (obj50p <= p)
+        {
+
+        }
     }
     void Update()
     {
-        //経路探索の準備ができておらず
-        //目標地点までの距離が0.5m未満ならNavMeshAgentを止める
+        //経路探索の準備ができておらず目標地点までの距離が0.5m未満ならNavMeshAgentを止める
+        //remainigDistance = エージェントの位置および現在の経路での目標地点の間の距離（読み取り専用）
+        //pathPending経路探索の準備ができているかどうか（読み取り専用）
         if (!agent.pathPending && agent.remainingDistance < 1f)
             //目標地点を設定し直す
             GotoNextPoint();
@@ -95,3 +154,18 @@ public class NPCMove : MonoBehaviour
         }
     }
 }
+
+
+
+
+// //目標地点のX軸、Z軸をランダムで決める
+// float posX = Random.Range(-1 * radius, radius);
+// float posZ = Random.Range(-1 * radius, radius);
+
+// //CentralPointの位置にPosXとPosZを足す
+// Vector3 pos = central.position;
+// pos.x += posX;
+// pos.z += posZ;
+
+// //NavMeshAgentに目標地点を設定する
+// agent.destination = pos;
