@@ -29,6 +29,9 @@ public class NPCMove : MonoBehaviour
 
     //Vector3 pos;
     private int _random;//乱数。NPCの目的地で使う
+
+
+    private bool flag = true;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -60,21 +63,151 @@ public class NPCMove : MonoBehaviour
         p = npceat.point;
         //arrangement(配列) を略してarr
 
-        if (0 <= p && p < obj3p)
+        // GameObject.Find("ゲームタグ名")で見つけたオブジェクトを配列に格納し、その格納したやつをfor文を使ってListに格納します。
+        if (0 <= p && p < obj3p && flag == true)
         {
-            GameObject[] arrObj1 = GameObject.FindGameObjectsWithTag("1p");
-            for (int i = 0; i < arrObj1.Length; i++)//destinationListnに配列の要素を足していく
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
-                destinationList.Add(arrObj1[i]);
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = false;
+                }
             }
+        }
+        else if (0 <= p && p < obj3p && flag == false)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = true;
+                }
+            }
+        }
+
+        else if (obj3p <= p && p < obj5p && flag == true)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = false;
+                }
+            }
+        }
+        else if (obj5p <= p && p < obj8p && flag == false)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = true;
+                }
+            }
+        }
+        else if (obj8p <= p && p < obj10p && flag == true)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = false;
+                }
+            }
+        }
+        else if (obj10p <= p && p < obj12p && flag == false)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = true;
+                }
+            }
+        }
+        else if (obj12p <= p && p < obj15p && flag == true)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = false;
+                }
+            }
+        }
+        else if (obj15p <= p && p < obj20p && flag == false)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = true;
+                }
+            }
+        }
+        else if (obj20p <= p && p < obj30p && flag == true)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = false;
+                }
+            }
+        }
+        else if (obj30p <= p && p < obj50p && flag == false)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = true;
+                }
+            }
+        }
+        else if (obj50p <= p && flag == true)
+        {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj[i]);
+                if (arrObj.Length == i)
+                {
+                    flag = false;
+                }
+            }
+
         }
 
 
 
 
-
+        /*
+        追いかける目標地点を設定します
+        */
         //destinationListの要素をランダムで取得する
         int _random = Random.Range(0, destinationList.Count);
+        Debug.Log(this.gameObject.name + "の乱数は" + _random);
         //もし、配列の[i]番目のオブジェクトがあったら
         if (_random < destinationList.Count && destinationList[_random].transform.gameObject.activeSelf == true)
         {
@@ -84,10 +217,6 @@ public class NPCMove : MonoBehaviour
                 destinationList.RemoveAt(_random); //Listの_random番目の要素を消す
             }
         }
-        Debug.Log(destinationList.Count);
-        // Debug.Log(destinationList[_random].transform.gameObject.name);
-        // Debug.Log(destinationList.Count);
-
     }
     void Update()
     {
