@@ -20,10 +20,12 @@ public class NPCEatObjectScript : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private CountDownTimer countDownTimer;
     [SerializeField] private GameObject revenge;
+    [SerializeField] private SphereCollider spherecol;
     void Start()
     {
         _agent = this.GetComponent<NavMeshAgent>();
         float agentspeed = _agent.speed;
+        spherecol.radius = 8;//sphrecolliderの大きさを指定
     }
 
 
@@ -440,6 +442,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     _agent.speed += addSpped;
                     sizeFlag = true;
+                    spherecol.radius = 7f;
                 }
             }
             else if (obj4p <= p && p < obj5p)
@@ -451,6 +454,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = false;
                     _agent.speed += addSpped;
+                    spherecol.radius = 6.5f;
                 }
             }
             else if (obj5p <= p && p < obj8p)
@@ -462,6 +466,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = true;
                     _agent.speed += addSpped;
+                    spherecol.radius = 6f;
                 }
             }
             else if (obj8p <= p && p < obj10p)
@@ -474,6 +479,7 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     sizeFlag = false;
                     _agent.speed += addSpped;
+                    spherecol.radius = 5.5f;
                 }
             }
 
@@ -486,6 +492,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = true;
                     _agent.speed += addSpped;
+                    spherecol.radius = 5f;
                 }
             }
             else if (obj12p <= p && p < obj15p)
@@ -497,6 +504,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = false;
                     _agent.speed += addSpped;
+                    spherecol.radius = 4.5f;
                 }
             }
             else if (obj15p <= p && p < obj20p)
@@ -508,6 +516,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = true;
                     _agent.speed += addSpped;
+                    spherecol.radius = 4f;
                 }
             }
             else if (obj20p <= p && p < obj30p)
@@ -519,6 +528,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = false;
                     _agent.speed += addSpped;
+                    spherecol.radius = 3.5f;
                 }
             }
             else if (obj30p <= p && p < 12000)
@@ -530,6 +540,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = true;
                     _agent.speed += addSpped;
+                    spherecol.radius = 3f;
                 }
             }
             else if (12000 <= p && p < 20000)
@@ -541,6 +552,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = false;
                     _agent.speed += addSpped;
+                    spherecol.radius = 2.5f;
                 }
             }
             else if (20000 <= p && p < 30000)
@@ -552,6 +564,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = false;
                     _agent.speed += addSpped;
+                    spherecol.radius = 2f;
                 }
             }
             else if (30000 <= p && p < 50000)
@@ -563,6 +576,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = false;
                     _agent.speed += addSpped;
+                    spherecol.radius = 2f;
                 }
             }
 
