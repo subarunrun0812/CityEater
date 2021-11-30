@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
         killText.text = $"{killpoint} kill";
     }
 
+    public void ReturnStartSceneButton()//highscoretableを表示した後にスタートシーンに戻るボタン
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+
     void Start()
     {
         killText.text = "0 kill";

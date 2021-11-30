@@ -15,7 +15,7 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private PlayerFollowCamera refCamera;
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
 
-    bool sizeFlag = true;
+    private bool sizeFlag = true;
     [SerializeField] private PlayerController playerController;
 
     public float changeSpeed = 0.05f;
@@ -51,7 +51,7 @@ public class EatObjectScript : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col)//食べた時の処理
     {
         int p = gameManager.point;//GameManagerスクリプトの変数を参照
 
@@ -398,7 +398,7 @@ public class EatObjectScript : MonoBehaviour
 
 
 
-    void FixedUpdate()
+    void FixedUpdate()//playerの大きさや速度のパラメーターの変更の処理
     {
         {
             //Playerの大きさをポイントに応じて変更する
@@ -521,30 +521,54 @@ public class EatObjectScript : MonoBehaviour
                     playerController.speed += changeSpeed;
                 }
             }
-            // else if (obj30p <= p && p < obj50p)
-            // {
-            //     this.gameObject.transform.DOScale(
-            //         new Vector3(14f, 14f, 14f), playerScaleTime
-            //     );
-            //     if (sizeFlag == false)
-            //     {
-            //         refCamera.CameraDistanceLarge();
-            //         sizeFlag = true;
-            //         playerController.speed += changeSpeed;
-            //     }
-            // }
-            // else if (obj50p <= p && p < 100000000)
-            // {
-            //     this.gameObject.transform.DOScale(
-            //         new Vector3(16f, 16f, 16f), playerScaleTime
-            //     );
-            //     if (sizeFlag == true)
-            //     {
-            //         refCamera.CameraDistanceLarge();
-            //         sizeFlag = false;
-            //         playerController.speed += changeSpeed;
-            //     }
-            // }
+            else if (obj30p <= p && p < 12000)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(14f, 14f, 14f), playerScaleTime
+                );
+                if (sizeFlag == false)
+                {
+                    refCamera.CameraDistanceLarge();
+                    sizeFlag = true;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            else if (12000 <= p && p < 20000)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(15f, 15f, 15f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    refCamera.CameraDistanceLarge();//カメラの離す距離を短くした
+                    sizeFlag = false;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            else if (20000 <= p && p < 30000)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(16f, 16f, 16f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    refCamera.CameraDistanceLarge();
+                    sizeFlag = false;
+                    playerController.speed += changeSpeed;
+                }
+            }
+            else if (30000 <= p && p < 50000)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(18f, 18f, 18f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    refCamera.CameraDistanceLarge();
+                    sizeFlag = false;
+                    playerController.speed += changeSpeed;
+                }
+            }
 
 
 

@@ -13,6 +13,9 @@ public class HighscoreTable : MonoBehaviour
     private Transform entryTemplate;
 
     [SerializeField]
+    private GameObject returnstart_b;
+
+    [SerializeField]
     private GameManager gameManager;
 
     [SerializeField]
@@ -27,6 +30,8 @@ public class HighscoreTable : MonoBehaviour
     }
     void OnEnable()
     {
+        returnstart_b.SetActive(true);
+
         highscoreEntryList = new List<HighscoreEntry>()
         {
             new HighscoreEntry{score = gameManager.point,name = "Player"},

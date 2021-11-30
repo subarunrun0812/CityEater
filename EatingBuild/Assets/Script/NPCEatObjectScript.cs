@@ -14,7 +14,7 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     public int point;//大きさを変える時などに使うポイント
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
-    bool sizeFlag = true;
+    private bool sizeFlag = true;
     private NavMeshAgent _agent;
     private float addSpped = 1f;
     [SerializeField] private GameManager gameManager;
@@ -521,29 +521,50 @@ public class NPCEatObjectScript : MonoBehaviour
                     _agent.speed += addSpped;
                 }
             }
-            // else if (obj30p <= p && p < obj50p)
-            // {
-            //     this.gameObject.transform.DOScale(
-            //         new Vector3(14f, 14f, 14f), playerScaleTime
-            //     );
-            //     if (sizeFlag == false)
-            //     {
-            //                //         sizeFlag = true;
-            //         playerController.speed += changeSpeed;
-            //     }
-            // }
-            // else if (obj50p <= p && p < 100000000)
-            // {
-            //     this.gameObject.transform.DOScale(
-            //         new Vector3(16f, 16f, 16f), playerScaleTime
-            //     );
-            //     if (sizeFlag == true)
-            //     {
-            //                //         sizeFlag = false;
-            //         playerController.speed += changeSpeed;
-            //     }
-            // }
-
+            else if (obj30p <= p && p < 12000)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(14f, 14f, 14f), playerScaleTime
+                );
+                if (sizeFlag == false)
+                {
+                    sizeFlag = true;
+                    _agent.speed += addSpped;
+                }
+            }
+            else if (12000 <= p && p < 20000)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(15f, 15f, 15f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    sizeFlag = false;
+                    _agent.speed += addSpped;
+                }
+            }
+            else if (20000 <= p && p < 30000)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(16f, 16f, 16f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    sizeFlag = false;
+                    _agent.speed += addSpped;
+                }
+            }
+            else if (30000 <= p && p < 50000)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(18f, 18f, 18f), playerScaleTime
+                );
+                if (sizeFlag == true)
+                {
+                    sizeFlag = false;
+                    _agent.speed += addSpped;
+                }
+            }
 
 
 
