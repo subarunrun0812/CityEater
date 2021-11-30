@@ -28,48 +28,21 @@ public class NPCMove : MonoBehaviour
     private List<GameObject> destinationList = new List<GameObject>();//NPCの目的地
 
     //Vector3 pos;
-    private int _randam;//乱数。NPCの目的地で使う
+    private int _random;//乱数。NPCの目的地で使う
     void Start()
     {
-        //eatObjectscriptと変数の値を統一する
-        int obj3p = eatObj.obj3p;
-
         agent = GetComponent<NavMeshAgent>();
 
         //目標地点に近づいても速度を落とさなくなる
         agent.autoBraking = false;
         //目標地点を決める
         GotoNextPoint();
-        if (0 <= p && p < obj3p)
-        {
-            GameObject[] arrObj1 = GameObject.FindGameObjectsWithTag("1p");
-            for (int i = 0; i < arrObj1.Length;)//destinationListnに配列の要素を足していく
-            {
-                destinationList.Add(arrObj1[i]);
-            }
-        }
     }
     void GotoNextPoint()//NPCのpointに応じて、目標地点のゲームタグ決める
     {
         //NavMeshAgentのストップを解除
         agent.isStopped = false;
 
-
-        int _randam = Random.Range(1, destinationList.Count);//destinationListの要素をランダムで取得する
-        //もし、配列の[i]番目のオブジェクトがあったら
-        if (destinationList[_randam].transform.gameObject.activeSelf == true)
-        {
-            if (Vector3.Distance(agent.destination, destinationList[_randam].transform.position) > 0.5f)
-            {
-                agent.destination = destinationList[_randam].transform.position;
-                destinationList.RemoveAt(_randam); //Listの_randam番目の要素を消す
-            }
-        }
-        Debug.Log(_randam);
-
-    }
-    void Update()
-    {
         //eatObjectscriptと変数の値を統一する
         int obj2p = eatObj.obj2p;
         int obj3p = eatObj.obj3p;
@@ -87,8 +60,15 @@ public class NPCMove : MonoBehaviour
         p = npceat.point;
         //arrangement(配列) を略してarr
 
-
-        if (obj3p <= p && p < obj4p)
+        if (0 <= p && p < obj3p)
+        {
+            GameObject[] arrObj1 = GameObject.FindGameObjectsWithTag("1p");
+            for (int i = 0; i < arrObj1.Length;)//destinationListnに配列の要素を足していく
+            {
+                destinationList.Add(arrObj1[i]);
+            }
+        }
+        else if (obj3p <= p && p < obj4p)
         {
             GameObject[] arrObj = GameObject.FindGameObjectsWithTag("3p");
             for (int i = 0; i < arrObj.Length;)
@@ -96,12 +76,31 @@ public class NPCMove : MonoBehaviour
                 destinationList.Add(arrObj[i]);
             }
         }
+
+        //destinationListの要素をランダムで取得する
+        int _random = Random.Range(0, destinationList.Count);
+        //もし、配列の[i]番目のオブジェクトがあったら
+        if (_random < destinationList.Count && destinationList[_random].transform.gameObject.activeSelf == true)
+        {
+            if (Vector3.Distance(agent.destination, destinationList[_random].transform.position) > 0.5f)
+            {
+                agent.destination = destinationList[_random].transform.position;
+                destinationList.RemoveAt(_random); //Listの_random番目の要素を消す
+            }
+        }
+        Debug.Log(_random);
+        // Debug.Log(destinationList[_random].transform.gameObject.name);
+        // Debug.Log(destinationList.Count);
+
+    }
+    void Update()
+    {
         //経路探索の準備ができておらず目標地点までの距離が0.5m未満ならNavMeshAgentを止める
         //remainigDistance = エージェントの位置および現在の経路での目標地点の間の距離（読み取り専用）
         //pathPending経路探索の準備ができているかどうか（読み取り専用）
-        // if (!agent.pathPending && agent.remainingDistance < 1f)
-        //目標地点を設定し直す
-        GotoNextPoint();
+        if (!agent.pathPending && agent.remainingDistance < 1f)
+            // 目標地点を設定し直す
+            GotoNextPoint();
     }
 
     void StopHere()
