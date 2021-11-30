@@ -43,10 +43,6 @@ public class NPCMove : MonoBehaviour
         agent.isStopped = false;
 
         //eatObjectscriptと変数の値を統一する
-        float smallTime = eatObj.smallTime;//objectを小さくするのにかかる時間
-        float smallTimeApartment = eatObj.smallTimeApartment;//マンションを小さくするのにかかる時間
-        float smallTimeBigApartment = eatObj.smallTimeBigApartment;//大きいビルを小さくするのにかかる時間
-        float playerScaleTime = eatObj.playerScaleTime;//プレイヤーを大きくするのにかかる時間
         int obj2p = eatObj.obj2p;
         int obj3p = eatObj.obj3p;
         int obj4p = eatObj.obj4p;
@@ -62,53 +58,158 @@ public class NPCMove : MonoBehaviour
         //NPCの大きさをポイントに応じて変更する
         p = npceat.point;
         //arrangement(配列) を略してarr
-
-        // if (p < obj2p)
-        // { }
-        GameObject[] arrObj2p = GameObject.FindGameObjectsWithTag("2p");
-        for (int i = 0; i < arrObj2p.Length; i++)
-        {
-            Debug.Log(arrObj2p[i].transform.gameObject.name);
-            if (Vector3.Distance(agent.destination, arrObj2p[i].transform.position) > 0.5f)
-            {
-                agent.destination = arrObj2p[i].transform.position;
-            }
-        }
         if (obj2p <= p && p < obj3p)
         {
-
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("3p");
+            for (int i = 0; i < arrObj.Length; i++)
+            {
+                Debug.Log(arrObj[i].transform.gameObject.name);
+                //もし、配列の[i]番目のオブジェクトがtrueだったら
+                if (arrObj[i].transform.gameObject.activeSelf == true)
+                {
+                    agent.destination = arrObj[i].transform.position;
+                }
+            }
         }
         else if (obj3p <= p && p < obj4p)
         {
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("4p");
+            for (int i = 0; i < arrObj.Length; i++)
+            {
+                Debug.Log(arrObj[i].transform.gameObject.name);
+                //もし、配列の[i]番目のオブジェクトがあったら
+                if (arrObj[i].transform.gameObject.activeSelf == true)
+                {
+                    agent.destination = arrObj[i].transform.position;
+                }
+            }
         }
-        else if (obj4p <= p && p < obj5p)
-        {
-        }
-        else if (obj5p <= p && p < obj8p)
-        {
-        }
-        else if (obj8p <= p && p < obj10p)
-        {
-        }
-        else if (obj10p <= p && p < obj12p)
-        {
-        }
-        else if (obj12p <= p && p < obj15p)
-        {
-        }
-        else if (obj15p <= p && p < obj20p)
-        {
-        }
-        else if (obj20p <= p && p < obj30p)
-        {
-        }
-        else if (obj30p <= p && p < obj50p)
-        {
-        }
-        else if (obj50p <= p)
-        {
-
-        }
+        // else if (obj4p <= p && p < obj5p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("5p");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
+        // else if (obj5p <= p && p < obj8p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("8p");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
+        // else if (obj8p <= p && p < obj10p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("10p");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
+        // else if (obj10p <= p && p < obj12p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("12p");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
+        // else if (obj12p <= p && p < obj15p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("15p");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
+        // else if (obj15p <= p && p < obj20p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("20p");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
+        // else if (obj20p <= p && p < obj30p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("30p");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
+        // else if (obj30p <= p && p < obj50p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("50p");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
+        // else if (obj50p <= p)
+        // {
+        //     GameObject[] arrObj = GameObject.FindGameObjectsWithTag("50");
+        //     for (int i = 0; i < arrObj.Length; i++)
+        //     {
+        //         Debug.Log(arrObj[i].transform.gameObject.name);
+        //         //もし、配列の[i]番目のオブジェクトがあったら
+        //         if (arrObj[i].transform.gameObject.activeSelf == true)
+        //         {
+        //             //もし、オブジェクトに対してNPCが0.5f以上遠かったら
+        //                 agent.destination = arrObj[i].transform.position;
+        //         }
+        //     }
+        // }
     }
     void Update()
     {
