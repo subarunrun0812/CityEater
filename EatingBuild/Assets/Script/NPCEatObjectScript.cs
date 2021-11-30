@@ -18,8 +18,8 @@ public class NPCEatObjectScript : MonoBehaviour
     private NavMeshAgent _agent;
     private float addSpped = 1f;
     [SerializeField] private GameManager gameManager;
-    [SerializeField]
-    private GameObject notime;
+    [SerializeField] private CountDownTimer countDownTimer;
+    [SerializeField] private GameObject revenge;
     void Start()
     {
         _agent = this.GetComponent<NavMeshAgent>();
@@ -29,11 +29,21 @@ public class NPCEatObjectScript : MonoBehaviour
 
 
 
-    // IEnumerator DethPlayer()
-    // {
-    //     yield return new WaitForSeconds(2);
-    //     Time.timeScale = 0;
-    // }
+    private IEnumerator DethPlayer()
+    {
+        // if (countDownTimer.seconds > 3)
+        // {
+        Debug.Log("こルーチンが呼ばれた");
+        yield return new WaitForSeconds(3f);
+        Time.timeScale = 0;
+        revenge.SetActive(true);
+        // }
+        // else
+        // {
+        //     Time.timeScale = 0;
+        //     revenge.SetActive(true);
+        // }
+    }
     void OnTriggerEnter(Collider col)
     {
         //eatObjectscriptと変数の値を統一する
@@ -72,8 +82,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     {
                         NPCAddPoint(gameManager.point);
                         col.gameObject.SetActive(false);
-                        notime.SetActive(true);
-
+                        revenge.SetActive(true);
                         // StartCoroutine("DethPlayer");
                     });
                 }

@@ -6,19 +6,18 @@ using UnityEngine.SceneManagement;
 public class CountDownTimer : MonoBehaviour
 {
     //トータル制限時間
-    private float totalTime;
+    [SerializeField] private float totalTime;
     //制限時間（分）
-    [SerializeField]
-    private int minute;
+    [SerializeField] private int minute;
     //制限時間（秒）
-    [SerializeField]
-    private float seconds;
+    public float seconds;
     //前回Update時の秒数
     private float oldSeconds;
-    [SerializeField]
-    private Text timerText;
-    [SerializeField]
-    private Transform notime;
+
+    [SerializeField] private Text timerText;
+
+    [SerializeField] private GameObject notime;
+    [SerializeField] private GameObject revenge;//死んだ時に表示するボタンの親オブジェクト
 
     [SerializeField] private GameObject result;//resule画面を表示するオブジェクト
     [SerializeField] private GameObject highScoreTable;
@@ -35,29 +34,35 @@ public class CountDownTimer : MonoBehaviour
         timerText = GetComponentInChildren<Text>();
         scoreUI.SetActive(true);
         highScoreTable.SetActive(false);
+        notime.SetActive(false);
+        revenge.SetActive(false);
     }
 
     public void ContinueButtonInvoke()
     {
+        notime.SetActive(false);
+        revenge.SetActive(false);
         Time.timeScale = 1;
-        notime.gameObject.SetActive(false);
         if (_player.activeSelf == true)
         {
             seconds += 30;//30秒追加
         }
         else if (_player.activeSelf == false)//playerが死んだ時に復活するとき
         {
+            seconds += 30;//30秒追加.この仕組みを使ったら、対戦時間を永延とプレイしてもらえる→広告をたくさん見てもらえる。
             gameManager.AddPoint(gameManager.point * 2);
             _player.SetActive(true);
         }
     }
     public void QuitButton()//quitボタンを押したら、Result画面を表示する
     {
+        notime.SetActive(false);
+        revenge.SetActive(false);
         scoreUI.SetActive(false);
-        notime.gameObject.SetActive(false);
         highScoreTable.SetActive(true);
         Time.timeScale = 0;
     }
+
 
     void Update()
     {
@@ -80,7 +85,9 @@ public class CountDownTimer : MonoBehaviour
         if (totalTime <= 0f)
         {
             Time.timeScale = 0;
-            notime.gameObject.SetActive(true);
+            //timerが0になった時に表示する
+            notime.gameObject.SetActive(true);//ここが原因
+            seconds += 1f;
         }
     }
 }
