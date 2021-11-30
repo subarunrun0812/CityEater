@@ -66,9 +66,12 @@ public class NPCMove : MonoBehaviour
             for (int i = 0; i < arrObj1.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj1[i]);
-                Debug.Log(arrObj1[i]);
             }
         }
+
+
+
+
 
         //destinationListの要素をランダムで取得する
         int _random = Random.Range(0, destinationList.Count);
