@@ -63,17 +63,10 @@ public class NPCMove : MonoBehaviour
         if (0 <= p && p < obj3p)
         {
             GameObject[] arrObj1 = GameObject.FindGameObjectsWithTag("1p");
-            for (int i = 0; i < arrObj1.Length;)//destinationListnに配列の要素を足していく
+            for (int i = 0; i < arrObj1.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj1[i]);
-            }
-        }
-        else if (obj3p <= p && p < obj4p)
-        {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("3p");
-            for (int i = 0; i < arrObj.Length;)
-            {
-                destinationList.Add(arrObj[i]);
+                Debug.Log(arrObj1[i]);
             }
         }
 
@@ -88,7 +81,7 @@ public class NPCMove : MonoBehaviour
                 destinationList.RemoveAt(_random); //Listの_random番目の要素を消す
             }
         }
-        Debug.Log(_random);
+        Debug.Log(destinationList.Count);
         // Debug.Log(destinationList[_random].transform.gameObject.name);
         // Debug.Log(destinationList.Count);
 
