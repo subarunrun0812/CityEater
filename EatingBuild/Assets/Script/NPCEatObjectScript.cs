@@ -51,15 +51,15 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
+        halthpoint = point / 2;//小数点以下は切り捨て。
         NPCAddPoint(halthpoint);//pointを追加
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
-        halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
+        halthpoint = point / 2;//小数点以下は切り捨て。
         halthpoint = -halthpoint;//-にする
-        Debug.Log(halthpoint);
-        gameManager.AddPoint(halthpoint);//pointを減少
+        Debug.Log("NPCのhalthpointは" + halthpoint);
+        NPCAddPoint(halthpoint);//pointを減少
     }
     private void QuestionItem()//questionが食べられた時。
     {
@@ -97,8 +97,6 @@ public class NPCEatObjectScript : MonoBehaviour
         int obj30p = eatObj.obj30p;
         int obj50p = eatObj.obj50p;
         int p = point;
-
-
         switch (col.gameObject.tag)
         {
             case "Untagged"://ポイントがついている以外は食べれない
