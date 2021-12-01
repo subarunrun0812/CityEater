@@ -16,7 +16,7 @@ public class NPCEatObjectScript : MonoBehaviour
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     private bool sizeFlag = true;
     private NavMeshAgent _agent;
-    private float addSpped = 0f;
+    private float addSpped = 1f;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private CountDownTimer countDownTimer;
     [SerializeField] private GameObject revenge;
@@ -127,7 +127,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(4);//ポイントを1追加する
+                        NPCAddPoint(1);//ポイントを1追加する
                         col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                     });
                 }
@@ -145,7 +145,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(4);
+                        NPCAddPoint(2);
                         col.gameObject.SetActive(false);
 
                     });
