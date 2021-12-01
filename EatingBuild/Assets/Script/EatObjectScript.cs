@@ -32,6 +32,11 @@ public class EatObjectScript : MonoBehaviour
 
     public int obj30p = 8000;
     public int obj50p = 8000;
+    public int objover1 = 12000;
+    public int objover2 = 20000;
+    public int objover3 = 30000;
+    public int objover4 = 50000;
+
 
     void Start()
     {
@@ -521,7 +526,7 @@ public class EatObjectScript : MonoBehaviour
                     playerController.speed += changeSpeed;
                 }
             }
-            else if (obj30p <= p && p < 12000)
+            else if (obj30p <= p && p < objover1)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(14f, 14f, 14f), playerScaleTime
@@ -533,7 +538,7 @@ public class EatObjectScript : MonoBehaviour
                     playerController.speed += changeSpeed;
                 }
             }
-            else if (12000 <= p && p < 20000)
+            else if (objover1 <= p && p < objover2)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(15f, 15f, 15f), playerScaleTime
@@ -545,7 +550,7 @@ public class EatObjectScript : MonoBehaviour
                     playerController.speed += changeSpeed;
                 }
             }
-            else if (20000 <= p && p < 30000)
+            else if (objover2 <= p && p < objover3)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(16f, 16f, 16f), playerScaleTime
@@ -557,7 +562,7 @@ public class EatObjectScript : MonoBehaviour
                     playerController.speed += changeSpeed;
                 }
             }
-            else if (30000 <= p && p < 50000)
+            else if (objover3 <= p && p < objover4)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(18f, 18f, 18f), playerScaleTime
