@@ -8,11 +8,11 @@ using UnityEngine.AI;
 public class NPCEatObjectScript : MonoBehaviour
 {
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
-    void NPCAddPoint(float number)//ポイントの追加
+    void NPCAddPoint(int number)//ポイントの追加
     {
         point = point + number;
     }
-    public float point;//大きさを変える時などに使うポイント
+    public int point;//大きさを変える時などに使うポイント
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     private bool sizeFlag = true;
     private NavMeshAgent _agent;
@@ -64,7 +64,7 @@ public class NPCEatObjectScript : MonoBehaviour
         int obj20p = eatObj.obj20p;
         int obj30p = eatObj.obj30p;
         int obj50p = eatObj.obj50p;
-        float p = point;
+        int p = point;
 
 
         switch (col.gameObject.tag)
@@ -127,7 +127,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(4);//ポイントを1追加する
+                        NPCAddPoint(1);//ポイントを1追加する
                         col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                     });
                 }
@@ -145,7 +145,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(4);
+                        NPCAddPoint(2);
                         col.gameObject.SetActive(false);
 
                     });
@@ -417,7 +417,7 @@ public class NPCEatObjectScript : MonoBehaviour
         {
 
             //Playerの大きさをポイントに応じて変更する
-            float p = point;
+            int p = point;
 
             if (p < obj2p)
             {
