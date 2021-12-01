@@ -442,7 +442,7 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
                 );
                 if (sizeFlag == true)
-                {
+                {//
                     refCamera.CameraDistanceSmall();
                     sizeFlag = false;
                     playerController.speed += changeSpeed;
