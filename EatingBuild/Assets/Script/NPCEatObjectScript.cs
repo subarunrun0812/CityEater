@@ -433,7 +433,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                 }
 
 
@@ -445,7 +445,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == false)
                 {
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     sizeFlag = true;
                     spherecol.radius = 7f;
                 }
@@ -458,7 +458,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 6.5f;
                 }
             }
@@ -470,7 +470,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 6f;
                 }
             }
@@ -483,7 +483,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
 
                     sizeFlag = false;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 5.5f;
                 }
             }
@@ -496,7 +496,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 5f;
                 }
             }
@@ -508,7 +508,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 4.5f;
                 }
             }
@@ -520,7 +520,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 4f;
                 }
             }
@@ -532,7 +532,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 3.5f;
                 }
             }
@@ -544,7 +544,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 3f;
                 }
             }
@@ -556,7 +556,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 2.5f;
                 }
             }
@@ -568,7 +568,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 2f;
                 }
             }
@@ -580,7 +580,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 2f;
                 }
             }
@@ -592,7 +592,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     sizeFlag = true;
-                    _agent.speed += addSpped;
+                    // _agent.speed += addSpped;
                     spherecol.radius = 2f;
                 }
             }

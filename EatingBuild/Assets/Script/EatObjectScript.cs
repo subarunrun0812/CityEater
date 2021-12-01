@@ -424,7 +424,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceSmall();
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
 
 
@@ -437,7 +437,7 @@ public class EatObjectScript : MonoBehaviour
                 if (sizeFlag == false)
                 {
                     refCamera.CameraDistanceSmall();
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                     sizeFlag = true;
                 }
             }
@@ -450,7 +450,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceSmall();
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (obj5p <= p && p < obj8p)
@@ -462,7 +462,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceSmall();
                     sizeFlag = true;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (obj8p <= p && p < obj10p)
@@ -474,7 +474,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceMedium();
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
 
@@ -487,7 +487,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceLarge();
                     sizeFlag = true;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (obj12p <= p && p < obj15p)
@@ -499,7 +499,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceLarge();
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (obj15p <= p && p < obj20p)
@@ -511,7 +511,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceLarge();
                     sizeFlag = true;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (obj20p <= p && p < obj30p)
@@ -523,7 +523,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceLarge();
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (obj30p <= p && p < objover1)
@@ -535,7 +535,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceLarge();
                     sizeFlag = true;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (objover1 <= p && p < objover2)
@@ -547,7 +547,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceLarge();//カメラの離す距離を短くした
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (objover2 <= p && p < objover3)
@@ -559,7 +559,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceLarge();
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
             else if (objover3 <= p && p < objover4)
@@ -571,7 +571,7 @@ public class EatObjectScript : MonoBehaviour
                 {
                     refCamera.CameraDistanceLarge();
                     sizeFlag = false;
-                    playerController.speed += changeSpeed;
+                    // playerController.speed += changeSpeed;
                 }
             }
 
