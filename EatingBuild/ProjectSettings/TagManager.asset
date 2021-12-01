@@ -22,6 +22,8 @@ TagManager:
   - NPC
   - AT
   - INCR
+  - QUESTION
+  - DEC
   layers:
   - Default
   - TransparentFX
