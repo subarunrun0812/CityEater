@@ -37,29 +37,31 @@ public class EatObjectScript : MonoBehaviour
     public int objover3 = 30000;
     public int objover4 = 50000;
 
-
+    private int halthpoint;//gamemanager.pointの半分のpを切り上げたの値を入れる
     void Start()
     {
         float Playerspeed = playerController.speed;
-        // if (SystemInfo.supportsVibration)
-        // {
-        //     Handheld.Vibrate();
-        //     Debug.Log("長く振動した");
-        // }
+
     }
     private void VIbrationFunction()//スマホを振動される関数
     {
         VibrationMng.ShortVibration();//スマホを短く振動させる
         Debug.Log("振動した");
     }
-    private void AccelerationItem()//スピードアップのアイテムを食べた時
+    private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
     {
-        changeSpeed = 0.05f;
+        changeSpeed = 0.04f;
         playerController.speed += changeSpeed;
     }
-    private void IncreasePointItem()////Pointが増えるアイテムを食べた時
+    private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        // gameManager.point = gameManager.point * 1.5f;
+        halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
+        gameManager.AddPoint(halthpoint);//pointを追加
+    }
+    private void DecreasePointItem()//Pointが減るアイテムを食べた時。
+    {
+        halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
+        gameManager.AddPoint(-halthpoint);//pointを追加
     }
 
     void OnTriggerEnter(Collider col)//食べた時の処理
@@ -95,25 +97,30 @@ public class EatObjectScript : MonoBehaviour
 
                 break;
 
-            case "cube"://テスト用のオブジェクトなので、後で消さなければならない
+            case "AT"://speedが上がるアイテムを食べた時
                 if (p >= 0)
                 {
-                    col.transform.DOShakeRotation(
-                         duration: smallTime,   // 演出時間
-                         strength: 90f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(5);//ポイントを１０追加する
-                        col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
-                        Debug.Log(gameManager.point);
-                    });
+                    AccelerationItem();
+                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                     VIbrationFunction();
                 }
-                else
+                break;
+
+            case "INCR"://Pointが増えるアイテムを食べた時
+                if (p >= 0)
                 {
-                    NotEatBuild();
+                    IncreasePointItem();
+                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                    VIbrationFunction();
+                }
+                break;
+
+            case "DEC"://Pointが減るアイテムを食べた時
+                if (p >= 0)
+                {
+                    DecreasePointItem();
+                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                    VIbrationFunction();
                 }
                 break;
 

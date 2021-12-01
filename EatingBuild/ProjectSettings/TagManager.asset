@@ -20,6 +20,8 @@ TagManager:
   - Wall
   - WallCollider
   - NPC
+  - AT
+  - INCR
   layers:
   - Default
   - TransparentFX
