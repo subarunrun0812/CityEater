@@ -59,12 +59,12 @@ public class EatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時
     {
-        // gameManager.point = gameManager.point * 1.5f;
+        gameManager.point = gameManager.point * 1.5f;
     }
 
     void OnTriggerEnter(Collider col)//食べた時の処理
     {
-        int p = gameManager.point;//GameManagerスクリプトの変数を参照
+        float p = gameManager.point;//GameManagerスクリプトの変数を参照
 
         switch (col.gameObject.tag)
         {
@@ -413,7 +413,7 @@ public class EatObjectScript : MonoBehaviour
     {
         {
             //Playerの大きさをポイントに応じて変更する
-            int p = gameManager.point;
+            float p = gameManager.point;
 
             if (p < obj2p)
             {
