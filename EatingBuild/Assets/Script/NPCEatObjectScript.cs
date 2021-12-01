@@ -409,6 +409,11 @@ public class NPCEatObjectScript : MonoBehaviour
         int obj20p = eatObj.obj20p;
         int obj30p = eatObj.obj30p;
         int obj50p = eatObj.obj50p;
+        int objover1 = eatObj.objover1;
+        int objover2 = eatObj.objover2;
+        int objover3 = eatObj.objover3;
+        int objover4 = eatObj.objover4;
+
         {
 
             //Playerの大きさをポイントに応じて変更する
@@ -531,7 +536,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     spherecol.radius = 3.5f;
                 }
             }
-            else if (obj30p <= p && p < 12000)
+            else if (obj30p <= p && p < objover1)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(14f, 14f, 14f), playerScaleTime
@@ -543,19 +548,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     spherecol.radius = 3f;
                 }
             }
-            else if (12000 <= p && p < 20000)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(15f, 15f, 15f), playerScaleTime
-                );
-                if (sizeFlag == true)
-                {
-                    sizeFlag = false;
-                    _agent.speed += addSpped;
-                    spherecol.radius = 2.5f;
-                }
-            }
-            else if (20000 <= p && p < 30000)
+            else if (objover1 <= p && p < objover2)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(16f, 16f, 16f), playerScaleTime
@@ -564,17 +557,41 @@ public class NPCEatObjectScript : MonoBehaviour
                 {
                     sizeFlag = false;
                     _agent.speed += addSpped;
-                    spherecol.radius = 2f;
+                    spherecol.radius = 2.5f;
                 }
             }
-            else if (30000 <= p && p < 50000)
+            else if (objover2 <= p && p < objover3)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(18f, 18f, 18f), playerScaleTime
                 );
+                if (sizeFlag == false)
+                {
+                    sizeFlag = true;
+                    _agent.speed += addSpped;
+                    spherecol.radius = 2f;
+                }
+            }
+            else if (objover3 <= p && p < objover4)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(20f, 20f, 20f), playerScaleTime
+                );
                 if (sizeFlag == true)
                 {
                     sizeFlag = false;
+                    _agent.speed += addSpped;
+                    spherecol.radius = 2f;
+                }
+            }
+            else if (objover4 <= p)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(22f, 22f, 22f), playerScaleTime
+                );
+                if (sizeFlag == false)
+                {
+                    sizeFlag = true;
                     _agent.speed += addSpped;
                     spherecol.radius = 2f;
                 }
