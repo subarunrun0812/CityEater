@@ -18,7 +18,7 @@ public class EatObjectScript : MonoBehaviour
     private bool sizeFlag = true;
     [SerializeField] private PlayerController playerController;
 
-    public float changeSpeed = 0.05f;
+    public float changeSpeed;
 
     public int obj2p = 10;
     public int obj3p = 50;
@@ -52,9 +52,15 @@ public class EatObjectScript : MonoBehaviour
         VibrationMng.ShortVibration();//スマホを短く振動させる
         Debug.Log("振動した");
     }
-
-
-
+    private void AccelerationItem()//スピードアップのアイテムを食べた時
+    {
+        changeSpeed = 0.05f;
+        playerController.speed += changeSpeed;
+    }
+    private void IncreasePointItem()////Pointが増えるアイテムを食べた時
+    {
+        // gameManager.point = gameManager.point * 1.5f;
+    }
 
     void OnTriggerEnter(Collider col)//食べた時の処理
     {
