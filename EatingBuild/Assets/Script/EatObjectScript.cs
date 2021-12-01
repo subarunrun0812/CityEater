@@ -17,9 +17,7 @@ public class EatObjectScript : MonoBehaviour
 
     private bool sizeFlag = true;
     [SerializeField] private PlayerController playerController;
-
     public float changeSpeed;
-
     public int obj2p = 10;
     public int obj3p = 50;
     public int obj4p = 100;
@@ -46,7 +44,7 @@ public class EatObjectScript : MonoBehaviour
     private void VIbrationFunction()//スマホを振動される関数
     {
         VibrationMng.ShortVibration();//スマホを短く振動させる
-        Debug.Log("振動した");
+        // Debug.Log("振動した");
     }
     private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
     {
@@ -61,7 +59,24 @@ public class EatObjectScript : MonoBehaviour
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
         halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
-        gameManager.AddPoint(-halthpoint);//pointを追加
+        gameManager.AddPoint(-halthpoint);//pointを減少
+    }
+    private void QuestionItem()//questionが食べられた時。
+    {
+        int ranItem = Random.Range(0, 3);//アイテムは３種類あるから.0~2の間で乱数。intは「max - 1」
+        Debug.Log("ranItemは" + ranItem);
+        switch (ranItem)
+        {
+            case 0:
+                AccelerationItem();
+                break;
+            case 1:
+                IncreasePointItem();
+                break;
+            case 2:
+                DecreasePointItem();
+                break;
+        }
     }
 
     void OnTriggerEnter(Collider col)//食べた時の処理
@@ -119,6 +134,15 @@ public class EatObjectScript : MonoBehaviour
                 if (p >= 0)
                 {
                     DecreasePointItem();
+                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                    VIbrationFunction();
+                }
+                break;
+
+            case "QUESTION"://Pointが減るアイテムを食べた時
+                if (p >= 0)
+                {
+                    QuestionItem();
                     col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                     VIbrationFunction();
                 }

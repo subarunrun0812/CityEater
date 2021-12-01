@@ -207,7 +207,7 @@ public class NPCMove : MonoBehaviour
         */
         //destinationListの要素をランダムで取得する
         int _random = Random.Range(0, destinationList.Count);
-        Debug.Log(this.gameObject.name + "の乱数は" + _random);
+        // Debug.Log(this.gameObject.name + "の乱数は" + _random);
         //もし、配列の[i]番目のオブジェクトがあったら
         if (_random < destinationList.Count && destinationList[_random].transform.gameObject.activeSelf == true)
         {
