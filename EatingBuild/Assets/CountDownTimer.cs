@@ -50,7 +50,7 @@ public class CountDownTimer : MonoBehaviour
         else if (_player.activeSelf == false)//playerが死んだ時に復活するとき
         {
             seconds += 30;//30秒追加.この仕組みを使ったら、対戦時間を永延とプレイしてもらえる→広告をたくさん見てもらえる。
-            gameManager.AddPoint(gameManager.point + 500);
+            gameManager.AddPoint(gameManager.point * 2);
             _player.SetActive(true);
         }
     }

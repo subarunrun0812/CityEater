@@ -11,7 +11,7 @@ public class NPCMove : MonoBehaviour
 {
 
     [SerializeField] private NPCEatObjectScript npceat;
-    private float p;
+    private int p;
     [SerializeField] GameManager gameManager;
 
     //位置の基準になるオブジェクトのTransformを収める
