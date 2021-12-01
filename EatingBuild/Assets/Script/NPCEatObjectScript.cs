@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine.AI;
 public class NPCEatObjectScript : MonoBehaviour
 {
+    private int halthpoint;//pointの半分のpを切り上げたの値を入れる
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
     void NPCAddPoint(int number)//ポイントの追加
     {
@@ -14,9 +15,9 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     public int point;//大きさを変える時などに使うポイント
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
-    private bool sizeFlag = true;
     private NavMeshAgent _agent;
-    private float addSpped = 1f;
+    private float changeSpeed = 0.5f;
+
     [SerializeField] private GameManager gameManager;
     [SerializeField] private CountDownTimer countDownTimer;
     [SerializeField] private GameObject revenge;
@@ -27,10 +28,6 @@ public class NPCEatObjectScript : MonoBehaviour
         float agentspeed = _agent.speed;
         spherecol.radius = 8;//sphrecolliderの大きさを指定
     }
-
-
-
-
     private IEnumerator DethPlayer()
     {
         // if (countDownTimer.seconds > 3)
@@ -45,6 +42,41 @@ public class NPCEatObjectScript : MonoBehaviour
         //     Time.timeScale = 0;
         //     revenge.SetActive(true);
         // }
+    }
+
+    private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
+    {
+        changeSpeed = 0.5f;
+        _agent.speed += changeSpeed;
+    }
+    private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
+    {
+        halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
+        NPCAddPoint(halthpoint);//pointを追加
+    }
+    private void DecreasePointItem()//Pointが減るアイテムを食べた時。
+    {
+        halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
+        halthpoint = -halthpoint;//-にする
+        Debug.Log(halthpoint);
+        gameManager.AddPoint(halthpoint);//pointを減少
+    }
+    private void QuestionItem()//questionが食べられた時。
+    {
+        int ranItem = Random.Range(0, 3);//アイテムは３種類あるから.0~2の間で乱数。intは「max - 1」
+        Debug.Log("ranItemは" + ranItem);
+        switch (ranItem)
+        {
+            case 0:
+                AccelerationItem();
+                break;
+            case 1:
+                IncreasePointItem();
+                break;
+            case 2:
+                DecreasePointItem();
+                break;
+        }
     }
     void OnTriggerEnter(Collider col)
     {
@@ -114,6 +146,38 @@ public class NPCEatObjectScript : MonoBehaviour
                     NotEatBuild();
                 }
 
+                break;
+
+            case "AT"://speedが上がるアイテムを食べた時
+                if (p >= 0)
+                {
+                    AccelerationItem();
+                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                }
+                break;
+
+            case "INCR"://Pointが増えるアイテムを食べた時
+                if (p >= 0)
+                {
+                    IncreasePointItem();
+                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                }
+                break;
+
+            case "DEC"://Pointが減るアイテムを食べた時
+                if (p >= 0)
+                {
+                    DecreasePointItem();
+                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                }
+                break;
+
+            case "QUESTION"://Pointが減るアイテムを食べた時
+                if (p >= 0)
+                {
+                    QuestionItem();
+                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                }
                 break;
 
             case "1p":
@@ -430,176 +494,136 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    sizeFlag = false;
-                    // _agent.speed += addSpped;
-                }
-
-
             }
+
+
             else if (obj3p <= p && p < obj4p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(2f, 2f, 2f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    // _agent.speed += addSpped;
-                    sizeFlag = true;
-                    spherecol.radius = 7f;
-                }
+                // _agent.speed += addSpped;
+                spherecol.radius = 7f;
             }
+
             else if (obj4p <= p && p < obj5p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    sizeFlag = false;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 6.5f;
-                }
+
+
+                // _agent.speed += addSpped;
+                spherecol.radius = 6.5f;
             }
+
             else if (obj5p <= p && p < obj8p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(3f, 3f, 3f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    sizeFlag = true;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 6f;
-                }
+                // _agent.speed += addSpped;
+                spherecol.radius = 6f;
             }
+
             else if (obj8p <= p && p < obj10p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(4f, 4f, 4f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-
-                    sizeFlag = false;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 5.5f;
-                }
+                // _agent.speed += addSpped;
+                spherecol.radius = 5.5f;
             }
+
 
             else if (obj10p <= p && p < obj12p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(6f, 6f, 6f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    sizeFlag = true;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 5f;
-                }
+                // _agent.speed += addSpped;
+                spherecol.radius = 5f;
             }
+
             else if (obj12p <= p && p < obj15p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(8f, 8f, 8f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    sizeFlag = false;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 4.5f;
-                }
+
+
+                // _agent.speed += addSpped;
+                spherecol.radius = 4.5f;
             }
+
             else if (obj15p <= p && p < obj20p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(10f, 10f, 10f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    sizeFlag = true;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 4f;
-                }
+                // _agent.speed += addSpped;
+                spherecol.radius = 4f;
             }
+
             else if (obj20p <= p && p < obj30p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(12f, 12f, 12f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    sizeFlag = false;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 3.5f;
-                }
+
+
+                // _agent.speed += addSpped;
+                spherecol.radius = 3.5f;
             }
+
             else if (obj30p <= p && p < objover1)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(14f, 14f, 14f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    sizeFlag = true;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 3f;
-                }
+                // _agent.speed += addSpped;
+                spherecol.radius = 3f;
             }
+
             else if (objover1 <= p && p < objover2)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(16f, 16f, 16f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    sizeFlag = false;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 2.5f;
-                }
+
+
+                // _agent.speed += addSpped;
+                spherecol.radius = 2.5f;
             }
+
             else if (objover2 <= p && p < objover3)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(18f, 18f, 18f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    sizeFlag = true;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 2f;
-                }
+                // _agent.speed += addSpped;
+                spherecol.radius = 2f;
             }
+
             else if (objover3 <= p && p < objover4)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(20f, 20f, 20f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    sizeFlag = false;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 2f;
-                }
+
+
+                // _agent.speed += addSpped;
+                spherecol.radius = 2f;
             }
+
             else if (objover4 <= p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(22f, 22f, 22f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    sizeFlag = true;
-                    // _agent.speed += addSpped;
-                    spherecol.radius = 2f;
-                }
+                // _agent.speed += addSpped;
+                spherecol.radius = 2f;
             }
-
-
-
-
         }
 
 
