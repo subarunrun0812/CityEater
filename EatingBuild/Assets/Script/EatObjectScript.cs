@@ -14,8 +14,6 @@ public class EatObjectScript : MonoBehaviour
 
     [SerializeField] private PlayerFollowCamera refCamera;
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
-
-    private bool sizeFlag = true;
     [SerializeField] private PlayerController playerController;
     public float changeSpeed;
     public int obj2p = 10;
@@ -459,13 +457,8 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    refCamera.distance = 17;//初期値は15
-                    sizeFlag = false;
-                    // playerController.speed += changeSpeed;
-                }
-
+                refCamera.distance = 17;//初期値は15
+                // playerController.speed += changeSpeed;
 
             }
             else if (obj3p <= p && p < obj4p)
@@ -473,153 +466,96 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(2f, 2f, 2f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    refCamera.distance = 19;//+2
-                    // playerController.speed += changeSpeed;
-                    sizeFlag = true;
-                }
+                refCamera.distance = 19;//+2
             }
             else if (obj4p <= p && p < obj5p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    refCamera.distance = 21;//+2
-                    sizeFlag = false;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 21;//+2
+                // playerController.speed += changeSpeed;
             }
             else if (obj5p <= p && p < obj8p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(3f, 3f, 3f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    refCamera.distance = 23;//+2
-                    sizeFlag = true;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 23;//+2
+                                        // playerController.speed += changeSpeed;
             }
             else if (obj8p <= p && p < obj10p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(4f, 4f, 4f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    refCamera.distance = 27;//+4
-                    sizeFlag = false;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 27;//+4
+                // playerController.speed += changeSpeed;
             }
-
             else if (obj10p <= p && p < obj12p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(6f, 6f, 6f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    refCamera.distance = 31;//+4
-                    sizeFlag = true;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 31;//+4
+                // playerController.speed += changeSpeed;
             }
             else if (obj12p <= p && p < obj15p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(8f, 8f, 8f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    refCamera.distance = 35;//+4
-                    sizeFlag = false;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 35;//+4
+                // playerController.speed += changeSpeed;
             }
             else if (obj15p <= p && p < obj20p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(10f, 10f, 10f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    refCamera.distance = 45;//+10
-                    sizeFlag = true;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 45;//+10
+                                        // playerController.speed += changeSpeed;
             }
             else if (obj20p <= p && p < obj30p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(12f, 12f, 12f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    refCamera.distance = 55;//+10
-                    sizeFlag = false;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 55;//+10
+                // playerController.speed += changeSpeed;
             }
             else if (obj30p <= p && p < objover1)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(14f, 14f, 14f), playerScaleTime
                 );
-                if (sizeFlag == false)
-                {
-                    refCamera.distance = 65;//+10
-                    sizeFlag = true;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 65;//+10
+                                        // playerController.speed += changeSpeed;
             }
             else if (objover1 <= p && p < objover2)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(15f, 15f, 15f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    refCamera.distance = 75;//+10
-                    sizeFlag = false;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 75;//+10
+                // playerController.speed += changeSpeed;
             }
             else if (objover2 <= p && p < objover3)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(16f, 16f, 16f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    refCamera.distance = 85;//+10
-                    sizeFlag = false;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 85;//+10
+                // playerController.speed += changeSpeed;
             }
             else if (objover3 <= p && p < objover4)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(18f, 18f, 18f), playerScaleTime
                 );
-                if (sizeFlag == true)
-                {
-                    refCamera.distance = 95;//+10
-                    sizeFlag = false;
-                    // playerController.speed += changeSpeed;
-                }
+                refCamera.distance = 95;//+10
+                // playerController.speed += changeSpeed;
             }
-
-
-
-
-
         }
-
-
     }
 }
