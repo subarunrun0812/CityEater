@@ -59,7 +59,9 @@ public class EatObjectScript : MonoBehaviour
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
         halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
-        gameManager.AddPoint(-halthpoint);//pointを減少
+        halthpoint = -halthpoint;//-にする
+        Debug.Log(halthpoint);
+        gameManager.AddPoint(halthpoint);//pointを減少
     }
     private void QuestionItem()//questionが食べられた時。
     {
@@ -459,7 +461,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == true)
                 {
-                    refCamera.CameraDistanceSmall();
+                    refCamera.distance = 17;//初期値は15
                     sizeFlag = false;
                     // playerController.speed += changeSpeed;
                 }
@@ -473,7 +475,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == false)
                 {
-                    refCamera.CameraDistanceSmall();
+                    refCamera.distance = 19;//+2
                     // playerController.speed += changeSpeed;
                     sizeFlag = true;
                 }
@@ -485,7 +487,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == true)
                 {
-                    refCamera.CameraDistanceSmall();
+                    refCamera.distance = 21;//+2
                     sizeFlag = false;
                     // playerController.speed += changeSpeed;
                 }
@@ -497,7 +499,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == false)
                 {
-                    refCamera.CameraDistanceSmall();
+                    refCamera.distance = 23;//+2
                     sizeFlag = true;
                     // playerController.speed += changeSpeed;
                 }
@@ -509,7 +511,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == true)
                 {
-                    refCamera.CameraDistanceMedium();
+                    refCamera.distance = 27;//+4
                     sizeFlag = false;
                     // playerController.speed += changeSpeed;
                 }
@@ -522,7 +524,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == false)
                 {
-                    refCamera.CameraDistanceLarge();
+                    refCamera.distance = 31;//+4
                     sizeFlag = true;
                     // playerController.speed += changeSpeed;
                 }
@@ -534,7 +536,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == true)
                 {
-                    refCamera.CameraDistanceLarge();
+                    refCamera.distance = 35;//+4
                     sizeFlag = false;
                     // playerController.speed += changeSpeed;
                 }
@@ -546,7 +548,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == false)
                 {
-                    refCamera.CameraDistanceLarge();
+                    refCamera.distance = 45;//+10
                     sizeFlag = true;
                     // playerController.speed += changeSpeed;
                 }
@@ -558,7 +560,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == true)
                 {
-                    refCamera.CameraDistanceLarge();
+                    refCamera.distance = 55;//+10
                     sizeFlag = false;
                     // playerController.speed += changeSpeed;
                 }
@@ -570,7 +572,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == false)
                 {
-                    refCamera.CameraDistanceLarge();
+                    refCamera.distance = 65;//+10
                     sizeFlag = true;
                     // playerController.speed += changeSpeed;
                 }
@@ -582,7 +584,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == true)
                 {
-                    refCamera.CameraDistanceLarge();//カメラの離す距離を短くした
+                    refCamera.distance = 75;//+10
                     sizeFlag = false;
                     // playerController.speed += changeSpeed;
                 }
@@ -594,7 +596,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == true)
                 {
-                    refCamera.CameraDistanceLarge();
+                    refCamera.distance = 85;//+10
                     sizeFlag = false;
                     // playerController.speed += changeSpeed;
                 }
@@ -606,7 +608,7 @@ public class EatObjectScript : MonoBehaviour
                 );
                 if (sizeFlag == true)
                 {
-                    refCamera.CameraDistanceLarge();
+                    refCamera.distance = 95;//+10
                     sizeFlag = false;
                     // playerController.speed += changeSpeed;
                 }
