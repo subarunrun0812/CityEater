@@ -6,9 +6,9 @@ using System.Linq;
 public class AppearanceItems : MonoBehaviour
 {
     [SerializeField] private GameObject[] items;//アイテムを格納する
-    [SerializeField] private List<GameObject> places;//出現するポイントを事前に決めておく
+    [SerializeField] private List<GameObject> places = new List<GameObject>();//出現するポイントを事前に決めておく
 
-    private List<GameObject> revivalList;//削除したplacesの要素を格納する
+    [SerializeField] private List<GameObject> revivalList = new List<GameObject>();//削除したplacesの要素を格納する.listの中を初期化
     void Start()
     {
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
@@ -17,32 +17,31 @@ public class AppearanceItems : MonoBehaviour
 
     private void TimeInstantiateItems()//一定時間ごとにItemを生成する
     {
-        if (places != null)
+        Debug.LogWarning(places.Count);
+        if (places.Count != 0)
         {
             int itemsRandom = Random.Range(0, items.Length);
             int placesRandom = Random.Range(0, places.Count);
             Instantiate(items[itemsRandom], places[placesRandom].transform.position, items[itemsRandom].transform.rotation);
-            places[placesRandom] = places[places.Count - 1];//placesRandomの要素を末尾に持ってくる
-            revivalList.Add(places[places.Count - 1]);
-            places.RemoveAt(places.Count - 1);
+            // places[placesRandom] = places[places.Count - 1];//placesRandomの要素を末尾に持ってくる
+            revivalList.Add(places[placesRandom]);
+            places.RemoveAt(placesRandom);
         }
-        else if (places == null)//nullだったらplacesリストに再び全て追加する
+        else//nullだったらplacesリストに再び全て追加する
         {
-            AddPlacesList();
-        }
-        else
-        {
-            Debug.Log("何もしない");
+            places.Clear();
+            //リストで保持しているインスタンスを削除
+            for (int i = 0; i < revivalList.Count; i++)
+            {
+                places.Add(revivalList[i]);
+            }
+            for (int i = 0; i < revivalList.Count; i++)
+            {
+                revivalList.RemoveAt(i);
+            }
+            //リスト自体をキレイにする
+            revivalList.Clear();
         }
     }
-    private void AddPlacesList()//removeした要素を再び追加
-    {
-        foreach (var item in revivalList)
-        {
-            places.Add(item);
-        }
-        revivalList.Clear();
-    }
-
 }
 

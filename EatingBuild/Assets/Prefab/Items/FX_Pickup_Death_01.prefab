@@ -14634,6 +14634,7 @@ GameObject:
   - component: {fileID: 4657410305429501177}
   - component: {fileID: 4657880903545067007}
   - component: {fileID: 4783402322497824292}
+  - component: {fileID: 1546947777539243}
   m_Layer: 1
   m_Name: FX_Pickup_Death_01
   m_TagString: DEC
@@ -14648,7 +14649,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4784918342064802931}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.94, y: 0.5, z: -111.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19450,3 +19451,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1546947777539243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784918342064802931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58eadffe86854862ae11e1651c49076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
