@@ -5,15 +5,15 @@ using System.Linq;
 
 public class AppearanceItems : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> items;//アイテムを格納する
+    [Header("placesと要素数を合わせる"), SerializeField] private List<GameObject> items;//アイテムを格納する
     [SerializeField] private List<GameObject> revivalItm;//アイテムを格納する
-    [SerializeField] private List<GameObject> places = new List<GameObject>();//出現するポイントを事前に決めておく
+    [Header("itemsと要素数を合わせる"), SerializeField] private List<GameObject> places = new List<GameObject>();//出現するポイントを事前に決めておく
 
     [SerializeField] private List<GameObject> revivalList = new List<GameObject>();//削除したplacesの要素を格納する.listの中を初期化
     void Start()
     {
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
-        InvokeRepeating("TimeInstantiateItems", 0f, 5f);
+        InvokeRepeating("TimeInstantiateItems", 0f, 3f);
     }
 
     private void TimeInstantiateItems()//一定時間ごとにItemを生成する
