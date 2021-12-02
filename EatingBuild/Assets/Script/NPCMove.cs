@@ -35,7 +35,6 @@ public class NPCMove : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
         //目標地点に近づいても速度を落とさなくなる
         agent.autoBraking = false;
         //目標地点を決める
@@ -214,7 +213,9 @@ public class NPCMove : MonoBehaviour
             if (Vector3.Distance(agent.destination, destinationList[_random].transform.position) > 0.5f)
             {
                 agent.destination = destinationList[_random].transform.position;
-                destinationList.RemoveAt(_random); //Listの_random番目の要素を消す
+                // 処理を軽くするため、消したいindexに一番最後の要素を移す
+                destinationList[_random] = destinationList[destinationList.Count - 1];//_randomの要素を末尾に持ってくる
+                destinationList.RemoveAt(destinationList.Count - 1); //Listの_random番目の要素を消す
             }
         }
     }
