@@ -11,7 +11,7 @@ public class PrefabInstanceMoveCar : MonoBehaviour
     void Start()
     {
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
-        InvokeRepeating("TimeInstantiateCar", 0f, 3f);
+        InvokeRepeating("TimeInstantiateCar", 0f, 7f);
 
 
     }
