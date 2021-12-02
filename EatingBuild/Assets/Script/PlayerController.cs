@@ -46,11 +46,11 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        // if (this.gameObject.transform.position.y != 0)//y =0にする
-        // {
-        //     Vector3 playerPos = this.transform.position;
-        //     playerPos.y = 0f;
-        // }
+        if (this.gameObject.transform.position.y != 0)//y =0にする
+        {
+            Vector3 playerPos = this.transform.position;
+            playerPos.y = 0.0f;
+        }
     }
     void OnTriggerEnter(Collider other)
     {
