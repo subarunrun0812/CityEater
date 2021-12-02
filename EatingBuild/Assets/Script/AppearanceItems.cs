@@ -5,7 +5,8 @@ using System.Linq;
 
 public class AppearanceItems : MonoBehaviour
 {
-    [SerializeField] private GameObject[] items;//アイテムを格納する
+    [SerializeField] private List<GameObject> items;//アイテムを格納する
+    [SerializeField] private List<GameObject> revivalItm;//アイテムを格納する
     [SerializeField] private List<GameObject> places = new List<GameObject>();//出現するポイントを事前に決めておく
 
     [SerializeField] private List<GameObject> revivalList = new List<GameObject>();//削除したplacesの要素を格納する.listの中を初期化
@@ -17,15 +18,36 @@ public class AppearanceItems : MonoBehaviour
 
     private void TimeInstantiateItems()//一定時間ごとにItemを生成する
     {
-        Debug.LogWarning(places.Count);
+        Debug.LogWarning("placesの数は" + places.Count);
+        Debug.LogWarning("itemの数は" + items.Count);
         if (places.Count != 0)
         {
-            int itemsRandom = Random.Range(0, items.Length);
-            int placesRandom = Random.Range(0, places.Count);
-            Instantiate(items[itemsRandom], places[placesRandom].transform.position, items[itemsRandom].transform.rotation);
-            // places[placesRandom] = places[places.Count - 1];//placesRandomの要素を末尾に持ってくる
-            revivalList.Add(places[placesRandom]);
-            places.RemoveAt(placesRandom);
+            if (items.Count != 0)
+            {
+                int itemsRandom = Random.Range(0, items.Count);
+                int placesRandom = Random.Range(0, places.Count);
+                Instantiate(items[itemsRandom], places[placesRandom].transform.position, items[itemsRandom].transform.rotation);
+                // places[placesRandom] = places[places.Count - 1];//placesRandomの要素を末尾に持ってくる
+                revivalList.Add(places[placesRandom]);
+                places.RemoveAt(placesRandom);
+                revivalItm.Add(items[itemsRandom]);
+                items.RemoveAt(itemsRandom);
+            }
+            else
+            {
+                items.Clear();
+                //リストで保持しているインスタンスを削除
+                for (int i = 0; i < revivalItm.Count; i++)
+                {
+                    items.Add(revivalItm[i]);
+                }
+                for (int i = 0; i < revivalItm.Count; i++)
+                {
+                    revivalItm.RemoveAt(i);
+                }
+                //リスト自体をキレイにする
+                revivalItm.Clear();
+            }
         }
         else//nullだったらplacesリストに再び全て追加する
         {
