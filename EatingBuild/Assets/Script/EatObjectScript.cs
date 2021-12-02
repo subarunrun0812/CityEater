@@ -51,7 +51,7 @@ public class EatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
+        halthpoint = gameManager.point * 2;//
         gameManager.AddPoint(halthpoint);//pointを追加
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
