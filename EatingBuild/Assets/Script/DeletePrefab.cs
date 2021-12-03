@@ -11,7 +11,22 @@ public class DeletePrefab : MonoBehaviour
         if (col.gameObject.tag == "5p")//carのgameobject.tag = 5p
         {
             Destroy(col.gameObject);//Carを削除する
-            Debug.Log("carを削除した");
+        }
+        else if (col.gameObject.tag == "AT")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.tag == "INCR")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.tag == "DEC")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.tag == "QUESTION")
+        {
+            Destroy(col.gameObject);
         }
     }
 }
