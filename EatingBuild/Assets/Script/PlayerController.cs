@@ -23,14 +23,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (this.gameObject.transform.position.y != 0.10f)//y =0にする
+        if (this.gameObject.transform.position.y != 0.11f)//y =0にする
         {
             Vector3 playerPos = this.transform.position;
-            playerPos.y = 0.10f;
+            playerPos.y = 0.11f;
         }
     }
     void FixedUpdate()
     {
+        if (this.gameObject.transform.position.y != 0.11f)//y =0にする
+        {
+            Vector3 playerPos = this.transform.position;
+            playerPos.y = 0.11f;
+        }
+
         float x = joystick.Horizontal;
         float z = joystick.Vertical;
         transform.position += new Vector3(x * speed, 0, z * speed);
@@ -52,13 +58,6 @@ public class PlayerController : MonoBehaviour
         if (diff.magnitude > 0.01f)
         {
             transform.rotation = Quaternion.LookRotation(diff); //向きを変更する
-        }
-
-
-        if (this.gameObject.transform.position.y != 0.10f)//y =0にする
-        {
-            Vector3 playerPos = this.transform.position;
-            playerPos.y = 0.10f;
         }
     }
     void OnTriggerEnter(Collider other)
