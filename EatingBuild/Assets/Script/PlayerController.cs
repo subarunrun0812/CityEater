@@ -20,6 +20,15 @@ public class PlayerController : MonoBehaviour
         playerCollider.isTrigger = true;//IsTriggerをON
         // transform.Rotate(0, 0, 0);//なぜか向きが変わる。このコードがうまくyouいっていない
     }
+
+    void Update()
+    {
+        if (this.gameObject.transform.position.y != 0.10f)//y =0にする
+        {
+            Vector3 playerPos = this.transform.position;
+            playerPos.y = 0.10f;
+        }
+    }
     void FixedUpdate()
     {
         float x = joystick.Horizontal;
@@ -46,10 +55,10 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (this.gameObject.transform.position.y != 0)//y =0にする
+        if (this.gameObject.transform.position.y != 0.10f)//y =0にする
         {
             Vector3 playerPos = this.transform.position;
-            playerPos.y = 0.0f;
+            playerPos.y = 0.10f;
         }
     }
     void OnTriggerEnter(Collider other)
