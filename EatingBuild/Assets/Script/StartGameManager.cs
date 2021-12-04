@@ -49,6 +49,11 @@ public class StartGameManager : MonoBehaviour
         {
             SceneManager.LoadScene("StartScene");
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            PlayerPrefs.DeleteAll();
+            Debug.LogError("セーブデータを全て削除した");
+        }
     }
 
 }
