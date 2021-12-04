@@ -10,7 +10,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     private GameObject[] _changeskin;
     // private int skin_number;
 
-    public static int changeNumber;//
+    public static int changeNumber;//demoシーンで同期させるためにstatic修飾子を使う
 
 
     void Awake()
@@ -79,7 +79,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
             _changeskin[i].SetActive(false);
         }
     }
-    private void LoadSkin()//全ての着せ替えを非表示にする
+    private void LoadSkin()//スキンをロードする
     {
         for (int i = 0; i < _changeskin.Length; i++)
         {
@@ -94,7 +94,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
         }
     }
 
-    public void SaveDate()
+    public void SaveDate()//スキンを保存する
     {
         //変更したスキンの要素の順番をPlayerPrefsで記憶する
         PlayerPrefs.SetInt("ChangeNumber", changeNumber);
