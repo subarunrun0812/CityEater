@@ -24,7 +24,6 @@ public class HighscoreTable : MonoBehaviour
     private List<HighscoreEntry> highscoreEntryList;//HighscoreEntryクラスにscoreとnameの要素を格納します
     private List<Transform> highscoreentryTransformList;
 
-
     void Awake()
     {
         entryTemplate.gameObject.SetActive(false);
@@ -66,31 +65,6 @@ public class HighscoreTable : MonoBehaviour
         foreach (HighscoreEntry highscoreEntry in highscoreEntryList)//foreach(型名 オブジェクト名 in コレクション) 
         {
             CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreentryTransformList);
-        }
-
-        //PlayerBestScoreの処理について↓
-        int score = gameManager.point;
-        int playerBestscore = PlayerPrefs.GetInt("PlayerBestScore");//ロードする
-
-        Debug.LogError("playerBestscore" + playerBestscore);
-        //セーブ状態があるかどうか
-        if (PlayerPrefs.HasKey("PlayerBestScore"))
-        {
-            Debug.Log("PlayerBestScoreのデータがあるよ！");
-            //今回のscoreがPlayerBestScoreより高かったら更新する
-            if (score > playerBestscore)
-            {
-                Debug.LogError("PlayerBestScoreが更新された!!!");
-                PlayerPrefs.SetInt("PlayerBestScore", score);
-                PlayerPrefs.Save();
-            }
-        }
-        //ない場合は今回のscoreをそのままPlayerBestScoreに保存する
-        else
-        {
-            Debug.LogError("PlayerBestScoreのデータがないよ！");
-            PlayerPrefs.SetInt("PlayerBestScore", score);
-            PlayerPrefs.Save();
         }
     }
 
