@@ -8,7 +8,7 @@ public class TimerScript : MonoBehaviour
     [SerializeField] private int minute;
     [SerializeField] private float seconds;
     private float oldSeconds;//前のUpdateの時の秒数
-    [SerializeField] private Text timerText;//タイマー表示用テキスト
+    // [SerializeField] private Text timerText;//タイマー表示用テキスト
 
 
 
@@ -31,7 +31,7 @@ public class TimerScript : MonoBehaviour
         //値が変わったときだけテキストUIを更新
         if ((int)seconds != (int)oldSeconds)
         {
-            timerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00");
+            // timerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00");
 
         }
         oldSeconds = seconds;
