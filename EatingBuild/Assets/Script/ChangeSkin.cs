@@ -16,6 +16,9 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
 
     void Awake()
     {
+        changeNumber = PlayerPrefs.GetInt("ChangeNumber");//ロードする
+
+        LoadSkin();
         //ユ―ザーネームがあるかチェック
         if (PlayerPrefs.HasKey("ChangeNumber"))
         {
@@ -29,8 +32,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     }
     void Start()//初期は0番目のスキン
     {
-        LoadSkin();
-        Debug.Log(_changeskin.Length);
+        // Debug.Log(_changeskin.Length);
     }
     public void ChangeSkinButton0()//buttonを押したらスキンが変わっていく
     {
@@ -82,7 +84,6 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     }
     private void LoadSkin()//スキンをロードする
     {
-        changeNumber = PlayerPrefs.GetInt("ChangeNumber");//ロードする
         for (int i = 0; i < _changeskin.Length; i++)
         {
             if (i == changeNumber)

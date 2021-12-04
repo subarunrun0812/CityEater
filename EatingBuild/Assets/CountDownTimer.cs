@@ -17,7 +17,7 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] private Text timerText;
 
     [SerializeField] private GameObject notime;
-    [SerializeField] private GameObject revenge;//死んだ時に表示するボタンの親オブジェクト
+    // [SerializeField] private GameObject revenge;//死んだ時に表示するボタンの親オブジェクト
 
     [SerializeField] private GameObject result;//resule画面を表示するオブジェクト
     [SerializeField] private GameObject highScoreTable;
@@ -35,13 +35,13 @@ public class CountDownTimer : MonoBehaviour
         scoreUI.SetActive(true);
         highScoreTable.SetActive(false);
         notime.SetActive(false);
-        revenge.SetActive(false);
+        // revenge.SetActive(false);
     }
 
     public void ContinueButtonInvoke()
     {
         notime.SetActive(false);
-        revenge.SetActive(false);
+        // revenge.SetActive(false);
         Time.timeScale = 1;
         if (_player.activeSelf == true)
         {
@@ -57,7 +57,7 @@ public class CountDownTimer : MonoBehaviour
     public void QuitButton()//quitボタンを押したら、Result画面を表示する
     {
         notime.SetActive(false);
-        revenge.SetActive(false);
+        // revenge.SetActive(false);
         scoreUI.SetActive(false);
         highScoreTable.SetActive(true);
         Time.timeScale = 0;

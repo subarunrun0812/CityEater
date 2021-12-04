@@ -20,7 +20,7 @@ public class NPCEatObjectScript : MonoBehaviour
 
     [SerializeField] private GameManager gameManager;
     [SerializeField] private CountDownTimer countDownTimer;
-    [SerializeField] private GameObject revenge;
+    // [SerializeField] private GameObject revenge;
     [SerializeField] private SphereCollider spherecol;
     void Start()
     {
@@ -35,7 +35,7 @@ public class NPCEatObjectScript : MonoBehaviour
         Debug.Log("こルーチンが呼ばれた");
         yield return new WaitForSeconds(3f);
         Time.timeScale = 0;
-        revenge.SetActive(true);
+        // revenge.SetActive(true);
         // }
         // else
         // {
@@ -114,7 +114,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     {
                         NPCAddPoint(gameManager.point);
                         col.gameObject.SetActive(false);
-                        revenge.SetActive(true);
+                        // revenge.SetActive(true);
                         // StartCoroutine("DethPlayer");
                     });
                 }
