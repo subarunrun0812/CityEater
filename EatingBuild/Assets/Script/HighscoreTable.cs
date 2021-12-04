@@ -36,12 +36,12 @@ public class HighscoreTable : MonoBehaviour
         highscoreEntryList = new List<HighscoreEntry>()
         {
             new HighscoreEntry{score = gameManager.point,name = "Player"},
-            new HighscoreEntry{score = nPC[0].GetComponent<NPCEatObjectScript>().point,name = "NPC0"},
-            new HighscoreEntry{score = nPC[1].GetComponent<NPCEatObjectScript>().point,name = "NPC1"},
-            new HighscoreEntry{score = nPC[2].GetComponent<NPCEatObjectScript>().point,name = "NPC2"},
-            new HighscoreEntry{score = nPC[3].GetComponent<NPCEatObjectScript>().point,name = "NPC3"},
-            new HighscoreEntry{score = nPC[4].GetComponent<NPCEatObjectScript>().point,name = "NPC4"},
-            new HighscoreEntry{score = nPC[5].GetComponent<NPCEatObjectScript>().point,name = "NPC5"},
+            new HighscoreEntry{score = nPC[0].GetComponent<NPCEatObjectScript>().point,name = "Liam"},
+            new HighscoreEntry{score = nPC[1].GetComponent<NPCEatObjectScript>().point,name = "Noah"},
+            new HighscoreEntry{score = nPC[2].GetComponent<NPCEatObjectScript>().point,name = "Oliver"},
+            new HighscoreEntry{score = nPC[3].GetComponent<NPCEatObjectScript>().point,name = "Elijah"},
+            new HighscoreEntry{score = nPC[4].GetComponent<NPCEatObjectScript>().point,name = "Emma"},
+            new HighscoreEntry{score = nPC[5].GetComponent<NPCEatObjectScript>().point,name = "Ava"},
             // new HighscoreEntry{score = nPC[6].GetComponent<NPCEatObjectScript>().point,name = "NPC6"},
             // new HighscoreEntry{score = nPC[7].GetComponent<NPCEatObjectScript>().point,name = "NPC7"},
             // new HighscoreEntry{score = nPC[8].GetComponent<NPCEatObjectScript>().point,name = "NPC8"},
