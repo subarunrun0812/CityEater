@@ -36,7 +36,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
         Resetchangeskin();
         changeNumber = 0;
         _changeskin[0].SetActive(true);
-        Debug.Log(changeNumber);
+        Debug.Log(changeNumber);//
         SaveDate();
     }
     public void ChangeSkinButton1()//buttonを押したらスキンが変わっていく
