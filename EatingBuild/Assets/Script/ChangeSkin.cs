@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using UnityEngine.UI;
 
 public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
 {
+
     [SerializeField]
     private GameObject[] _changeskin;
-    // private int skin_number;
+
 
     public static int changeNumber;//demoシーンで同期させるためにstatic修飾子を使う
 
@@ -81,9 +82,10 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     }
     private void LoadSkin()//スキンをロードする
     {
+        changeNumber = PlayerPrefs.GetInt("ChangeNumber");//ロードする
         for (int i = 0; i < _changeskin.Length; i++)
         {
-            if (i == ChangeSkin.changeNumber)
+            if (i == changeNumber)
             {
                 _changeskin[i].SetActive(true);
             }

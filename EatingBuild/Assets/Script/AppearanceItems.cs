@@ -18,8 +18,8 @@ public class AppearanceItems : MonoBehaviour
 
     private void TimeInstantiateItems()//一定時間ごとにItemを生成する
     {
-        Debug.LogWarning("placesの数は" + places.Count);
-        Debug.LogWarning("itemの数は" + items.Count);
+        // Debug.LogWarning("placesの数は" + places.Count);
+        // Debug.LogWarning("itemの数は" + items.Count);
         if (places.Count != 0)
         {
             if (items.Count != 0)
