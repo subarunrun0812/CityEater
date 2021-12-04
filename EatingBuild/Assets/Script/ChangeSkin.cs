@@ -10,14 +10,25 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     private GameObject[] _changeskin;
     // private int skin_number;
 
-    //スキンをアンロックしセーブする時にint型の変数を使ったら楽そうだから
-    public int changeNumber;//
+    public static int changeNumber;//
 
 
+    void Awake()
+    {
+        //ユ―ザーネームがあるかチェック
+        if (PlayerPrefs.HasKey("ChangeNumber"))
+        {
+            Debug.Log("スキンの順番のデータがあるよ！");
+        }
+        else
+        {
+            Debug.Log("スキンの順番のデータがないよ！");
+            //ない場合名前を入力させる処理をここから入れる
+        }
+    }
     void Start()//初期は0番目のスキン
     {
-        changeNumber = 0;
-        _changeskin[0].SetActive(true);
+        LoadSkin();
         Debug.Log(_changeskin.Length);
     }
     public void ChangeSkinButton0()//buttonを押したらスキンが変わっていく
@@ -66,6 +77,20 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
         for (int i = 0; i < _changeskin.Length; i++)
         {
             _changeskin[i].SetActive(false);
+        }
+    }
+    private void LoadSkin()//全ての着せ替えを非表示にする
+    {
+        for (int i = 0; i < _changeskin.Length; i++)
+        {
+            if (i == ChangeSkin.changeNumber)
+            {
+                _changeskin[i].SetActive(true);
+            }
+            else
+            {
+                _changeskin[i].SetActive(false);
+            }
         }
     }
 
