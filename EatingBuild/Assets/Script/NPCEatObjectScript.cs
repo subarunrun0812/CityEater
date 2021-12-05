@@ -20,7 +20,7 @@ public class NPCEatObjectScript : MonoBehaviour
 
     [SerializeField] private GameManager gameManager;
     [SerializeField] private CountDownTimer countDownTimer;
-    // [SerializeField] private GameObject revenge;
+    [SerializeField] private GameObject revenge;
     [SerializeField] private SphereCollider spherecol;
     void Start()
     {
@@ -114,7 +114,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     {
                         NPCAddPoint(gameManager.point);
                         col.gameObject.SetActive(false);
-                        // revenge.SetActive(true);
+                        revenge.SetActive(true);
                         // StartCoroutine("DethPlayer");
                     });
                 }
