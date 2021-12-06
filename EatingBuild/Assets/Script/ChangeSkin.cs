@@ -75,6 +75,47 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
         Debug.Log(changeNumber);
         SaveDate();
     }
+    public void ChangeSkinButton5()//buttonを押したらスキンが変わっていく
+    {
+        Resetchangeskin();
+        changeNumber = 5;
+        _changeskin[5].SetActive(true);
+        Debug.Log(changeNumber);
+        SaveDate();
+    }
+    public void ChangeSkinButton6()//buttonを押したらスキンが変わっていく
+    {
+        Resetchangeskin();
+        changeNumber = 6;
+        _changeskin[6].SetActive(true);
+        Debug.Log(changeNumber);
+        SaveDate();
+    }
+    public void ChangeSkinButton7()//buttonを押したらスキンが変わっていく
+    {
+        Resetchangeskin();
+        changeNumber = 7;
+        _changeskin[7].SetActive(true);
+        Debug.Log(changeNumber);
+        SaveDate();
+    }
+    public void ChangeSkinButton8()//buttonを押したらスキンが変わっていく
+    {
+        Resetchangeskin();
+        changeNumber = 8;
+        _changeskin[8].SetActive(true);
+        Debug.Log(changeNumber);
+        SaveDate();
+    }
+    public void ChangeSkinButton9()//buttonを押したらスキンが変わっていく
+    {
+        Resetchangeskin();
+        changeNumber = 9;
+        _changeskin[9].SetActive(true);
+        Debug.Log(changeNumber);
+        SaveDate();
+    }
+
     private void Resetchangeskin()//全ての着せ替えを非表示にする
     {
         for (int i = 0; i < _changeskin.Length; i++)
