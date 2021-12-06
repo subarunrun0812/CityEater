@@ -80,6 +80,10 @@ public class swipe : MonoBehaviour
                     if (m == i)
                     {
                         _changeskin[m].SetActive(true);
+                        ChangeSkin.changeNumber = m;
+                        //変更したスキンの要素の順番をPlayerPrefsで記憶する
+                        PlayerPrefs.SetInt("ChangeNumber", ChangeSkin.changeNumber);
+                        PlayerPrefs.Save();
                     }
                     else
                     {
