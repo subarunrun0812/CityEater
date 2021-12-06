@@ -13,10 +13,13 @@ public class swipe : MonoBehaviour
     private float time;
     private Button takeTheBtn;
     int btnNumber;
-    // Start is called before the first frame update
 
-
-    // Update is called once per frame
+    [SerializeField] private ChangeSkin changeSkinScript;
+    private GameObject[] _changeskin;
+    void Start()
+    {
+        _changeskin = changeSkinScript._changeskin;
+    }
     void Update()
     {
         pos = new float[transform.childCount];//子オブジェクトの数を代入
@@ -71,6 +74,19 @@ public class swipe : MonoBehaviour
 
                 //スキンの画像が選択(拡大)された時の大きさ。
                 transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(0.9f, 0.7f), 0.1f);
+                //大きくした画像のskinを表示する
+                for (int m = 0; m < _changeskin.Length; m++)
+                {
+                    if (m == i)
+                    {
+                        _changeskin[m].SetActive(true);
+                    }
+                    else
+                    {
+                        _changeskin[m].SetActive(false);
+                    }
+
+                }
 
                 // 下の小さいボタンが選択(拡大)された時の大きさ。
                 imageContent.transform.GetChild(i).localScale = Vector2.Lerp(imageContent.transform.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f); ;

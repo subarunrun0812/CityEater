@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
 {
 
-    [SerializeField]
-    private GameObject[] _changeskin;
+    public GameObject[] _changeskin;
 
 
     public static int changeNumber;//demoシーンで同期させるためにstatic修飾子を使う
