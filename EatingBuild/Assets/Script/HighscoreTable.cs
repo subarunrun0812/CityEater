@@ -92,6 +92,10 @@ public class HighscoreTable : MonoBehaviour
             PlayerPrefs.SetInt("PlayerBestScore", score);
             PlayerPrefs.Save();
         }
+        if (Time.timeScale == 1)//gamemanager.pointが最大値を超えたときの処理
+        {
+            Time.timeScale = 0;
+        }
     }
 
 

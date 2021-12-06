@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 public class EatObjectScript : MonoBehaviour
 {
 
@@ -9,6 +10,9 @@ public class EatObjectScript : MonoBehaviour
     public float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
     public float smallTimeBigApartment = 0.8f;//大きいビルを小さくするのにかかる時間
     public float playerScaleTime = 1;//プレイヤーを大きくするのにかかる時間
+
+    [SerializeField] private Image sphImg;//円グラフのゲージ
+    [SerializeField] private GameObject highScoreTable;//int型の最大値に到達した時に使う
 
     [SerializeField] private GameManager gameManager;
 
@@ -32,6 +36,9 @@ public class EatObjectScript : MonoBehaviour
     public int objover2 = 20000;
     public int objover3 = 30000;
     public int objover4 = 50000;
+    public int objover5 = 500000;
+    public int objover6 = 20000000;
+    public int objoverMax = 2147483647;//int型の最大値
 
     private int halthpoint;//gamemanager.pointの半分のpを切り上げたの値を入れる
     void Start()
@@ -458,7 +465,11 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
                 );
                 refCamera.distance = 17;//初期値は15
-                // playerController.speed += changeSpeed;
+
+                //sphimgの円グラフのゲージについての処理
+                float imgP = ((float)gameManager.point - obj2p) / (obj3p - obj2p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
+
 
             }
             else if (obj3p <= p && p < obj4p)
@@ -467,6 +478,9 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(2f, 2f, 2f), playerScaleTime
                 );
                 refCamera.distance = 19;//+2
+
+                float imgP = ((float)gameManager.point - obj3p) / (obj4p - obj3p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (obj4p <= p && p < obj5p)
             {
@@ -474,7 +488,9 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
                 );
                 refCamera.distance = 21;//+2
-                // playerController.speed += changeSpeed;
+
+                float imgP = ((float)gameManager.point - obj4p) / (obj5p - obj4p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (obj5p <= p && p < obj8p)
             {
@@ -482,7 +498,9 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(3f, 3f, 3f), playerScaleTime
                 );
                 refCamera.distance = 23;//+2
-                                        // playerController.speed += changeSpeed;
+
+                float imgP = ((float)gameManager.point - obj5p) / (obj8p - obj5p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (obj8p <= p && p < obj10p)
             {
@@ -490,7 +508,8 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(4f, 4f, 4f), playerScaleTime
                 );
                 refCamera.distance = 27;//+4
-                // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - obj8p) / (obj10p - obj8p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (obj10p <= p && p < obj12p)
             {
@@ -498,7 +517,8 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(6f, 6f, 6f), playerScaleTime
                 );
                 refCamera.distance = 31;//+4
-                // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - obj10p) / (obj12p - obj10p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (obj12p <= p && p < obj15p)
             {
@@ -506,7 +526,8 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(8f, 8f, 8f), playerScaleTime
                 );
                 refCamera.distance = 35;//+4
-                // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - obj12p) / (obj15p - obj12p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (obj15p <= p && p < obj20p)
             {
@@ -514,7 +535,8 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(10f, 10f, 10f), playerScaleTime
                 );
                 refCamera.distance = 45;//+10
-                                        // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - obj15p) / (obj20p - obj15p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (obj20p <= p && p < obj30p)
             {
@@ -522,7 +544,8 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(12f, 12f, 12f), playerScaleTime
                 );
                 refCamera.distance = 55;//+10
-                // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - obj20p) / (obj30p - obj20p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (obj30p <= p && p < objover1)
             {
@@ -530,7 +553,8 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(14f, 14f, 14f), playerScaleTime
                 );
                 refCamera.distance = 65;//+10
-                                        // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - obj30p) / (objover1 - obj30p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (objover1 <= p && p < objover2)
             {
@@ -538,7 +562,8 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(15f, 15f, 15f), playerScaleTime
                 );
                 refCamera.distance = 75;//+10
-                // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - objover1) / (objover2 - objover1);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (objover2 <= p && p < objover3)
             {
@@ -546,7 +571,8 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(16f, 16f, 16f), playerScaleTime
                 );
                 refCamera.distance = 85;//+10
-                // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - objover2) / (objover3 - objover2);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
             }
             else if (objover3 <= p && p < objover4)
             {
@@ -554,7 +580,33 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(18f, 18f, 18f), playerScaleTime
                 );
                 refCamera.distance = 95;//+10
-                // playerController.speed += changeSpeed;
+                float imgP = ((float)gameManager.point - objover3) / (objover4 - objover3);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
+            }
+            else if (objover4 <= p && p < objover5)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(20f, 20f, 20f), playerScaleTime
+                );
+                refCamera.distance = 105;//+10
+                float imgP = ((float)gameManager.point - objover4) / (objover5 - objover4);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
+            }
+            else if (objover5 <= p && p < objover6)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(21f, 21f, 21f), playerScaleTime
+                );
+                refCamera.distance = 110;//+5
+                float imgP = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
+            }
+
+            else if (p == objoverMax)//int型の最大値を越えさせたいための処理
+            {
+                float imgP = 1;
+                sphImg.fillAmount = imgP;
+                highScoreTable.SetActive(true);
             }
         }
     }

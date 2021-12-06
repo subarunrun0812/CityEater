@@ -15,7 +15,7 @@ public class SphereGageScript : MonoBehaviour
     }
     void Update()
     {
-        float points = (float)gameManager.point / 100f;
+        float points = (float)gameManager.point / 1000f;
         Debug.Log(points);
         image.fillAmount = points;
     }
