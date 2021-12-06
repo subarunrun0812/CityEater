@@ -12,6 +12,7 @@ public class EatObjectScript : MonoBehaviour
     public float playerScaleTime = 1;//プレイヤーを大きくするのにかかる時間
 
     [SerializeField] private Image sphImg;//円グラフのゲージ
+    [SerializeField] private Text level_t;//円グラフのゲージの中のLv.(text)
     [SerializeField] private GameObject highScoreTable;//int型の最大値に到達した時に使う
 
     [SerializeField] private GameManager gameManager;
@@ -458,6 +459,7 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(1f, 1f, 1f), playerScaleTime
                 );
+                level_t.text = "0";
             }
             else if (obj2p <= p && p < obj3p)
             {
@@ -469,8 +471,7 @@ public class EatObjectScript : MonoBehaviour
                 //sphimgの円グラフのゲージについての処理
                 float imgP = ((float)gameManager.point - obj2p) / (obj3p - obj2p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
-
-
+                level_t.text = "1";
             }
             else if (obj3p <= p && p < obj4p)
             {
@@ -481,6 +482,7 @@ public class EatObjectScript : MonoBehaviour
 
                 float imgP = ((float)gameManager.point - obj3p) / (obj4p - obj3p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "2";
             }
             else if (obj4p <= p && p < obj5p)
             {
@@ -491,6 +493,7 @@ public class EatObjectScript : MonoBehaviour
 
                 float imgP = ((float)gameManager.point - obj4p) / (obj5p - obj4p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "3";
             }
             else if (obj5p <= p && p < obj8p)
             {
@@ -501,6 +504,7 @@ public class EatObjectScript : MonoBehaviour
 
                 float imgP = ((float)gameManager.point - obj5p) / (obj8p - obj5p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "4";
             }
             else if (obj8p <= p && p < obj10p)
             {
@@ -510,6 +514,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 27;//+4
                 float imgP = ((float)gameManager.point - obj8p) / (obj10p - obj8p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "5";
             }
             else if (obj10p <= p && p < obj12p)
             {
@@ -519,6 +524,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 31;//+4
                 float imgP = ((float)gameManager.point - obj10p) / (obj12p - obj10p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "6";
             }
             else if (obj12p <= p && p < obj15p)
             {
@@ -528,6 +534,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 35;//+4
                 float imgP = ((float)gameManager.point - obj12p) / (obj15p - obj12p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "7";
             }
             else if (obj15p <= p && p < obj20p)
             {
@@ -537,6 +544,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 45;//+10
                 float imgP = ((float)gameManager.point - obj15p) / (obj20p - obj15p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "8";
             }
             else if (obj20p <= p && p < obj30p)
             {
@@ -546,6 +554,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 55;//+10
                 float imgP = ((float)gameManager.point - obj20p) / (obj30p - obj20p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "9";
             }
             else if (obj30p <= p && p < objover1)
             {
@@ -555,6 +564,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 65;//+10
                 float imgP = ((float)gameManager.point - obj30p) / (objover1 - obj30p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "10";
             }
             else if (objover1 <= p && p < objover2)
             {
@@ -564,6 +574,8 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 75;//+10
                 float imgP = ((float)gameManager.point - objover1) / (objover2 - objover1);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "11";
+
             }
             else if (objover2 <= p && p < objover3)
             {
@@ -573,6 +585,8 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 85;//+10
                 float imgP = ((float)gameManager.point - objover2) / (objover3 - objover2);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "12";
+
             }
             else if (objover3 <= p && p < objover4)
             {
@@ -582,6 +596,8 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 95;//+10
                 float imgP = ((float)gameManager.point - objover3) / (objover4 - objover3);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "13";
+
             }
             else if (objover4 <= p && p < objover5)
             {
@@ -591,6 +607,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 105;//+10
                 float imgP = ((float)gameManager.point - objover4) / (objover5 - objover4);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "14";
             }
             else if (objover5 <= p && p < objover6)
             {
@@ -600,6 +617,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 110;//+5
                 float imgP = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level_t.text = "15";
             }
 
             else if (p == objoverMax)//int型の最大値を越えさせたいための処理
