@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3772975134598672554}
   - component: {fileID: 3772975134598672566}
   - component: {fileID: 3772975134598672567}
-  - component: {fileID: 3772975134598672564}
   - component: {fileID: 1579562715296492788}
+  - component: {fileID: 4112432062126733910}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -118,19 +118,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!135 &3772975134598672564
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3772975134598672560}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.58
-  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &1579562715296492788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +136,19 @@ MonoBehaviour:
   - {fileID: 1109251486061702706}
   - {fileID: 7183596458668808411}
   - {fileID: 2306301795843985340}
+--- !u!65 &4112432062126733910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772975134598672560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 1.2, z: 0.9}
+  m_Center: {x: 0, y: 0.55, z: 0}
 --- !u!1 &3772975135000491216
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1394232774699663680, guid: 830b828fa2b724ea59f161a132f152ec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1734624723194485754, guid: 830b828fa2b724ea59f161a132f152ec, type: 3}
       propertyPath: m_RootOrder
