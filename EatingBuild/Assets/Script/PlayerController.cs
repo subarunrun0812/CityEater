@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
         }
         if (x == 0 && z == 0 && flag == true)//joystickで操作していない間
         {
-            Debug.LogError("0!!!!!");
             transform.Translate(Vector3.forward * speed);//常に前に進み続ける処理
         }
         else if (x != 0 && z != 0)//最初は自動で動かないようにする
