@@ -30,8 +30,7 @@ public class StartGameManager : MonoBehaviour
     public void ActiveChangeSkinButton()//buttonが押されたらscrollviewを表示する
     {
         changeSkinbutton.SetActive(false);
-        startButton.SetActive(false);
-
+        startButton.SetActive(true);
         scrollviewbutton.SetActive(true);
     }
 

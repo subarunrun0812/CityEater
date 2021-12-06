@@ -49614,6 +49614,7 @@ MonoBehaviour:
   - {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 0.9411765}
   scrollbar: {fileID: 9131208639837720645}
   imageContent: {fileID: 9131208638167178457}
+  changeSkinScript: {fileID: 1368019465}
 --- !u!1 &9131208639573092629
 GameObject:
   m_ObjectHideFlags: 0
