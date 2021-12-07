@@ -17,6 +17,7 @@ public class NPCEatObjectScript : MonoBehaviour
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     private NavMeshAgent _agent;
     private float changeSpeed = 0.5f;
+    public int npc_level;//pointを一定ごとにlvに分類させていく
 
     [SerializeField] private GameManager gameManager;
     [SerializeField] private CountDownTimer countDownTimer;
@@ -475,6 +476,9 @@ public class NPCEatObjectScript : MonoBehaviour
         int objover2 = eatObj.objover2;
         int objover3 = eatObj.objover3;
         int objover4 = eatObj.objover4;
+        int objover5 = eatObj.objover5;
+        int objover6 = eatObj.objover6;
+        int objoverMax = eatObj.objoverMax;
 
         {
 
@@ -486,22 +490,22 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(1f, 1f, 1f), playerScaleTime
                 );
+                npc_level = 0;
             }
+
             else if (obj2p <= p && p < obj3p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
                 );
+                npc_level = 1;
             }
-
-
             else if (obj3p <= p && p < obj4p)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(2f, 2f, 2f), playerScaleTime
-                );
-                // _agent.speed += addSpped;
-                spherecol.radius = 7f;
+                ); spherecol.radius = 7f;
+                npc_level = 2;
             }
 
             else if (obj4p <= p && p < obj5p)
@@ -509,10 +513,8 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
                 );
-
-
-                // _agent.speed += addSpped;
                 spherecol.radius = 6.5f;
+                npc_level = 3;
             }
 
             else if (obj5p <= p && p < obj8p)
@@ -520,8 +522,8 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(3f, 3f, 3f), playerScaleTime
                 );
-                // _agent.speed += addSpped;
                 spherecol.radius = 6f;
+                npc_level = 4;
             }
 
             else if (obj8p <= p && p < obj10p)
@@ -529,8 +531,8 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(4f, 4f, 4f), playerScaleTime
                 );
-                // _agent.speed += addSpped;
                 spherecol.radius = 5.5f;
+                npc_level = 5;
             }
 
 
@@ -539,8 +541,8 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(6f, 6f, 6f), playerScaleTime
                 );
-                // _agent.speed += addSpped;
                 spherecol.radius = 5f;
+                npc_level = 6;
             }
 
             else if (obj12p <= p && p < obj15p)
@@ -548,10 +550,8 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(8f, 8f, 8f), playerScaleTime
                 );
-
-
-                // _agent.speed += addSpped;
                 spherecol.radius = 4.5f;
+                npc_level = 7;
             }
 
             else if (obj15p <= p && p < obj20p)
@@ -559,8 +559,8 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(10f, 10f, 10f), playerScaleTime
                 );
-                // _agent.speed += addSpped;
                 spherecol.radius = 4f;
+                npc_level = 8;
             }
 
             else if (obj20p <= p && p < obj30p)
@@ -568,59 +568,64 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(12f, 12f, 12f), playerScaleTime
                 );
-
-
-                // _agent.speed += addSpped;
                 spherecol.radius = 3.5f;
+                npc_level = 9;
             }
 
             else if (obj30p <= p && p < objover1)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(14f, 14f, 14f), playerScaleTime
-                );
-                // _agent.speed += addSpped;
-                spherecol.radius = 3f;
+                ); spherecol.radius = 3f;
+                npc_level = 10;
             }
 
             else if (objover1 <= p && p < objover2)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(16f, 16f, 16f), playerScaleTime
+                    new Vector3(15f, 15f, 15f), playerScaleTime
                 );
-
-
-                // _agent.speed += addSpped;
                 spherecol.radius = 2.5f;
+                npc_level = 11;
             }
 
             else if (objover2 <= p && p < objover3)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(18f, 18f, 18f), playerScaleTime
-                );
-                // _agent.speed += addSpped;
-                spherecol.radius = 2f;
+                    new Vector3(16f, 16f, 16f), playerScaleTime
+                ); spherecol.radius = 2f;
+                npc_level = 12;
             }
 
             else if (objover3 <= p && p < objover4)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(20f, 20f, 20f), playerScaleTime
+                    new Vector3(17f, 17f, 17f), playerScaleTime
                 );
-
-
-                // _agent.speed += addSpped;
                 spherecol.radius = 2f;
+                npc_level = 13;
             }
 
-            else if (objover4 <= p)
+            else if (objover4 <= p && p < objover5)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(22f, 22f, 22f), playerScaleTime
-                );
-                // _agent.speed += addSpped;
-                spherecol.radius = 2f;
+                    new Vector3(18f, 18f, 18f), playerScaleTime
+                ); spherecol.radius = 2f;
+                npc_level = 14;
+            }
+            else if (objover5 <= p && p < objover6)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(19f, 19f, 19f), playerScaleTime
+                ); spherecol.radius = 2f;
+                npc_level = 15;
+            }
+            else if (objover6 <= p && p < objoverMax)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(20f, 20f, 20f), playerScaleTime
+                ); spherecol.radius = 2f;
+                npc_level = 16;
             }
         }
 

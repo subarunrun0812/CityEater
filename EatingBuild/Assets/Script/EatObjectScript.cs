@@ -20,6 +20,8 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private PlayerFollowCamera refCamera;
     // [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     [SerializeField] private PlayerController playerController;
+
+    public int level;//pointを一定ごとにlvに分類させていく
     public float changeSpeed;
     public int obj2p = 10;
     public int obj3p = 50;
@@ -40,7 +42,6 @@ public class EatObjectScript : MonoBehaviour
     public int objover5 = 500000;
     public int objover6 = 20000000;
     public int objoverMax = 2147483647;//int型の最大値
-
     private int halthpoint;//gamemanager.pointの半分のpを切り上げたの値を入れる
     void Start()
     {
@@ -459,6 +460,7 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(1f, 1f, 1f), playerScaleTime
                 );
+                level = 0;
                 level_t.text = "0";
             }
             else if (obj2p <= p && p < obj3p)
@@ -471,6 +473,7 @@ public class EatObjectScript : MonoBehaviour
                 //sphimgの円グラフのゲージについての処理
                 float imgP = ((float)gameManager.point - obj2p) / (obj3p - obj2p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 1;
                 level_t.text = "1";
             }
             else if (obj3p <= p && p < obj4p)
@@ -482,6 +485,7 @@ public class EatObjectScript : MonoBehaviour
 
                 float imgP = ((float)gameManager.point - obj3p) / (obj4p - obj3p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 2;
                 level_t.text = "2";
             }
             else if (obj4p <= p && p < obj5p)
@@ -493,6 +497,7 @@ public class EatObjectScript : MonoBehaviour
 
                 float imgP = ((float)gameManager.point - obj4p) / (obj5p - obj4p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 3;
                 level_t.text = "3";
             }
             else if (obj5p <= p && p < obj8p)
@@ -504,6 +509,7 @@ public class EatObjectScript : MonoBehaviour
 
                 float imgP = ((float)gameManager.point - obj5p) / (obj8p - obj5p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 4;
                 level_t.text = "4";
             }
             else if (obj8p <= p && p < obj10p)
@@ -514,6 +520,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 27;//+4
                 float imgP = ((float)gameManager.point - obj8p) / (obj10p - obj8p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 5;
                 level_t.text = "5";
             }
             else if (obj10p <= p && p < obj12p)
@@ -524,6 +531,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 31;//+4
                 float imgP = ((float)gameManager.point - obj10p) / (obj12p - obj10p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 6;
                 level_t.text = "6";
             }
             else if (obj12p <= p && p < obj15p)
@@ -534,6 +542,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 35;//+4
                 float imgP = ((float)gameManager.point - obj12p) / (obj15p - obj12p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 7;
                 level_t.text = "7";
             }
             else if (obj15p <= p && p < obj20p)
@@ -544,6 +553,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 45;//+10
                 float imgP = ((float)gameManager.point - obj15p) / (obj20p - obj15p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 8;
                 level_t.text = "8";
             }
             else if (obj20p <= p && p < obj30p)
@@ -554,6 +564,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 55;//+10
                 float imgP = ((float)gameManager.point - obj20p) / (obj30p - obj20p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 9;
                 level_t.text = "9";
             }
             else if (obj30p <= p && p < objover1)
@@ -564,6 +575,7 @@ public class EatObjectScript : MonoBehaviour
                 refCamera.distance = 65;//+10
                 float imgP = ((float)gameManager.point - obj30p) / (objover1 - obj30p);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 10;
                 level_t.text = "10";
             }
             else if (objover1 <= p && p < objover2)
@@ -571,9 +583,10 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(15f, 15f, 15f), playerScaleTime
                 );
-                refCamera.distance = 75;//+10
+                refCamera.distance = 70;//+5
                 float imgP = ((float)gameManager.point - objover1) / (objover2 - objover1);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 11;
                 level_t.text = "11";
 
             }
@@ -582,42 +595,57 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(16f, 16f, 16f), playerScaleTime
                 );
-                refCamera.distance = 85;//+10
+                refCamera.distance = 75;//+5
                 float imgP = ((float)gameManager.point - objover2) / (objover3 - objover2);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 12;
                 level_t.text = "12";
 
             }
             else if (objover3 <= p && p < objover4)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(18f, 18f, 18f), playerScaleTime
+                    new Vector3(17f, 17f, 17f), playerScaleTime
                 );
-                refCamera.distance = 95;//+10
+                refCamera.distance = 80;//+5
                 float imgP = ((float)gameManager.point - objover3) / (objover4 - objover3);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 13;
                 level_t.text = "13";
 
             }
             else if (objover4 <= p && p < objover5)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(20f, 20f, 20f), playerScaleTime
+                    new Vector3(18f, 18f, 18f), playerScaleTime
                 );
-                refCamera.distance = 105;//+10
+                refCamera.distance = 85;//+5
                 float imgP = ((float)gameManager.point - objover4) / (objover5 - objover4);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 14;
                 level_t.text = "14";
             }
             else if (objover5 <= p && p < objover6)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(21f, 21f, 21f), playerScaleTime
+                    new Vector3(19f, 19f, 19f), playerScaleTime
                 );
-                refCamera.distance = 110;//+5
+                refCamera.distance = 90;//+5
                 float imgP = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
+                level = 15;
                 level_t.text = "15";
+            }
+            else if (objover6 <= p && p < objoverMax)
+            {
+                this.gameObject.transform.DOScale(
+                    new Vector3(20f, 20f, 20f), playerScaleTime
+                );
+                refCamera.distance = 95;//+5
+                float imgP = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = imgP;
+                level = 16;
+                level_t.text = "16";
             }
 
             else if (p == objoverMax)//int型の最大値を越えさせたいための処理
