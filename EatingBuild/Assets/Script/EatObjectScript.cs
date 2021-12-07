@@ -108,9 +108,7 @@ public class EatObjectScript : MonoBehaviour
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
                         gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
-                        gameManager.AddKill(1);
                         col.gameObject.SetActive(false);
-
                     });
                     VIbrationFunction();
                 }

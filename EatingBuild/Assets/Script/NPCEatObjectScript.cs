@@ -79,6 +79,10 @@ public class NPCEatObjectScript : MonoBehaviour
                 break;
         }
     }
+    private void OnDisable()
+    {
+        // gameManager.AddKill(1);
+    }
     void OnTriggerEnter(Collider col)
     {
         //eatObjectscriptと変数の値を統一する
