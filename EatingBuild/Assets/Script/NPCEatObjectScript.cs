@@ -104,7 +104,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 break;
 
             case "Player":
-                if (p > gameManager.point)
+                if (npc_level > eatObj.level)
                 {
                     col.transform.DOShakeRotation(
                          duration: 0.5f,   // 演出時間

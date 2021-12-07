@@ -98,7 +98,7 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "NPC":
-                if (p > col.gameObject.GetComponent<NPCEatObjectScript>().point)
+                if (level > col.gameObject.GetComponent<NPCEatObjectScript>().npc_level)
                 {
                     col.transform.DOShakeRotation(
                          duration: 0.5f,   // 演出時間
