@@ -1949,6 +1949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5803566064460117410}
   - component: {fileID: 5893290614538394122}
+  - component: {fileID: -8462728893201701597}
   m_Layer: 0
   m_Name: Dance05Chara 7
   m_TagString: 2p
@@ -1999,6 +2000,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &-8462728893201701597
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5809344967867879932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5809353907185188344
 GameObject:
   m_ObjectHideFlags: 0
