@@ -927,7 +927,7 @@ GameObject:
   - component: {fileID: 8347232258362091948}
   m_Layer: 0
   m_Name: Dance06Chara 6
-  m_TagString: Untagged
+  m_TagString: 2p
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
