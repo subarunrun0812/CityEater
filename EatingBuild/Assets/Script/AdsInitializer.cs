@@ -20,6 +20,8 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
             ? _iOsGameId
             : _androidGameId;
         Advertisement.Initialize(_gameId, _testMode, this);
+
+
     }
 
     public void OnInitializationComplete()
