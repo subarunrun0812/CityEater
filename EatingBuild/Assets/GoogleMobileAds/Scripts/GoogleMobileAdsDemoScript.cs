@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using GoogleMobileAds.Api;
 using UnityEngine;
-
+using System.Collections.Generic;
 public class GoogleMobileAdsDemoScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
+        // Initialize the Mobile Ads SDK.
+        MobileAds.Initialize((initStatus) =>
+        {
+            // SDK initialization is complete
+        });
+
     }
 }

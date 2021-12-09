@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EatObjectScript playerEat;
     // [SerializeField] private Text scoreText;
     [SerializeField] private TextMeshProUGUI addScoreText;//+1 +2 と画面に何ポイント追加したか表示する
-
+    [SerializeField] private GameObject returnstart_b;
     public int killpoint;
     [SerializeField] private Text killText;//killした数を表示
     public Color EndColor;
@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
     public void ReturnStartSceneButton()//highscoretableを表示した後にスタートシーンに戻るボタン
     {
         SceneManager.LoadScene("StartScene");
+    }
+    public void ReturnBeforeStartScene_b()//returnstart_bを押して広告を見る前の処理
+    {
+        returnstart_b.SetActive(false);
     }
 
     void Start()
