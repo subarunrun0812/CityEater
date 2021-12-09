@@ -16,9 +16,6 @@ public class RayCamera : MonoBehaviour
 
     [SerializeField] private EatObjectScript eatObject;
 
-    Ray ray;
-    RaycastHit rayhits;//ヒットしたオブジェクト情報
-    private GameObject hitobject;//raycastでhitしたGameObjectを代入する
 
     /// <summary>
     /// 前回の Update で検出された遮蔽物のGameObject。
@@ -51,7 +48,7 @@ public class RayCamera : MonoBehaviour
             if (
             hit.collider.tag == "10p" && gameManager.point < eatObject.obj10p || hit.collider.tag == "12p" && gameManager.point < eatObject.obj12p ||
             hit.collider.tag == "15p" && gameManager.point < eatObject.obj15p || hit.collider.tag == "20p" && gameManager.point < eatObject.obj20p ||
-            hit.collider.tag == "30p" && gameManager.point < eatObject.obj30p || hit.collider.tag == "50p" && gameManager.point < eatObject.obj50p)
+            hit.collider.tag == "30p" || hit.collider.tag == "50p")
             {
                 sampleMaterial.ClearMaterialInvoke();//ClearMaterialInvoke関数を呼び出す
                 raycastHitsList_.Add(hit.collider.gameObject);//hitしたgameobjectを追加する
