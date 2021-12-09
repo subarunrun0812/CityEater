@@ -252,7 +252,7 @@ public class NPCMove : MonoBehaviour
         //衝突したオブジェクトにPlayerタグが付いていれば、そのオブジェクトを追いかける
         if (collider.CompareTag("Player"))
         {
-            if (p >= gameManager.point)
+            if (p > gameManager.point)
             {
                 agent.destination = collider.transform.position;
             }

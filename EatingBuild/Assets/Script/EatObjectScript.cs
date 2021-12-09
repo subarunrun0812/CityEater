@@ -640,7 +640,7 @@ public class EatObjectScript : MonoBehaviour
                     new Vector3(20f, 20f, 20f), playerScaleTime
                 );
                 refCamera.distance = 95;//+5
-                float imgP = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
+                float imgP = ((float)gameManager.point - objover6) / (objoverMax - objover6);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
                 level = 16;
                 level_t.text = "16";
