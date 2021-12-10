@@ -27,7 +27,7 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private GameManager gameManager;
 
-    [SerializeField] private GameObject banner;//google banner
+    // [SerializeField] private GameObject banner;//google banner
 
     private bool flag = true;//continueを1回しか出来ないようにする
     void Start()
@@ -42,7 +42,7 @@ public class CountDownTimer : MonoBehaviour
         continue_b.SetActive(true);
         quit_b.SetActive(true);
         revenge.SetActive(false);
-        banner.SetActive(false);
+        // banner.SetActive(false);
     }
 
     public void ContinueButtonInvoke()
@@ -70,7 +70,7 @@ public class CountDownTimer : MonoBehaviour
         scoreUI.SetActive(false);
         highScoreTable.SetActive(true);
         Time.timeScale = 0;
-        banner.SetActive(true);
+        // banner.SetActive(true);
     }
 
 

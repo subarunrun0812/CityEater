@@ -7882,8 +7882,8 @@ MonoBehaviour:
   persistent: 0
   autoLoadEnabled: 1
   adSize:
-    type: 2
-    width: -1
+    type: 0
+    width: 320
     height: 50
     orientation: 0
   adPosition: 1
