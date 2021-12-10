@@ -8,6 +8,7 @@ public class MainScene : MonoBehaviour
 {
     InterstitialAdGameObject interstitialAd;
     RewardedAdGameObject rewardedAdGameObject;
+    [SerializeField] private GameObject itemsText;
 
     void Start()
     {
@@ -54,6 +55,7 @@ public class MainScene : MonoBehaviour
     public void OnCloseRewardButton()
     {
         Debug.LogError("Rewardを閉じた");
+        itemsText.SetActive(true);
         Time.timeScale = 1;
 
     }
