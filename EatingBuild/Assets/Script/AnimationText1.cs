@@ -2,28 +2,18 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-
+using UnityEditor;
 public class AnimationText1 : MonoBehaviour
 {
     private DOTweenTMPAnimator tmpAnimator;
 
-    private void Awake()
+    [SerializeField] private float time = 2;
+
+    private void OnEnable()
     {
         var textMeshPro = GetComponent<TextMeshProUGUI>();
         tmpAnimator = new DOTweenTMPAnimator(textMeshPro);
-        Debug.LogError("Awake");
-        Initialize();
-    }
-
-    public void Initialize()
-    {
-        for (var i = 0; i < tmpAnimator.textInfo.characterCount; i++)
-        {
-            tmpAnimator.DOScaleChar(i, new Vector3(1, 0, 1), 0);
-            tmpAnimator.DOColorChar(i, new Color(1f, 0.8f, 0.3f), 0);
-            tmpAnimator.DOFadeChar(i, 1, 0);
-            Play(1f);
-        }
+        Play(time);
     }
 
     public void Play(float duration)
@@ -40,7 +30,7 @@ public class AnimationText1 : MonoBehaviour
                 .Append(tmpAnimator.DOScaleChar(i, new Vector3(1, 1f, 1), eachDuration / 8).SetEase(Ease.InQuad))
                 .Join(tmpAnimator.DOOffsetChar(i, new Vector3(0, 0f, 0), eachDuration / 8).SetEase(Ease.InQuad))
                 .AppendInterval(eachDuration / 4)
-                .Append(tmpAnimator.DOColorChar(i, Color.white, eachDuration / 8).SetLoops(2, LoopType.Yoyo))
+                .Append(tmpAnimator.DOColorChar(i, new Color(1, 0.66f, 0.3f), eachDuration / 8).SetLoops(2, LoopType.Yoyo))
                 .AppendInterval(eachDuration / 8)
                 .Append(tmpAnimator.DOFadeChar(i, 0, eachDuration / 8))
                 .SetDelay(eachDelay * i);
