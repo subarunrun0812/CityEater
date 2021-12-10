@@ -3,17 +3,25 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEditor;
+using System.Collections;
+
 public class AnimationTextSizeDown : MonoBehaviour
 {
     private DOTweenTMPAnimator tmpAnimator;
 
     [SerializeField] private float time = 2;
 
+    private IEnumerator DisableItemText()
+    {
+        yield return new WaitForSeconds(2.5f);
+        this.gameObject.SetActive(false);
+    }
     private void OnEnable()
     {
         var textMeshPro = GetComponent<TextMeshProUGUI>();
         tmpAnimator = new DOTweenTMPAnimator(textMeshPro);
         Play(time);
+        StartCoroutine("DisableItemText");
     }
 
     public void Play(float duration)

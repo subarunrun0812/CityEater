@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using TMPro;
 public class EatObjectScript : MonoBehaviour
 {
 
@@ -21,6 +22,9 @@ public class EatObjectScript : MonoBehaviour
     // [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     [SerializeField] private PlayerController playerController;
 
+    [SerializeField] private GameObject sizeUp_t;
+    [SerializeField] private GameObject sizeDown_t;
+    [SerializeField] private GameObject speedUp_t;
     public int level;//pointを一定ごとにlvに分類させていく
     public float changeSpeed;
     public int obj2p = 10;
@@ -46,7 +50,9 @@ public class EatObjectScript : MonoBehaviour
     void Start()
     {
         float Playerspeed = playerController.speed;
-
+        speedUp_t.SetActive(false);
+        sizeDown_t.SetActive(false);
+        sizeUp_t.SetActive(false);
     }
     private void VIbrationFunction()//スマホを振動される関数
     {
@@ -57,11 +63,13 @@ public class EatObjectScript : MonoBehaviour
     {
         changeSpeed = 0.04f;
         playerController.speed += changeSpeed;
+        speedUp_t.SetActive(true);
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
         halthpoint = gameManager.point * 2;//
         gameManager.AddPoint(halthpoint);//pointを追加
+        sizeUp_t.SetActive(true);
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
@@ -69,6 +77,7 @@ public class EatObjectScript : MonoBehaviour
         halthpoint = -halthpoint;//-にする
         Debug.Log(halthpoint);
         gameManager.AddPoint(halthpoint);//pointを減少
+        sizeDown_t.SetActive(true);
     }
     private void QuestionItem()//questionが食べられた時。
     {

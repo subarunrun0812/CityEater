@@ -3,17 +3,25 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEditor;
-public class AnimationText1 : MonoBehaviour
+using System.Collections;
+
+public class AnimationText1 : MonoBehaviour//speed up テキスト
 {
     private DOTweenTMPAnimator tmpAnimator;
 
     [SerializeField] private float time = 2;
 
+    private IEnumerator DisableItemText()
+    {
+        yield return new WaitForSeconds(2.5f);
+        this.gameObject.SetActive(false);
+    }
     private void OnEnable()
     {
         var textMeshPro = GetComponent<TextMeshProUGUI>();
         tmpAnimator = new DOTweenTMPAnimator(textMeshPro);
         Play(time);
+        StartCoroutine("DisableItemText");
     }
 
     public void Play(float duration)
@@ -30,7 +38,7 @@ public class AnimationText1 : MonoBehaviour
                 .Append(tmpAnimator.DOScaleChar(i, new Vector3(1, 1f, 1), eachDuration / 8).SetEase(Ease.InQuad))
                 .Join(tmpAnimator.DOOffsetChar(i, new Vector3(0, 0f, 0), eachDuration / 8).SetEase(Ease.InQuad))
                 .AppendInterval(eachDuration / 4)
-                .Append(tmpAnimator.DOColorChar(i, new Color(1, 0.66f, 0.3f), eachDuration / 8).SetLoops(2, LoopType.Yoyo))
+                .Append(tmpAnimator.DOColorChar(i, new Color(1, 0.75f, 0.4f), eachDuration / 8).SetLoops(2, LoopType.Yoyo))
                 .AppendInterval(eachDuration / 8)
                 .Append(tmpAnimator.DOFadeChar(i, 0, eachDuration / 8))
                 .SetDelay(eachDelay * i);

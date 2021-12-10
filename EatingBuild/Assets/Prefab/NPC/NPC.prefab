@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3772975134598672566}
   - component: {fileID: 3772975134598672567}
   - component: {fileID: 1579562715296492788}
-  - component: {fileID: 4112432062126733910}
+  - component: {fileID: 7679055412857454134}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -145,8 +145,8 @@ MonoBehaviour:
   - {fileID: 1268619582654779576}
   - {fileID: 2912688673878444923}
   - {fileID: 6035649706154568965}
---- !u!65 &4112432062126733910
-BoxCollider:
+--- !u!135 &7679055412857454134
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -156,8 +156,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 1.2, z: 0.9}
-  m_Center: {x: 0, y: 0.55, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &3772975135000491216
 GameObject:
   m_ObjectHideFlags: 0
