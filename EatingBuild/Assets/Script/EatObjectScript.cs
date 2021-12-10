@@ -28,7 +28,7 @@ public class EatObjectScript : MonoBehaviour
     private bool flag = true;
     public int level;//pointを一定ごとにlvに分類させていく
     public float changeSpeed;
-    private float addSpeed = 0.002f;//大きくなるにつれてspeedを上げていく0.005f
+    private float addSpeed = 0f;//大きくなるにつれてspeedを上げていく0.005f。0.002f
     public int obj2p = 10;
     public int obj3p = 50;
     public int obj4p = 100;
@@ -453,11 +453,11 @@ public class EatObjectScript : MonoBehaviour
         //     this.transform.DOJump(transform.position + new Vector3(-1f, 0f, -1f), 2.0f, 1, 0.4f);
         // }
 
-        if (SystemInfo.supportsVibration)
-        {
-            Handheld.Vibrate();
-            Debug.Log("長く振動した");
-        }
+        // if (SystemInfo.supportsVibration)
+        // {
+        //     Handheld.Vibrate();
+        //     Debug.Log("長く振動した");
+        // }
     }
 
 

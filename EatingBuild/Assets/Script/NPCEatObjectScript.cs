@@ -61,6 +61,12 @@ public class NPCEatObjectScript : MonoBehaviour
         halthpoint = -halthpoint;//-にする
         Debug.Log("NPCのhalthpointは" + halthpoint);
         NPCAddPoint(halthpoint);//pointを減少
+
+        int objover1 = eatObj.objover1;
+        if (objover1 < point)
+        {
+            _agent.speed -= 0.5f;//少しだけspeedを下げる
+        }
     }
     private void QuestionItem()//questionが食べられた時。
     {

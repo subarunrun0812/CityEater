@@ -10,7 +10,7 @@ public class DeleteItem : MonoBehaviour
     }
     IEnumerator DeleteThisObject()
     {
-        yield return new WaitForSeconds(7.5f);
+        yield return new WaitForSeconds(10f);
         Destroy(this.gameObject);
         Debug.Log(this.gameObject.tag + "削除された");
     }

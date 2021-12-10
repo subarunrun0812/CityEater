@@ -13,7 +13,7 @@ public class AppearanceItems : MonoBehaviour
     void Start()
     {
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
-        InvokeRepeating("TimeInstantiateItems", 0f, 2f);
+        InvokeRepeating("TimeInstantiateItems", 0f, 5f);
     }
 
     private void TimeInstantiateItems()//一定時間ごとにItemを生成する
