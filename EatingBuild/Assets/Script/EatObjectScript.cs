@@ -77,10 +77,13 @@ public class EatObjectScript : MonoBehaviour
     {
         halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
         halthpoint = -halthpoint;//-にする
-        // playerController.speed -= 0.02f;//少しだけspeedを下げる
         Debug.Log(halthpoint);
         gameManager.AddPoint(halthpoint);//pointを減少
         sizeDown_t.SetActive(true);
+        if (objover1 < gameManager.point)
+        {
+            playerController.speed -= 0.04f;//少しだけspeedを下げる
+        }
     }
     private void QuestionItem()//questionが食べられた時。
     {
