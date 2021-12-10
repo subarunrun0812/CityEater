@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class CountDownTimer : MonoBehaviour
 {
     //トータル制限時間
@@ -26,6 +27,8 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] private GameObject scoreUI;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private TextMeshProUGUI threeSeconds;//３秒前
+    [SerializeField] private GameObject ItemsText;
 
     // [SerializeField] private GameObject banner;//google banner
 
@@ -42,6 +45,8 @@ public class CountDownTimer : MonoBehaviour
         continue_b.SetActive(true);
         quit_b.SetActive(true);
         revenge.SetActive(false);
+        ItemsText.SetActive(true);
+
         // banner.SetActive(false);
     }
 
@@ -90,12 +95,22 @@ public class CountDownTimer : MonoBehaviour
         {
             timerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00");
         }
+        if (totalTime <= 4f)
+        {
+            if ((int)seconds != (int)oldSeconds)
+            {
+                threeSeconds.text = ((int)seconds).ToString("0");
+            }
+        }
+
         oldSeconds = seconds;
         //制限時間以下になったらコンソールに『制限時間終了』という文字列を表示する
         if (totalTime <= 0f)
         {
             Time.timeScale = 0;
             seconds += 1f;//これがなかったらQuitボタンが非表示にならないため、必要
+            threeSeconds.text = "";
+            ItemsText.SetActive(false);
             if (flag == true)
             {
                 //timerが0になった時に表示する
@@ -106,7 +121,6 @@ public class CountDownTimer : MonoBehaviour
                 continue_b.SetActive(false);
                 notime.gameObject.SetActive(true);
             }
-
         }
     }
 }
