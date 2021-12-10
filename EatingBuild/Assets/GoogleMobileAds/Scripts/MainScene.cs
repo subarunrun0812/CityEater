@@ -40,6 +40,8 @@ public class MainScene : MonoBehaviour
     {
         // Display an interstitial ad
         rewardedAdGameObject.ShowIfLoaded();
+        Time.timeScale = 0;
+
     }
 
 
@@ -52,5 +54,7 @@ public class MainScene : MonoBehaviour
     public void OnCloseRewardButton()
     {
         Debug.LogError("Rewardを閉じた");
+        Time.timeScale = 1;
+
     }
 }

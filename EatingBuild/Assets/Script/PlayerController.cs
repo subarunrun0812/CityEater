@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("初期のspeedは0.08")]
     public float speed = 0.08f;
+    private float oldspeed;
+
     // public float rotationSpeed = 1f;
     private Vector3 latestPos;  //前回のPosition
 
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private bool flag = false;
 
+    private bool speedFlag = true;
     void Start()
     {
         playerCollider = GetComponent<Collider>();
@@ -31,7 +34,6 @@ public class PlayerController : MonoBehaviour
             Vector3 playerPos = this.transform.position;
             playerPos.y = 0.11f;
         }
-
         float x = joystick.Horizontal;
         float z = joystick.Vertical;
         transform.position += new Vector3(x * speed, 0, z * speed);
@@ -56,8 +58,15 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Wall")
         {
+            if (speedFlag == true)
+            {
+                oldspeed = speed;
+                speedFlag = false;
+            }
             playerCollider.isTrigger = false;
             Debug.Log("Wallに当たり、IsTriggerがOFFになった");
+            speed = 0.08f;//壁に当たったら強制的にspeedを0.08にする
+            Debug.Log(oldspeed);
         }
     }
     void OnTriggerStay(Collider other)
@@ -66,6 +75,17 @@ public class PlayerController : MonoBehaviour
         {
             playerCollider.isTrigger = false;
             Debug.Log("Wallに当たり、IsTriggerがOFFになった");
+            speed = 0.08f;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            playerCollider.isTrigger = true;
+            speed = oldspeed;
+            Debug.Log(oldspeed);
+            speedFlag = true;
         }
     }
     void OnCollisionStay(Collision other)
@@ -75,12 +95,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Wall")
-        {
-            playerCollider.isTrigger = true;
-            Debug.Log("Wallから離れ、IsTriggerがONになった");
-        }
-    }
 }
