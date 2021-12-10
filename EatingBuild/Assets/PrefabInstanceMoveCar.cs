@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PrefabInstanceMoveCar : MonoBehaviour
 {
-    [SerializeField] private GameObject[] cars;
+    [SerializeField] private GameObject[] cars;//
     [SerializeField] private GameObject[] items;
 
     // [Header("190,0,-8 または -150,0,-2"), SerializeField] private Vector3 places;
