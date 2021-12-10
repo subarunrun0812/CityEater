@@ -22,7 +22,7 @@ public class MainScene : MonoBehaviour
 
         MobileAds.Initialize((initStatus) =>
         {
-            Debug.Log("Initialized MobileAds");
+            // Debug.Log("Initialized MobileAds");
         });
         //最初に広告を読み込んでおく
         interstitialAd.LoadAd();
