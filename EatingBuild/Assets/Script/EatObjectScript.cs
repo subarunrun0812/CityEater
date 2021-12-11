@@ -27,7 +27,7 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameObject sizeDown_t;
     [SerializeField] private GameObject speedUp_t;
     public int level;//pointを一定ごとにlvに分類させていく
-    public float changeSpeed = 0.03f;
+    public float changeSpeed = 0.02f;
     public int obj2p = 10;
     public int obj3p = 50;
     public int obj4p = 100;
@@ -126,7 +126,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point * 2);
+                        gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
                         col.gameObject.SetActive(false);
                     });
                     VIbrationFunction();
