@@ -7,6 +7,8 @@ using TMPro;
 using UnityEngine.AI;
 public class NPCEatObjectScript : MonoBehaviour
 {
+    private bool npcspeedflag = true;
+    private float addSpeed = 0.1f;
     private int halthpoint;//pointの半分のpを切り上げたの値を入れる
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
     void NPCAddPoint(int number)//ポイントの追加
@@ -63,7 +65,11 @@ public class NPCEatObjectScript : MonoBehaviour
         NPCAddPoint(halthpoint);//pointを減少
         if (point >= eatObj.objover1)
         {
-            _agent.speed -= changeSpeed;
+            _agent.speed -= changeSpeed + addSpeed;
+        }
+        else
+        {
+            _agent.speed -= addSpeed;
         }
     }
     private void QuestionItem()//questionが食べられた時。
@@ -523,6 +529,11 @@ public class NPCEatObjectScript : MonoBehaviour
                 );
                 spherecol.radius = 6.5f;
                 npc_level = 3;
+                if (npcspeedflag == true)
+                {
+                    npcspeedflag = false;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (obj5p <= p && p < obj8p)
@@ -531,7 +542,11 @@ public class NPCEatObjectScript : MonoBehaviour
                     new Vector3(3f, 3f, 3f), playerScaleTime
                 );
                 spherecol.radius = 6f;
-                npc_level = 4;
+                npc_level = 4; if (npcspeedflag == false)
+                {
+                    npcspeedflag = true;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (obj8p <= p && p < obj10p)
@@ -541,6 +556,11 @@ public class NPCEatObjectScript : MonoBehaviour
                 );
                 spherecol.radius = 5.5f;
                 npc_level = 5;
+                if (npcspeedflag == true)
+                {
+                    npcspeedflag = false;
+                    _agent.speed += addSpeed;
+                }
             }
 
 
@@ -550,7 +570,11 @@ public class NPCEatObjectScript : MonoBehaviour
                     new Vector3(6f, 6f, 6f), playerScaleTime
                 );
                 spherecol.radius = 5f;
-                npc_level = 6;
+                npc_level = 6; if (npcspeedflag == false)
+                {
+                    npcspeedflag = true;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (obj12p <= p && p < obj15p)
@@ -559,7 +583,11 @@ public class NPCEatObjectScript : MonoBehaviour
                     new Vector3(8f, 8f, 8f), playerScaleTime
                 );
                 spherecol.radius = 4.5f;
-                npc_level = 7;
+                npc_level = 7; if (npcspeedflag == true)
+                {
+                    npcspeedflag = false;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (obj15p <= p && p < obj20p)
@@ -568,7 +596,11 @@ public class NPCEatObjectScript : MonoBehaviour
                     new Vector3(10f, 10f, 10f), playerScaleTime
                 );
                 spherecol.radius = 4f;
-                npc_level = 8;
+                npc_level = 8; if (npcspeedflag == false)
+                {
+                    npcspeedflag = true;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (obj20p <= p && p < obj30p)
@@ -577,7 +609,11 @@ public class NPCEatObjectScript : MonoBehaviour
                     new Vector3(12f, 12f, 12f), playerScaleTime
                 );
                 spherecol.radius = 3.5f;
-                npc_level = 9;
+                npc_level = 9; if (npcspeedflag == true)
+                {
+                    npcspeedflag = false;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (obj30p <= p && p < objover1)
@@ -585,7 +621,11 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(14f, 14f, 14f), playerScaleTime
                 ); spherecol.radius = 3f;
-                npc_level = 10;
+                npc_level = 10; if (npcspeedflag == false)
+                {
+                    npcspeedflag = true;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (objover1 <= p && p < objover2)
@@ -594,7 +634,11 @@ public class NPCEatObjectScript : MonoBehaviour
                     new Vector3(15f, 15f, 15f), playerScaleTime
                 );
                 spherecol.radius = 2.5f;
-                npc_level = 11;
+                npc_level = 11; if (npcspeedflag == true)
+                {
+                    npcspeedflag = false;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (objover2 <= p && p < objover3)
@@ -602,7 +646,11 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(16f, 16f, 16f), playerScaleTime
                 ); spherecol.radius = 2f;
-                npc_level = 12;
+                npc_level = 12; if (npcspeedflag == false)
+                {
+                    npcspeedflag = true;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (objover3 <= p && p < objover4)
@@ -611,7 +659,11 @@ public class NPCEatObjectScript : MonoBehaviour
                     new Vector3(17f, 17f, 17f), playerScaleTime
                 );
                 spherecol.radius = 2f;
-                npc_level = 13;
+                npc_level = 13; if (npcspeedflag == true)
+                {
+                    npcspeedflag = false;
+                    _agent.speed += addSpeed;
+                }
             }
 
             else if (objover4 <= p && p < objover5)
@@ -619,21 +671,33 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(18f, 18f, 18f), playerScaleTime
                 ); spherecol.radius = 2f;
-                npc_level = 14;
+                npc_level = 14; if (npcspeedflag == false)
+                {
+                    npcspeedflag = true;
+                    _agent.speed += addSpeed;
+                }
             }
             else if (objover5 <= p && p < objover6)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(19f, 19f, 19f), playerScaleTime
                 ); spherecol.radius = 2f;
-                npc_level = 15;
+                npc_level = 15; if (npcspeedflag == true)
+                {
+                    npcspeedflag = false;
+                    _agent.speed += addSpeed;
+                }
             }
             else if (objover6 <= p && p < objoverMax)
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(20f, 20f, 20f), playerScaleTime
                 ); spherecol.radius = 2f;
-                npc_level = 16;
+                npc_level = 16; if (npcspeedflag == false)
+                {
+                    npcspeedflag = true;
+                    _agent.speed += addSpeed;
+                }
             }
         }
 
