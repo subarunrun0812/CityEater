@@ -80,11 +80,38 @@ public class swipe : MonoBehaviour
                 {
                     if (m == i)
                     {
-                        _changeskin[m].SetActive(true);
-                        ChangeSkin.changeNumber = m;
-                        //変更したスキンの要素の順番をPlayerPrefsで記憶する
-                        PlayerPrefs.SetInt("ChangeNumber", ChangeSkin.changeNumber);
-                        PlayerPrefs.Save();
+                        if (m == 3)
+                        {
+                            changeSkinScript.ChangeSkinButton3();
+                        }
+                        else if (m == 4)
+                        {
+                            changeSkinScript.ChangeSkinButton4();
+                        }
+                        else if (m == 5)
+                        {
+                            changeSkinScript.ChangeSkinButton5();
+                        }
+                        else if (m == 6)
+                        {
+                            changeSkinScript.ChangeSkinButton6();
+                        }
+                        else if (m == 7)
+                        {
+                            changeSkinScript.ChangeSkinButton7();
+                        }
+                        else if (m == 8)
+                        {
+                            changeSkinScript.ChangeSkinButton8();
+                        }
+                        else
+                        {
+                            _changeskin[m].SetActive(true);
+                            ChangeSkin.changeNumber = m;
+                            //変更したスキンの要素の順番をPlayerPrefsで記憶する
+                            PlayerPrefs.SetInt("ChangeNumber", ChangeSkin.changeNumber);
+                            PlayerPrefs.Save();
+                        }
                     }
                     else
                     {
