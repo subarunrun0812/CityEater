@@ -44,11 +44,12 @@ public class StartGameManager : MonoBehaviour
         //totalScoreの情報を取得する
         totalScore = PlayerPrefs.GetInt("TotalScore", totalScore);
         //totalScoreに前回のゲーム内のスコアを足す
-        totalScore += PlayerPrefs.GetInt("GameScore", 0);
+        int gameScore = PlayerPrefs.GetInt("GameScore", 0);
+        totalScore += gameScore;
         //保存する
         PlayerPrefs.SetInt("TotalScore", totalScore);
         PlayerPrefs.Save();
-        Debug.LogError(totalScore);
+        Debug.LogError("totalScore = " + totalScore);
     }
     public void StartButton()
     {

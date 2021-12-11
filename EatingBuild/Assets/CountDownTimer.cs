@@ -78,15 +78,6 @@ public class CountDownTimer : MonoBehaviour
 
         // banner.SetActive(true);
     }
-
-    //スコアをセーブする
-    public void SaveTotalScore()
-    {
-        PlayerPrefs.SetInt("GameScore", gameManager.point);
-        PlayerPrefs.Save();
-    }
-
-
     void Update()
     {
 

@@ -71,7 +71,8 @@ public class HighscoreTable : MonoBehaviour
         //PlayerBestScoreの処理について↓
         int score = gameManager.point;
         int playerBestscore = PlayerPrefs.GetInt("PlayerBestScore");//ロードする
-
+        PlayerPrefs.SetInt("GameScore", score);
+        PlayerPrefs.Save();
         Debug.LogError("playerBestscore" + playerBestscore);
         //セーブ状態があるかどうか
         if (PlayerPrefs.HasKey("PlayerBestScore"))

@@ -25,8 +25,8 @@ public class MostPoint : MonoBehaviour
             //要素数を増やす
             npcPoints.Add(nPCEatObjList[i].point);
         }
-        Debug.LogError("npcArray.Length" + npcArray.Length);
-        Debug.LogError("npcPoints.Count" + npcPoints.Count);
+        // Debug.LogError("npcArray.Length" + npcArray.Length);
+        // Debug.LogError("npcPoints.Count" + npcPoints.Count);
 
     }
 
