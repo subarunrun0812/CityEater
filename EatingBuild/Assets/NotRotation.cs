@@ -20,6 +20,6 @@ public class NotRotation : MonoBehaviour
 
         //ログ用
         Vector3 result = transform.localRotation.eulerAngles;
-        Debug.Log("def=" + def + "     _parent=" + _parent + "     result=" + result);
+        // Debug.Log("def=" + def + "     _parent=" + _parent + "     result=" + result);
     }
 }

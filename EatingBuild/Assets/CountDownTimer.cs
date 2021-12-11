@@ -75,7 +75,15 @@ public class CountDownTimer : MonoBehaviour
         scoreUI.SetActive(false);
         highScoreTable.SetActive(true);
         Time.timeScale = 0;
+
         // banner.SetActive(true);
+    }
+
+    //スコアをセーブする
+    public void SaveTotalScore()
+    {
+        PlayerPrefs.SetInt("GameScore", gameManager.point);
+        PlayerPrefs.Save();
     }
 
 
