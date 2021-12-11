@@ -52,6 +52,7 @@ public class StartGameManager : MonoBehaviour
         {
             PlayerPrefs.DeleteAll();
             Debug.LogError("セーブデータを全て削除した");
+            SceneManager.LoadScene("StartScene");
         }
     }
 
