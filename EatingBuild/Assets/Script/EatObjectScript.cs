@@ -7,6 +7,7 @@ using TMPro;
 public class EatObjectScript : MonoBehaviour
 {
     private bool speedflag = true;
+    private float addSpeed = 0.005f;
     public float smallTime = 2;//objectを小さくするのにかかる時間
     public float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
     public float smallTimeBigApartment = 0.8f;//大きいビルを小さくするのにかかる時間
@@ -80,8 +81,13 @@ public class EatObjectScript : MonoBehaviour
         sizeDown_t.SetActive(true);
         if (gameManager.point >= objover1)
         {
-            playerController.speed -= changeSpeed;
+            playerController.speed -= changeSpeed + addSpeed;
         }
+        else
+        {
+            playerController.speed -= addSpeed;
+        }
+
     }
     private void QuestionItem()//questionが食べられた時。
     {
@@ -463,7 +469,6 @@ public class EatObjectScript : MonoBehaviour
     void FixedUpdate()//playerの大きさや速度のパラメーターの変更の処理
     {
 
-        float addSpeed = 0.0015f;
         int distaceAdd = 3;
         {
             //Playerの大きさをポイントに応じて変更する
