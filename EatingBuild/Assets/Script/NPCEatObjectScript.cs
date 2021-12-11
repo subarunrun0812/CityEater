@@ -127,7 +127,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(gameManager.point);
+                        NPCAddPoint(gameManager.point * 2);
                         col.gameObject.SetActive(false);
                         revenge.SetActive(true);
                         // StartCoroutine("DethPlayer");

@@ -126,7 +126,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
+                        gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point * 2);
                         col.gameObject.SetActive(false);
                     });
                     VIbrationFunction();
