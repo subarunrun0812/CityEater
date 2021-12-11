@@ -26,7 +26,7 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameObject sizeDown_t;
     [SerializeField] private GameObject speedUp_t;
     public int level;//pointを一定ごとにlvに分類させていく
-    public float changeSpeed;
+    public float changeSpeed = 0.03f;
     public int obj2p = 10;
     public int obj3p = 50;
     public int obj4p = 100;
@@ -61,14 +61,14 @@ public class EatObjectScript : MonoBehaviour
     }
     private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
     {
-        changeSpeed = 0.04f;
+        changeSpeed = 0.03f;
         playerController.speed += changeSpeed;
         speedUp_t.SetActive(true);
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        halthpoint = gameManager.point / 2;//
-        gameManager.AddPoint(halthpoint);//pointを追加
+
+        gameManager.AddPoint(gameManager.point);//pointを追加
         sizeUp_t.SetActive(true);
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
@@ -78,6 +78,10 @@ public class EatObjectScript : MonoBehaviour
         Debug.Log(halthpoint);
         gameManager.AddPoint(halthpoint);//pointを減少
         sizeDown_t.SetActive(true);
+        if (gameManager.point >= objover1)
+        {
+            playerController.speed -= changeSpeed;
+        }
     }
     private void QuestionItem()//questionが食べられた時。
     {

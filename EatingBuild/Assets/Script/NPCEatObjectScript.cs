@@ -52,8 +52,8 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        halthpoint = point / 2;//
-        NPCAddPoint(halthpoint);//pointを追加
+
+        NPCAddPoint(gameManager.point);//pointを追加
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
@@ -61,6 +61,10 @@ public class NPCEatObjectScript : MonoBehaviour
         halthpoint = -halthpoint;//-にする
         Debug.Log("NPCのhalthpointは" + halthpoint);
         NPCAddPoint(halthpoint);//pointを減少
+        if (point >= eatObj.objover1)
+        {
+            _agent.speed -= changeSpeed;
+        }
     }
     private void QuestionItem()//questionが食べられた時。
     {
