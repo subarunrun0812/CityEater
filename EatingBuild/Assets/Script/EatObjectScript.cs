@@ -26,6 +26,8 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameObject sizeUp_t;
     [SerializeField] private GameObject sizeDown_t;
     [SerializeField] private GameObject speedUp_t;
+    [SerializeField] private GameObject kO_t;
+
     public int level;//pointを一定ごとにlvに分類させていく
     public float changeSpeed = 0.02f;
     public int obj2p = 10;
@@ -54,6 +56,7 @@ public class EatObjectScript : MonoBehaviour
         speedUp_t.SetActive(false);
         sizeDown_t.SetActive(false);
         sizeUp_t.SetActive(false);
+        kO_t.SetActive(false);
     }
     private void VIbrationFunction()//スマホを振動される関数
     {
@@ -129,6 +132,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
                         col.gameObject.SetActive(false);
                     });
+                    kO_t.SetActive(true);
                     VIbrationFunction();
                 }
                 else
