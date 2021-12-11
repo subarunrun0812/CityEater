@@ -16,7 +16,8 @@ public class MostPoint : MonoBehaviour
 
     void Start()
     {
-        npc_list.Add(6);
+        npc_list.Add(npcArray.Length);
+        npc_list.Add(npcArray.Length);
         crown.SetActive(false);
         for (int i = 0; i < npcObjlist.Count; i++)
         {
@@ -27,22 +28,23 @@ public class MostPoint : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < npcObjlist.Count; i++)
+        for (int i = 0; i < npcArray.Length; i++)
         {
-            npc_list[i] = npcObjlist[i].point;
+            npc_list[i] = npcArray[i].GetComponent<NPCEatObjectScript>().point;
             Debug.LogError(npcObjlist[i]);
+            if (gameManager.point > npc_list.Max())
+            {
+                crown.SetActive(true);
+            }
+            else if (gameManager.point < npc_list.Max())
+            {
+                crown.SetActive(false);
+            }
+            Debug.LogError(npc_list.Max());
         }
         //npcの最大のpとplayer_pを比較する
         //playerが一番ポイントが高かったら
-        if (gameManager.point > npc_list.Max())
-        {
-            crown.SetActive(true);
-        }
-        else
-        {
-            crown.SetActive(false);
-        }
-        Debug.LogError(npc_list.Max());
+
     }
 }
 
