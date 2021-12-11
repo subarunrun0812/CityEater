@@ -297,7 +297,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(6);
+                        gameManager.AddPoint(8);
 
                         col.gameObject.SetActive(false);
 
@@ -320,7 +320,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(7);
+                        gameManager.AddPoint(10);
 
                         col.gameObject.SetActive(false);
 
@@ -343,7 +343,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(8);
+                        gameManager.AddPoint(12);
 
                         col.gameObject.SetActive(false);
 
@@ -366,7 +366,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(9);
+                        gameManager.AddPoint(15);
 
                         col.gameObject.SetActive(false);
 
@@ -389,7 +389,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(10);
+                        gameManager.AddPoint(20);
 
                         col.gameObject.SetActive(false);
 
@@ -412,7 +412,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(10);
+                        gameManager.AddPoint(30);
 
                         col.gameObject.SetActive(false);
 
@@ -435,7 +435,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(10);
+                        gameManager.AddPoint(30);
 
                         col.gameObject.SetActive(false);
 
