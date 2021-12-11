@@ -8,6 +8,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
 {
 
     public GameObject[] _changeskin;
+    public GameObject[] Lockskin;
 
     private int totalScore;
     public static int changeNumber;//demoシーンで同期させるためにstatic修飾子を使う
@@ -181,6 +182,36 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
 
     void Start()//初期は0番目のスキン
     {
+        for (int i = 0; i < Lockskin.Length; i++)
+        {
+            //使えるスキンはlock画像を非表示にする
+            if (i == 0 && playerBestscore >= 10000)//1万
+            {
+                Lockskin[0].SetActive(false);
+            }
+            else if (i == 1 && playerBestscore >= 50000)//5万
+            {
+                Lockskin[1].SetActive(false);
+            }
+            else if (i == 2 && playerBestscore >= 100000)//10万
+            {
+                Lockskin[2].SetActive(false);
+            }
+            //totalScore
+            else if (i == 3 && totalScore >= 100000)//10万
+            {
+                Lockskin[3].SetActive(false);
+            }
+            else if (i == 4 && totalScore >= 500000)//50万
+            {
+                Lockskin[4].SetActive(false);
+            }
+            else if (i == 5 && totalScore >= 1000000)//100万
+            {
+                Lockskin[5].SetActive(false);
+            }
+        }
+
         //ユ―ザーネームがあるかチェック
         if (PlayerPrefs.HasKey("ChangeNumber"))
         {

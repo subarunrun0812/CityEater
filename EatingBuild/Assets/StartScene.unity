@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 21211075}
   - component: {fileID: 21211074}
   m_Layer: 5
-  m_Name: Button7
+  m_Name: Wood_Button7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,9 +298,9 @@ RectTransform:
   - {fileID: 572133652}
   - {fileID: 981193379}
   - {fileID: 55436611}
-  - {fileID: 65248948}
+  - {fileID: 573296011}
   m_Father: {fileID: 9131208639573092630}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 65248950}
   - component: {fileID: 65248949}
   m_Layer: 5
-  m_Name: UnLockImg_3
+  m_Name: Magma_LockImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,7 +563,7 @@ RectTransform:
   m_Children:
   - {fileID: 300475818}
   - {fileID: 1842758186}
-  m_Father: {fileID: 21211073}
+  m_Father: {fileID: 767779364}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 237969365}
   - component: {fileID: 237969364}
   m_Layer: 5
-  m_Name: UnLockImg_2
+  m_Name: Gold_LockImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1239,7 +1239,7 @@ RectTransform:
   m_Children:
   - {fileID: 722136504}
   - {fileID: 577174517}
-  m_Father: {fileID: 760887574}
+  m_Father: {fileID: 9131208639205729128}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2279,7 +2279,7 @@ GameObject:
   - component: {fileID: 465709577}
   - component: {fileID: 465709576}
   m_Layer: 5
-  m_Name: UnLockImg_1
+  m_Name: Silver_LockImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2297,7 +2297,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1152172804}
-  m_Father: {fileID: 9131208639205729128}
+  m_Father: {fileID: 760887574}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2705,7 +2705,7 @@ GameObject:
   - component: {fileID: 573296013}
   - component: {fileID: 573296012}
   m_Layer: 5
-  m_Name: UnLockImg_3
+  m_Name: Wood_LockImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2724,7 +2724,7 @@ RectTransform:
   m_Children:
   - {fileID: 363037997}
   - {fileID: 1618631714}
-  m_Father: {fileID: 767779364}
+  m_Father: {fileID: 21211073}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3150,7 +3150,7 @@ GameObject:
   - component: {fileID: 674893891}
   - component: {fileID: 674893890}
   m_Layer: 5
-  m_Name: Button6
+  m_Name: Black_Button6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3716,7 +3716,7 @@ GameObject:
   - component: {fileID: 760887576}
   - component: {fileID: 760887575}
   m_Layer: 5
-  m_Name: Button5
+  m_Name: Silver_Button5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3737,9 +3737,9 @@ RectTransform:
   - {fileID: 1848854914}
   - {fileID: 1118892087}
   - {fileID: 1879519244}
-  - {fileID: 237969363}
+  - {fileID: 465709575}
   m_Father: {fileID: 9131208639573092630}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3863,7 +3863,7 @@ GameObject:
   - component: {fileID: 767779366}
   - component: {fileID: 767779365}
   m_Layer: 5
-  m_Name: Button8
+  m_Name: Magma_Button8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3884,9 +3884,9 @@ RectTransform:
   - {fileID: 1014139665}
   - {fileID: 1736063476}
   - {fileID: 708451232}
-  - {fileID: 573296011}
+  - {fileID: 65248948}
   m_Father: {fileID: 9131208639573092630}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6046,7 +6046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "best \nscore\nmore\nthan\n10000p"
+  m_text: "best \nscore\nmore\nthan\n10,000p"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -7429,11 +7429,18 @@ MonoBehaviour:
   - {fileID: 2099027957823563430}
   - {fileID: 919132148581207770}
   - {fileID: 2201220531134207485}
-  - {fileID: 949845564571942780}
   - {fileID: 8446412996477882617}
+  - {fileID: 949845564571942780}
   - {fileID: 5975223759988572316}
-  - {fileID: 3628021518920043796}
   - {fileID: 1894361478336191238}
+  - {fileID: 3628021518920043796}
+  Lockskin:
+  - {fileID: 1915187440}
+  - {fileID: 465709574}
+  - {fileID: 237969362}
+  - {fileID: 1973062189}
+  - {fileID: 65248947}
+  - {fileID: 573296010}
 --- !u!114 &1368019466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7859,7 +7866,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!4 &1437769551 stripped
 Transform:
@@ -9289,7 +9296,7 @@ GameObject:
   - component: {fileID: 1915187443}
   - component: {fileID: 1915187442}
   m_Layer: 5
-  m_Name: UnLockImg
+  m_Name: Mix_LockImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9405,7 +9412,7 @@ GameObject:
   - component: {fileID: 1973062192}
   - component: {fileID: 1973062191}
   m_Layer: 5
-  m_Name: UnLockImg_3
+  m_Name: Black_LockImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19286,7 +19293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1569397566460481351}
   m_Layer: 0
-  m_Name: PacmanMIxColor
+  m_Name: MIxColor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49151,7 +49158,7 @@ GameObject:
   - component: {fileID: 9131208638797473376}
   - component: {fileID: 9131208638797473391}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Mix_Button (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50124,9 +50131,9 @@ RectTransform:
   - {fileID: 9131208638525843142}
   - {fileID: 9131208639096340593}
   - {fileID: 9131208638208178348}
-  - {fileID: 465709575}
+  - {fileID: 237969363}
   m_Father: {fileID: 9131208639573092630}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -50240,7 +50247,7 @@ GameObject:
   - component: {fileID: 9131208639205729130}
   - component: {fileID: 9131208639205729129}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Gold_Button (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50259,7 +50266,7 @@ GameObject:
   - component: {fileID: 9131208639292740397}
   - component: {fileID: 9131208639292740396}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Blue_Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50559,7 +50566,7 @@ GameObject:
   - component: {fileID: 9131208639444154791}
   - component: {fileID: 9131208639444154790}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: White_Button (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50963,17 +50970,17 @@ RectTransform:
   - {fileID: 9131208639292740395}
   - {fileID: 9131208639444154789}
   - {fileID: 9131208638797473390}
-  - {fileID: 9131208639205729128}
   - {fileID: 760887574}
+  - {fileID: 9131208639205729128}
   - {fileID: 674893889}
-  - {fileID: 21211073}
   - {fileID: 767779364}
+  - {fileID: 21211073}
   m_Father: {fileID: 9131208639610030750}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2619, y: -35.065918}
+  m_AnchoredPosition: {x: 0, y: -35.065918}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9131208639573092631
@@ -51447,7 +51454,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9131208638002546917}
   m_HandleRect: {fileID: 9131208638002546916}
   m_Direction: 0
-  m_Value: 0.9128899
+  m_Value: 0
   m_Size: 0.31830552
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -51565,7 +51572,7 @@ GameObject:
   - component: {fileID: 9131208639959796887}
   - component: {fileID: 9131208639959796886}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Red_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
