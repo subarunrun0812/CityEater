@@ -9,7 +9,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
 
     public GameObject[] _changeskin;
 
-
+    private int totalScore;
     public static int changeNumber;//demoシーンで同期させるためにstatic修飾子を使う
 
 
@@ -28,6 +28,34 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
             Debug.Log("スキンの順番のデータがないよ！");
             //ない場合名前を入力させる処理をここから入れる
         }
+        if (PlayerPrefs.HasKey("TotalScore"))
+        {
+            Debug.LogError("トータルスコアのデータがあるよ！");
+        }
+        else
+        {
+            Debug.LogError("トータルスコアのデータがないよ！");
+            //ない場合名前を入力させる処理をここから入れる
+        }
+        if (PlayerPrefs.HasKey("GameScore"))
+        {
+            Debug.LogError("ゲームスコアのデータがあるよ！");
+        }
+        else
+        {
+            Debug.LogError("ゲームスコアのデータがないよ！");
+            //ない場合名前を入力させる処理をここから入れる
+        }
+        //totalScoreを計算する
+        //totalScoreの情報を取得する
+        totalScore = PlayerPrefs.GetInt("TotalScore", totalScore);
+        //totalScoreに前回のゲーム内のスコアを足す
+        int gameScore = PlayerPrefs.GetInt("GameScore", 0);
+        totalScore += gameScore;
+        //保存する
+        PlayerPrefs.SetInt("TotalScore", totalScore);
+        PlayerPrefs.Save();
+        Debug.LogError("totalScore = " + totalScore);
     }
     void Start()//初期は0番目のスキン
     {

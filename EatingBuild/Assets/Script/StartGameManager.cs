@@ -21,35 +21,6 @@ public class StartGameManager : MonoBehaviour
         changeSkinbutton.SetActive(true);
         startButton.SetActive(true);
         scrollviewbutton.SetActive(false);
-
-        if (PlayerPrefs.HasKey("TotalScore"))
-        {
-            Debug.LogError("トータルスコアのデータがあるよ！");
-        }
-        else
-        {
-            Debug.LogError("トータルスコアのデータがないよ！");
-            //ない場合名前を入力させる処理をここから入れる
-        }
-        if (PlayerPrefs.HasKey("GameScore"))
-        {
-            Debug.LogError("ゲームスコアのデータがあるよ！");
-        }
-        else
-        {
-            Debug.LogError("ゲームスコアのデータがないよ！");
-            //ない場合名前を入力させる処理をここから入れる
-        }
-        //totalScoreを計算する
-        //totalScoreの情報を取得する
-        totalScore = PlayerPrefs.GetInt("TotalScore", totalScore);
-        //totalScoreに前回のゲーム内のスコアを足す
-        int gameScore = PlayerPrefs.GetInt("GameScore", 0);
-        totalScore += gameScore;
-        //保存する
-        PlayerPrefs.SetInt("TotalScore", totalScore);
-        PlayerPrefs.Save();
-        Debug.LogError("totalScore = " + totalScore);
     }
     public void StartButton()
     {

@@ -51,7 +51,7 @@ public class MostPoint : MonoBehaviour
         {
             crown.SetActive(false);
         }
-        Debug.LogError(npcPoints.Max());
+        // Debug.LogError(npcPoints.Max());
     }
 }
 
