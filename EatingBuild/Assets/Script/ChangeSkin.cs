@@ -14,6 +14,14 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     public static int changeNumber;//demoシーンで同期させるためにstatic修飾子を使う
     private int playerBestscore;
 
+    public int unLockSkin0 = 10000;//1万
+    public int unLockSkin1 = 50000;//5万
+    public int unLockSkin2 = 100000;//10万
+    public int unLockToal_Skin3 = 1000000;//100万
+    public int unLockTotal_Skin4 = 5000000;//500万
+    public int unLockTotal_Skin5 = 10000000;//1000万
+
+
 
     void Awake()
     {
@@ -64,7 +72,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     //BestScoreの条件を満たしたら使えるスキン達
     public void ChangeSkinButton3()//buttonを押したらスキンが変わっていく
     {
-        if (playerBestscore >= 10000)//1万
+        if (playerBestscore >= unLockSkin0)//1万
         {
             Resetchangeskin();
             changeNumber = 3;
@@ -75,7 +83,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     }
     public void ChangeSkinButton4()//buttonを押したらスキンが変わっていく
     {
-        if (playerBestscore >= 50000)//5万
+        if (playerBestscore >= unLockSkin1)//5万
         {
             Resetchangeskin();
             changeNumber = 4;
@@ -86,7 +94,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     }
     public void ChangeSkinButton5()//buttonを押したらスキンが変わっていく
     {
-        if (playerBestscore >= 100000)//10万
+        if (playerBestscore >= unLockSkin2)//10万
         {
             Resetchangeskin();
             changeNumber = 5;
@@ -99,7 +107,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     //TotalScoreの条件を満たしたら使えるスキン達
     public void ChangeSkinButton6()
     {
-        if (totalScore >= 100000)//10万
+        if (totalScore >= unLockToal_Skin3)
         {
             Resetchangeskin();
             changeNumber = 6;
@@ -111,7 +119,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     //TotalScoreの条件を満たしたら使えるスキン達
     public void ChangeSkinButton7()
     {
-        if (totalScore >= 500000)//50万
+        if (totalScore >= unLockTotal_Skin4)
         {
             Resetchangeskin();
             changeNumber = 7;
@@ -122,7 +130,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     }
     public void ChangeSkinButton8()
     {
-        if (totalScore >= 1000000)//100万
+        if (totalScore >= unLockTotal_Skin5)
         {
             Resetchangeskin();
             changeNumber = 8;
@@ -185,28 +193,28 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
         for (int i = 0; i < Lockskin.Length; i++)
         {
             //使えるスキンはlock画像を非表示にする
-            if (i == 0 && playerBestscore >= 10000)//1万
+            if (i == 0 && playerBestscore >= unLockSkin0)
             {
                 Lockskin[0].SetActive(false);
             }
-            else if (i == 1 && playerBestscore >= 50000)//5万
+            else if (i == 1 && playerBestscore >= unLockSkin1)
             {
                 Lockskin[1].SetActive(false);
             }
-            else if (i == 2 && playerBestscore >= 100000)//10万
+            else if (i == 2 && playerBestscore >= unLockSkin2)
             {
                 Lockskin[2].SetActive(false);
             }
             //totalScore
-            else if (i == 3 && totalScore >= 100000)//10万
+            else if (i == 3 && totalScore >= unLockToal_Skin3)
             {
                 Lockskin[3].SetActive(false);
             }
-            else if (i == 4 && totalScore >= 500000)//50万
+            else if (i == 4 && totalScore >= unLockTotal_Skin4)
             {
                 Lockskin[4].SetActive(false);
             }
-            else if (i == 5 && totalScore >= 1000000)//100万
+            else if (i == 5 && totalScore >= unLockTotal_Skin5)
             {
                 Lockskin[5].SetActive(false);
             }
