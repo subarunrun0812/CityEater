@@ -6,8 +6,8 @@ public class MostPoint : MonoBehaviour
 {
     [SerializeField] private GameObject[] npcArray;
     // private List<NPCEatObjectScript> npceatObj_list;
-    private List<int> npc_list = new List<int>();
-    private List<NPCEatObjectScript> npcObjlist = new List<NPCEatObjectScript>();
+    [SerializeField] private List<NPCEatObjectScript> nPCEatObjList = new List<NPCEatObjectScript>();
+    [SerializeField] private List<int> npcPoints = new List<int>();
 
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject crown;//王冠
@@ -16,25 +16,30 @@ public class MostPoint : MonoBehaviour
 
     void Start()
     {
-        npc_list.Add(6);
-        crown.SetActive(false);
-        for (int i = 0; i < npcObjlist.Count; i++)
+        for (int i = 0; i < npcArray.Length; i++)
         {
-            npcObjlist[i] = npcArray[i].GetComponent<NPCEatObjectScript>();
-            Debug.LogError(npc_list[i]);
+            nPCEatObjList.Add(npcArray[i].GetComponent<NPCEatObjectScript>());
         }
+        // for (int i = 0; i < nPCEatObjList.Count; i++)
+        // {
+        //     npcPoints.Add(nPCEatObjList[i].point);
+        // }
+        Debug.LogError(npcPoints.Count);
     }
 
     void Update()
     {
-        for (int i = 0; i < npcObjlist.Count; i++)
+
+        for (int i = 0; i < nPCEatObjList.Count; i++)
         {
-            npc_list[i] = npcObjlist[i].point;
-            Debug.LogError(npcObjlist[i]);
+            //要素を置き換える
+            // npcPoints[i] = nPCEatObjList[i].point;
+            npcPoints.Add(nPCEatObjList[i].point);
+
         }
         //npcの最大のpとplayer_pを比較する
         //playerが一番ポイントが高かったら
-        if (gameManager.point > npc_list.Max())
+        if (gameManager.point > npcPoints.Max())
         {
             crown.SetActive(true);
         }
@@ -42,7 +47,13 @@ public class MostPoint : MonoBehaviour
         {
             crown.SetActive(false);
         }
-        Debug.LogError(npc_list.Max());
+        Debug.LogError(npcPoints.Max());
+        for (int i = 0; i < npcPoints.Count; i++)
+        {
+            npcPoints.RemoveAt(npcPoints[i]);
+        }
+        npcPoints.Clear();
+
     }
 }
 

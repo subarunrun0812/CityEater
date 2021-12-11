@@ -4,30 +4,23 @@ using UnityEngine;
 using DG.Tweening;
 public class crownScript : MonoBehaviour
 {
+    public Transform target;
 
-    Vector3 def;
+    [SerializeField] private Transform player;
+    public Vector3 offset;
 
-    void Awake()
-    {
-        def = transform.localRotation.eulerAngles;
-    }
+    private Vector3 kero;
+
 
     void Update()
     {
-        Vector3 _parent = transform.parent.transform.localRotation.eulerAngles;
+        Vector3 addScale = new Vector3(player.transform.localScale.x * 1.5f,
+        player.transform.localScale.y * 0.5f, player.transform.localScale.z * 1.5f);
+        offset = new Vector3(0, 0f, 0);
+        this.transform.position = target.position + offset;
+        this.transform.localScale = player.transform.localScale + addScale;
 
-        //修正箇所
-        transform.localRotation = Quaternion.Euler(def - _parent);
-
-        //ログ用
-        Vector3 result = transform.localRotation.eulerAngles;
-        Debug.Log("def=" + def + "     _parent=" + _parent + "     result=" + result);
-    }
-
-
-    void OnEnable()
-    {
-        //     //６秒かけてまわり続ける
+        //６秒かけてまわり続ける
         //     transform.DOLocalRotate(new Vector3(0, 360f, 0), 1f, RotateMode.FastBeyond360)
         //  .SetEase(Ease.Linear)
         //  .SetLoops(-1, LoopType.Restart);
