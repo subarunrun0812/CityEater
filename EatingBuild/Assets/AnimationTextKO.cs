@@ -14,7 +14,7 @@ public class AnimationTextKO : MonoBehaviour//speed up テキスト
 
     private IEnumerator DisableItemText()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(time);
         this.gameObject.SetActive(false);
     }
     private void OnEnable()

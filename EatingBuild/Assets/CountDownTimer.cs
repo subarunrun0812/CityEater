@@ -29,6 +29,8 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI threeSeconds;//３秒前
     [SerializeField] private GameObject ItemsText;
+    [SerializeField] private GameObject lvUI;
+
 
     // [SerializeField] private GameObject banner;//google banner
 
@@ -46,7 +48,7 @@ public class CountDownTimer : MonoBehaviour
         quit_b.SetActive(true);
         revenge.SetActive(false);
         ItemsText.SetActive(true);
-
+        lvUI.SetActive(true);
         // banner.SetActive(false);
     }
 
@@ -57,7 +59,6 @@ public class CountDownTimer : MonoBehaviour
         Time.timeScale = 1;
         if (_player.activeSelf == true)
         {
-            seconds += 30;//30秒追加
             flag = false;
         }
 
@@ -75,7 +76,7 @@ public class CountDownTimer : MonoBehaviour
         scoreUI.SetActive(false);
         highScoreTable.SetActive(true);
         Time.timeScale = 0;
-
+        lvUI.SetActive(false);
         // banner.SetActive(true);
     }
     void Update()

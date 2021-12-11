@@ -9,7 +9,10 @@ public class MainScene : MonoBehaviour
     InterstitialAdGameObject interstitialAd;
     RewardedAdGameObject rewardedAdGameObject;
     [SerializeField] private GameObject itemsText;
-
+    [SerializeField] private CountDownTimer countDownTimer;
+    [SerializeField] private GameObject notime;
+    [SerializeField] private GameObject continue_b;
+    [SerializeField] private GameObject quit_b;
     void Start()
     {
         //リワード
@@ -54,9 +57,16 @@ public class MainScene : MonoBehaviour
     }
     public void OnCloseRewardButton()
     {
+        countDownTimer.seconds += 30;//30秒追加
         Debug.LogError("Rewardを閉じた");
         itemsText.SetActive(true);
         Time.timeScale = 1;
-
+    }
+    public void OnAdClosed()//Userが途中で閉じってしまった時の対処
+    {
+        Time.timeScale = 1;
+        notime.SetActive(true);
+        continue_b.SetActive(false);
+        quit_b.SetActive(true);
     }
 }

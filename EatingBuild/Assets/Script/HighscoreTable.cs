@@ -121,7 +121,6 @@ public class HighscoreTable : MonoBehaviour
             case 3: rankString = "3RD"; break;//3位の場合
             default:
                 rankString = rank + "TH"; break;
-
         }
         //順位のテキストを取得
         entryTransform.Find("posText").GetComponent<TextMeshProUGUI>().text = rankString;
@@ -137,6 +136,14 @@ public class HighscoreTable : MonoBehaviour
 
         //transformListにentyTransformの要素を追加する
         transformList.Add(entryTransform);
+
+        if (name == "Player")
+        {
+            entryTransform.Find("posText").GetComponent<TextMeshProUGUI>().color = Color.green;
+            entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().color = Color.green;
+            entryTransform.Find("nameText").GetComponent<TextMeshProUGUI>().color = Color.green;
+            Debug.Log("Playerを見つけれた");
+        }
 
     }
     /*
