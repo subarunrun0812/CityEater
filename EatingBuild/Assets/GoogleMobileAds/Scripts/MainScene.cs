@@ -64,7 +64,7 @@ public class MainScene : MonoBehaviour
     }
     public void OnAdClosed()//Userが途中で閉じってしまった時の対処
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0;
         notime.SetActive(true);
         continue_b.SetActive(false);
         quit_b.SetActive(true);
