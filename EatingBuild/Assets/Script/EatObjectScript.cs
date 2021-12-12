@@ -27,6 +27,7 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameObject sizeDown_t;
     [SerializeField] private GameObject speedUp_t;
     [SerializeField] private GameObject kO_t;
+    [SerializeField] private AnimationTextKO ko_script;
 
     public int level;//pointを一定ごとにlvに分類させていく
     public float changeSpeed = 0.02f;
@@ -132,6 +133,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
                         col.gameObject.SetActive(false);
                     });
+                    ko_script.OnEnable(col.gameObject.name);//npcの名前を引数として渡す
                     kO_t.SetActive(true);
                     VIbrationFunction();
                 }

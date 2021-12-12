@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
-
+using UnityEngine.UI;
 public class AnimationTextKO : MonoBehaviour//speed up テキスト
 {
 
@@ -17,12 +17,13 @@ public class AnimationTextKO : MonoBehaviour//speed up テキスト
         yield return new WaitForSeconds(time);
         this.gameObject.SetActive(false);
     }
-    private void OnEnable()
+    public void OnEnable(string name)
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
         Initialize();
         Play(time);
         StartCoroutine("DisableItemText");
+        textMeshPro.text = "Killed " + name;
     }
 
     private void Initialize()
