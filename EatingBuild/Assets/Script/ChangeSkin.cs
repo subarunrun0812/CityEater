@@ -38,6 +38,10 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
         {
             totalScore += gameScore;
         }
+        else
+        {
+            Debug.LogError(totalScore + "が2000000000を超えた");
+        }
         //保存する
         PlayerPrefs.SetInt("TotalScore", totalScore);
         PlayerPrefs.Save();

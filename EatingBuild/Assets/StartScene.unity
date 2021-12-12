@@ -7441,6 +7441,7 @@ MonoBehaviour:
   - {fileID: 1973062189}
   - {fileID: 65248947}
   - {fileID: 573296010}
+  bestscoreText: {fileID: 1192207627}
   unLockSkin0: 10000
   unLockSkin1: 100000
   unLockSkin2: 1000000
@@ -7459,7 +7460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ef78946ca0541038ad117e4b509d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bestscoreText: {fileID: 1192207627}
 --- !u!1 &1370450798
 GameObject:
   m_ObjectHideFlags: 0
