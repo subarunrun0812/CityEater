@@ -29,7 +29,7 @@ public class NPCEatObjectScript : MonoBehaviour
     {
         _agent = this.GetComponent<NavMeshAgent>();
         float agentspeed = _agent.speed;
-        spherecol.radius = 8;//sphrecolliderの大きさを指定
+        spherecol.radius = 10;//sphrecolliderの大きさを指定
     }
     private IEnumerator DethPlayer()
     {
