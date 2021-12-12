@@ -133,7 +133,7 @@ public class EatObjectScript : MonoBehaviour
                         gameManager.AddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
                         col.gameObject.SetActive(false);
                     });
-                    ko_script.OnEnable(col.gameObject.name);//npcの名前を引数として渡す
+                    ko_script.OnEnable(col.gameObject.name);//npcの名前を渡す
                     kO_t.SetActive(true);
                     VIbrationFunction();
                 }
