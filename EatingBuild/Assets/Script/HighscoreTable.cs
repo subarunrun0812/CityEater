@@ -116,11 +116,11 @@ public class HighscoreTable : MonoBehaviour
         string rankString;
         switch (rank)
         {
-            case 1: rankString = "1ST"; break;//1位の場合
-            case 2: rankString = "2ND"; break;//2位の場合            
-            case 3: rankString = "3RD"; break;//3位の場合
+            case 1: rankString = "1st"; break;//1位の場合
+            case 2: rankString = "2nd"; break;//2位の場合            
+            case 3: rankString = "3rd"; break;//3位の場合
             default:
-                rankString = rank + "TH"; break;
+                rankString = rank + "th"; break;
         }
         //順位のテキストを取得
         entryTransform.Find("posText").GetComponent<TextMeshProUGUI>().text = rankString;

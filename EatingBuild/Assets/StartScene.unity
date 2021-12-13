@@ -8209,7 +8209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adType: 0
   selectedPlacementIndex: 0
-  androidAdUnitId: ca-app-pub-3940256099942544/6300978111
+  androidAdUnitId: 'ca-app-pub-2419878137317341~7661135112 '
   iOSAdUnitId: ca-app-pub-3940256099942544/2934735716
   persistent: 0
   autoLoadEnabled: 1
@@ -51575,8 +51575,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9131208638002546917}
   m_HandleRect: {fileID: 9131208638002546916}
   m_Direction: 0
-  m_Value: -0.00000008416936
-  m_Size: 0.31077868
+  m_Value: -0.00000008414145
+  m_Size: 0.31055006
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
