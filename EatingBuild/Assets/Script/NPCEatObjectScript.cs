@@ -54,7 +54,7 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        if (countDownTimer.seconds > 20f)
+        if (countDownTimer.seconds > 25f)
         {
             NPCAddPoint(gameManager.point);//pointを追加
         }

@@ -17,6 +17,10 @@ public class AnimationTextKO : MonoBehaviour//speed up テキスト
         yield return new WaitForSeconds(time);
         this.gameObject.SetActive(false);
     }
+    private void Awake()
+    {
+        textMeshPro.text = "";
+    }
     public void OnEnable(string name)
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
