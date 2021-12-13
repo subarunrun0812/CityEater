@@ -108,9 +108,6 @@ public class EatObjectScript : MonoBehaviour
             case 2:
                 DecreasePointItem();
                 break;
-            case 3:
-                IncreasePointItem();
-                break;
         }
     }
 
