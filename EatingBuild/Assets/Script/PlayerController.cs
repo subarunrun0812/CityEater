@@ -17,14 +17,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody rigidbody;
 
+    [SerializeField] private GameObject description;//最初の説明UI
     private bool flag = false;
-
     private bool speedFlag = true;
     void Start()
     {
         playerCollider = GetComponent<Collider>();
         playerCollider.isTrigger = true;//IsTriggerをON
         // transform.Rotate(0, 0, 0);//なぜか向きが変わる。このコードがうまくyouいっていない
+        description.SetActive(true);
     }
 
     void FixedUpdate()
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         else if (x != 0 && z != 0)//最初は自動で動かないようにする
         {
             flag = true;
+            description.SetActive(false);
         }
     }
     void OnTriggerEnter(Collider other)
