@@ -95,7 +95,7 @@ public class EatObjectScript : MonoBehaviour
     }
     private void QuestionItem()//questionが食べられた時。
     {
-        int ranItem = Random.Range(0, 3);//アイテムは３種類あるから.0~2の間で乱数。intは「max - 1」
+        int ranItem = Random.Range(0, 4);//アイテムは３種類あるから.0~2の間で乱数。intは「max - 1」
         Debug.Log("ranItemは" + ranItem);
         switch (ranItem)
         {
@@ -107,6 +107,9 @@ public class EatObjectScript : MonoBehaviour
                 break;
             case 2:
                 DecreasePointItem();
+                break;
+            case 3:
+                IncreasePointItem();
                 break;
         }
     }
