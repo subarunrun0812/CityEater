@@ -462,12 +462,6 @@ public class EatObjectScript : MonoBehaviour
         // {
         //     this.transform.DOJump(transform.position + new Vector3(-1f, 0f, -1f), 2.0f, 1, 0.4f);
         // }
-
-        if (SystemInfo.supportsVibration)
-        {
-            Handheld.Vibrate();
-            Debug.Log("長く振動した");
-        }
     }
 
 
