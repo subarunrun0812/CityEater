@@ -13,7 +13,7 @@ public class PrefabInstanceMoveCar : MonoBehaviour
     {
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
         InvokeRepeating("TimeInstantiateCar", 1f, 7f);
-        InvokeRepeating("TimeInstantiateItem", 2.5f, 14f);
+        InvokeRepeating("TimeInstantiateItem", 2.5f, 21f);
 
     }
 

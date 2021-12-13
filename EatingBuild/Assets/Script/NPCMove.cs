@@ -252,7 +252,7 @@ public class NPCMove : MonoBehaviour
         //衝突したオブジェクトにPlayerタグが付いていれば、そのオブジェクトを追いかける
         if (collider.CompareTag("Player"))
         {
-            if (npceat.npc_level >= eatObj.level)//npcとplayerが同じレベルなら追いかける
+            if (npceat.npc_level > eatObj.level)//npcとplayerが同じレベルなら追いかける
             {
                 agent.destination = collider.transform.position;
             }
