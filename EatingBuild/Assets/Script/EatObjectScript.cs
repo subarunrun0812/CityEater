@@ -53,6 +53,9 @@ public class EatObjectScript : MonoBehaviour
     public int objover4 = 50000;
     public int objover5 = 500000;
     public int objover6 = 20000000;
+    // public int objover7 = 40000000;
+    // public int objover8 = 80000000;
+    // public int objover9 = 160000000;
     public int objoverMax = 2147483647;//int型の最大値
     private int halthpoint;//gamemanager.pointの半分のpを切り上げたの値を入れる
     void Start()
@@ -747,6 +750,55 @@ public class EatObjectScript : MonoBehaviour
                     playerController.speed += addSpeed;
                 }
             }
+            // else if (objover7 <= p && p < objover8)
+            // {
+            //     this.gameObject.transform.DOScale(
+            //         new Vector3(21f, 21f, 21f), playerScaleTime
+            //     );
+            //     refCamera.distance = 100 + distaceAdd;//+5
+            //     float imgP = ((float)gameManager.point - objover7) / (objover8 - objover7);//割合 = 元の数 / 比べる数
+            //     sphImg.fillAmount = imgP;
+            //     level = 17;
+            //     level_t.text = "17";
+            //     if (speedflag == true)
+            //     {
+            //         speedflag = false;
+            //         playerController.speed += addSpeed;
+            //     }
+            // }
+            // else if (objover8 <= p && p < objover9)
+            // {
+            //     this.gameObject.transform.DOScale(
+            //         new Vector3(22f, 22f, 22f), playerScaleTime
+            //     );
+            //     refCamera.distance = 105 + distaceAdd;//+5
+            //     float imgP = ((float)gameManager.point - objover8) / (objover9 - objover8);//割合 = 元の数 / 比べる数
+            //     sphImg.fillAmount = imgP;
+            //     level = 18;
+            //     level_t.text = "18";
+            //     if (speedflag == false)
+            //     {
+            //         speedflag = true;
+            //         playerController.speed += addSpeed;
+            //     }
+            // }
+            // else if (objover9 <= p && p < objoverMax)
+            // {
+            //     this.gameObject.transform.DOScale(
+            //         new Vector3(23f, 23f, 23f), playerScaleTime
+            //     );
+            //     refCamera.distance = 110 + distaceAdd;//+5
+            //     float imgP = ((float)gameManager.point - objover9) / (objoverMax - objover9);//割合 = 元の数 / 比べる数
+            //     sphImg.fillAmount = imgP;
+            //     level = 19;
+            //     level_t.text = "19";
+            //     if (speedflag == true)
+            //     {
+            //         speedflag = false;
+            //         playerController.speed += addSpeed;
+            //     }
+            // }
+
 
             else if (p == objoverMax)//int型の最大値を越えさせたいための処理
             {
