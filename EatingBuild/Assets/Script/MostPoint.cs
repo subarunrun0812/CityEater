@@ -42,6 +42,10 @@ public class MostPoint : MonoBehaviour
             {
                 npcCrown[i].SetActive(true);
             }
+            else
+            {
+                npcCrown[i].SetActive(false);
+            }
         }
         //npcの最大のpとplayer_pを比較する
         if (gameManager.point > npcPoints.Max())//playerが一番ポイントが高かったら
