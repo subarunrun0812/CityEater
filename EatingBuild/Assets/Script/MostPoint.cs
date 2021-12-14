@@ -5,6 +5,7 @@ using System.Linq;
 public class MostPoint : MonoBehaviour
 {
     [SerializeField] private GameObject[] npcArray;
+    [Header("npcArrayの要素の順番とその子オブジェクトの順番を合わす!絶対!!!"), SerializeField] private GameObject[] npcCrown;
     // private List<NPCEatObjectScript> npceatObj_list;
     [SerializeField] private List<NPCEatObjectScript> nPCEatObjList = new List<NPCEatObjectScript>();
     [SerializeField] private List<int> npcPoints = new List<int>();
@@ -32,24 +33,35 @@ public class MostPoint : MonoBehaviour
 
     void Update()
     {
-
         for (int i = 0; i < nPCEatObjList.Count; i++)
         {
             //値を上書きする
             npcPoints[i] = nPCEatObjList[i].point;
             // npcPoints.Add(nPCEatObjList[i].point);
+            if (npcPoints[i] == npcPoints.Max())
+            {
+                npcCrown[i].SetActive(true);
+            }
         }
-
-
         //npcの最大のpとplayer_pを比較する
-        //playerが一番ポイントが高かったら
-        if (gameManager.point > npcPoints.Max())
+        if (gameManager.point > npcPoints.Max())//playerが一番ポイントが高かったら
         {
-            crown.SetActive(true);
+            crown.SetActive(true);//playerの王冠を表示する
+            for (int i = 0; i < npcCrown.Length; i++)//それ以外のNPCの王冠は非表示
+            {
+                npcCrown[i].SetActive(false);
+            }
         }
-        else
+        else//NPCが1位の場合
         {
-            crown.SetActive(false);
+            crown.SetActive(false);//Playerの王冠は非表示にする
+            for (int i = 0; i < nPCEatObjList.Count; i++)
+            {
+                if (npcPoints[i] == npcPoints.Max())//npcPoints.Maxの値とnpcPointsの値が一致したら
+                {
+                    npcCrown[i].SetActive(true);//その要素の番号の王冠を表示する
+                }
+            }
         }
         // Debug.LogError(npcPoints.Max());
     }

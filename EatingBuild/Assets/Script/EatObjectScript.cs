@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 public class EatObjectScript : MonoBehaviour
 {
+    private bool ptsText_flag = true;
     private bool speedflag = true;
     private float addSpeed = 0.005f;
     public float smallTime = 2;//objectを小さくするのにかかる時間
@@ -684,8 +685,9 @@ public class EatObjectScript : MonoBehaviour
                 sphImg.fillAmount = imgP;
                 level = 13;
                 level_t.text = "13";
-                if (p >= 1000000)
+                if (p >= 1000000 && ptsText_flag == true)
                 {
+                    ptsText_flag = false;
                     _100m_t.SetActive(true);
                     // _100m_script.OnEnable("1,000,000");
                     Debug.Log("1000000を超えた");

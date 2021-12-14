@@ -128,7 +128,7 @@ public class HighscoreTable : MonoBehaviour
         //HighscoreEntryのscoreに返り値を渡す
         int score = highscoreEntry.score;
 
-        entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString() + "p";
+        entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
 
         //HighscoreEntryのnameに返り値を渡す
         string name = highscoreEntry.name;
