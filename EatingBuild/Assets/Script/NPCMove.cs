@@ -29,9 +29,15 @@ public class NPCMove : MonoBehaviour
 
     //Vector3 pos;
     private int _random;//乱数。NPCの目的地で使う
-
-
     private bool flag = true;
+
+    [SerializeField] private GameObject npc_crown;
+
+    void OnDisable()
+    {
+        npc_crown.SetActive(false);
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
