@@ -28,6 +28,9 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameObject speedUp_t;
     [SerializeField] private GameObject kO_t;
     [SerializeField] private AnimationTextKO ko_script;
+    [SerializeField] private GameObject _100m_t;
+
+    [SerializeField] private OneHundredMillion _100m_script;
 
     public int level;//pointを一定ごとにlvに分類させていく
     public float changeSpeed = 0.02f;
@@ -681,6 +684,12 @@ public class EatObjectScript : MonoBehaviour
                 sphImg.fillAmount = imgP;
                 level = 13;
                 level_t.text = "13";
+                if (p >= 1000000)
+                {
+                    _100m_t.SetActive(true);
+                    // _100m_script.OnEnable("1,000,000");
+                    Debug.Log("1000000を超えた");
+                }
                 if (speedflag == true)
                 {
                     speedflag = false;
