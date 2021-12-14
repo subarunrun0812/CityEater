@@ -54,7 +54,7 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        if (countDownTimer.seconds > 25f)
+        if (countDownTimer.seconds > 20f)
         {
             NPCAddPoint(gameManager.point);//pointを追加
         }
@@ -80,7 +80,7 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void QuestionItem()//questionが食べられた時。
     {
-        int ranItem = Random.Range(0, 3);//アイテムは３種類あるから.0~2の間で乱数。intは「max - 1」
+        int ranItem = Random.Range(0, 2);//アイテムは３種類あるから.0~2の間で乱数。intは「max - 1」
         Debug.Log("ranItemは" + ranItem);
         switch (ranItem)
         {
