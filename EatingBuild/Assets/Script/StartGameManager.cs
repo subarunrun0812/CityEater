@@ -50,10 +50,14 @@ public class StartGameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            PlayerPrefs.DeleteAll();
-            Debug.LogError("セーブデータを全て削除した");
-            SceneManager.LoadScene("StartScene");
+            DeleteSave();
         }
+    }
+    public void DeleteSave()//test用
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.LogError("セーブデータを全て削除した");
+        SceneManager.LoadScene("StartScene");
     }
 
 }
