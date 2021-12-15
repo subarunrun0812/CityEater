@@ -156,7 +156,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point * 2);
+                        NPCAddPoint(col.gameObject.GetComponent<NPCEatObjectScript>().point);
                         col.gameObject.SetActive(false);
 
                     });
