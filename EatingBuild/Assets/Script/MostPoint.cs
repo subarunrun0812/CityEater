@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 public class MostPoint : MonoBehaviour
 {
-    [SerializeField] private GameObject[] npcArray;
+    [SerializeField] private GameObject[] npcArray;//
     [Header("npcArrayの要素の順番とその子オブジェクトの順番を合わす!絶対!!!"), SerializeField] private GameObject[] npcCrown;
     // private List<NPCEatObjectScript> npceatObj_list;
     [SerializeField] private List<NPCEatObjectScript> nPCEatObjList = new List<NPCEatObjectScript>();
