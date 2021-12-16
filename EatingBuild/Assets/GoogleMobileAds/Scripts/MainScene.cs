@@ -60,7 +60,6 @@ public class MainScene : MonoBehaviour
         countDownTimer.seconds += 30;//30秒追加
         Debug.LogError("Rewardを閉じた");
         itemsText.SetActive(true);
-        Time.timeScale = 1;
     }
     public void OnAdClosed()//Userが途中で閉じってしまった時の対処
     {
