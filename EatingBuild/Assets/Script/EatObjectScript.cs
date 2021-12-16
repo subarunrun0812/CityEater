@@ -476,7 +476,7 @@ public class EatObjectScript : MonoBehaviour
     void FixedUpdate()//playerの大きさや速度のパラメーターの変更の処理
     {
 
-        int distaceAdd = 3;
+        int distaceAdd = 4;
         {
             //Playerの大きさをポイントに応じて変更する
             int p = gameManager.point;
