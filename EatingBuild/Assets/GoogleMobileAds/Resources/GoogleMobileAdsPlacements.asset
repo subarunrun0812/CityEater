@@ -15,20 +15,20 @@ MonoBehaviour:
   allPlacements:
   - placementName: AdMob Demo Banner Ad
     adType: 0
-    androidAdUnitId: ca-app-pub-3940256099942544/6300978111
-    iOSAdUnitId: ca-app-pub-3940256099942544/2934735716
+    androidAdUnitId: ca-app-pub-2419878137317341/4272177142
+    iOSAdUnitId: ca-app-pub-2419878137317341/8025705422
     persistent: 0
     autoLoadEnabled: 1
   - placementName: AdMob Demo Interstitial Ad
     adType: 1
-    androidAdUnitId: ca-app-pub-3940256099942544/1033173712
-    iOSAdUnitId: ca-app-pub-3940256099942544/4411468910
+    androidAdUnitId: ca-app-pub-2419878137317341/7661306553
+    iOSAdUnitId: ca-app-pub-2419878137317341/1460297077
     persistent: 0
     autoLoadEnabled: 1
   - placementName: AdMob Demo Rewarded Ad
     adType: 2
-    androidAdUnitId: ca-app-pub-3940256099942544/5224354917
-    iOSAdUnitId: ca-app-pub-3940256099942544/1712485313
+    androidAdUnitId: ca-app-pub-2419878137317341/5585258818
+    iOSAdUnitId: ca-app-pub-2419878137317341/2625204937
     persistent: 0
     autoLoadEnabled: 1
   - placementName: AdMob Demo Rewarded Interstitial Ad
