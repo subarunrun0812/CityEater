@@ -24,9 +24,9 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     public int unLockToal_Skin3 = 1000000;//100万
     public int unLockTotal_Skin4 = 5000000;//500万
     public int unLockTotal_Skin5 = 10000000;//1000万
-    public int TotalCount_skin1 = 3;//
-    public int TotalCount_skin2 = 15;//
-    public int TotalCount_skin3 = 30;//
+    public int TotalCount_skin1;//
+    public int TotalCount_skin2;//
+    public int TotalCount_skin3;//
 
     void Awake()
     {
