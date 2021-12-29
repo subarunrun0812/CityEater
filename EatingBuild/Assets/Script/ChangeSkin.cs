@@ -66,7 +66,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     }
     private void TotalCountText()
     {
-        bestscoreText.text = "Times: " + totalCount;
+        bestscoreText.text = "Played: " + totalCount;
     }
 
     public void ChangeSkinButton0()//buttonを押したらスキンが変わっていく
