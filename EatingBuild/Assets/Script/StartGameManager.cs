@@ -14,7 +14,6 @@ public class StartGameManager : MonoBehaviour
     [SerializeField]
     private GameObject scrollviewbutton;
 
-    private int totalScore;
 
     void Start()
     {

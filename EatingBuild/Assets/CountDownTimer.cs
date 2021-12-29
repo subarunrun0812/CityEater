@@ -30,6 +30,7 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI threeSeconds;//３秒前
     [SerializeField] private GameObject ItemsText;
     [SerializeField] private GameObject lvUI;
+    private int totalCount;//プレイした合計の回数
 
 
     // [SerializeField] private GameObject banner;//google banner
@@ -77,6 +78,13 @@ public class CountDownTimer : MonoBehaviour
         highScoreTable.SetActive(true);
         Time.timeScale = 0;
         lvUI.SetActive(false);
+
+        //合計プレイ回数を増やす
+        totalCount = PlayerPrefs.GetInt("TotalCount", totalCount);
+        totalCount += 1;
+        PlayerPrefs.SetInt("TotalCount", totalCount);
+        PlayerPrefs.Save();
+        Debug.LogError("TotalCount = " + totalCount);
         // banner.SetActive(true);
     }
     void Update()

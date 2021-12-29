@@ -15,6 +15,8 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     private int totalScore;
     public static int changeNumber;//demoシーンで同期させるためにstatic修飾子を使う
     private int playerBestscore;
+    //合計プレイ回数を増やす
+    private int totalCount;
 
     public int unLockSkin0 = 10000;//1万
     public int unLockSkin1 = 50000;//5万
@@ -22,12 +24,14 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     public int unLockToal_Skin3 = 1000000;//100万
     public int unLockTotal_Skin4 = 5000000;//500万
     public int unLockTotal_Skin5 = 10000000;//1000万
+    public int TotalCount_skin1 = 5;//
+    public int TotalCount_skin2 = 15;//
+    public int TotalCount_skin3 = 30;//
+
     void Awake()
     {
         changeNumber = PlayerPrefs.GetInt("ChangeNumber");//ロードする
         LoadSkin();
-
-
         playerBestscore = PlayerPrefs.GetInt("PlayerBestScore");//ロードする
 
         //totalScoreの情報を取得する
@@ -46,9 +50,10 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
         PlayerPrefs.SetInt("TotalScore", totalScore);
         PlayerPrefs.Save();
         Debug.LogError("totalScore = " + totalScore);
-
-
         bestscoreText.text = "Best: " + playerBestscore + "P";
+
+        //プレイした合計回数の処理
+        totalCount = PlayerPrefs.GetInt("TotalCount");
     }
 
     private void BestScoreText()
@@ -58,6 +63,10 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
     private void TotalScoreText()
     {
         bestscoreText.text = "Total: " + totalScore + "P";
+    }
+    private void TotalCountText()
+    {
+        bestscoreText.text = "Times: " + totalCount;
     }
 
     public void ChangeSkinButton0()//buttonを押したらスキンが変わっていく
@@ -163,17 +172,44 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
             SaveDate();
         }
     }
-    // public void ChangeSkinButton9()
-    // {TotalScoreText();
-    //     if (totalScore >= 1000000)//100万
-    //     {
-    //         Resetchangeskin();
-    //         changeNumber = 9;
-    //         _changeskin[9].SetActive(true);
-    //         Debug.Log(changeNumber);
-    //         SaveDate();
-    //     }
-    // }
+
+    //プレイした合計の回数
+    public void ChangeSkinButton9()
+    {
+        TotalCountText();
+        if (totalCount >= TotalCount_skin1)
+        {
+            Resetchangeskin();
+            changeNumber = 9;
+            _changeskin[9].SetActive(true);
+            Debug.Log(changeNumber);
+            SaveDate();
+        }
+    }
+    public void ChangeSkinButton10()
+    {
+        TotalCountText();
+        if (totalCount >= TotalCount_skin2)
+        {
+            Resetchangeskin();
+            changeNumber = 10;
+            _changeskin[10].SetActive(true);
+            Debug.Log(changeNumber);
+            SaveDate();
+        }
+    }
+    public void ChangeSkinButton11()
+    {
+        TotalCountText();
+        if (totalCount >= TotalCount_skin3)
+        {
+            Resetchangeskin();
+            changeNumber = 11;
+            _changeskin[11].SetActive(true);
+            Debug.Log(changeNumber);
+            SaveDate();
+        }
+    }
 
 
 
@@ -212,7 +248,7 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
 
 
 
-    void Start()//初期は0番目のスキン
+    void Start()//skinアンロックの処理
     {
         for (int i = 0; i < Lockskin.Length; i++)
         {
@@ -241,6 +277,18 @@ public class ChangeSkin : MonoBehaviour//キャラのスキン変更について
             else if (i == 5 && totalScore >= unLockTotal_Skin5)
             {
                 Lockskin[5].SetActive(false);
+            }
+            else if (i == 6 && totalCount >= TotalCount_skin1)
+            {
+                Lockskin[6].SetActive(false);
+            }
+            else if (i == 7 && totalCount >= TotalCount_skin2)
+            {
+                Lockskin[7].SetActive(false);
+            }
+            else if (i == 8 && totalCount >= TotalCount_skin3)
+            {
+                Lockskin[8].SetActive(false);
             }
         }
 

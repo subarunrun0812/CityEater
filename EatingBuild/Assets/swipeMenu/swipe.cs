@@ -104,6 +104,18 @@ public class swipe : MonoBehaviour
                         {
                             changeSkinScript.ChangeSkinButton8();
                         }
+                        else if (m == 9)
+                        {
+                            changeSkinScript.ChangeSkinButton9();
+                        }
+                        else if (m == 10)
+                        {
+                            changeSkinScript.ChangeSkinButton10();
+                        }
+                        else if (m == 11)
+                        {
+                            changeSkinScript.ChangeSkinButton11();
+                        }
                         else
                         {
                             _changeskin[m].SetActive(true);
