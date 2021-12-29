@@ -6726,7 +6726,7 @@ MonoBehaviour:
   unLockToal_Skin3: 1000000
   unLockTotal_Skin4: 5000000
   unLockTotal_Skin5: 10000000
-  TotalCount_skin1: 5
+  TotalCount_skin1: 3
   TotalCount_skin2: 15
   TotalCount_skin3: 30
 --- !u!114 &1368019466
@@ -24784,8 +24784,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9131208638002546917}
   m_HandleRect: {fileID: 9131208638002546916}
   m_Direction: 0
-  m_Value: -0.00000006451753
-  m_Size: 0.28304335
+  m_Value: -0.00000006218494
+  m_Size: 0.25614974
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
