@@ -58,6 +58,9 @@ public class CountDownTimer : MonoBehaviour
         notime.SetActive(false);
         revenge.SetActive(false);
         Time.timeScale = 1;
+        seconds += 30;//30秒追加
+        ItemsText.SetActive(true);
+
         if (_player.activeSelf == true)
         {
             flag = false;

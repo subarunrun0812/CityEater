@@ -38,10 +38,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("StartScene");
     }
-    public void ReturnBeforeStartScene_b()//returnstart_bを押して広告を見る前の処理
-    {
-        returnstart_b.SetActive(false);
-    }
+    // public void ReturnBeforeStartScene_b()//returnstart_bを押して広告を見る前の処理
+    // {
+    //     returnstart_b.SetActive(false);
+    // }
 
     void Start()
     {

@@ -57,9 +57,9 @@ public class MainScene : MonoBehaviour
     }
     public void OnCloseRewardButton()
     {
-        countDownTimer.seconds += 30;//30秒追加
-        Debug.LogError("Rewardを閉じた");
-        itemsText.SetActive(true);
+        // countDownTimer.seconds += 30;//30秒追加
+        // Debug.LogError("Rewardを閉じた");
+        // itemsText.SetActive(true);
     }
         public void OnAdFailedButton()//リワード広告のボタンを押して広告が表示されなかったとき
     {
