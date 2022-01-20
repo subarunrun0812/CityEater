@@ -69,7 +69,7 @@ public class EatObjectScript : MonoBehaviour
     private void VIbrationFunction()//スマホを振動される関数
     {
         VibrationMng.ShortVibration();//スマホを短く振動させる
-        Debug.Log("振動した");
+        // Debug.Log("振動した");
     }
     private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
     {

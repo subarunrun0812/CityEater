@@ -24,16 +24,11 @@ public class StartGameManager : MonoBehaviour
     private static extern void _requestIDFA();
 #endif
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-#if UNITY_IOS
-        _requestIDFA();
-#endif
-    }
-
     void Start()
     {
+        #if UNITY_IOS
+        _requestIDFA();
+#endif
         changeSkinbutton.SetActive(true);
         startButton.SetActive(true);
         scrollviewbutton.SetActive(false);

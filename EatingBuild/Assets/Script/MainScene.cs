@@ -61,7 +61,7 @@ public class MainScene : MonoBehaviour
         Debug.LogError("Rewardを閉じた");
         itemsText.SetActive(true);
     }
-        public void OnAdFailedButton()//リワード広告のボタンを押して広告が表示されなかったとき
+    public void OnAdFailedButton()//リワード広告のボタンを押して広告が表示されなかったとき
     {
         Time.timeScale = 1;
         countDownTimer.seconds += 30;//30秒追加
@@ -72,4 +72,33 @@ public class MainScene : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+
+
+
+    //実行されている処理の確認するためのコード↓
+    //reward
+    public void ReOnAdFailedToLoad()
+    {
+        Debug.Log("Rew広告の読み込みが失敗すると呼び出されます。");
+    }
+    public void ReOnAdFailedToShow()
+    {
+        Debug.Log("Rew広告の表示に失敗すると呼び出されます。");
+    }
+    public void ReOnAdLoaded()
+    {
+        Debug.Log("Rew広告の読み込みが完了すると呼び出されます。");
+    }
+
+    //Interstitial
+    public void IntOnAdFailedToLoad()
+    {
+        Debug.Log("Int広告の読み込みに失敗すると呼び出されます");
+    }
+    public void IntOnAdLoaded()
+    {
+        Debug.Log("Int広告の読み込みが完了すると呼び出されます。");
+    }
+
 }
