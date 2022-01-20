@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 
 public class StartGameManager : MonoBehaviour
 {
@@ -14,6 +15,22 @@ public class StartGameManager : MonoBehaviour
     [SerializeField]
     private GameObject scrollviewbutton;
 
+
+    //https://hirokuma.blog/?p=3003
+    //App Tracking Transparency許可リクエストを発行する際のUnityのサンプルコードを示します。
+
+#if UNITY_IOS
+    [DllImport("__Internal")]
+    private static extern void _requestIDFA();
+#endif
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+#if UNITY_IOS
+        _requestIDFA();
+#endif
+    }
 
     void Start()
     {
