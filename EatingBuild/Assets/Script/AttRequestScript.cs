@@ -13,7 +13,7 @@ public class AttRequestScript : MonoBehaviour
 
     private void Start()
     {
-        Invoke("DelayIDFA", 1);//1秒遅らせてDelayIDFA()の呼び出し　(iOS15では遅延させないと表示されないため)
+        Invoke("DelayIDFA", 1);//1秒遅らせてDelayIDFA()の呼び出し　(iOS15では遅延させないと表示されないため)_
     }
 
 
