@@ -65,7 +65,7 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
-        halthpoint = point / 2;//小数点以下は切り捨て。
+        halthpoint = point / 4;//小数点以下は切り捨て。
         halthpoint = -halthpoint;//-にする
         Debug.Log("NPCのhalthpointは" + halthpoint);
         NPCAddPoint(halthpoint);//pointを減少

@@ -85,13 +85,12 @@ public class EatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-
-        gameManager.AddPoint(gameManager.point);//pointを追加
+        gameManager.AddPoint(gameManager.point / 2);//pointを追加
         sizeUp_t.SetActive(true);
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
-        halthpoint = gameManager.point / 2;//小数点以下は切り捨て。
+        halthpoint = gameManager.point / 4;//小数点以下は切り捨て。
         halthpoint = -halthpoint;//-にする
         Debug.Log(halthpoint);
         gameManager.AddPoint(halthpoint);//pointを減少
@@ -347,7 +346,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(10);
+                        gameManager.AddPoint(20);
 
                         col.gameObject.SetActive(false);
 
@@ -371,7 +370,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(12);
+                        gameManager.AddPoint(36);
 
                         col.gameObject.SetActive(false);
 
@@ -395,7 +394,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(15);
+                        gameManager.AddPoint(150);
 
                         col.gameObject.SetActive(false);
 
@@ -419,7 +418,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(20);
+                        gameManager.AddPoint(200);
 
                         col.gameObject.SetActive(false);
 
@@ -443,7 +442,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(30);
+                        gameManager.AddPoint(300);
                         col.gameObject.SetActive(false);
 
                     });
@@ -466,7 +465,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(30);
+                        gameManager.AddPoint(500);
 
                         col.gameObject.SetActive(false);
 
@@ -665,9 +664,9 @@ public class EatObjectScript : MonoBehaviour
             else if (objover1 <= p && p < objover2)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(15f, 15f, 15f), playerScaleTime
+                    new Vector3(16f, 16f, 16f), playerScaleTime
                 );
-                refCamera.distance = 70 + distaceAdd;//+5
+                refCamera.distance = 75 + distaceAdd;//+5
                 float imgP = ((float)gameManager.point - objover1) / (objover2 - objover1);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
                 level = 11;
@@ -682,9 +681,9 @@ public class EatObjectScript : MonoBehaviour
             else if (objover2 <= p && p < objover3)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(16f, 16f, 16f), playerScaleTime
+                    new Vector3(18f, 18f, 18f), playerScaleTime
                 );
-                refCamera.distance = 75 + distaceAdd;//+5
+                refCamera.distance = 85 + distaceAdd;//+5
                 float imgP = ((float)gameManager.point - objover2) / (objover3 - objover2);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
                 level = 12;
@@ -699,9 +698,9 @@ public class EatObjectScript : MonoBehaviour
             else if (objover3 <= p && p < objover4)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(17f, 17f, 17f), playerScaleTime
+                    new Vector3(20f, 20f, 20f), playerScaleTime
                 );
-                refCamera.distance = 80 + distaceAdd;//+5
+                refCamera.distance = 95 + distaceAdd;//+5
                 float imgP = ((float)gameManager.point - objover3) / (objover4 - objover3);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
                 level = 13;
@@ -723,9 +722,9 @@ public class EatObjectScript : MonoBehaviour
             else if (objover4 <= p && p < objover5)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(18f, 18f, 18f), playerScaleTime
+                    new Vector3(22f, 22f, 22f), playerScaleTime
                 );
-                refCamera.distance = 85 + distaceAdd;//+5
+                refCamera.distance = 105 + distaceAdd;//+5
                 float imgP = ((float)gameManager.point - objover4) / (objover5 - objover4);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
                 level = 14;
@@ -739,9 +738,9 @@ public class EatObjectScript : MonoBehaviour
             else if (objover5 <= p && p < objover6)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(19f, 19f, 19f), playerScaleTime
+                    new Vector3(24f, 24f, 24f), playerScaleTime
                 );
-                refCamera.distance = 90 + distaceAdd;//+5
+                refCamera.distance = 115 + distaceAdd;//+5
                 float imgP = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
                 level = 15;
@@ -755,9 +754,9 @@ public class EatObjectScript : MonoBehaviour
             else if (objover6 <= p && p < objoverMax)
             {
                 this.gameObject.transform.DOScale(
-                    new Vector3(20f, 20f, 20f), playerScaleTime
+                    new Vector3(26f, 26f, 26f), playerScaleTime
                 );
-                refCamera.distance = 95 + distaceAdd;//+5
+                refCamera.distance = 125 + distaceAdd;//+5
                 float imgP = ((float)gameManager.point - objover6) / (objoverMax - objover6);//割合 = 元の数 / 比べる数
                 sphImg.fillAmount = imgP;
                 level = 16;
