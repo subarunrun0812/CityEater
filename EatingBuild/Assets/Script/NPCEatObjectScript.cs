@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class NPCEatObjectScript : MonoBehaviour
 {
     private bool npcspeedflag = true;
-    private float addSpeed = 0.25f;
+    private float addSpeed = 0.5f;
     private int halthpoint;//pointの半分のpを切り上げたの値を入れる
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
     void NPCAddPoint(int number)//ポイントの追加
@@ -126,6 +126,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "Player":
                 if (npc_level > eatObj.level)
                 {
+
                     col.transform.DOShakeRotation(
                          duration: 0.5f,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -149,6 +150,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "NPC":
                 if (p > col.gameObject.GetComponent<NPCEatObjectScript>().point)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: 0.5f,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -204,6 +206,7 @@ public class NPCEatObjectScript : MonoBehaviour
 
                 if (p >= 0)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -222,6 +225,7 @@ public class NPCEatObjectScript : MonoBehaviour
 
                 if (p >= obj2p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -245,6 +249,7 @@ public class NPCEatObjectScript : MonoBehaviour
 
                 if (p >= obj3p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -267,6 +272,7 @@ public class NPCEatObjectScript : MonoBehaviour
 
                 if (p >= obj4p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -289,6 +295,7 @@ public class NPCEatObjectScript : MonoBehaviour
 
                 if (p >= obj5p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -311,6 +318,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "8p":
                 if (p >= obj8p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -333,6 +341,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "10p":
                 if (p >= obj10p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -355,6 +364,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "12p":
                 if (p >= obj12p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -376,6 +386,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "15p":
                 if (p >= obj15p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -398,6 +409,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "20p":
                 if (p >= obj20p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -420,6 +432,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "30p":
                 if (p >= obj30p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -442,6 +455,7 @@ public class NPCEatObjectScript : MonoBehaviour
             case "50p":
                 if (p >= obj50p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ

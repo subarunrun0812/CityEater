@@ -10,7 +10,7 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     private bool ptsText_flag = true;
     private bool speedflag = true;
-    private float addSpeed = 0.005f;
+    private float addSpeed = 0.01f;
     public float smallTime = 2;//objectを小さくするのにかかる時間
     public float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
     public float smallTimeBigApartment = 0.8f;//大きいビルを小さくするのにかかる時間
