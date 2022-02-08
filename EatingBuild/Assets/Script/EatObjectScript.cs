@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using TMPro;
 public class EatObjectScript : MonoBehaviour
 {
+    [SerializeField] public AudioClip sound1;
+    [SerializeField] AudioSource audioSource;
     private bool ptsText_flag = true;
     private bool speedflag = true;
     private float addSpeed = 0.005f;
@@ -70,6 +72,10 @@ public class EatObjectScript : MonoBehaviour
     {
         VibrationMng.ShortVibration();//スマホを短く振動させる
         Debug.Log("振動した");
+
+        //音楽を鳴らす
+        //音(sound1)を鳴らす
+        audioSource.PlayOneShot(sound1);
     }
     private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
     {
@@ -191,6 +197,7 @@ public class EatObjectScript : MonoBehaviour
 
                 if (p >= 0)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -426,7 +433,6 @@ public class EatObjectScript : MonoBehaviour
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
                         gameManager.AddPoint(30);
-
                         col.gameObject.SetActive(false);
 
                     });

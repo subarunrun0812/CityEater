@@ -83,7 +83,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (0 <= p && p < obj3p && flag == false)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("2p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -96,7 +96,7 @@ public class NPCMove : MonoBehaviour
 
         else if (obj3p <= p && p < obj5p && flag == true)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("3p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -108,7 +108,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (obj5p <= p && p < obj8p && flag == false)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("5p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -120,7 +120,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (obj8p <= p && p < obj10p && flag == true)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("8p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -132,7 +132,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (obj10p <= p && p < obj12p && flag == false)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("10p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -144,7 +144,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (obj12p <= p && p < obj15p && flag == true)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("12p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -156,7 +156,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (obj15p <= p && p < obj20p && flag == false)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("15p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -168,7 +168,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (obj20p <= p && p < obj30p && flag == true)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("20p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -180,7 +180,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (obj30p <= p && p < obj50p && flag == false)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("30p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
@@ -192,7 +192,7 @@ public class NPCMove : MonoBehaviour
         }
         else if (obj50p <= p && flag == true)
         {
-            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("1p");
+            GameObject[] arrObj = GameObject.FindGameObjectsWithTag("50p");
             for (int i = 0; i < arrObj.Length; i++)//destinationListnに配列の要素を足していく
             {
                 destinationList.Add(arrObj[i]);
