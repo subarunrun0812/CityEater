@@ -246,7 +246,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65285164381999652, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
 --- !u!4 &62395092 stripped
 Transform:
@@ -481,7 +482,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65785966175728602, guid: 5bad3bfa14ca03549852bc34961b1515, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5bad3bfa14ca03549852bc34961b1515, type: 3}
 --- !u!4 &987340511 stripped
 Transform:
@@ -539,7 +541,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65285164381999652, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
 --- !u!4 &1106497163 stripped
 Transform:
@@ -711,7 +714,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65285164381999652, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
 --- !u!4 &1205723798 stripped
 Transform:
@@ -832,7 +836,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65285164381999652, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
 --- !u!4 &1300666768 stripped
 Transform:
@@ -945,7 +950,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65785966175728602, guid: 5bad3bfa14ca03549852bc34961b1515, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5bad3bfa14ca03549852bc34961b1515, type: 3}
 --- !u!4 &1550278360 stripped
 Transform:
@@ -1054,7 +1060,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65785966175728602, guid: 5bad3bfa14ca03549852bc34961b1515, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5bad3bfa14ca03549852bc34961b1515, type: 3}
 --- !u!4 &1735835225 stripped
 Transform:
@@ -1108,7 +1115,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65785966175728602, guid: 5bad3bfa14ca03549852bc34961b1515, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5bad3bfa14ca03549852bc34961b1515, type: 3}
 --- !u!4 &1762232421 stripped
 Transform:
@@ -1229,7 +1237,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee5d59fcc8497a641905c26644c20880, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65285164381999652, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e6be04d8370d1c4fa754d22592984f1, type: 3}
 --- !u!4 &2021423082 stripped
 Transform:

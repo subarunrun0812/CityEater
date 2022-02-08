@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2001151828961918896}
   - component: {fileID: 2001151828960541504}
   - component: {fileID: 2001151828959913564}
-  - component: {fileID: 1880924530166729124}
   m_Layer: 0
   m_Name: SM_Veh_Car_Taxi_Wheel_fl
   m_TagString: Untagged
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1880924530166729124
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001151828961597338}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.36143905
-  m_Center: {x: -0.09000625, y: 0, z: 0}
 --- !u!1 &2001151828961614516
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +254,6 @@ GameObject:
   - component: {fileID: 2001151828961895892}
   - component: {fileID: 2001151828960515690}
   - component: {fileID: 2001151828959456190}
-  - component: {fileID: 1884559389875514244}
   m_Layer: 0
   m_Name: SM_Veh_Car_Taxi_Wheel_rr
   m_TagString: Untagged
@@ -339,19 +324,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1884559389875514244
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001151828961626236}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3614391
-  m_Center: {x: 0.0900062, y: 0, z: -0.00000008940697}
 --- !u!1 &2001151828961629742
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,9 +335,9 @@ GameObject:
   - component: {fileID: 2001151828961880786}
   - component: {fileID: 2001151828960563348}
   - component: {fileID: 2001151828959467836}
-  - component: {fileID: 1954566108286082196}
   - component: {fileID: 9102882619302451567}
   - component: {fileID: 4892419676759917288}
+  - component: {fileID: 2757944046525489607}
   m_Layer: 0
   m_Name: SM_Veh_Car_Taxi_26
   m_TagString: 5p
@@ -443,20 +415,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1954566108286082196
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001151828961629742}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: db57e923d75cb6c4e936d5e8caaa9165, type: 3}
 --- !u!114 &9102882619302451567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +453,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 8
   m_ObstacleAvoidanceType: 0
+--- !u!65 &2757944046525489607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001151828961629742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1721287, y: 1.496331, z: 5.165426}
+  m_Center: {x: 0, y: 0.9742627, z: 0.11457077}
 --- !u!1 &2001151828961690210
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +477,6 @@ GameObject:
   - component: {fileID: 2001151828961904948}
   - component: {fileID: 2001151828960563486}
   - component: {fileID: 2001151828959895274}
-  - component: {fileID: 1884693115645198788}
   m_Layer: 0
   m_Name: SM_Veh_Car_Taxi_Wheel_rl
   m_TagString: Untagged
@@ -577,19 +547,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1884693115645198788
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001151828961690210}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.36143905
-  m_Center: {x: -0.09000625, y: 0, z: 0}
 --- !u!1 &2001151828961691994
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +558,6 @@ GameObject:
   - component: {fileID: 2001151828961859974}
   - component: {fileID: 2001151828960560604}
   - component: {fileID: 2001151828959908356}
-  - component: {fileID: 1883957559425844308}
   m_Layer: 0
   m_Name: SM_Veh_Car_Taxi_Wheel_fr
   m_TagString: Untagged
@@ -672,19 +628,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1883957559425844308
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001151828961691994}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3614391
-  m_Center: {x: 0.09000625, y: 0, z: 0.00000014901161}
 --- !u!1 &2001151828961717396
 GameObject:
   m_ObjectHideFlags: 0

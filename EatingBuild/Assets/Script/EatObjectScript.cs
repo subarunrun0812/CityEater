@@ -136,6 +136,7 @@ public class EatObjectScript : MonoBehaviour
             case "NPC":
                 if (level > col.gameObject.GetComponent<NPCEatObjectScript>().npc_level)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: 0.5f,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -217,6 +218,7 @@ public class EatObjectScript : MonoBehaviour
 
                 if (p >= obj2p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -241,6 +243,7 @@ public class EatObjectScript : MonoBehaviour
 
                 if (p >= obj3p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -264,6 +267,7 @@ public class EatObjectScript : MonoBehaviour
 
                 if (p >= obj4p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -287,6 +291,7 @@ public class EatObjectScript : MonoBehaviour
 
                 if (p >= obj5p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 90f   // シェイクの強さ
@@ -310,6 +315,7 @@ public class EatObjectScript : MonoBehaviour
             case "8p":
                 if (p >= obj8p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -333,6 +339,7 @@ public class EatObjectScript : MonoBehaviour
             case "10p":
                 if (p >= obj10p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -356,6 +363,7 @@ public class EatObjectScript : MonoBehaviour
             case "12p":
                 if (p >= obj12p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -379,6 +387,7 @@ public class EatObjectScript : MonoBehaviour
             case "15p":
                 if (p >= obj15p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -402,6 +411,7 @@ public class EatObjectScript : MonoBehaviour
             case "20p":
                 if (p >= obj20p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -425,6 +435,7 @@ public class EatObjectScript : MonoBehaviour
             case "30p":
                 if (p >= obj30p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
@@ -447,6 +458,7 @@ public class EatObjectScript : MonoBehaviour
             case "50p":
                 if (p >= obj50p)
                 {
+                    col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
                          strength: 60f   // シェイクの強さ
