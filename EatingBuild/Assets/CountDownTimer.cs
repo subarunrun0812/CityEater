@@ -15,6 +15,8 @@ public class CountDownTimer : MonoBehaviour
     //前回Update時の秒数
     private float oldSeconds;
 
+    [SerializeField] private GameObject Items;
+
     [SerializeField] private Text timerText;
 
     [SerializeField] private GameObject notime;
@@ -89,7 +91,6 @@ public class CountDownTimer : MonoBehaviour
     }
     void Update()
     {
-
         //一旦トータルの制限時間を計測；
         totalTime = minute * 60 + seconds;
         totalTime -= Time.deltaTime;
@@ -109,6 +110,12 @@ public class CountDownTimer : MonoBehaviour
             {
                 threeSeconds.text = ((int)seconds).ToString("0");
             }
+        }
+
+
+        if (totalTime <= 45f)
+        {
+            Items.SetActive(true);
         }
 
         oldSeconds = seconds;

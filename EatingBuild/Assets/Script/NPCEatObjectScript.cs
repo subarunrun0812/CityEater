@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class NPCEatObjectScript : MonoBehaviour
 {
     private bool npcspeedflag = true;
-    private float addSpeed = 0.5f;
+    private float addSpeed = 0.625f;
     private int halthpoint;//pointの半分のpを切り上げたの値を入れる
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
     void NPCAddPoint(int number)//ポイントの追加

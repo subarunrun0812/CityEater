@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public DynamicJoystick joystick;
 
-    [Header("初期のspeedは0.08")]
-    public float speed = 0.08f;
+    [Header("初期のspeedは0.12")]
+    public float speed = 0.12f;
     private float oldspeed;
 
     // public float rotationSpeed = 1f;
