@@ -35,14 +35,69 @@ public class NPCMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         //目標地点に近づいても速度を落とさなくなる
         agent.autoBraking = false;
-
+        minObj = 1000;
         GoToNextPoint();
     }
     void GoToNextPoint()
-    {
+    {        //eatObjectscriptと変数の値を統一する
+        int obj2p = eatObj.obj2p;
+        int obj3p = eatObj.obj3p;
+        int obj4p = eatObj.obj4p;
+        int obj5p = eatObj.obj5p;
+        int obj8p = eatObj.obj8p;
+        int obj10p = eatObj.obj10p;
+        int obj12p = eatObj.obj12p;
+        int obj15p = eatObj.obj15p;
+        int obj20p = eatObj.obj20p;
+        int obj30p = eatObj.obj30p;
+        int obj50p = eatObj.obj50p;
         l_dis.Clear();
-        objs = GameObject.FindGameObjectsWithTag("1p");
-        minObj = 1000;
+
+
+        if (0 <= p && p < obj3p)
+        {
+            objs = GameObject.FindGameObjectsWithTag("1p");
+            foreach (GameObject item in objs)//距離感を求めリストに格納する
+            {
+                float dis = Vector3.Distance(this.transform.position, item.transform.position);
+                // Debug.Log("distance : " + dis);
+                l_dis.Add(dis);
+            }
+            foreach (int item in l_dis)//リストの最大値とそのインデックスを求める
+            {
+                if (minObj > l_dis[item])
+                {
+                    minObj = l_dis[item];
+                    minIndex = item;//インデックス
+                    Debug.Log("minObj : " + minObj);
+                }
+            }
+        }
+
+        else if (obj3p <= p)
+        {
+            objs = GameObject.FindGameObjectsWithTag("3p");
+            foreach (GameObject item in objs)//距離感を求めリストに格納する
+            {
+                float dis = Vector3.Distance(this.transform.position, item.transform.position);
+                // Debug.Log("distance : " + dis);
+                l_dis.Add(dis);
+            }
+            foreach (int item in l_dis)//リストの最大値とそのインデックスを求める
+            {
+                if (minObj > l_dis[item])
+                {
+                    minObj = l_dis[item];
+                    minIndex = item;//インデックス
+                    Debug.Log("minObj : " + minObj);
+                }
+            }
+        }
+
+    }
+
+    void MinFunction()
+    {
         foreach (GameObject item in objs)//距離感を求めリストに格納する
         {
             float dis = Vector3.Distance(this.transform.position, item.transform.position);
@@ -58,19 +113,13 @@ public class NPCMove : MonoBehaviour
                 Debug.Log("minObj : " + minObj);
             }
         }
-
-        float min = l_dis.Min();
-        Debug.Log("min : " + min);
-        // l_dis.Sort();
-        // l_dis[] =
     }
     void Update()
     {
         //エージェントの位置および現在の経路での目標地点の間の距離
-        if (agent.remainingDistance >= 1f)
+        if (agent.remainingDistance >= 0.6f)
         {
             GoToNextPoint();
-
             Debug.LogError("GoToNextPoint");
         }
         else
