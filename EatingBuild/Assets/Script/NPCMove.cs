@@ -40,8 +40,8 @@ public class NPCMove : MonoBehaviour
     }
     void GoToNextPoint()
     {
-        objs = GameObject.FindGameObjectsWithTag("1p");
         l_dis.Clear();
+        objs = GameObject.FindGameObjectsWithTag("1p");
         minObj = 1000;
         foreach (GameObject item in objs)//距離感を求めリストに格納する
         {
@@ -67,13 +67,16 @@ public class NPCMove : MonoBehaviour
     void Update()
     {
         //エージェントの位置および現在の経路での目標地点の間の距離
-        if (agent.remainingDistance >= 0.1f)
+        if (agent.remainingDistance >= 1f)
         {
             GoToNextPoint();
+
+            Debug.LogError("GoToNextPoint");
         }
         else
         {
             agent.destination = objs[minIndex].transform.position;
+            Debug.LogError("agent.destination");
         }
     }
 
