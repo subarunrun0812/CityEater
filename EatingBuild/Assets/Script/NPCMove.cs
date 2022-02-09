@@ -77,11 +77,10 @@ public class NPCMove : MonoBehaviour
                 Debug.Log("minObj : " + minObj);
             }
         }
-
         float min = l_dis.Min();
         Debug.Log("min : " + min);
-        // l_dis.Sort();
-        // l_dis[] =
+
+
     }
     void Update()
     {

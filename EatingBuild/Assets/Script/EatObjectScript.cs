@@ -77,10 +77,10 @@ public class EatObjectScript : MonoBehaviour
     }
     private IEnumerator HitStopCorutineBig()
     {
-        Time.timeScale = 0;
+        // Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(0.01f);
-        Debug.Log("ヒットストップした");
-        Time.timeScale = 1;
+        // Debug.Log("ヒットストップした");
+        // Time.timeScale = 1;
     }
     private void VIbrationFunction()//スマホを振動される関数
     {

@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fef65774c04b409593b3db2b0227b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0.5
+  waitTime: 0.1
   time: 0
   npceat: {fileID: 3772975134598672566}
   gameManager: {fileID: 0}
