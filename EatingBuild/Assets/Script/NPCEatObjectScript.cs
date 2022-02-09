@@ -16,7 +16,6 @@ public class NPCEatObjectScript : MonoBehaviour
         point = point + number;
     }
     public int point;//大きさを変える時などに使うポイント
-    [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     public NavMeshAgent _agent;
     public int npc_level;//pointを一定ごとにlvに分類させていく
 
@@ -64,7 +63,7 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
-        halthpoint = point / 4;//小数点以下は切り捨て。
+        halthpoint = point / 3;//小数点以下は切り捨て。
         halthpoint = -halthpoint;//-にする
         Debug.Log("NPCのhalthpointは" + halthpoint);
         NPCAddPoint(halthpoint);//pointを減少
