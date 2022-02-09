@@ -201,6 +201,7 @@ MonoBehaviour:
   eatObj: {fileID: 0}
   point: 0
   pacMan: {fileID: 0}
+  _agent: {fileID: 3772975134598672561}
   npc_level: 0
   gameManager: {fileID: 0}
   countDownTimer: {fileID: 0}
@@ -433,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1394232774699663680, guid: 830b828fa2b724ea59f161a132f152ec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1734624723194485754, guid: 830b828fa2b724ea59f161a132f152ec, type: 3}
       propertyPath: m_RootOrder
@@ -820,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5022321611191868081, guid: 5ab56567c943d4993aac561cc571ead9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab56567c943d4993aac561cc571ead9, type: 3}

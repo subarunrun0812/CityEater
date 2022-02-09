@@ -17,8 +17,7 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     public int point;//大きさを変える時などに使うポイント
     [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
-    private NavMeshAgent _agent;
-    private float changeSpeed = 0.5f;
+    public NavMeshAgent _agent;
     public int npc_level;//pointを一定ごとにlvに分類させていく
 
     [SerializeField] private GameManager gameManager;
@@ -49,8 +48,8 @@ public class NPCEatObjectScript : MonoBehaviour
 
     private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
     {
-        changeSpeed = 0.5f;
-        _agent.speed += changeSpeed;
+        addSpeed = 0.625f;
+        _agent.speed += addSpeed;
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
@@ -71,7 +70,7 @@ public class NPCEatObjectScript : MonoBehaviour
         NPCAddPoint(halthpoint);//pointを減少
         if (point >= eatObj.objover1)
         {
-            _agent.speed -= changeSpeed + addSpeed;
+            _agent.speed -= addSpeed;
         }
         else
         {
