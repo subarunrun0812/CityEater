@@ -102,7 +102,7 @@ public class EatObjectScript : MonoBehaviour
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
-        halthpoint = gameManager.point / 4;//小数点以下は切り捨て。
+        halthpoint = gameManager.point / 6;//小数点以下は切り捨て。
         halthpoint = -halthpoint;//-にする
         Debug.Log(halthpoint);
         gameManager.AddPoint(halthpoint);//pointを減少
