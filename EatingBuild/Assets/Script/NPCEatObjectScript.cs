@@ -52,14 +52,14 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        NPCAddPoint(point / 2);//pointを追加
+        NPCAddPoint(point / 3);//pointを追加
 
         NPCAddPoint(point);//pointを追加
 
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
-        halthpoint = point / 3;//小数点以下は切り捨て。
+        halthpoint = point / 4;//小数点以下は切り捨て。
         halthpoint = -halthpoint;//-にする
         Debug.Log("NPCのhalthpointは" + halthpoint);
         NPCAddPoint(halthpoint);//pointを減少
@@ -251,7 +251,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(9);
+                        NPCAddPoint(6);
                         col.gameObject.SetActive(false);
 
                     });
@@ -274,7 +274,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(9);
+                        NPCAddPoint(8);
                         col.gameObject.SetActive(false);
 
                     });

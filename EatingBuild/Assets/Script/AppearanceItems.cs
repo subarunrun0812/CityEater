@@ -10,31 +10,43 @@ public class AppearanceItems : MonoBehaviour
     [Header("itemsと要素数を合わせる"), SerializeField] private List<GameObject> places = new List<GameObject>();//出現するポイントを事前に決めておく
 
     [SerializeField] private List<GameObject> revivalList = new List<GameObject>();//削除したplacesの要素を格納する.listの中を初期化
+    int placesNumber = 0;
+    int itemsRandom;
     void Start()
     {
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
-        InvokeRepeating("TimeInstantiateItems", 0f, 8f);
+        InvokeRepeating("TimeInstantiateItems", 0f, 5f);
     }
 
     private void TimeInstantiateItems()//一定時間ごとにItemを生成する
     {
-        // Debug.LogWarning("placesの数は" + places.Count);
-        // Debug.LogWarning("itemの数は" + items.Count);
         if (places.Count != 0)
         {
             if (items.Count != 0)
             {
+                if (placesNumber == places.Count)
+                {
+                    placesNumber = 0;
+                }
+
                 int itemsRandom = Random.Range(0, items.Count);
-                int placesRandom = Random.Range(0, places.Count);
-                Instantiate(items[itemsRandom], places[placesRandom].transform.position, items[itemsRandom].transform.rotation);
-                // places[placesRandom] = places[places.Count - 1];//placesRandomの要素を末尾に持ってくる
-                revivalList.Add(places[placesRandom]);
-                places.RemoveAt(placesRandom);
+                // int placesRandom = Random.Range(0, places.Count);
+                Instantiate(items[itemsRandom], places[placesNumber].transform.position, items[itemsRandom].transform.rotation);
+                // revivalList.Add(places[placesNumber]);
+                // places.RemoveAt(placesNumber);
                 revivalItm.Add(items[itemsRandom]);
                 items.RemoveAt(itemsRandom);
+                placesNumber++;
+                Debug.LogError("placesNumber : " + placesNumber);
+                Debug.LogError("itemsRandom : " + itemsRandom);
+
             }
             else
             {
+                if (placesNumber == places.Count)
+                {
+                    placesNumber = 0;
+                }
                 items.Clear();
                 //リストで保持しているインスタンスを削除
                 for (int i = 0; i < revivalItm.Count; i++)
@@ -47,23 +59,34 @@ public class AppearanceItems : MonoBehaviour
                 }
                 //リスト自体をキレイにする
                 revivalItm.Clear();
+                int itemsRandom = Random.Range(0, items.Count);
+                // int placesRandom = Random.Range(0, places.Count);
+                Instantiate(items[itemsRandom], places[placesNumber].transform.position, items[itemsRandom].transform.rotation);
+                // revivalList.Add(places[placesNumber]);
+                // places.RemoveAt(placesNumber);
+                revivalItm.Add(items[itemsRandom]);
+                items.RemoveAt(itemsRandom);
+                placesNumber++;
+                Debug.LogError("placesNumber : " + placesNumber);
+                Debug.LogError("itemsRandom : " + itemsRandom);
             }
-        }
-        else//nullだったらplacesリストに再び全て追加する
-        {
-            places.Clear();
-            //リストで保持しているインスタンスを削除
-            for (int i = 0; i < revivalList.Count; i++)
-            {
-                places.Add(revivalList[i]);
-            }
-            for (int i = 0; i < revivalList.Count; i++)
-            {
-                revivalList.RemoveAt(i);
-            }
-            //リスト自体をキレイにする
-            revivalList.Clear();
         }
     }
 }
+// else//nullだったらplacesリストに再び全て追加する
+// {
+//     places.Clear();
+//     //リストで保持しているインスタンスを削除
+//     for (int i = 0; i < revivalList.Count; i++)
+//     {
+//         places.Add(revivalList[i]);
+//     }
+//     for (int i = 0; i < revivalList.Count; i++)
+//     {
+//         revivalList.RemoveAt(i);
+//     }
+//     //リスト自体をキレイにする
+//     revivalList.Clear();
+// }
+
 
