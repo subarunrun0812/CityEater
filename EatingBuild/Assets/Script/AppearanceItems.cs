@@ -37,8 +37,8 @@ public class AppearanceItems : MonoBehaviour
                 revivalItm.Add(items[itemsRandom]);
                 items.RemoveAt(itemsRandom);
                 placesNumber++;
-                Debug.LogError("placesNumber : " + placesNumber);
-                Debug.LogError("itemsRandom : " + itemsRandom);
+                // Debug.LogError("placesNumber : " + placesNumber);
+                // Debug.LogError("itemsRandom : " + itemsRandom);
 
             }
             else
@@ -67,8 +67,8 @@ public class AppearanceItems : MonoBehaviour
                 revivalItm.Add(items[itemsRandom]);
                 items.RemoveAt(itemsRandom);
                 placesNumber++;
-                Debug.LogError("placesNumber : " + placesNumber);
-                Debug.LogError("itemsRandom : " + itemsRandom);
+                // Debug.LogError("placesNumber : " + placesNumber);
+                // Debug.LogError("itemsRandom : " + itemsRandom);
             }
         }
     }
