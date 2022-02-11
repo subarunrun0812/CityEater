@@ -24,6 +24,7 @@ TagManager:
   - INCR
   - QUESTION
   - DEC
+  - Floor
   layers:
   - Default
   - TransparentFX
