@@ -141,7 +141,7 @@ public class NPCMove : MonoBehaviour
             {
                 agent.destination = collider.transform.position;
             }
-            else if (npceat.npc_level < eatObj.level)
+            else if (npceat.npc_level <= eatObj.level)
             {
                 agent.destination = -collider.transform.position;//playerと反対方向にいく
             }
