@@ -39,7 +39,6 @@ public class AppearanceItems : MonoBehaviour
                 placesNumber++;
                 // Debug.LogError("placesNumber : " + placesNumber);
                 // Debug.LogError("itemsRandom : " + itemsRandom);
-
             }
             else
             {
