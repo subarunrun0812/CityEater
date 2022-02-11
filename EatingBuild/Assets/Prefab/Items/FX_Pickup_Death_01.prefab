@@ -19463,3 +19463,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58eadffe86854862ae11e1651c49076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  appearanceItems: {fileID: 1653342479721364311, guid: fb26441ab8332445abd1466f9c8cc921, type: 3}
