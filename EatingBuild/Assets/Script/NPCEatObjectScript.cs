@@ -208,7 +208,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(3);//ポイントを1追加する
+                        NPCAddPoint(1);//ポイントを1追加する
                         col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                     });
                 }
@@ -227,7 +227,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(5);
+                        NPCAddPoint(2);
                         col.gameObject.SetActive(false);
 
                     });
@@ -251,7 +251,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(6);
+                        NPCAddPoint(3);
                         col.gameObject.SetActive(false);
 
                     });
@@ -274,7 +274,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(8);
+                        NPCAddPoint(4);
                         col.gameObject.SetActive(false);
 
                     });
@@ -297,7 +297,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(15);
+                        NPCAddPoint(5);
                         col.gameObject.SetActive(false);
 
                     });
@@ -320,7 +320,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(24);
+                        NPCAddPoint(8);
 
                         col.gameObject.SetActive(false);
 
@@ -343,7 +343,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(50);
+                        NPCAddPoint(20);
 
                         col.gameObject.SetActive(false);
 
@@ -366,7 +366,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(60);
+                        NPCAddPoint(36);
                         col.gameObject.SetActive(false);
 
                     });
@@ -532,7 +532,7 @@ public class NPCEatObjectScript : MonoBehaviour
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(2f, 2f, 2f), playerScaleTime
-                ); spherecol.radius = 7f;
+                ); spherecol.radius = 9f;
                 npc_level = 2;
             }
 
@@ -541,7 +541,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
                 );
-                spherecol.radius = 6.5f;
+                spherecol.radius = 8f;
                 npc_level = 3;
                 if (npcspeedflag == true)
                 {
@@ -555,7 +555,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(3f, 3f, 3f), playerScaleTime
                 );
-                spherecol.radius = 6f;
+                spherecol.radius = 7.5f;
                 npc_level = 4; if (npcspeedflag == false)
                 {
                     npcspeedflag = true;
@@ -568,7 +568,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(4f, 4f, 4f), playerScaleTime
                 );
-                spherecol.radius = 5.5f;
+                spherecol.radius = 6f;
                 npc_level = 5;
                 if (npcspeedflag == true)
                 {
@@ -583,7 +583,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(6f, 6f, 6f), playerScaleTime
                 );
-                spherecol.radius = 5f;
+                spherecol.radius = 4.5f;
                 npc_level = 6; if (npcspeedflag == false)
                 {
                     npcspeedflag = true;
@@ -609,7 +609,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(10f, 10f, 10f), playerScaleTime
                 );
-                spherecol.radius = 4f;
+                spherecol.radius = 3.5f;
                 npc_level = 8; if (npcspeedflag == false)
                 {
                     npcspeedflag = true;
@@ -622,7 +622,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(12f, 12f, 12f), playerScaleTime
                 );
-                spherecol.radius = 3.5f;
+                spherecol.radius = 3f;
                 npc_level = 9; if (npcspeedflag == true)
                 {
                     npcspeedflag = false;
@@ -634,7 +634,7 @@ public class NPCEatObjectScript : MonoBehaviour
             {
                 this.gameObject.transform.DOScale(
                     new Vector3(14f, 14f, 14f), playerScaleTime
-                ); spherecol.radius = 3f;
+                ); spherecol.radius = 2.5f;
                 npc_level = 10; if (npcspeedflag == false)
                 {
                     npcspeedflag = true;
@@ -647,7 +647,7 @@ public class NPCEatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(15f, 15f, 15f), playerScaleTime
                 );
-                spherecol.radius = 2.5f;
+                spherecol.radius = 2f;
                 npc_level = 11; if (npcspeedflag == true)
                 {
                     npcspeedflag = false;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8733110476766542117}
   - component: {fileID: 4198110656808110165}
   m_Layer: 6
-  m_Name: npcHead_1
+  m_Name: npcHead_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,15 +178,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fef65774c04b409593b3db2b0227b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0.1
+  waitTime: 3
   time: 0
   npceat: {fileID: 3772975134598672566}
   gameManager: {fileID: 0}
   central: {fileID: 3772975134598672565}
   eatObj: {fileID: 0}
   npc_crown: {fileID: 0}
-  objs: []
-  l_dis: []
+  l_dis1p: []
+  player: {fileID: 0}
 --- !u!114 &3772975134598672566
 MonoBehaviour:
   m_ObjectHideFlags: 0
