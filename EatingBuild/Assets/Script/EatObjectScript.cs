@@ -10,7 +10,7 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     private bool ptsText_flag = true;
     private bool speedflag = true;
-    private float addSpeed = 0.01f;
+    private float addSpeed = 0.016f;
     public float smallTime = 2;//objectを小さくするのにかかる時間
     public float smallTimeApartment = 2;//マンションを小さくするのにかかる時間
     public float smallTimeBigApartment = 0.8f;//大きいビルを小さくするのにかかる時間
@@ -36,25 +36,25 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private OneHundredMillion _100m_script;
 
     public int level;//pointを一定ごとにlvに分類させていく
-    public float changeSpeed = 0.02f;
-    public int obj2p = 10;
-    public int obj3p = 50;
-    public int obj4p = 100;
-    public int obj5p = 200;
-    public int obj8p = 400;
-    public int obj10p = 800;
-    public int obj12p = 1500;
-    public int obj15p = 3000;
-    public int obj20p = 5000;
+    private float changeSpeed;
+    public int obj2p;
+    public int obj3p;
+    public int obj4p;
+    public int obj5p;
+    public int obj8p;
+    public int obj10p;
+    public int obj12p;
+    public int obj15p;
+    public int obj20p;
 
-    public int obj30p = 8000;
-    public int obj50p = 8000;
-    public int objover1 = 12000;
-    public int objover2 = 20000;
-    public int objover3 = 30000;
-    public int objover4 = 50000;
-    public int objover5 = 500000;
-    public int objover6 = 20000000;
+    public int obj30p;
+    public int obj50p;
+    public int objover1;
+    public int objover2;
+    public int objover3;
+    public int objover4;
+    public int objover5;
+    public int objover6;
     // public int objover7 = 40000000;
     // public int objover8 = 80000000;
     // public int objover9 = 160000000;
@@ -100,11 +100,15 @@ public class EatObjectScript : MonoBehaviour
         sizeUp_t.SetActive(true);
         if (gameManager.point < obj30p)
         {
-            gameManager.AddPoint(gameManager.point / 2);//pointを追加
-        }
-        else
-        {
             gameManager.AddPoint(gameManager.point / 3);//pointを追加
+        }
+        else if (obj30p <= gameManager.point && gameManager.point < objover2)
+        {
+            gameManager.AddPoint(gameManager.point / 6);//pointを追加
+        }
+        else if (objover2 <= gameManager.point)
+        {
+            gameManager.AddPoint(gameManager.point / 10);//pointを追加
         }
 
     }
@@ -474,7 +478,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(300);
+                        gameManager.AddPoint(1200);
                         col.gameObject.SetActive(false);
 
                     });
@@ -498,7 +502,7 @@ public class EatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        gameManager.AddPoint(500);
+                        gameManager.AddPoint(1500);
 
                         col.gameObject.SetActive(false);
 

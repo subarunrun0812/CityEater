@@ -54,11 +54,11 @@ public class NPCEatObjectScript : MonoBehaviour
     {
         if (point < eatObj.obj30p)
         {
-            NPCAddPoint(point / 3);//pointを追加
+            NPCAddPoint(point / 2);//pointを追加
         }
         else
         {
-            NPCAddPoint(point / 4);//pointを追加
+            NPCAddPoint(point / 2);//pointを追加
         }
 
     }
@@ -117,6 +117,8 @@ public class NPCEatObjectScript : MonoBehaviour
         int obj30p = eatObj.obj30p;
         int obj50p = eatObj.obj50p;
         int p = point;
+
+        int n = 2;//pointを標準より倍にするために使う
         switch (col.gameObject.tag)
         {
             case "Untagged"://ポイントがついている以外は食べれない
@@ -213,7 +215,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(1);//ポイントを1追加する
+                        NPCAddPoint(1 * n);//ポイントを1追加する
                         col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
                     });
                 }
@@ -232,7 +234,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(2);
+                        NPCAddPoint(2 * n);
                         col.gameObject.SetActive(false);
 
                     });
@@ -256,7 +258,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(3);
+                        NPCAddPoint(3 * n);
                         col.gameObject.SetActive(false);
 
                     });
@@ -279,7 +281,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(4);
+                        NPCAddPoint(4 * n);
                         col.gameObject.SetActive(false);
 
                     });
@@ -302,7 +304,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(5);
+                        NPCAddPoint(5 * n);
                         col.gameObject.SetActive(false);
 
                     });
@@ -416,7 +418,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(200);
+                        NPCAddPoint(800);
 
                         col.gameObject.SetActive(false);
 
@@ -439,7 +441,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(300);
+                        NPCAddPoint(1200);
 
                         col.gameObject.SetActive(false);
 
@@ -462,7 +464,7 @@ public class NPCEatObjectScript : MonoBehaviour
                     col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
-                        NPCAddPoint(500);
+                        NPCAddPoint(1500);
 
                         col.gameObject.SetActive(false);
 

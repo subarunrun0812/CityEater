@@ -14,7 +14,6 @@ public class HumanAppearanceItems : MonoBehaviour
     public int itemTime;
     void Start()
     {
-        itemTime = 5;
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
         InvokeRepeating("TimeInstantiateItems", 0f, itemTime);
     }

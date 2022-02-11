@@ -143,11 +143,11 @@ public class NPCMove : MonoBehaviour
                 agent.destination = collider.transform.position;
                 Debug.LogError("追いかける:Playerを追いかける");
             }
-            else if (npceat.npc_level <= eatObj.level)
-            {
-                agent.destination = -collider.transform.position;//playerと反対方向にいく
-                Debug.LogError("逃げる:Playerから逃げる");
-            }
+            // else if (npceat.npc_level <= eatObj.level)
+            // {
+            //     agent.destination = -collider.transform.position;//playerと反対方向にいく
+            //     Debug.LogError("逃げる:Playerから逃げる");
+            // }
         }
         else if (collider.CompareTag("AT"))
         {

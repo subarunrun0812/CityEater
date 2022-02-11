@@ -12,10 +12,10 @@ public class AppearanceItems : MonoBehaviour
     [SerializeField] private List<GameObject> revivalList = new List<GameObject>();//削除したplacesの要素を格納する.listの中を初期化
     int placesNumber = 0;
     int itemsRandom;
+    [Header("Inspectorから変更しない")]
     public int itemTime;
     void Start()
     {
-        itemTime = 5;
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
         InvokeRepeating("TimeInstantiateItems", 0f, itemTime);
     }
