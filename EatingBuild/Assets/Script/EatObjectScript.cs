@@ -100,11 +100,11 @@ public class EatObjectScript : MonoBehaviour
         sizeUp_t.SetActive(true);
         if (gameManager.point < obj30p)
         {
-            gameManager.AddPoint(gameManager.point / 3);//pointを追加
+            gameManager.AddPoint(gameManager.point / 2);//pointを追加
         }
         else
         {
-            gameManager.AddPoint(gameManager.point / 4);//pointを追加
+            gameManager.AddPoint(gameManager.point / 3);//pointを追加
         }
 
     }

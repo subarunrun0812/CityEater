@@ -11,7 +11,7 @@ public class DeleteItem : MonoBehaviour
     }
     IEnumerator DeleteThisObject()
     {
-        yield return new WaitForSeconds(appearanceItems.itemTime * 3);// * n,4/n 常時表示アイテムを表示される数
+        yield return new WaitForSeconds(appearanceItems.itemTime * 2);// * n,4/n 常時表示アイテムを表示される数
         Destroy(this.gameObject);
         Debug.Log(this.gameObject.tag + "削除された");
     }
