@@ -52,9 +52,14 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
     {
-        NPCAddPoint(point / 3);//pointを追加
-
-        NPCAddPoint(point);//pointを追加
+        if (point < eatObj.obj30p)
+        {
+            NPCAddPoint(point / 3);//pointを追加
+        }
+        else
+        {
+            NPCAddPoint(point / 4);//pointを追加
+        }
 
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。

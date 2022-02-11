@@ -39,7 +39,7 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
-  - name: 
+  - name: OnlyMoveCar
     cost: 1
   - name: 
     cost: 1

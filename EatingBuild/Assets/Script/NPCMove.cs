@@ -82,6 +82,7 @@ public class NPCMove : MonoBehaviour
         }
     }
 
+
     void StopHere()
     {
 
@@ -140,10 +141,12 @@ public class NPCMove : MonoBehaviour
             if (npceat.npc_level > eatObj.level)//npcとplayerが同じレベルなら追いかける
             {
                 agent.destination = collider.transform.position;
+                Debug.LogError("追いかける:Playerを追いかける");
             }
             else if (npceat.npc_level <= eatObj.level)
             {
                 agent.destination = -collider.transform.position;//playerと反対方向にいく
+                Debug.LogError("逃げる:Playerから逃げる");
             }
         }
         else if (collider.CompareTag("AT"))
@@ -213,11 +216,8 @@ public class NPCMove : MonoBehaviour
             }
             else if (objover1 <= p)
             {
-                if (collider.CompareTag("5p"))
-                {
-                    agent.destination = collider.transform.position;
-                }
-                else if (collider.CompareTag("15p"))
+
+                if (collider.CompareTag("15p"))
                 {
                     agent.destination = collider.transform.position;
                 }

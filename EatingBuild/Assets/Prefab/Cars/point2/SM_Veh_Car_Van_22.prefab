@@ -129,7 +129,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 4.0548143
   m_BaseOffset: 0
-  m_WalkableMask: 8
+  m_WalkableMask: 131080
   m_ObstacleAvoidanceType: 0
 --- !u!65 &-52892248414180969
 BoxCollider:

@@ -164,7 +164,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 4157
   m_ObstacleAvoidanceType: 0
 --- !u!114 &3772975134598672554
 MonoBehaviour:
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fef65774c04b409593b3db2b0227b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 3
+  waitTime: 1.5
   time: 0
   npceat: {fileID: 3772975134598672566}
   gameManager: {fileID: 0}
