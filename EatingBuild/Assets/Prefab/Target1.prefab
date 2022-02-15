@@ -52,6 +52,7 @@ MonoBehaviour:
   target: {fileID: 0}
   arrow: {fileID: 8553945020668639195}
   npc_name: {fileID: 8553945019360331874}
+  _color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8553945019360331872
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,10 +85,10 @@ RectTransform:
   m_Father: {fileID: 8553945020668639192}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -74.99998, y: 0.00022125244}
-  m_SizeDelta: {x: 980, y: 1970}
+  m_SizeDelta: {x: 1080, y: 2070}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8553945019360331877
 CanvasRenderer:
@@ -144,8 +145,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

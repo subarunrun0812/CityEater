@@ -7,8 +7,10 @@ using TMPro;
 public class TargetIndicator : MonoBehaviour
 {
     [SerializeField] private Transform target = default;
+
     [SerializeField] private Image arrow = default;
     [SerializeField] private TextMeshProUGUI npc_name;
+    [SerializeField] private Color _color;
 
     private Camera mainCamera;
     private RectTransform rectTransform;
@@ -18,10 +20,17 @@ public class TargetIndicator : MonoBehaviour
         mainCamera = Camera.main;
         rectTransform = GetComponent<RectTransform>();
         npc_name.text = target.gameObject.name;
+        npc_name.color = _color;
     }
 
     private void LateUpdate()
     {
+        //もし、targetが非オブジェクトになったら、
+        if (target.transform.gameObject.activeSelf == false)
+        {
+            this.transform.gameObject.SetActive(false);
+        }
+
         float canvasScale = transform.root.localScale.z;
         var center = 0.5f * new Vector3(Screen.width, Screen.height);
 
