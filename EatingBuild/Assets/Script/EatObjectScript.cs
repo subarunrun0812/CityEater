@@ -6,8 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 public class EatObjectScript : MonoBehaviour
 {
-    [SerializeField] public AudioClip sound1;
-    [SerializeField] AudioSource audioSource;
     private bool ptsText_flag = true;
     private bool speedflag = true;
     private float addSpeed = 0.016f;
@@ -34,7 +32,9 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameObject _100m_t;
 
     [SerializeField] private OneHundredMillion _100m_script;
-
+    [SerializeField] public AudioClip sound1;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] private GameObject effectPrefab;
     public int level;//pointを一定ごとにlvに分類させていく
     private float changeSpeed;
     public int obj2p;
@@ -88,6 +88,8 @@ public class EatObjectScript : MonoBehaviour
         //音楽を鳴らす
         //音(sound1)を鳴らす
         audioSource.PlayOneShot(sound1);
+        GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+        Destroy(effect, 1f);
     }
     private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
     {

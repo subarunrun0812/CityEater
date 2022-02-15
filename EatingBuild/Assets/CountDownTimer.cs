@@ -14,6 +14,8 @@ public class CountDownTimer : MonoBehaviour
     public float seconds;
     //前回Update時の秒数
     private float oldSeconds;
+    [SerializeField] public AudioClip bgm;
+    [SerializeField] AudioSource audioSource;
 
     [SerializeField] private GameObject Items;
 
@@ -53,6 +55,9 @@ public class CountDownTimer : MonoBehaviour
         ItemsText.SetActive(true);
         lvUI.SetActive(true);
         // banner.SetActive(false);
+
+        //bgmを再生
+        audioSource.PlayOneShot(bgm);
     }
 
     public void ContinueButtonInvoke()
