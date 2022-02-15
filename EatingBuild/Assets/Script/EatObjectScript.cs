@@ -88,8 +88,8 @@ public class EatObjectScript : MonoBehaviour
         //音楽を鳴らす
         //音(sound1)を鳴らす
         audioSource.PlayOneShot(sound1);
-        GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
-        Destroy(effect, 1f);
+        // GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+        // Destroy(effect, 1f);
     }
     private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
     {
