@@ -742,13 +742,6 @@ public class EatObjectScript : MonoBehaviour
                 sphImg.fillAmount = imgP;
                 level = 13;
                 level_t.text = "13";
-                if (p >= 100000 && ptsText_flag == true)
-                {
-                    ptsText_flag = false;
-                    _100m_t.SetActive(true);
-                    // _100m_script.OnEnable("100,000");
-                    Debug.Log("100000を超えた");
-                }
                 if (speedflag == true)
                 {
                     speedflag = false;
@@ -782,6 +775,13 @@ public class EatObjectScript : MonoBehaviour
                 sphImg.fillAmount = imgP;
                 level = 15;
                 level_t.text = "15";
+                if (p >= 100000 && ptsText_flag == true)
+                {
+                    ptsText_flag = false;
+                    _100m_t.SetActive(true);
+                    // _100m_script.OnEnable("100,000");
+                    Debug.Log("100000を超えた");
+                }
                 if (speedflag == true)
                 {
                     speedflag = false;
