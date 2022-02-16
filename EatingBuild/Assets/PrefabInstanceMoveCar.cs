@@ -6,6 +6,7 @@ public class PrefabInstanceMoveCar : MonoBehaviour
 {
     [SerializeField] private GameObject[] cars;//
     [SerializeField] private GameObject[] items;
+    int itemsNumber = 0;
 
     // [Header("190,0,-8 または -150,0,-2"), SerializeField] private Vector3 places;
 
@@ -25,7 +26,12 @@ public class PrefabInstanceMoveCar : MonoBehaviour
     }
     private void TimeInstantiateItem()
     {
-        int itemrandom = Random.Range(0, items.Length);//
-        Instantiate(items[itemrandom], this.transform.position, items[itemrandom].transform.rotation);
+        if (itemsNumber == items.Length)
+        {
+            itemsNumber = 0;
+        }
+        Instantiate(items[itemsNumber], this.transform.position, items[itemsNumber].transform.rotation);
+        itemsNumber++;
+
     }
 }
