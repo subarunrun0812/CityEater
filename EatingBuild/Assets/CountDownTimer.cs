@@ -33,8 +33,10 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI threeSeconds;//３秒前
     [SerializeField] private GameObject ItemsText;
+    [SerializeField] private GameObject indicators;
     [SerializeField] private GameObject lvUI;
     private int totalCount;//プレイした合計の回数
+
 
 
     // [SerializeField] private GameObject banner;//google banner
@@ -53,6 +55,7 @@ public class CountDownTimer : MonoBehaviour
         quit_b.SetActive(true);
         revenge.SetActive(false);
         ItemsText.SetActive(true);
+        indicators.SetActive(true);
         lvUI.SetActive(true);
         // banner.SetActive(false);
 
@@ -118,10 +121,10 @@ public class CountDownTimer : MonoBehaviour
         }
 
 
-        if (totalTime <= 45f)
-        {
-            Items.SetActive(true);
-        }
+        // if (totalTime <= 45f)
+        // {
+        //     Items.SetActive(true);
+        // }
 
         oldSeconds = seconds;
         //制限時間以下になったらコンソールに『制限時間終了』という文字列を表示する
@@ -131,6 +134,7 @@ public class CountDownTimer : MonoBehaviour
             seconds += 1f;//これがなかったらQuitボタンが非表示にならないため、必要
             threeSeconds.text = "";
             ItemsText.SetActive(false);
+            indicators.SetActive(false);
             if (flag == true)
             {
                 //timerが0になった時に表示する

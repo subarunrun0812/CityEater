@@ -9,6 +9,7 @@ public class MainScene : MonoBehaviour
     InterstitialAdGameObject interstitialAd;
     RewardedAdGameObject rewardedAdGameObject;
     [SerializeField] private GameObject itemsText;
+    [SerializeField] private GameObject indicators;
     [SerializeField] private CountDownTimer countDownTimer;
     [SerializeField] private GameObject notime;
     [SerializeField] private GameObject continue_b;
@@ -60,13 +61,15 @@ public class MainScene : MonoBehaviour
         countDownTimer.seconds += 30;//30秒追加
         Debug.LogError("Rewardを閉じた");
         itemsText.SetActive(true);
+        indicators.SetActive(true);
     }
-        public void OnAdFailedButton()//リワード広告のボタンを押して広告が表示されなかったとき
+    public void OnAdFailedButton()//リワード広告のボタンを押して広告が表示されなかったとき
     {
         Time.timeScale = 1;
         countDownTimer.seconds += 30;//30秒追加
         Debug.LogError("OnAdFailedを閉じた");
         itemsText.SetActive(true);
+        indicators.SetActive(true);
     }
     public void OnAdClosed()//Userが途中で閉じってしまった時の対処
     {
