@@ -21,6 +21,7 @@ public class TargetIndicator : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         npc_name.text = target.gameObject.name;
         npc_name.color = _color;
+        arrow.color = _color;
     }
 
     private void LateUpdate()
