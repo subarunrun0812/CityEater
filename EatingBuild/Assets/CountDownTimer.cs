@@ -65,6 +65,8 @@ public class CountDownTimer : MonoBehaviour
 
     public void ContinueButtonInvoke()
     {
+        seconds += 30;//30秒追加
+        ItemsText.SetActive(true);
         notime.SetActive(false);
         revenge.SetActive(false);
         Time.timeScale = 1;

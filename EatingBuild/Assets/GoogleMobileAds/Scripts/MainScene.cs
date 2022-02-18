@@ -38,14 +38,14 @@ public class MainScene : MonoBehaviour
     public void OnClickInterstitialShowButton()
     {
         // Display an interstitial ad
-        interstitialAd.ShowIfLoaded();
+        // interstitialAd.ShowIfLoaded();
     }
     //rewardの広告表示
     public void OnClickRewardShowButton()
     {
         // Display an interstitial ad
-        rewardedAdGameObject.ShowIfLoaded();
-        Time.timeScale = 0;
+        // rewardedAdGameObject.ShowIfLoaded();
+        // Time.timeScale = 0;
 
     }
 
@@ -58,10 +58,10 @@ public class MainScene : MonoBehaviour
     }
     public void OnCloseRewardButton()
     {
-        countDownTimer.seconds += 30;//30秒追加
-        Debug.LogError("Rewardを閉じた");
-        itemsText.SetActive(true);
-        indicators.SetActive(true);
+        // countDownTimer.seconds += 30;//30秒追加
+        // Debug.LogError("Rewardを閉じた");
+        // itemsText.SetActive(true);
+        // indicators.SetActive(true);
     }
     public void OnAdFailedButton()//リワード広告のボタンを押して広告が表示されなかったとき
     {
