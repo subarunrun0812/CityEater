@@ -84,7 +84,7 @@ public class EatObjectScript : MonoBehaviour
     }
     private void VIbrationFunction()//スマホを振動される関数
     {
-        VibrationMng.ShortVibration();//スマホを短く振動させる
+        // VibrationMng.ShortVibration();//スマホを短く振動させる
         //音楽を鳴らす
         //音(sound1)を鳴らす
         audioSource.PlayOneShot(sound1);

@@ -43,14 +43,14 @@ public class StartGameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene("StartScene");
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            DeleteSave();
-        }
+        // if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     SceneManager.LoadScene("StartScene");
+        // }
+        // if (Input.GetKeyDown(KeyCode.D))
+        // {
+        //     DeleteSave();
+        // }
     }
     public void DeleteSave()//test用
     {
