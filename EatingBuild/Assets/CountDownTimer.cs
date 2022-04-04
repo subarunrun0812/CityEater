@@ -67,6 +67,7 @@ public class CountDownTimer : MonoBehaviour
     {
         seconds += 30;//30秒追加
         ItemsText.SetActive(true);
+        indicators.SetActive(true);
         notime.SetActive(false);
         revenge.SetActive(false);
         Time.timeScale = 1;
@@ -89,6 +90,7 @@ public class CountDownTimer : MonoBehaviour
         scoreUI.SetActive(false);
         highScoreTable.SetActive(true);
         Time.timeScale = 0;
+        indicators.SetActive(false);
         lvUI.SetActive(false);
 
         //合計プレイ回数を増やす
