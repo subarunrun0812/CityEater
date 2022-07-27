@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 
 //https://qiita.com/o8que/items/46e486f62bdf05c29559
+//↑この記事を参考にした
 [RequireComponent(typeof(RectTransform))]
 public class TargetIndicator : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class TargetIndicator : MonoBehaviour
         {
             this.transform.gameObject.SetActive(false);
         }
-
+        // ルート（Canvas）のスケール値を取得する
         float canvasScale = transform.root.localScale.z;
         var center = 0.5f * new Vector3(Screen.width, Screen.height);
 
@@ -46,7 +47,7 @@ public class TargetIndicator : MonoBehaviour
                 pos.y = -center.y;
             }
         }
-
+        // UI座標系の値をスクリーン座標系の値に変換する
         var halfSize = 0.5f * canvasScale * rectTransform.sizeDelta;
         float d = Mathf.Max(
             Mathf.Abs(pos.x / (center.x - halfSize.x)),
@@ -59,6 +60,7 @@ public class TargetIndicator : MonoBehaviour
             pos.x /= d;
             pos.y /= d;
         }
+        // スクリーン座標系の値をUI座標系の値に変換する
         rectTransform.anchoredPosition = pos / canvasScale;
 
         arrow.enabled = isOffscreen;

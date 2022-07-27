@@ -80,7 +80,7 @@ public class NPCEatObjectScript : MonoBehaviour
     private void QuestionItem()//questionが食べられた時。
     {
         int ranItem = Random.Range(0, 3);//アイテムは３種類あるから.0~3の間で乱数。intは「max - 1」
-        Debug.Log("ranItemは" + ranItem);
+        // Debug.Log("ranItemは" + ranItem);
         switch (ranItem)
         {
             case 0:
