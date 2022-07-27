@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DeleteItem : MonoBehaviour
 {
-    private int maximumNum = 2;//アイテムを表示する最大数
+    private int maxNum = 2;//アイテムを表示する最大数
     [SerializeField] private AppearanceItems appearanceItems;
     void Awake()
     {
@@ -11,7 +11,7 @@ public class DeleteItem : MonoBehaviour
     }
     IEnumerator DeleteThisObject()
     {
-        yield return new WaitForSeconds(appearanceItems.itemTime * maximumNum);
+        yield return new WaitForSeconds(appearanceItems.itemTime * maxNum);
         Destroy(this.gameObject);
         Debug.Log(this.gameObject.tag + "削除された");
     }

@@ -59,7 +59,7 @@ public class EatObjectScript : MonoBehaviour
     // public int objover8 = 80000000;
     // public int objover9 = 160000000;
     public int objoverMax = 2147483647;//int型の最大値
-    private int halthpoint;//gamemanager.pointの半分のpを切り上げたの値を入れる
+    private int decreasePoint;//gamemanager.pointの半分のpを切り上げたの値を入れる
     void Start()
     {
         float Playerspeed = playerController.speed;
@@ -91,13 +91,13 @@ public class EatObjectScript : MonoBehaviour
         // GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
         // Destroy(effect, 1f);
     }
-    private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
+    private void AccelerationItem()//スピードアップのアイテムを食べた時.
     {
         changeSpeed = 0.03f;
         playerController.speed += changeSpeed;
         speedUp_t.SetActive(true);
     }
-    private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
+    private void IncreasePointItem()////Pointが増えるアイテムを食べた時.
     {
         sizeUp_t.SetActive(true);
         if (gameManager.point < obj30p)
@@ -116,10 +116,10 @@ public class EatObjectScript : MonoBehaviour
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
-        halthpoint = gameManager.point / 6;//小数点以下は切り捨て。
-        halthpoint = -halthpoint;//-にする
-        Debug.Log(halthpoint);
-        gameManager.AddPoint(halthpoint);//pointを減少
+        decreasePoint = gameManager.point / 6;//小数点以下は切り捨て。
+        decreasePoint = -decreasePoint;//-にする
+        Debug.Log(decreasePoint);
+        gameManager.AddPoint(decreasePoint);//pointを減少
         sizeDown_t.SetActive(true);
         if (gameManager.point >= objover1)
         {
