@@ -6,8 +6,8 @@ public class PlayerFollowCamera : MonoBehaviour
 {
     [SerializeField] private Transform player; // playerオブジェクトをアタッチする
     public float distance = 15.0f; //注視対象プレイヤーからカメラを話す距離
-    [SerializeField] private Quaternion vRotation; //カメラの垂直回転(見下ろし回転)
-    public Quaternion hRotation; //カメラの水平回転
+    private Quaternion vRotation; //カメラの垂直回転(見下ろし回転)
+    private Quaternion hRotation; //カメラの水平回転
 
     void Start()
     {
@@ -33,21 +33,24 @@ public class PlayerFollowCamera : MonoBehaviour
         transform.position = player.position + new Vector3(0, 3, 0) - transform.rotation * Vector3.forward * distance;
     }
 
-    public void CameraDistanceSmall()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける.0.5f遠ざけていく
-    {
-        distance = distance + 2f;
-        Debug.Log(distance);
-    }
 
-    public void CameraDistanceMedium()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
-    {
-        distance = distance + 4f;
-        Debug.Log(distance);
-    }
+    //プレイヤーのレベルに応じてカメラとの距離を指定するようにした。 Playerが小さくなったときに、カメラとの距離が離れたままで、こちらが想定した挙動ではなかったため
 
-    public void CameraDistanceLarge()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
-    {
-        distance = distance + 10f;
-        Debug.Log(distance);
-    }
+    // public void CameraDistanceSmall()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける.0.5f遠ざけていく
+    // {
+    //     distance = distance + 2f;
+    //     Debug.Log(distance);
+    // }
+
+    // public void CameraDistanceMedium()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
+    // {
+    //     distance = distance + 4f;
+    //     Debug.Log(distance);
+    // }
+
+    // public void CameraDistanceLarge()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
+    // {
+    //     distance = distance + 10f;
+    //     Debug.Log(distance);
+    // }
 }

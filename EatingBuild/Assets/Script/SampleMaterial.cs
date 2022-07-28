@@ -1,15 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+
 public class SampleMaterial : MonoBehaviour
 {
-
     private Color color = Color.white;
-
     private MeshRenderer[] meshRenderers;//親 子オブジェクトを格納。
-
-    private MaterialPropertyBlock m_mpb;//MaterialPropertyBlock使って一つのマテリアルを使いまわす
-
+    private MaterialPropertyBlock m_mpb;
+    //Materialのインスタンスは変えずに一部のプロパティだけ変更できるようにする
     public MaterialPropertyBlock mpb
     {
         //?? 演算子は、null 合体演算子と呼ばれます。
@@ -23,22 +21,22 @@ public class SampleMaterial : MonoBehaviour
     }
     public void ClearMaterialInvoke()//objecを半透明にする関数
     {
-        color.a = 0.15f;//mpb.SetColor ~ より前にこのコードを書かなければならない
+        color.a = 0.15f;
         mpb.SetColor(Shader.PropertyToID("_Color"), color);//色を変更する
         for (int i = 0; i < meshRenderers.Length; i++)//meshrendersをfor文で回して、配列の中の要素を１つずつ取り出す
         {
             meshRenderers[i].GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse ZWrite");////shader切り替える
-            meshRenderers[i].SetPropertyBlock(mpb);//配列に入ってるオブジェクトをmpbのマテリアルに全て適用していく
+            meshRenderers[i].SetPropertyBlock(mpb);//一部のプロパティだけ変更できるようにする。
         }
     }
     public void NotClearMaterialInvoke()//objecを非透明に戻す関数
     {
-        color.b = 1f;//mpb.SetColor ~ より前にこのコードを書かなければならない
+        color.b = 1f;
         mpb.SetColor(Shader.PropertyToID("_Color"), color);//色を変更する
         for (int i = 0; i < meshRenderers.Length; i++)//meshrendersをfor文で回して、配列の中の要素を１つずつ取り出す
         {
             meshRenderers[i].GetComponent<Renderer>().material.shader = Shader.Find("Mobile/Diffuse");////shader切り替える
-            meshRenderers[i].SetPropertyBlock(mpb);//配列に入ってるオブジェクトをmpbのマテリアルに全て適用していく
+            meshRenderers[i].SetPropertyBlock(mpb);//一部のプロパティだけ変更できるようにする。
         }
     }
 }
