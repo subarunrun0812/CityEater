@@ -10,6 +10,7 @@ public class PlayerTrigger : MonoBehaviour
 
     [SerializeField] private EatObjectScript eatobj;//eatobjectscriptを入れる
 
+    //街のオブジェクト全てに半透明に出来るスクリプトを追加する。。
     void Awake()
     {
         GameObject[] obj2p = GameObject.FindGameObjectsWithTag("2p");
@@ -70,7 +71,7 @@ public class PlayerTrigger : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        SampleMaterial sampleMaterial = col.GetComponent<SampleMaterial>();////colしたオブジェクトのSampleMaterialコンポーネントを取得
+        SampleMaterial sampleMaterial = col.GetComponent<SampleMaterial>();
         if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
         {
             col.gameObject.AddComponent<SampleMaterial>();
@@ -89,7 +90,7 @@ public class PlayerTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        SampleMaterial sampleMaterial = col.GetComponent<SampleMaterial>();////colしたオブジェクトのSampleMaterialコンポーネントを取得
+        SampleMaterial sampleMaterial = col.GetComponent<SampleMaterial>();
         if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
         {
             col.gameObject.AddComponent<SampleMaterial>();

@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (this.gameObject.transform.position.y != 0.11f)//y =0にする
+        if (this.gameObject.transform.position.y != 0.11f)//プレイヤーが浮いたとき場合、設定したyの値に戻す
         {
             Vector3 playerPos = this.transform.position;
             playerPos.y = 0.11f;
@@ -49,12 +49,14 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(Vector3.forward * speed);//常に前に進み続ける処理
         }
-        else if (x != 0 && z != 0)//最初は自動で動かないようにする
+        else if (x != 0 && z != 0)//ゲーム開始時は自動で動かないようにする
         {
             flag = true;
             description.SetActive(false);
         }
     }
+
+    //Playerがステージ外に出れない処理↓
     void OnTriggerEnter(Collider other)
     {
 
@@ -90,11 +92,4 @@ public class PlayerController : MonoBehaviour
             speedFlag = true;
         }
     }
-    void OnCollisionStay(Collision other)
-    {
-        if (other.gameObject.tag == "WallCollider")
-        {
-        }
-    }
-
 }

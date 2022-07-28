@@ -55,9 +55,6 @@ public class EatObjectScript : MonoBehaviour
     public int objover4;
     public int objover5;
     public int objover6;
-    // public int objover7 = 40000000;
-    // public int objover8 = 80000000;
-    // public int objover9 = 160000000;
     public int objoverMax = 2147483647;//int型の最大値
     private int decreasePoint;//gamemanager.pointの半分のpを切り上げたの値を入れる
     void Start()
@@ -75,8 +72,6 @@ public class EatObjectScript : MonoBehaviour
         //音楽を鳴らす
         //音(sound1)を鳴らす
         audioSource.PlayOneShot(sound1);
-        // GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
-        // Destroy(effect, 1f);
     }
     private void AccelerationItem()//スピードアップのアイテムを食べた時.
     {
@@ -84,7 +79,7 @@ public class EatObjectScript : MonoBehaviour
         playerController.speed += changeSpeed;
         speedUp_t.SetActive(true);
     }
-    private void IncreasePointItem()////Pointが増えるアイテムを食べた時.
+    private void IncreasePointItem()//Pointが増えるアイテムを食べた時.
     {
         sizeUp_t.SetActive(true);
         if (gameManager.point < obj30p)
@@ -138,11 +133,11 @@ public class EatObjectScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col)//食べた時の処理
     {
-        int p = gameManager.point;//GameManagerスクリプトの変数を参照
+        int p = gameManager.point;//Playerのぽいん
 
         switch (col.gameObject.tag)
         {
-            case "Untagged"://ポイントがついている以外は食べれない
+            case "Untagged":
                 break;
 
             case "NPC":
@@ -163,18 +158,14 @@ public class EatObjectScript : MonoBehaviour
                     kO_t.SetActive(true);
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
-
                 break;
 
             case "AT"://speedが上がるアイテムを食べた時
                 if (p >= 0)
                 {
                     AccelerationItem();
-                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                    //gameObjectを消すより、非表示にする方が処理が軽い
+                    col.gameObject.SetActive(false);
                     VIbrationFunction();
                 }
                 break;
@@ -183,7 +174,7 @@ public class EatObjectScript : MonoBehaviour
                 if (p >= 0)
                 {
                     IncreasePointItem();
-                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                    col.gameObject.SetActive(false);
                     VIbrationFunction();
                 }
                 break;
@@ -192,16 +183,16 @@ public class EatObjectScript : MonoBehaviour
                 if (p >= 0)
                 {
                     DecreasePointItem();
-                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                    col.gameObject.SetActive(false);
                     VIbrationFunction();
                 }
                 break;
 
-            case "QUESTION"://Pointが減るアイテムを食べた時
+            case "QUESTION"://ランダムアイテムを食べたとき
                 if (p >= 0)
                 {
                     QuestionItem();
-                    col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                    col.gameObject.SetActive(false);
                     VIbrationFunction();
                 }
                 break;
@@ -210,7 +201,6 @@ public class EatObjectScript : MonoBehaviour
 
                 if (p >= 0)
                 {
-                    StartCoroutine("HitStopCorutineSmall");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -220,7 +210,7 @@ public class EatObjectScript : MonoBehaviour
                     .OnComplete(() =>//dotween終了後、cubeを消す
                     {
                         gameManager.AddPoint(1);//ポイントを1追加する
-                        col.gameObject.SetActive(false);//gameObjectを消すより非表示の方が処理が軽いらしい
+                        col.gameObject.SetActive(false);
                     });
                     VIbrationFunction();
 
@@ -232,7 +222,6 @@ public class EatObjectScript : MonoBehaviour
 
                 if (p >= obj2p)
                 {
-                    StartCoroutine("HitStopCorutineSmall");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -247,10 +236,6 @@ public class EatObjectScript : MonoBehaviour
                     });
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
 
@@ -258,7 +243,6 @@ public class EatObjectScript : MonoBehaviour
 
                 if (p >= obj3p)
                 {
-                    StartCoroutine("HitStopCorutineSmall");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -273,17 +257,12 @@ public class EatObjectScript : MonoBehaviour
                     });
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "4p":
 
                 if (p >= obj4p)
                 {
-                    StartCoroutine("HitStopCorutineSmall");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -298,17 +277,12 @@ public class EatObjectScript : MonoBehaviour
                     });
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "5p":
 
                 if (p >= obj5p)
                 {
-                    StartCoroutine("HitStopCorutineSmall");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -323,17 +297,12 @@ public class EatObjectScript : MonoBehaviour
                     });
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
 
             case "8p":
                 if (p >= obj8p)
                 {
-                    StartCoroutine("HitStopCorutineSmall");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -348,10 +317,6 @@ public class EatObjectScript : MonoBehaviour
 
                     });
                     VIbrationFunction();
-                }
-                else
-                {
-                    NotEatBuild();
                 }
                 break;
 
@@ -374,10 +339,6 @@ public class EatObjectScript : MonoBehaviour
                     });
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "12p":
@@ -398,10 +359,6 @@ public class EatObjectScript : MonoBehaviour
 
                     });
                     VIbrationFunction();
-                }
-                else
-                {
-                    NotEatBuild();
                 }
                 break;
 
@@ -424,10 +381,6 @@ public class EatObjectScript : MonoBehaviour
                     });
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "20p":
@@ -449,10 +402,6 @@ public class EatObjectScript : MonoBehaviour
                     });
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "30p":
@@ -472,10 +421,6 @@ public class EatObjectScript : MonoBehaviour
 
                     });
                     VIbrationFunction();
-                }
-                else
-                {
-                    NotEatBuild();
                 }
                 break;
 
@@ -498,30 +443,15 @@ public class EatObjectScript : MonoBehaviour
                     });
                     VIbrationFunction();
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
         }
     }
 
-    private void NotEatBuild()
-    {
-        // if (this.transform.position.y == 0)
-        // {
-        //     this.transform.DOJump(transform.position + new Vector3(-1f, 0f, -1f), 2.0f, 1, 0.4f);
-        // }
-    }
 
-
-
-    void FixedUpdate()//playerの大きさや速度のパラメーターの変更の処理
+    void FixedUpdate()//playerのレベルに応じて、パラメーターを変更
     {
 
-        int distaceAdd = 4;
         {
-            //Playerの大きさをポイントに応じて変更する
             int p = gameManager.point;
 
             if (p < obj2p)
@@ -537,11 +467,11 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
                 );
-                refCamera.distance = 17 + distaceAdd;//初期値は15
+                refCamera.distance = 21;
 
                 //sphimgの円グラフのゲージについての処理
-                float imgP = ((float)gameManager.point - obj2p) / (obj3p - obj2p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                float proportion = ((float)gameManager.point - obj2p) / (obj3p - obj2p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 1;
                 level_t.text = "1";
             }
@@ -550,10 +480,10 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(2f, 2f, 2f), playerScaleTime
                 );
-                refCamera.distance = 19 + distaceAdd;//+2
+                refCamera.distance = 23;
 
-                float imgP = ((float)gameManager.point - obj3p) / (obj4p - obj3p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                float proportion = ((float)gameManager.point - obj3p) / (obj4p - obj3p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 2;
                 level_t.text = "2";
             }
@@ -562,10 +492,10 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
                 );
-                refCamera.distance = 21 + distaceAdd;//+2
+                refCamera.distance = 25;
 
-                float imgP = ((float)gameManager.point - obj4p) / (obj5p - obj4p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                float proportion = ((float)gameManager.point - obj4p) / (obj5p - obj4p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 3;
                 level_t.text = "3";
                 if (speedflag == true)
@@ -579,10 +509,10 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(3f, 3f, 3f), playerScaleTime
                 );
-                refCamera.distance = 23 + distaceAdd;//+2
+                refCamera.distance = 27;
 
-                float imgP = ((float)gameManager.point - obj5p) / (obj8p - obj5p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                float proportion = ((float)gameManager.point - obj5p) / (obj8p - obj5p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 4;
                 level_t.text = "4";
                 if (speedflag == false)
@@ -596,9 +526,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(4f, 4f, 4f), playerScaleTime
                 );
-                refCamera.distance = 27 + distaceAdd;//+4
-                float imgP = ((float)gameManager.point - obj8p) / (obj10p - obj8p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 31;
+                float proportion = ((float)gameManager.point - obj8p) / (obj10p - obj8p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 5;
                 level_t.text = "5";
                 if (speedflag == true)
@@ -612,9 +542,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(6f, 6f, 6f), playerScaleTime
                 );
-                refCamera.distance = 31 + distaceAdd;//+4
-                float imgP = ((float)gameManager.point - obj10p) / (obj12p - obj10p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 35;
+                float proportion = ((float)gameManager.point - obj10p) / (obj12p - obj10p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 6;
                 level_t.text = "6";
                 if (speedflag == false)
@@ -628,9 +558,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(8f, 8f, 8f), playerScaleTime
                 );
-                refCamera.distance = 35 + distaceAdd;//+4
-                float imgP = ((float)gameManager.point - obj12p) / (obj15p - obj12p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 39;
+                float proportion = ((float)gameManager.point - obj12p) / (obj15p - obj12p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 7;
                 level_t.text = "7";
                 if (speedflag == true)
@@ -644,9 +574,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(10f, 10f, 10f), playerScaleTime
                 );
-                refCamera.distance = 45 + distaceAdd;//+10
-                float imgP = ((float)gameManager.point - obj15p) / (obj20p - obj15p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 49;
+                float proportion = ((float)gameManager.point - obj15p) / (obj20p - obj15p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 8;
                 level_t.text = "8";
                 if (speedflag == false)
@@ -660,9 +590,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(12f, 12f, 12f), playerScaleTime
                 );
-                refCamera.distance = 55 + distaceAdd;//+10
-                float imgP = ((float)gameManager.point - obj20p) / (obj30p - obj20p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 59;
+                float proportion = ((float)gameManager.point - obj20p) / (obj30p - obj20p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 9;
                 level_t.text = "9";
                 if (speedflag == true)
@@ -676,9 +606,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(14f, 14f, 14f), playerScaleTime
                 );
-                refCamera.distance = 65 + distaceAdd;//+10
-                float imgP = ((float)gameManager.point - obj30p) / (objover1 - obj30p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 71;
+                float proportion = ((float)gameManager.point - obj30p) / (objover1 - obj30p);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 10;
                 level_t.text = "10";
                 if (speedflag == false)
@@ -692,9 +622,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(16f, 16f, 16f), playerScaleTime
                 );
-                refCamera.distance = 75 + distaceAdd;//+5
-                float imgP = ((float)gameManager.point - objover1) / (objover2 - objover1);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 79;
+                float proportion = ((float)gameManager.point - objover1) / (objover2 - objover1);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 11;
                 level_t.text = "11";
                 if (speedflag == true)
@@ -709,9 +639,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(18f, 18f, 18f), playerScaleTime
                 );
-                refCamera.distance = 85 + distaceAdd;//+5
-                float imgP = ((float)gameManager.point - objover2) / (objover3 - objover2);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 89;
+                float proportion = ((float)gameManager.point - objover2) / (objover3 - objover2);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 12;
                 level_t.text = "12";
                 if (speedflag == false)
@@ -726,9 +656,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(20f, 20f, 20f), playerScaleTime
                 );
-                refCamera.distance = 95 + distaceAdd;//+5
-                float imgP = ((float)gameManager.point - objover3) / (objover4 - objover3);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 99;
+                float proportion = ((float)gameManager.point - objover3) / (objover4 - objover3);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 13;
                 level_t.text = "13";
                 if (speedflag == true)
@@ -743,9 +673,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(22f, 22f, 22f), playerScaleTime
                 );
-                refCamera.distance = 105 + distaceAdd;//+5
-                float imgP = ((float)gameManager.point - objover4) / (objover5 - objover4);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 109;
+                float proportion = ((float)gameManager.point - objover4) / (objover5 - objover4);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 14;
                 level_t.text = "14";
                 if (speedflag == false)
@@ -759,9 +689,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(24f, 24f, 24f), playerScaleTime
                 );
-                refCamera.distance = 115 + distaceAdd;//+5
-                float imgP = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 119;
+                float proportion = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 15;
                 level_t.text = "15";
                 if (p >= 100000 && ptsText_flag == true)
@@ -782,9 +712,9 @@ public class EatObjectScript : MonoBehaviour
                 this.gameObject.transform.DOScale(
                     new Vector3(26f, 26f, 26f), playerScaleTime
                 );
-                refCamera.distance = 125 + distaceAdd;//+5
-                float imgP = ((float)gameManager.point - objover6) / (objoverMax - objover6);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = imgP;
+                refCamera.distance = 129;
+                float proportion = ((float)gameManager.point - objover6) / (objoverMax - objover6);//割合 = 元の数 / 比べる数
+                sphImg.fillAmount = proportion;
                 level = 16;
                 level_t.text = "16";
                 if (speedflag == false)
@@ -793,60 +723,12 @@ public class EatObjectScript : MonoBehaviour
                     playerController.speed += addSpeed;
                 }
             }
-            // else if (objover7 <= p && p < objover8)
-            // {
-            //     this.gameObject.transform.DOScale(
-            //         new Vector3(21f, 21f, 21f), playerScaleTime
-            //     );
-            //     refCamera.distance = 100 + distaceAdd;//+5
-            //     float imgP = ((float)gameManager.point - objover7) / (objover8 - objover7);//割合 = 元の数 / 比べる数
-            //     sphImg.fillAmount = imgP;
-            //     level = 17;
-            //     level_t.text = "17";
-            //     if (speedflag == true)
-            //     {
-            //         speedflag = false;
-            //         playerController.speed += addSpeed;
-            //     }
-            // }
-            // else if (objover8 <= p && p < objover9)
-            // {
-            //     this.gameObject.transform.DOScale(
-            //         new Vector3(22f, 22f, 22f), playerScaleTime
-            //     );
-            //     refCamera.distance = 105 + distaceAdd;//+5
-            //     float imgP = ((float)gameManager.point - objover8) / (objover9 - objover8);//割合 = 元の数 / 比べる数
-            //     sphImg.fillAmount = imgP;
-            //     level = 18;
-            //     level_t.text = "18";
-            //     if (speedflag == false)
-            //     {
-            //         speedflag = true;
-            //         playerController.speed += addSpeed;
-            //     }
-            // }
-            // else if (objover9 <= p && p < objoverMax)
-            // {
-            //     this.gameObject.transform.DOScale(
-            //         new Vector3(23f, 23f, 23f), playerScaleTime
-            //     );
-            //     refCamera.distance = 110 + distaceAdd;//+5
-            //     float imgP = ((float)gameManager.point - objover9) / (objoverMax - objover9);//割合 = 元の数 / 比べる数
-            //     sphImg.fillAmount = imgP;
-            //     level = 19;
-            //     level_t.text = "19";
-            //     if (speedflag == true)
-            //     {
-            //         speedflag = false;
-            //         playerController.speed += addSpeed;
-            //     }
-            // }
 
-
-            else if (p == objoverMax)//int型の最大値を越えさせたいための処理
+            else if (p == objoverMax)//int型の最大値に達したとき
             {
-                float imgP = 1;
-                sphImg.fillAmount = imgP;
+                float proportion = 1;
+                sphImg.fillAmount = proportion;
+                //ゲームを強制終了
                 highScoreTable.SetActive(true);
             }
         }
