@@ -56,7 +56,7 @@ public class EatObjectScript : MonoBehaviour
     public int objover5;
     public int objover6;
     public int objoverMax = 2147483647;//int型の最大値
-    private int decreasePoint;//gamemanager.pointの半分のpを切り上げたの値を入れる
+    private int decreasePoint;
     void Start()
     {
         float Playerspeed = playerController.speed;

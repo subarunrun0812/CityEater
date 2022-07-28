@@ -39,45 +39,12 @@ public class NPCMove : MonoBehaviour
         agent.autoBraking = false;
         minObj1p = 1000;
     }
-    //     GoToNextPoint();
-    // }
-
-    // void GoToNextPoint()
-    // {
-    //     agent.isStopped = false;
-    //     p = npceat.point;
-    //     l_dis1p.Clear();
-
-    //     // GameObject.Find("ゲームタグ名")で見つけたオブジェクトを配列に格納し、その格納したやつをfor文を使ってListに格納します。
-    //     arrayobjs1p = GameObject.FindGameObjectsWithTag("1p");
-    //     foreach (GameObject item in arrayobjs1p)//距離感を求めリストに格納する
-    //     {
-    //         float dis = Vector3.Distance(this.transform.position, item.transform.position);
-    //         // Debug.Log("distance : " + dis);
-    //         l_dis1p.Add(dis);
-    //     }
-    //     foreach (int item in l_dis1p)//リストの最大値とそのインデックスを求める
-    //     {
-    //         if (minObj1p > l_dis1p[item])
-    //         {
-    //             minObj1p = l_dis1p[item];
-    //             minIndex1p = item;//インデックス
-    //             Debug.Log("minObj1p : " + minObj1p);
-    //         }
-    //     }
-    //     _destination = arrayobjs1p[minIndex1p].transform.position;
-    //     float min = l_dis1p.Min();
-    //     Debug.Log("min : " + min);
-    // }
 
     void Update()
     {
-
+        //目標地点に近づいたら
         if (agent.remainingDistance <= 1f)
         {
-            Debug.LogWarning("remainingDistance : " + agent.remainingDistance);
-
-            //     // GoToNextPoint();
             StopHere();
         }
     }
@@ -86,7 +53,6 @@ public class NPCMove : MonoBehaviour
     void StopHere()
     {
 
-        Debug.LogWarning("Stop");
         //NavMeshAgentを止める
         // agent.isStopped = true;
         //待ち時間を数える
@@ -96,24 +62,18 @@ public class NPCMove : MonoBehaviour
         if (time > waitTime)
         {
             //目標地点を設定し直す
+            //NPCが常に動いたてもらうため、周囲に食べるオブジェクトがない場合はPlayerに向かう
             agent.destination = player.transform.position;
             time = 0;
         }
     }
-    // // IEnumerator DestinationWaitTime()
-    // // {
-    // //     Debug.LogWarning("コルーチンが呼ばれた");
-    // //     yield return new WaitForSeconds(5);
-    // //     // //エージェントの位置および現在の経路での目標地点の間の距離
-
-    // // }
 
     void OnDisable()
     {
         npc_crown.SetActive(false);
     }
 
-    //CollisionDetectorのonTriggerStayにセットし、衝突判定を受け取るメソッド
+    //CollisionDetectorオブジェクトのonTriggerStayにセットし、衝突判定を受け取るメソッド
     public void OnDetectObject(Collider collider)
     {
         int obj2p = eatObj.obj2p;
@@ -134,8 +94,8 @@ public class NPCMove : MonoBehaviour
         int objover5 = eatObj.objover5;
         int objover6 = eatObj.objover6;
         int objoverMax = eatObj.objoverMax;
-
-        //衝突したオブジェクトにPlayerタグが付いていれば、そのオブジェクトを追いかける
+        //NPCは基本的にポイントが高くなるオブジェクトを目標地点にする
+        //Playerを追いかける
         if (collider.CompareTag("Player"))
         {
             if (npceat.npc_level > eatObj.level)//npcとplayerが同じレベルなら追いかける

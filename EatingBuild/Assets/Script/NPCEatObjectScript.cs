@@ -9,7 +9,7 @@ public class NPCEatObjectScript : MonoBehaviour
 {
     private bool npcspeedflag = true;
     private float addSpeed = 0.625f;
-    private int halthpoint;//pointの半分のpを切り上げたの値を入れる
+    private int decreasePoint;
     [SerializeField] private EatObjectScript eatObj;//PlayerのeatObjectscriptをアタッチする
     void NPCAddPoint(int number)//ポイントの追加
     {
@@ -29,28 +29,13 @@ public class NPCEatObjectScript : MonoBehaviour
         float agentspeed = _agent.speed;
         spherecol.radius = 10;//sphrecolliderの大きさを指定
     }
-    private IEnumerator DethPlayer()
-    {
-        // if (countDownTimer.seconds > 3)
-        // {
-        Debug.Log("こルーチンが呼ばれた");
-        yield return new WaitForSeconds(3f);
-        Time.timeScale = 0;
-        // revenge.SetActive(true);
-        // }
-        // else
-        // {
-        //     Time.timeScale = 0;
-        //     revenge.SetActive(true);
-        // }
-    }
 
-    private void AccelerationItem()//スピードアップのアイテムを食べた時.略して AT
+    private void AccelerationItem()//スピードアップのアイテムを食べた時
     {
         addSpeed = 0.625f;
         _agent.speed += addSpeed;
     }
-    private void IncreasePointItem()////Pointが増えるアイテムを食べた時.略して INCR
+    private void IncreasePointItem()////Pointが増えるアイテムを食べた時
     {
         if (point < eatObj.obj30p)
         {
@@ -64,10 +49,10 @@ public class NPCEatObjectScript : MonoBehaviour
     }
     private void DecreasePointItem()//Pointが減るアイテムを食べた時。
     {
-        halthpoint = point / 6;//小数点以下は切り捨て。
-        halthpoint = -halthpoint;//-にする
-        Debug.Log("NPCのhalthpointは" + halthpoint);
-        NPCAddPoint(halthpoint);//pointを減少
+        decreasePoint = point / 6;//小数点以下は切り捨て。
+        decreasePoint = -decreasePoint;//-にする
+        Debug.Log("NPCのdecreasePointは" + decreasePoint);
+        NPCAddPoint(decreasePoint);//pointを減少
         if (point >= eatObj.objover1)
         {
             _agent.speed -= addSpeed;
@@ -139,12 +124,7 @@ public class NPCEatObjectScript : MonoBehaviour
                         col.gameObject.SetActive(false);
                         revenge.SetActive(true);
                         Time.timeScale = 0;
-                        // StartCoroutine("DethPlayer");
                     });
-                }
-                else
-                {
-                    NotEatBuild();
                 }
                 break;
 
@@ -163,10 +143,6 @@ public class NPCEatObjectScript : MonoBehaviour
                         col.gameObject.SetActive(false);
 
                     });
-                }
-                else
-                {
-                    NotEatBuild();
                 }
 
                 break;
@@ -239,10 +215,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     });
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
 
@@ -263,10 +235,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     });
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "4p":
@@ -286,10 +254,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     });
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "5p":
@@ -308,10 +272,6 @@ public class NPCEatObjectScript : MonoBehaviour
                         col.gameObject.SetActive(false);
 
                     });
-                }
-                else
-                {
-                    NotEatBuild();
                 }
                 break;
 
@@ -333,10 +293,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     });
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "10p":
@@ -356,10 +312,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     });
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "12p":
@@ -377,10 +329,6 @@ public class NPCEatObjectScript : MonoBehaviour
                         col.gameObject.SetActive(false);
 
                     });
-                }
-                else
-                {
-                    NotEatBuild();
                 }
                 break;
 
@@ -401,10 +349,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     });
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "20p":
@@ -423,10 +367,6 @@ public class NPCEatObjectScript : MonoBehaviour
                         col.gameObject.SetActive(false);
 
                     });
-                }
-                else
-                {
-                    NotEatBuild();
                 }
                 break;
 
@@ -447,10 +387,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     });
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
             case "50p":
@@ -470,10 +406,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
                     });
                 }
-                else
-                {
-                    NotEatBuild();
-                }
                 break;
 
 
@@ -481,13 +413,6 @@ public class NPCEatObjectScript : MonoBehaviour
 
         }
     }
-
-    private void NotEatBuild()
-    {
-
-    }
-
-
 
     void FixedUpdate()
     {
