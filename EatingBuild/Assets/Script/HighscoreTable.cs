@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class HighscoreTable : MonoBehaviour
@@ -19,7 +17,7 @@ public class HighscoreTable : MonoBehaviour
     private GameManager gameManager;
 
     [SerializeField]
-    private GameObject[] nPC;
+    private GameObject[] npc;
 
     private List<HighscoreEntry> highscoreEntryList;//HighscoreEntryクラスにscoreとnameの要素を格納します
     private List<Transform> highscoreentryTransformList;
@@ -36,16 +34,15 @@ public class HighscoreTable : MonoBehaviour
         highscoreEntryList = new List<HighscoreEntry>()
         {
             new HighscoreEntry{score = gameManager.point,name = "Player"},
-            new HighscoreEntry{score = nPC[0].GetComponent<NPCEatObjectScript>().point,name = nPC[0].transform.gameObject.name},
-            new HighscoreEntry{score = nPC[1].GetComponent<NPCEatObjectScript>().point,name = nPC[1].transform.gameObject.name},
-            new HighscoreEntry{score = nPC[2].GetComponent<NPCEatObjectScript>().point,name = nPC[2].transform.gameObject.name},
-            new HighscoreEntry{score = nPC[3].GetComponent<NPCEatObjectScript>().point,name = nPC[3].transform.gameObject.name},
-            new HighscoreEntry{score = nPC[4].GetComponent<NPCEatObjectScript>().point,name = nPC[4].transform.gameObject.name},
-            new HighscoreEntry{score = nPC[5].GetComponent<NPCEatObjectScript>().point,name = nPC[5].transform.gameObject.name},
-            new HighscoreEntry{score = nPC[6].GetComponent<NPCEatObjectScript>().point,name = nPC[6].transform.gameObject.name},
-            new HighscoreEntry{score = nPC[7].GetComponent<NPCEatObjectScript>().point,name = nPC[7].transform.gameObject.name},
-            new HighscoreEntry{score = nPC[8].GetComponent<NPCEatObjectScript>().point,name = nPC[8].transform.gameObject.name},
-            // new HighscoreEntry{score = nPC[9].GetComponent<NPCEatObjectScript>().point,name = "NPC9"},
+            new HighscoreEntry{score = npc[0].GetComponent<NPCEatObjectScript>().point,name = npc[0].transform.gameObject.name},
+            new HighscoreEntry{score = npc[1].GetComponent<NPCEatObjectScript>().point,name = npc[1].transform.gameObject.name},
+            new HighscoreEntry{score = npc[2].GetComponent<NPCEatObjectScript>().point,name = npc[2].transform.gameObject.name},
+            new HighscoreEntry{score = npc[3].GetComponent<NPCEatObjectScript>().point,name = npc[3].transform.gameObject.name},
+            new HighscoreEntry{score = npc[4].GetComponent<NPCEatObjectScript>().point,name = npc[4].transform.gameObject.name},
+            new HighscoreEntry{score = npc[5].GetComponent<NPCEatObjectScript>().point,name = npc[5].transform.gameObject.name},
+            new HighscoreEntry{score = npc[6].GetComponent<NPCEatObjectScript>().point,name = npc[6].transform.gameObject.name},
+            new HighscoreEntry{score = npc[7].GetComponent<NPCEatObjectScript>().point,name = npc[7].transform.gameObject.name},
+            new HighscoreEntry{score = npc[8].GetComponent<NPCEatObjectScript>().point,name = npc[8].transform.gameObject.name},
         };
 
         //スコアが高い順に並べる
@@ -77,7 +74,7 @@ public class HighscoreTable : MonoBehaviour
         //セーブ状態があるかどうか
         if (PlayerPrefs.HasKey("PlayerBestScore"))
         {
-            Debug.Log("PlayerBestScoreのデータがあるよ！");
+            Debug.Log("PlayerBestScoreのデータがあるよ!");
             //今回のscoreがPlayerBestScoreより高かったら更新する
             if (score > playerBestscore)
             {
@@ -89,7 +86,7 @@ public class HighscoreTable : MonoBehaviour
         //ない場合は今回のscoreをそのままPlayerBestScoreに保存する
         else
         {
-            Debug.LogError("PlayerBestScoreのデータがないよ！");
+            Debug.LogError("PlayerBestScoreのデータがないよ");
             PlayerPrefs.SetInt("PlayerBestScore", score);
             PlayerPrefs.Save();
         }
@@ -102,13 +99,13 @@ public class HighscoreTable : MonoBehaviour
 
     private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList)
     {
-        float temlateHeight = 70f;
+        float templateHeight = 70f;
 
         //objectをinstantiateで複製します
         Transform entryTransform = Instantiate(entryTemplate, container);//Instantiate(コピーするPrefab、生成する位置)
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
         //複製した時に配置する位置を70 * transformListの要素の数
-        entryRectTransform.anchoredPosition = new Vector2(0, -temlateHeight * transformList.Count);
+        entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
         entryTransform.gameObject.SetActive(true);
 
         //最上位のランクを0位にしたくないので、i+1をする
@@ -146,9 +143,7 @@ public class HighscoreTable : MonoBehaviour
         }
 
     }
-    /*
-    *Represents a single High score entry
-    **/
+
     private class HighscoreEntry
     {
         public int score;
