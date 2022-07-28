@@ -68,20 +68,7 @@ public class EatObjectScript : MonoBehaviour
         sizeUp_t.SetActive(false);
         kO_t.SetActive(false);
     }
-    private IEnumerator HitStopCorutineSmall()
-    {
-        // Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(0.01f);
-        // Debug.Log("ヒットストップした");
-        // Time.timeScale = 1;
-    }
-    private IEnumerator HitStopCorutineBig()
-    {
-        // Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(0.01f);
-        // Debug.Log("ヒットストップした");
-        // Time.timeScale = 1;
-    }
+
     private void VIbrationFunction()//スマホを振動される関数
     {
         // VibrationMng.ShortVibration();//スマホを短く振動させる
