@@ -11,7 +11,7 @@ public class MostPoint : MonoBehaviour
     [SerializeField] private List<int> npcPoints = new List<int>();
 
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private GameObject crown;//王冠
+    [SerializeField] private GameObject playerCrown;//王冠
 
 
 
@@ -47,10 +47,10 @@ public class MostPoint : MonoBehaviour
                 npcCrown[i].SetActive(false);
             }
         }
-        //npcの最大のpとplayer_pを比較する
+        //最もポイントを持っているNPCとプレイヤーのポイントを比較する
         if (gameManager.point > npcPoints.Max())//playerが一番ポイントが高かったら
         {
-            crown.SetActive(true);//playerの王冠を表示する
+            playerCrown.SetActive(true);//playerの王冠を表示する
             for (int i = 0; i < npcCrown.Length; i++)//それ以外のNPCの王冠は非表示
             {
                 npcCrown[i].SetActive(false);
@@ -58,16 +58,8 @@ public class MostPoint : MonoBehaviour
         }
         else//NPCが1位の場合
         {
-            crown.SetActive(false);//Playerの王冠は非表示にする
-            for (int i = 0; i < nPCEatObjList.Count; i++)
-            {
-                if (npcPoints[i] == npcPoints.Max())//npcPoints.Maxの値とnpcPointsの値が一致したら
-                {
-                    npcCrown[i].SetActive(true);//その要素の番号の王冠を表示する
-                }
-            }
+            playerCrown.SetActive(false);//Playerの王冠は非表示にする
         }
-        // Debug.LogError(npcPoints.Max());
     }
 }
 

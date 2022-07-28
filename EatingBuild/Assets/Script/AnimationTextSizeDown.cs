@@ -23,7 +23,7 @@ public class AnimationTextSizeDown : MonoBehaviour
         Play(time);
         StartCoroutine("DisableItemText");
     }
-
+    //Play()関数の処理内容は説明できません。サイトに載っていたGitHubのソースコードを使っているからです。
     public void Play(float duration)
     {
         const float EACH_DELAY_RATIO = 0.01f;

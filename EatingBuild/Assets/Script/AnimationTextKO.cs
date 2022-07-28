@@ -26,12 +26,12 @@ public class AnimationTextKO : MonoBehaviour//speed up テキスト
         textMeshPro.text = "Killed " + name;
     }
 
+    //Initialize()関数とPlay()関数の処理内容は説明できません。サイトに載っていたGitHubのソースコードを使っているからです。
     private void Initialize()
     {
         textMeshPro.DOFade(0, 0);
         textMeshPro.characterSpacing = -50;
     }
-
     private void Play(float duration)
     {
         // 文字間隔を開ける

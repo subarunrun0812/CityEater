@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 
+
 public class AnimationTextSizeUp : MonoBehaviour
 {
     private DOTweenTMPAnimator tmpAnimator;
@@ -24,6 +25,7 @@ public class AnimationTextSizeUp : MonoBehaviour
         StartCoroutine("DisableItemText");
     }
 
+    //Play()関数の処理内容は説明できません。サイトに載っていたGitHubのソースコードを使っているからです。
     public void Play(float duration)
     {
         const float EACH_DELAY_RATIO = 0.01f;
@@ -44,14 +46,5 @@ public class AnimationTextSizeUp : MonoBehaviour
                 .SetDelay(eachDelay * i);
         }
     }
-    // public void Initialize()
-    // {
-    //     for (var i = 0; i < tmpAnimator.textInfo.characterCount; i++)
-    //     {
-    //         tmpAnimator.DOScaleChar(i, new Vector3(1, 0, 1), 0);
-    //         tmpAnimator.DOColorChar(i, new Color(1f, 0.8f, 0.3f), 0);
-    //         tmpAnimator.DOFadeChar(i, 1, 0);
-    //         Play(time);
-    //     }
-    // }
+
 }

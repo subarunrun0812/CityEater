@@ -120,21 +120,16 @@ public class CountDownTimer : MonoBehaviour
             }
         }
 
-
-        // if (totalTime <= 45f)
-        // {
-        //     Items.SetActive(true);
-        // }
-
         oldSeconds = seconds;
         //制限時間以下になったらコンソールに『制限時間終了』という文字列を表示する
         if (totalTime <= 0f)
         {
             Time.timeScale = 0;
-            seconds += 1f;//これがなかったらQuitボタンが非表示にならないため、必要
+            seconds += 0.5f;//時間を追加しないとボタンが非表示にならないため、必要
             threeSeconds.text = "";
             ItemsText.SetActive(false);
             indicators.SetActive(false);
+            //Continueを一度もしていない場合
             if (flag == true)
             {
                 //timerが0になった時に表示する

@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//巡回しているアイテムと車を削除するスクリプト
 public class DeletePrefab : MonoBehaviour
 {
-    // [SerializeField] private GameObject delArea;//prefabを消したい場所
-
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "5p")//carのgameobject.tag = 5p
         {
-            Destroy(col.gameObject);//Carを削除する
+            Destroy(col.gameObject);
         }
         else if (col.gameObject.tag == "AT")
         {

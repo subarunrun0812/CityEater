@@ -22,19 +22,20 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void AddPoint(int number)//ポイントの追加
+    public void AddPoint(int number)//プレイヤーのポイント追加
     {
         point = point + number;
         // addScoreText.text = $"+{number}";
     }
 
-    public void AddKill(int number)//killした数を追加
-    {
-        killpoint = killpoint + number;
-        killText.text = $"{killpoint} kill";
-    }
+    // public void AddKill(int number)//killした数を追加
+    // {
+    //     killpoint = killpoint + number;
+    //     killText.text = $"{killpoint} kill";
+    // }
 
-    public void ReturnStartSceneButton()//highscoretableを表示した後にスタートシーンに戻るボタン
+    //InspectorのButton Componetからアタッチする
+    public void ReturnStartSceneButton()
     {
         SceneManager.LoadScene("StartScene");
     }
@@ -42,20 +43,5 @@ public class GameManager : MonoBehaviour
     {
         returnstart_b.SetActive(false);
     }
-
-    void Start()
-    {
-        killText.text = "0 kill";
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene("Demo");
-        }
-        // scoreText.text = point.ToString();
-    }
-
 
 }

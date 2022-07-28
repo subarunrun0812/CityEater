@@ -23,7 +23,7 @@ public class StartGameManager : MonoBehaviour
     }
     public void StartButton()
     {
-        SceneManager.LoadScene("Demo");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void ActiveChangeSkinButton()//buttonが押されたらscrollviewを表示する

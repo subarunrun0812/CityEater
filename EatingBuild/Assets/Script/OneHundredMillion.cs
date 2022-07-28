@@ -10,7 +10,6 @@ public class OneHundredMillion : MonoBehaviour
 
     private IEnumerator DisableItemText()
     {
-        Debug.Log("Corutineが呼ばれた");
         yield return new WaitForSeconds(time + 1f);
         this.gameObject.SetActive(false);
     }
@@ -23,6 +22,7 @@ public class OneHundredMillion : MonoBehaviour
         Play(time);
         StartCoroutine("DisableItemText");
     }
+    //Initialize()関数とPlay()関数の処理内容は説明できません。サイトに載っていたGitHubのソースコードを使っているからです。
     private void Initialize()
     {
         for (var i = 0; i < tmpAnimator.textInfo.characterCount; i++)
@@ -48,6 +48,5 @@ public class OneHundredMillion : MonoBehaviour
                 .Join(tmpAnimator.DOFadeChar(i, 0, eachDuration / 4))
                 .SetDelay(eachDelay * i);
         }
-        Debug.Log("Playが呼ばれた");
     }
 }
