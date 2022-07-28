@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Runtime.InteropServices;
 
+//ATTトラッキングを表示するスクリプト。app storeの審査を通るよう
 public class AttRequestScript : MonoBehaviour
 {
 #if UNITY_IOS//iOSの場合だけ処理

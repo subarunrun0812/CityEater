@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//https://www.youtube.com/watch?v=xBxvqxsxdR8
+//↑この動画を見て作り、コードの全ての解読は出来なかったため、説明できません。
 public class swipe : MonoBehaviour
 {
     public Color[] colors; // 下の小さいボタンの通常時の色 または 選択(拡大)された時の色
@@ -22,7 +24,7 @@ public class swipe : MonoBehaviour
     }
     void Update()
     {
-        pos = new float[transform.childCount];//子オブジェクトの数を代入
+        pos = new float[transform.childCount];
         float distance = 1f / (pos.Length - 1f);//横幅か間隔？？ (例)pos = 3 の時、2分の1
 
         if (runIt)
