@@ -72,7 +72,7 @@ public class PlayerTrigger : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         SampleMaterial sampleMaterial = col.GetComponent<SampleMaterial>();
-        if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する
+        if (sampleMaterial == null)//もし、sampleMaterialスクリプトがついていなかったら追加する。
         {
             col.gameObject.AddComponent<SampleMaterial>();
         }
