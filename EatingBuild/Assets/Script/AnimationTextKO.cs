@@ -27,6 +27,7 @@ public class AnimationTextKO : MonoBehaviour//speed up テキスト
     }
 
     //Initialize()関数とPlay()関数の処理内容は説明できません。サイトに載っていたGitHubのソースコードを使っているからです。
+    // TODO: 解読する。
     private void Initialize()
     {
         textMeshPro.DOFade(0, 0);

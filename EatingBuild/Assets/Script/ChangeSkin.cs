@@ -18,10 +18,10 @@ public class ChangeSkin : MonoBehaviour
     //合計プレイ回数を増やす
     private int totalCount;
 
-    public int unLockSkin0 = 10000;//1万
-    public int unLockSkin1 = 50000;//5万
-    public int unLockSkin2 = 100000;//10万
-    public int unLockToal_Skin3 = 1000000;//100万
+    public int unLockSkin0 = 10_000;//1万
+    public int unLockSkin1 = 50_000;//5万
+    public int unLockSkin2 = 100_000;//10万
+    public int unLockToal_Skin3 = 1_000_000;//100万
     public int unLockTotal_Skin4 = 5000000;//500万
     public int unLockTotal_Skin5 = 10000000;//1000万
     public int TotalCount_skin1;//

@@ -5,27 +5,15 @@ using System;
 using System.Linq;
 public class RayCamera : MonoBehaviour
 {
-    /// <summary>
-    /// 被写体を指定してください。
-    /// </summary>
     [SerializeField]
     private Transform player;
-
-
     [SerializeField] private GameManager gameManager;
 
     [SerializeField] private EatObjectScript eatObject;
 
-
-    /// <summary>
-    /// 前回の Update で検出された遮蔽物のGameObject。
-    /// 今回の Update で該当しない場合は、遮蔽物ではなくなったので 不透明にする
-    /// </summary>
+    // 今回のUpdateで検出された遮蔽物のGameObject。
     public GameObject[] prevRaycast;
-
-    /// <summary>
-    /// 今回の Update で検出された遮蔽物の GameObject コンポーネント。
-    /// </summary>
+    // 次のUpdateで該当しない場合は、遮蔽物ではなくなったので 不透明にする
     public List<GameObject> raycastHitsList_ = new List<GameObject>();
 
 

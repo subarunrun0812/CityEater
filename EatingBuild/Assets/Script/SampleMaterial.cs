@@ -19,9 +19,9 @@ public class SampleMaterial : MonoBehaviour
 
     void Awake()
     {
-        meshRenderers = this.GetComponentsInChildren<MeshRenderer>();//子オブジェクトと親オブジェクトのmeshrendererを取得
+        meshRenderers = this.GetComponentsInChildren<MeshRenderer>();
     }
-    public void ClearMaterialInvoke()//objecを半透明にする関数
+    public void ClearMaterialInvoke()
     {
         color.a = 0.15f;
         mpb.SetColor(Shader.PropertyToID("_Color"), color);
@@ -31,7 +31,7 @@ public class SampleMaterial : MonoBehaviour
             meshRenderers[i].SetPropertyBlock(mpb);//一部のプロパティだけ変更できるようにする。
         }
     }
-    public void NotClearMaterialInvoke()//objecを非透明に戻す関数
+    public void NotClearMaterialInvoke()
     {
         color.b = 1f;
         mpb.SetColor(Shader.PropertyToID("_Color"), color);

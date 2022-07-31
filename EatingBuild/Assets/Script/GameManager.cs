@@ -16,12 +16,7 @@ public class GameManager : MonoBehaviour
     public int killpoint;
     [SerializeField] private Text killText;//killした数を表示
     public Color EndColor;
-
     public int[] score_all;//NPCとplayerのスコアを格納する
-
-
-
-
     public void AddPoint(int number)//プレイヤーのポイント追加
     {
         point = point + number;

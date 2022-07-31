@@ -26,6 +26,8 @@ public class AnimationTextSizeUp : MonoBehaviour
     }
 
     //Play()関数の処理内容は説明できません。サイトに載っていたGitHubのソースコードを使っているからです。
+    // TODO: 解読する。
+
     public void Play(float duration)
     {
         const float EACH_DELAY_RATIO = 0.01f;
