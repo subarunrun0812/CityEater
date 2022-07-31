@@ -33,24 +33,4 @@ public class PlayerFollowCamera : MonoBehaviour
         transform.position = player.position + new Vector3(0, 3, 0) - transform.rotation * Vector3.forward * distance;
     }
 
-
-    //プレイヤーのレベルに応じてカメラとの距離を指定するようにした。 Playerが小さくなったときに、カメラとの距離が離れたままで、こちらが想定した挙動ではなかったため
-
-    // public void CameraDistanceSmall()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける.0.5f遠ざけていく
-    // {
-    //     distance = distance + 2f;
-    //     Debug.Log(distance);
-    // }
-
-    // public void CameraDistanceMedium()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
-    // {
-    //     distance = distance + 4f;
-    //     Debug.Log(distance);
-    // }
-
-    // public void CameraDistanceLarge()//playerが大きくなる度に呼ばれる関数。その度にカメラとplayerの距離を遠ざける 1.0f遠ざけていく
-    // {
-    //     distance = distance + 10f;
-    //     Debug.Log(distance);
-    // }
 }

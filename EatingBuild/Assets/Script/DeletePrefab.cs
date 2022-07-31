@@ -7,23 +7,10 @@ public class DeletePrefab : MonoBehaviour
 {
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "5p")//carのgameobject.tag = 5p
-        {
-            Destroy(col.gameObject);
-        }
-        else if (col.gameObject.tag == "AT")
-        {
-            Destroy(col.gameObject);
-        }
-        else if (col.gameObject.tag == "INCR")
-        {
-            Destroy(col.gameObject);
-        }
-        else if (col.gameObject.tag == "DEC")
-        {
-            Destroy(col.gameObject);
-        }
-        else if (col.gameObject.tag == "QUESTION")
+        //carのgameobject.tag = 5p
+        if (col.gameObject.tag == "5p" || col.gameObject.tag == "AT" ||
+            col.gameObject.tag == "INCR" || col.gameObject.tag == "DEC" ||
+            col.gameObject.tag == "QUESTION")
         {
             Destroy(col.gameObject);
         }

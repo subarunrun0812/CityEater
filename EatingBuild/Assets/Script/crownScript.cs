@@ -20,10 +20,6 @@ public class crownScript : MonoBehaviour
         this.transform.position = target.position + offset;
         this.transform.localScale = player.transform.localScale + addScale;
 
-        //６秒かけてまわり続ける
-        //     transform.DOLocalRotate(new Vector3(0, 360f, 0), 1f, RotateMode.FastBeyond360)
-        //  .SetEase(Ease.Linear)
-        //  .SetLoops(-1, LoopType.Restart);
     }
 
 }

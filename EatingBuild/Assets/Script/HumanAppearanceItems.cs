@@ -18,7 +18,7 @@ public class HumanAppearanceItems : MonoBehaviour
         InvokeRepeating("TimeInstantiateItems", 0f, itemTime);
     }
 
-    private void TimeInstantiateItems()//一定時間ごとにItemを生成する
+    private void TimeInstantiateItems()//一定時間ごとにこの関数が呼ばれる
     {
         if (places.Count != 0)
         {
@@ -30,15 +30,10 @@ public class HumanAppearanceItems : MonoBehaviour
                 }
 
                 int itemsRandom = Random.Range(0, items.Count);
-                // int placesRandom = Random.Range(0, places.Count);
                 Instantiate(items[itemsRandom], places[placesNumber].transform.position, items[itemsRandom].transform.rotation);
-                // revivalList.Add(places[placesNumber]);
-                // places.RemoveAt(placesNumber);
                 revivalItm.Add(items[itemsRandom]);
                 items.RemoveAt(itemsRandom);
                 placesNumber++;
-                // Debug.LogError("placesNumber : " + placesNumber);
-                // Debug.LogError("itemsRandom : " + itemsRandom);
             }
             else
             {
@@ -52,22 +47,14 @@ public class HumanAppearanceItems : MonoBehaviour
                 {
                     items.Add(revivalItm[i]);
                 }
-                for (int i = 0; i < revivalItm.Count; i++)
-                {
-                    revivalItm.RemoveAt(i);
-                }
+
                 //リスト自体をキレイにする
                 revivalItm.Clear();
                 int itemsRandom = Random.Range(0, items.Count);
-                // int placesRandom = Random.Range(0, places.Count);
                 Instantiate(items[itemsRandom], places[placesNumber].transform.position, items[itemsRandom].transform.rotation);
-                // revivalList.Add(places[placesNumber]);
-                // places.RemoveAt(placesNumber);
                 revivalItm.Add(items[itemsRandom]);
                 items.RemoveAt(itemsRandom);
                 placesNumber++;
-                // Debug.LogError("placesNumber : " + placesNumber);
-                // Debug.LogError("itemsRandom : " + itemsRandom);
             }
         }
     }
