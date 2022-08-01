@@ -1,4 +1,3 @@
-using System.Collections;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,8 +13,7 @@ public class TriggerDetector : MonoBehaviour
         onTriggerStay.Invoke(other);
     }
 
-    //UnityEventを継承したクラスに[Serializable]属性を付与することで
-    //Inspectorウィンドウ上に表示できるようになる
+    //UnityEventを継承したクラスに[Serializable]属性を付与することでInspectorウィンドウ上に表示できるようになる
     [Serializable]
     public class TriggerEvent : UnityEvent<Collider>//collider = trigger or collision
     {

@@ -1,10 +1,7 @@
-using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEditor;
 using System.Collections;
-using UnityEngine.UI;
 public class AnimationTextKO : MonoBehaviour//speed up テキスト
 {
 

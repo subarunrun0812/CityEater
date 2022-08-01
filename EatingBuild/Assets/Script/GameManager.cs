@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
 
@@ -20,15 +17,7 @@ public class GameManager : MonoBehaviour
     public void AddPoint(int number)//プレイヤーのポイント追加
     {
         point = point + number;
-        // addScoreText.text = $"+{number}";
     }
-
-    // public void AddKill(int number)//killした数を追加
-    // {
-    //     killpoint = killpoint + number;
-    //     killText.text = $"{killpoint} kill";
-    // }
-
     //InspectorのButton Componetからアタッチする
     public void ReturnStartSceneButton()
     {
@@ -38,5 +27,4 @@ public class GameManager : MonoBehaviour
     {
         returnstart_b.SetActive(false);
     }
-
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -26,9 +25,6 @@ public class MostPoint : MonoBehaviour
             //要素数を増やす
             npcPoints.Add(nPCEatObjList[i].point);
         }
-        // Debug.LogError("npcArray.Length" + npcArray.Length);
-        // Debug.LogError("npcPoints.Count" + npcPoints.Count);
-
     }
 
     void Update()

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 public class CountDownTimer : MonoBehaviour
 {
@@ -36,11 +33,6 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] private GameObject indicators;
     [SerializeField] private GameObject lvUI;
     private int totalCount;//プレイした合計の回数
-
-
-
-    // [SerializeField] private GameObject banner;//google banner
-
     private bool flag = true;//continueを1回しか出来ないようにする
     void Start()
     {
@@ -57,7 +49,6 @@ public class CountDownTimer : MonoBehaviour
         ItemsText.SetActive(true);
         indicators.SetActive(true);
         lvUI.SetActive(true);
-        // banner.SetActive(false);
 
         //bgmを再生
         audioSource.PlayOneShot(bgm);
@@ -72,13 +63,6 @@ public class CountDownTimer : MonoBehaviour
         {
             flag = false;
         }
-
-        // else if (_player.activeSelf == false)//playerが死んだ時に復活するとき
-        // {
-        //     seconds += 30;//30秒追加.この仕組みを使ったら、対戦時間を永延とプレイしてもらえる→広告をたくさん見てもらえる。
-        //     gameManager.AddPoint(gameManager.point * 2);
-        //     _player.SetActive(true);
-        // }
     }
     public void QuitButton()//quitボタンを押したら、Result画面を表示する
     {
@@ -95,7 +79,6 @@ public class CountDownTimer : MonoBehaviour
         PlayerPrefs.SetInt("TotalCount", totalCount);
         PlayerPrefs.Save();
         Debug.LogError("TotalCount = " + totalCount);
-        // banner.SetActive(true);
     }
     void Update()
     {

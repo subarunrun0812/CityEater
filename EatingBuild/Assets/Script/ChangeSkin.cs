@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
 using TMPro;
 
 public class ChangeSkin : MonoBehaviour
@@ -100,20 +96,6 @@ public class ChangeSkin : MonoBehaviour
                 Lockskin[8].SetActive(false);
             }
         }
-        // if (PlayerPrefs.HasKey("ChangeNumber"))
-        //     Debug.Log("スキンの順番のデータがあるよ！");
-        // else
-        //     Debug.Log("スキンの順番のデータがないよ！");
-
-        // if (PlayerPrefs.HasKey("TotalScore"))
-        //     Debug.LogError("トータルスコアのデータがあるよ！");
-        // else
-        //     Debug.LogError("トータルスコアのデータがないよ！");
-
-        // if (PlayerPrefs.HasKey("GameScore"))
-        //     Debug.LogError("ゲームスコアのデータがあるよ！");
-        // else
-        //     Debug.LogError("ゲームスコアのデータがないよ！");
 
     }
 

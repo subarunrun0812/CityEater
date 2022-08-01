@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
 
 public class SampleMaterial : MonoBehaviour
 {
@@ -12,6 +10,7 @@ public class SampleMaterial : MonoBehaviour
     public MaterialPropertyBlock mpb
     {
         //TODO: このコードを説明できるようにしっかり理解する
+        //空だったら、新しくインスタンスを作ってそれを返す。
         //?? 演算子は、null 合体演算子と呼ばれます。
         //左側のオペランドが null 値でない場合には左側のオペランドを返し、null 値である場合には右側のオペランドを返します。
         get { return m_mpb ?? (m_mpb = new MaterialPropertyBlock()); }

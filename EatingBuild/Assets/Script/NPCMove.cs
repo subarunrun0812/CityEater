@@ -1,10 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-//NavMeshAgent使うときに必要
 using UnityEngine.AI;
-using System.Linq;
 
 //オブジェクトにNavMeshAgentコンポーネントを設置
 [RequireComponent(typeof(NavMeshAgent))]

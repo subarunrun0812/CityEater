@@ -1,8 +1,6 @@
-using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEditor;
 using System.Collections;
 
 public class AnimationText1 : MonoBehaviour//speed up テキスト
