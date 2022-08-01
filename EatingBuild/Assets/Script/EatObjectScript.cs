@@ -320,7 +320,6 @@ public class EatObjectScript : MonoBehaviour
             case "10p":
                 if (p >= obj10p)
                 {
-                    StartCoroutine("HitStopCorutineBig");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTime,   // 演出時間
@@ -341,7 +340,6 @@ public class EatObjectScript : MonoBehaviour
             case "12p":
                 if (p >= obj12p)
                 {
-                    StartCoroutine("HitStopCorutineBig");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
@@ -362,7 +360,6 @@ public class EatObjectScript : MonoBehaviour
             case "15p":
                 if (p >= obj15p)
                 {
-                    StartCoroutine("HitStopCorutineBig");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeApartment,   // 演出時間
@@ -383,7 +380,6 @@ public class EatObjectScript : MonoBehaviour
             case "20p":
                 if (p >= obj20p)
                 {
-                    StartCoroutine("HitStopCorutineBig");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
@@ -404,7 +400,6 @@ public class EatObjectScript : MonoBehaviour
             case "30p":
                 if (p >= obj30p)
                 {
-                    StartCoroutine("HitStopCorutineBig");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間
@@ -424,7 +419,6 @@ public class EatObjectScript : MonoBehaviour
             case "50p":
                 if (p >= obj50p)
                 {
-                    StartCoroutine("HitStopCorutineBig");
                     col.enabled = false;
                     col.transform.DOShakeRotation(
                          duration: smallTimeBigApartment,   // 演出時間

@@ -2,13 +2,11 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 public class AnimationTextKO : MonoBehaviour//speed up テキスト
 {
-
     private TextMeshProUGUI textMeshPro;
-
     [SerializeField] private float time = 1.5f;
-
     private IEnumerator DisableItemText()
     {
         yield return new WaitForSeconds(time);

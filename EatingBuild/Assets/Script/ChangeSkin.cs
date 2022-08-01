@@ -3,17 +3,14 @@ using TMPro;
 
 public class ChangeSkin : MonoBehaviour
 {
-
     public GameObject[] _changeskin;
     public GameObject[] Lockskin;//まだ、条件を達成できていないスキンは上から画像を貼り、選べなくする。
-
     [SerializeField] private TextMeshProUGUI bestscoreText;
     private int totalScore;
     public static int changeNumber;//demoシーンで同期させるためにstatic修飾子を使う
     private int playerBestscore;
     //合計プレイ回数を増やす
     private int totalCount;
-
     public int unLockSkin0 = 10_000;//1万
     public int unLockSkin1 = 50_000;//5万
     public int unLockSkin2 = 100_000;//10万
@@ -241,12 +238,6 @@ public class ChangeSkin : MonoBehaviour
             SaveDate();
         }
     }
-
-
-
-
-
-
     private void Resetchangeskin()//全ての着せ替えを非表示にする
     {
         for (int i = 0; i < _changeskin.Length; i++)
@@ -275,11 +266,4 @@ public class ChangeSkin : MonoBehaviour
         PlayerPrefs.SetInt("ChangeNumber", changeNumber);
         PlayerPrefs.Save();
     }
-
-
-
-
-
-
-
 }

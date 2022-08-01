@@ -6,9 +6,7 @@ using System.Collections;
 public class AnimationTextSizeDown : MonoBehaviour
 {
     private DOTweenTMPAnimator tmpAnimator;
-
     [SerializeField] private float time = 2;
-
     private IEnumerator DisableItemText()
     {
         yield return new WaitForSeconds(time);

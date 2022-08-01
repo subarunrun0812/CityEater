@@ -13,20 +13,15 @@ public class CountDownTimer : MonoBehaviour
     private float oldSeconds;
     [SerializeField] public AudioClip bgm;
     [SerializeField] AudioSource audioSource;
-
     [SerializeField] private GameObject Items;
-
     [SerializeField] private Text timerText;
-
     [SerializeField] private GameObject notime;
     [SerializeField] private GameObject continue_b;
     [SerializeField] private GameObject quit_b;
-
     [SerializeField] private GameObject revenge;//死んだ時に表示するボタンの親オブジェクト
-
     [SerializeField] private GameObject highScoreTable;
     [SerializeField] private GameObject scoreUI;
-    [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject player;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI threeSeconds;//３秒前
     [SerializeField] private GameObject ItemsText;
@@ -59,7 +54,7 @@ public class CountDownTimer : MonoBehaviour
         notime.SetActive(false);
         revenge.SetActive(false);
         Time.timeScale = 1;
-        if (_player.activeSelf == true)
+        if (player.activeSelf == true)
         {
             flag = false;
         }
@@ -72,7 +67,6 @@ public class CountDownTimer : MonoBehaviour
         highScoreTable.SetActive(true);
         Time.timeScale = 0;
         lvUI.SetActive(false);
-
         //合計プレイ回数を増やす
         totalCount = PlayerPrefs.GetInt("TotalCount", totalCount);
         totalCount += 1;
