@@ -110,7 +110,6 @@ public class EatObjectScript : MonoBehaviour
         {
             playerController.speed -= addSpeed;
         }
-
     }
     private void QuestionItem()//questionが食べられた時。
     {
@@ -129,7 +128,6 @@ public class EatObjectScript : MonoBehaviour
                 break;
         }
     }
-
     void OnTriggerEnter(Collider col)//食べた時の処理
     {
         int p = gameManager.point;//Playerのぽいん
@@ -209,30 +207,24 @@ public class EatObjectScript : MonoBehaviour
                     EatPointObjFunction(col, 2, smallTime);
                 }
                 break;
-
-
             case "3p":
                 if (p >= obj3p)
                 {
                     EatPointObjFunction(col, 3, smallTime);
                 }
                 break;
-
             case "4p":
                 if (p >= obj4p)
                 {
                     EatPointObjFunction(col, 4, smallTime);
                 }
                 break;
-
             case "5p":
                 if (p >= obj5p)
                 {
                     EatPointObjFunction(col, 5, smallTime);
                 }
                 break;
-
-
             case "8p":
                 if (p >= obj8p)
                 {
@@ -302,289 +294,169 @@ public class EatObjectScript : MonoBehaviour
 
     void FixedUpdate()//playerのレベルに応じて、パラメーターを変更
     {
-
+        int p = gameManager.point;
+        if (p < obj2p)
         {
-            int p = gameManager.point;
-
-            if (p < obj2p)
+            this.gameObject.transform.DOScale(
+                new Vector3(1f, 1f, 1f), playerScaleTime
+            );
+            level = 0;
+            level_t.text = "0";
+        }
+        else if (obj2p <= p && p < obj3p)
+        {
+            ChangeInSize(1.5f, 21, obj2p, obj3p, 1);
+        }
+        else if (obj3p <= p && p < obj4p)
+        {
+            ChangeInSize(2f, 23, obj3p, obj4p, 2);
+        }
+        else if (obj4p <= p && p < obj5p)
+        {
+            ChangeInSize(2.5f, 25, obj4p, obj5p, 3);
+            if (speedflag == true)
             {
-                this.gameObject.transform.DOScale(
-                    new Vector3(1f, 1f, 1f), playerScaleTime
-                );
-                level = 0;
-                level_t.text = "0";
-            }
-            else if (obj2p <= p && p < obj3p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(1.5f, 1.5f, 1.5f), playerScaleTime
-                );
-                refCamera.distance = 21;
-
-                //sphimgの円グラフのゲージについての処理
-                float proportion = ((float)gameManager.point - obj2p) / (obj3p - obj2p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 1;
-                level_t.text = "1";
-            }
-            else if (obj3p <= p && p < obj4p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(2f, 2f, 2f), playerScaleTime
-                );
-                refCamera.distance = 23;
-
-                float proportion = ((float)gameManager.point - obj3p) / (obj4p - obj3p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 2;
-                level_t.text = "2";
-            }
-            else if (obj4p <= p && p < obj5p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(2.5f, 2.5f, 2.5f), playerScaleTime
-                );
-                refCamera.distance = 25;
-
-                float proportion = ((float)gameManager.point - obj4p) / (obj5p - obj4p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 3;
-                level_t.text = "3";
-                if (speedflag == true)
-                {
-                    speedflag = false;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (obj5p <= p && p < obj8p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(3f, 3f, 3f), playerScaleTime
-                );
-                refCamera.distance = 27;
-
-                float proportion = ((float)gameManager.point - obj5p) / (obj8p - obj5p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 4;
-                level_t.text = "4";
-                if (speedflag == false)
-                {
-                    speedflag = true;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (obj8p <= p && p < obj10p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(4f, 4f, 4f), playerScaleTime
-                );
-                refCamera.distance = 31;
-                float proportion = ((float)gameManager.point - obj8p) / (obj10p - obj8p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 5;
-                level_t.text = "5";
-                if (speedflag == true)
-                {
-                    speedflag = false;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (obj10p <= p && p < obj12p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(6f, 6f, 6f), playerScaleTime
-                );
-                refCamera.distance = 35;
-                float proportion = ((float)gameManager.point - obj10p) / (obj12p - obj10p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 6;
-                level_t.text = "6";
-                if (speedflag == false)
-                {
-                    speedflag = true;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (obj12p <= p && p < obj15p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(8f, 8f, 8f), playerScaleTime
-                );
-                refCamera.distance = 39;
-                float proportion = ((float)gameManager.point - obj12p) / (obj15p - obj12p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 7;
-                level_t.text = "7";
-                if (speedflag == true)
-                {
-                    speedflag = false;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (obj15p <= p && p < obj20p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(10f, 10f, 10f), playerScaleTime
-                );
-                refCamera.distance = 49;
-                float proportion = ((float)gameManager.point - obj15p) / (obj20p - obj15p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 8;
-                level_t.text = "8";
-                if (speedflag == false)
-                {
-                    speedflag = true;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (obj20p <= p && p < obj30p)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(12f, 12f, 12f), playerScaleTime
-                );
-                refCamera.distance = 59;
-                float proportion = ((float)gameManager.point - obj20p) / (obj30p - obj20p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 9;
-                level_t.text = "9";
-                if (speedflag == true)
-                {
-                    speedflag = false;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (obj30p <= p && p < objover1)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(14f, 14f, 14f), playerScaleTime
-                );
-                refCamera.distance = 71;
-                float proportion = ((float)gameManager.point - obj30p) / (objover1 - obj30p);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 10;
-                level_t.text = "10";
-                if (speedflag == false)
-                {
-                    speedflag = true;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (objover1 <= p && p < objover2)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(16f, 16f, 16f), playerScaleTime
-                );
-                refCamera.distance = 79;
-                float proportion = ((float)gameManager.point - objover1) / (objover2 - objover1);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 11;
-                level_t.text = "11";
-                if (speedflag == true)
-                {
-                    speedflag = false;
-                    playerController.speed += addSpeed;
-                }
-
-            }
-            else if (objover2 <= p && p < objover3)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(18f, 18f, 18f), playerScaleTime
-                );
-                refCamera.distance = 89;
-                float proportion = ((float)gameManager.point - objover2) / (objover3 - objover2);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 12;
-                level_t.text = "12";
-                if (speedflag == false)
-                {
-                    speedflag = true;
-                    playerController.speed += addSpeed;
-                }
-
-            }
-            else if (objover3 <= p && p < objover4)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(20f, 20f, 20f), playerScaleTime
-                );
-                refCamera.distance = 99;
-                float proportion = ((float)gameManager.point - objover3) / (objover4 - objover3);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 13;
-                level_t.text = "13";
-                if (speedflag == true)
-                {
-                    speedflag = false;
-                    playerController.speed += addSpeed;
-                }
-
-            }
-            else if (objover4 <= p && p < objover5)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(22f, 22f, 22f), playerScaleTime
-                );
-                refCamera.distance = 109;
-                float proportion = ((float)gameManager.point - objover4) / (objover5 - objover4);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 14;
-                level_t.text = "14";
-                if (speedflag == false)
-                {
-                    speedflag = true;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (objover5 <= p && p < objover6)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(24f, 24f, 24f), playerScaleTime
-                );
-                refCamera.distance = 119;
-                float proportion = ((float)gameManager.point - objover5) / (objover6 - objover5);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 15;
-                level_t.text = "15";
-                bool trophy = true;
-
-                if (p >= 100000 && trophy == true)
-                {
-                    trophy = false;
-                    tropyObj.SetActive(true);
-                    // _100m_script.OnEnable("100,000");
-                    Debug.Log("100000を超えた");
-                }
-                if (speedflag == true)
-                {
-                    speedflag = false;
-                    playerController.speed += addSpeed;
-                }
-            }
-            else if (objover6 <= p && p < objoverMax)
-            {
-                this.gameObject.transform.DOScale(
-                    new Vector3(26f, 26f, 26f), playerScaleTime
-                );
-                refCamera.distance = 129;
-                float proportion = ((float)gameManager.point - objover6) / (objoverMax - objover6);//割合 = 元の数 / 比べる数
-                sphImg.fillAmount = proportion;
-                level = 16;
-                level_t.text = "16";
-                if (speedflag == false)
-                {
-                    speedflag = true;
-                    playerController.speed += addSpeed;
-                }
-            }
-
-            else if (p == objoverMax)//int型の最大値に達したとき
-            {
-                float proportion = 1;
-                sphImg.fillAmount = proportion;
-                //ゲームを強制終了
-                highScoreTable.SetActive(true);
+                speedflag = false;
+                playerController.speed += addSpeed;
             }
         }
+        else if (obj5p <= p && p < obj8p)
+        {
+            ChangeInSize(3f, 27, obj5p, obj8p, 4);
+            if (speedflag == false)
+            {
+                speedflag = true;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (obj8p <= p && p < obj10p)
+        {
+            ChangeInSize(4f, 31, obj8p, obj10p, 5);
+            if (speedflag == true)
+            {
+                speedflag = false;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (obj10p <= p && p < obj12p)
+        {
+            ChangeInSize(6f, 35, obj10p, obj12p, 6);
+            if (speedflag == false)
+            {
+                speedflag = true;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (obj12p <= p && p < obj15p)
+        {
+            ChangeInSize(8f, 39, obj12p, obj15p, 7);
+            if (speedflag == true)
+            {
+                speedflag = false;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (obj15p <= p && p < obj20p)
+        {
+            ChangeInSize(10f, 49, obj15p, obj20p, 8);
+            if (speedflag == false)
+            {
+                speedflag = true;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (obj20p <= p && p < obj30p)
+        {
+            ChangeInSize(12f, 59, obj20p, obj30p, 9);
+            if (speedflag == true)
+            {
+                speedflag = false;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (obj30p <= p && p < objover1)
+        {
+            ChangeInSize(14f, 71, obj30p, objover1, 10);
+            if (speedflag == false)
+            {
+                speedflag = true;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (objover1 <= p && p < objover2)
+        {
+            ChangeInSize(16f, 79, objover1, objover2, 11);
+            if (speedflag == true)
+            {
+                speedflag = false;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (objover2 <= p && p < objover3)
+        {
+            ChangeInSize(18f, 89, objover2, objover3, 12);
+            if (speedflag == false)
+            {
+                speedflag = true;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (objover3 <= p && p < objover4)
+        {
+            ChangeInSize(20f, 99, objover3, objover4, 13);
+            if (speedflag == true)
+            {
+                speedflag = false;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (objover4 <= p && p < objover5)
+        {
+            ChangeInSize(22f, 109, objover4, objover5, 14);
+            if (speedflag == false)
+            {
+                speedflag = true;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (objover5 <= p && p < objover6)
+        {
+            ChangeInSize(24f, 119, objover5, objover6, 15);
+            if (speedflag == true)
+            {
+                speedflag = false;
+                playerController.speed += addSpeed;
+            }
+        }
+        else if (objover6 <= p && p < objoverMax)
+        {
+            ChangeInSize(26, 129, objover6, objoverMax, 16);
+            if (speedflag == false)
+            {
+                speedflag = true;
+                playerController.speed += addSpeed;
+            }
+        }
+
+        else if (p == objoverMax)//int型の最大値に達したとき
+        {
+            float proportion = 1;
+            sphImg.fillAmount = proportion;
+            //ゲームを強制終了
+            highScoreTable.SetActive(true);
+        }
+
+    }
+    private void ChangeInSize(float size, int cameraDis, int num1, int num2, int levelNum)
+    {
+        this.gameObject.transform.DOScale(
+                    new Vector3(size, size, size), playerScaleTime
+                );
+        refCamera.distance = cameraDis;
+        float proportion = ((float)gameManager.point - num1) / (num2 - num1);//割合 = 元の数 / 比べる数
+        sphImg.fillAmount = proportion;
+        level = levelNum;
+        string levelText = $"{levelNum}";
+        level_t.text = levelText;
     }
 }
