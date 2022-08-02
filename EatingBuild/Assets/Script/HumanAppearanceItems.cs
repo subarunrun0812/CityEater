@@ -14,10 +14,10 @@ public class HumanAppearanceItems : MonoBehaviour
     void Start()
     {
         //InvokeRepeating("関数名,初回呼び出しまでの秒数,次回呼び出しまでの秒数)
-        InvokeRepeating("TimeInstantiateItems", 0f, itemTime);
+        InvokeRepeating("InstantiateItems", 0f, itemTime);
     }
 
-    private void TimeInstantiateItems()//一定時間ごとにこの関数が呼ばれる
+    private void InstantiateItems()//一定時間ごとにこの関数が呼ばれる
     {
         if (places.Count != 0)
         {

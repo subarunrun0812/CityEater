@@ -3,7 +3,6 @@ using DG.Tweening;
 using UnityEngine.UI;
 public class EatObjectScript : MonoBehaviour
 {
-    private bool ptsText_flag = true;
     private bool speedflag = true;
     private float addSpeed = 0.016f;
     public float smallTime = 2;//objectを小さくするのにかかる時間
@@ -26,12 +25,11 @@ public class EatObjectScript : MonoBehaviour
     [SerializeField] private GameObject speedUp_t;
     [SerializeField] private GameObject kO_t;
     [SerializeField] private AnimationTextKO ko_script;
-    [SerializeField] private GameObject _100m_t;
+    [SerializeField] private GameObject tropyObj;
 
     [SerializeField] private OneHundredMillion _100m_script;
     [SerializeField] public AudioClip sound1;
     [SerializeField] AudioSource audioSource;
-    [SerializeField] private GameObject effectPrefab;
     public int level;//pointを一定ごとにlvに分類させていく
     private float changeSpeed;
     public int obj2p;
@@ -65,7 +63,11 @@ public class EatObjectScript : MonoBehaviour
 
     private void VIbrationFunction()//スマホを振動される関数
     {
-        // VibrationMng.ShortVibration();//スマホを短く振動させる
+#if UNITY_IOS
+#if UNITY_ANDROID
+        VibrationMng.ShortVibration();//スマホを短く振動させる
+#endif
+#endif
         //音楽を鳴らす
         //音(sound1)を鳴らす
         audioSource.PlayOneShot(sound1);
@@ -195,104 +197,38 @@ public class EatObjectScript : MonoBehaviour
                 break;
 
             case "1p":
-
                 if (p >= 0)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTime,   // 演出時間
-                         strength: 90f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(1);//ポイントを1追加する
-                        col.gameObject.SetActive(false);
-                    });
-                    VIbrationFunction();
-
+                    EatPointObjFunction(col, 1, smallTime);
                 }
-
                 break;
 
             case "2p":
-
                 if (p >= obj2p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTime,   // 演出時間
-                         strength: 90f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(2);
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 2, smallTime);
                 }
                 break;
 
 
             case "3p":
-
                 if (p >= obj3p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTime,   // 演出時間
-                         strength: 90f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(3);
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 3, smallTime);
                 }
                 break;
 
             case "4p":
-
                 if (p >= obj4p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTime,   // 演出時間
-                         strength: 90f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(4);
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 4, smallTime);
                 }
                 break;
 
             case "5p":
-
                 if (p >= obj5p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTime,   // 演出時間
-                         strength: 90f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(5);
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 5, smallTime);
                 }
                 break;
 
@@ -300,144 +236,69 @@ public class EatObjectScript : MonoBehaviour
             case "8p":
                 if (p >= obj8p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTime,   // 演出時間
-                         strength: 60f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(8);
-
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 8, smallTime);
                 }
                 break;
 
             case "10p":
                 if (p >= obj10p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTime,   // 演出時間
-                         strength: 60f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(20);
-
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 20, smallTime);
                 }
                 break;
 
             case "12p":
                 if (p >= obj12p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTimeApartment,   // 演出時間
-                         strength: 60f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(36);
-
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 36, smallTimeApartment);
                 }
                 break;
 
             case "15p":
                 if (p >= obj15p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTimeApartment,   // 演出時間
-                         strength: 60f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeApartment)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(150);
-
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 150, smallTimeApartment);
                 }
                 break;
 
             case "20p":
                 if (p >= obj20p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTimeBigApartment,   // 演出時間
-                         strength: 60f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(200);
-
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 200, smallTimeBigApartment);
                 }
                 break;
 
             case "30p":
                 if (p >= obj30p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTimeBigApartment,   // 演出時間
-                         strength: 60f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(1200);
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 1200, smallTimeBigApartment);
                 }
                 break;
 
             case "50p":
                 if (p >= obj50p)
                 {
-                    col.enabled = false;
-                    col.transform.DOShakeRotation(
-                         duration: smallTimeBigApartment,   // 演出時間
-                         strength: 60f   // シェイクの強さ
-                    );
-                    col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTimeBigApartment)
-                    .OnComplete(() =>//dotween終了後、cubeを消す
-                    {
-                        gameManager.AddPoint(1500);
-
-                        col.gameObject.SetActive(false);
-
-                    });
-                    VIbrationFunction();
+                    EatPointObjFunction(col, 1500, smallTimeBigApartment);
                 }
                 break;
         }
     }
+    private void EatPointObjFunction(Collider col, int point, float smallTime)
+    {
+        col.enabled = false;
+        col.transform.DOShakeRotation(
+             duration: smallTime,   // 演出時間
+             strength: 60f   // シェイクの強さ
+        );
+        col.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), smallTime)
+        .OnComplete(() =>//dotween終了後、cubeを消す
+        {
+            gameManager.AddPoint(point);
+            col.gameObject.SetActive(false);
 
+        });
+        VIbrationFunction();
+    }
 
     void FixedUpdate()//playerのレベルに応じて、パラメーターを変更
     {
@@ -685,10 +546,12 @@ public class EatObjectScript : MonoBehaviour
                 sphImg.fillAmount = proportion;
                 level = 15;
                 level_t.text = "15";
-                if (p >= 100000 && ptsText_flag == true)
+                bool trophy = true;
+
+                if (p >= 100000 && trophy == true)
                 {
-                    ptsText_flag = false;
-                    _100m_t.SetActive(true);
+                    trophy = false;
+                    tropyObj.SetActive(true);
                     // _100m_script.OnEnable("100,000");
                     Debug.Log("100000を超えた");
                 }
