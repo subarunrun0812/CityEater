@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 
+//https://unity-yuji.xyz/dotween-pro-textmeshpro-animation/
+//↑このサイトを参考にしました
 public class OneHundredMillion : MonoBehaviour
 {
     private DOTweenTMPAnimator tmpAnimator;
@@ -22,7 +24,6 @@ public class OneHundredMillion : MonoBehaviour
         Play(time);
         StartCoroutine("DisableItemText");
     }
-    //Initialize()関数とPlay()関数の処理内容は説明できません。サイトに載っていたGitHubのソースコードを使っているからです。
     private void Initialize()
     {
         for (var i = 0; i < tmpAnimator.textInfo.characterCount; i++)

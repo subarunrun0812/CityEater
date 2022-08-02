@@ -3,7 +3,9 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 
-public class AnimationText1 : MonoBehaviour//speed up テキスト
+//https://unity-yuji.xyz/dotween-pro-textmeshpro-animation/
+//↑このサイトを参考にしました
+public class AnimationTextSpeedUp : MonoBehaviour//speed up テキスト
 {
     private DOTweenTMPAnimator tmpAnimator;
     [SerializeField] private float time = 2;
@@ -19,12 +21,13 @@ public class AnimationText1 : MonoBehaviour//speed up テキスト
         Play(time);
         StartCoroutine("DisableItemText");
     }
-    //Play()関数の処理内容は説明できません。サイトに載っていたGitHubのソースコードを使っているからです。
-    // TODO: 解読する
+
     public void Play(float duration)
     {
         const float EACH_DELAY_RATIO = 0.01f;
+        //文字を非表示にする時間
         var eachDelay = duration * EACH_DELAY_RATIO;
+        //文字を表示する期間
         var eachDuration = duration - eachDelay;
 
         for (var i = 0; i < tmpAnimator.textInfo.characterCount; i++)

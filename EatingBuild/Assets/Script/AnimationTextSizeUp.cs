@@ -3,7 +3,8 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 
-
+//https://unity-yuji.xyz/dotween-pro-textmeshpro-animation/
+//↑このサイトを参考にしました
 public class AnimationTextSizeUp : MonoBehaviour
 {
     private DOTweenTMPAnimator tmpAnimator;
