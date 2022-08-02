@@ -11,7 +11,7 @@ public class EatObjectScript : MonoBehaviour
     public float playerScaleTime = 1;//プレイヤーを大きくするのにかかる時間
 
     [SerializeField] private Image sphImg;//円グラフのゲージ
-    [SerializeField] private Text level_t;//円グラフのゲージの中のLv.(text)
+    [SerializeField] private Text levelText;//円グラフのゲージの中のLv.(text)
     [SerializeField] private GameObject highScoreTable;//int型の最大値に到達した時に使う
 
     [SerializeField] private GameManager gameManager;
@@ -20,14 +20,12 @@ public class EatObjectScript : MonoBehaviour
     // [SerializeField] private GameObject pacMan;//子オブジェクトの本体をアタッチする
     [SerializeField] private PlayerController playerController;
 
-    [SerializeField] private GameObject sizeUp_t;
-    [SerializeField] private GameObject sizeDown_t;
-    [SerializeField] private GameObject speedUp_t;
-    [SerializeField] private GameObject kO_t;
+    [SerializeField] private GameObject sizeUpItem;
+    [SerializeField] private GameObject sizeDownItem;
+    [SerializeField] private GameObject speedUpItem;
+    [SerializeField] private GameObject koIte;
     [SerializeField] private AnimationTextKO ko_script;
     [SerializeField] private GameObject tropyObj;
-
-    [SerializeField] private OneHundredMillion _100m_script;
     [SerializeField] public AudioClip sound1;
     [SerializeField] AudioSource audioSource;
     public int level;//pointを一定ごとにlvに分類させていく
@@ -55,10 +53,10 @@ public class EatObjectScript : MonoBehaviour
     void Start()
     {
         float Playerspeed = playerController.speed;
-        speedUp_t.SetActive(false);
-        sizeDown_t.SetActive(false);
-        sizeUp_t.SetActive(false);
-        kO_t.SetActive(false);
+        speedUpItem.SetActive(false);
+        sizeDownItem.SetActive(false);
+        sizeUpItem.SetActive(false);
+        koIte.SetActive(false);
     }
 
     private void VIbrationFunction()//スマホを振動される関数
@@ -76,11 +74,11 @@ public class EatObjectScript : MonoBehaviour
     {
         changeSpeed = 0.03f;
         playerController.speed += changeSpeed;
-        speedUp_t.SetActive(true);
+        speedUpItem.SetActive(true);
     }
     private void IncreasePointItem()//Pointが増えるアイテムを食べた時.
     {
-        sizeUp_t.SetActive(true);
+        sizeUpItem.SetActive(true);
         if (gameManager.point < obj30p)
         {
             gameManager.AddPoint(gameManager.point / 3);//pointを追加
@@ -101,7 +99,7 @@ public class EatObjectScript : MonoBehaviour
         decreasePoint = -decreasePoint;//-にする
         Debug.Log(decreasePoint);
         gameManager.AddPoint(decreasePoint);//pointを減少
-        sizeDown_t.SetActive(true);
+        sizeDownItem.SetActive(true);
         if (gameManager.point >= objover1)
         {
             playerController.speed -= changeSpeed + addSpeed;
@@ -152,7 +150,7 @@ public class EatObjectScript : MonoBehaviour
                         col.gameObject.SetActive(false);
                     });
                     ko_script.OnEnable(col.gameObject.name);//npcの名前を渡す
-                    kO_t.SetActive(true);
+                    koIte.SetActive(true);
                     VIbrationFunction();
                 }
                 break;
@@ -292,6 +290,7 @@ public class EatObjectScript : MonoBehaviour
         VIbrationFunction();
     }
 
+    bool trophy = true;//10万テキストのAnimation
     void FixedUpdate()//playerのレベルに応じて、パラメーターを変更
     {
         int p = gameManager.point;
@@ -301,7 +300,7 @@ public class EatObjectScript : MonoBehaviour
                 new Vector3(1f, 1f, 1f), playerScaleTime
             );
             level = 0;
-            level_t.text = "0";
+            levelText.text = "0";
         }
         else if (obj2p <= p && p < obj3p)
         {
@@ -427,6 +426,11 @@ public class EatObjectScript : MonoBehaviour
                 speedflag = false;
                 playerController.speed += addSpeed;
             }
+            if (p >= 100000 && trophy == true)
+            {
+                trophy = false;
+                tropyObj.SetActive(true);
+            }
         }
         else if (objover6 <= p && p < objoverMax)
         {
@@ -456,7 +460,7 @@ public class EatObjectScript : MonoBehaviour
         float proportion = ((float)gameManager.point - num1) / (num2 - num1);//割合 = 元の数 / 比べる数
         sphImg.fillAmount = proportion;
         level = levelNum;
-        string levelText = $"{levelNum}";
-        level_t.text = levelText;
+        string tmpText = $"{levelNum}";
+        levelText.text = tmpText;
     }
 }
