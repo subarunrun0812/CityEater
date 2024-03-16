@@ -179,10 +179,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 10.390499
+  m_Radius: 11.951176
   m_Height: 35.06446
   m_Direction: 1
-  m_Center: {x: 0, y: 9.089634, z: 0}
+  m_Center: {x: 0, y: 9.089634, z: -0.86104965}
 --- !u!1001 &11633904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,7 +279,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 97942cb5527e6f24eb8b8f5c86f8744d, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64660090400556856, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
 --- !u!4 &27087324 stripped
 Transform:
@@ -337,7 +338,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 97942cb5527e6f24eb8b8f5c86f8744d, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64660090400556856, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
 --- !u!4 &114571976 stripped
 Transform:
@@ -391,7 +393,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 97942cb5527e6f24eb8b8f5c86f8744d, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64660090400556856, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
 --- !u!4 &1775467084 stripped
 Transform:
@@ -449,7 +452,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 97942cb5527e6f24eb8b8f5c86f8744d, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64660090400556856, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
 --- !u!4 &1964073588 stripped
 Transform:
@@ -507,7 +511,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 97942cb5527e6f24eb8b8f5c86f8744d, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64660090400556856, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
 --- !u!4 &1995054687 stripped
 Transform:

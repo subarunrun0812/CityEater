@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 3390442}
   - component: {fileID: 2355552}
   - component: {fileID: 1402197176}
+  - component: {fileID: 4936669842506075958}
   m_Layer: 0
   m_Name: SM_Bld_OfficeRound_Base_01
   m_TagString: 30p
@@ -182,10 +183,23 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 11.525665
-  m_Height: 53.724846
+  m_Radius: 10
+  m_Height: 63.82165
   m_Direction: 1
-  m_Center: {x: 0.0000038146973, y: 18.43113, z: 0.000005722046}
+  m_Center: {x: 0.0000038146973, y: 23.479532, z: 0.0000057220464}
+--- !u!65 &4936669842506075958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.5, y: 50.3, z: 18.3}
+  m_Center: {x: 0.0000038146973, y: 20, z: 0.000009059906}
 --- !u!1001 &340175244
 PrefabInstance:
   m_ObjectHideFlags: 0

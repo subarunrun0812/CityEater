@@ -16,22 +16,21 @@ public class DynamicJoystick : Joystick
         background.gameObject.SetActive(false);
     }
 
-    public override void OnPointerDown(PointerEventData eventData)
+    public override void OnPointerDown(PointerEventData eventData)//指が触れた時
     {
         background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
         background.gameObject.SetActive(true);
         base.OnPointerDown(eventData);
     }
 
-    public override void OnPointerUp(PointerEventData eventData)
+    public override void OnPointerUp(PointerEventData eventData)//指が触れ終わった時
     {
         background.gameObject.SetActive(false);
         base.OnPointerUp(eventData);
     }
-
     protected override void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
-        if (magnitude > moveThreshold)
+        if (magnitude > moveThreshold)//指を動かしている間
         {
             Vector2 difference = normalised * (magnitude - moveThreshold) * radius;
             background.anchoredPosition += difference;

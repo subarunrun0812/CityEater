@@ -19,6 +19,12 @@ TagManager:
   - 50p
   - Wall
   - WallCollider
+  - NPC
+  - AT
+  - INCR
+  - QUESTION
+  - DEC
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -26,9 +32,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - SphereCollider
+  - NPCEatTrigger
   - 
   - 
   - 
